@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.min.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  #app {
+    height: 500px;
+  }
+</style>
+
+<body>
+  <div id = 'app'>
+    <axis-chart :data = 'axisChartData'></axis-chart>
+  </div>
+
+	<script>
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'axis-chart': d2b.vueChartAxis
+      },
+      data: {
+        axisChartData: {
+  				sets: [
+            {
+  						generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
+  						graphs: [
+  					    {
+  					      label: 'area 1',
+  					      values: [
+  					        {x: 1, y: 25},
+  					        {x: 2, y: 38},
+  					        {x: 3, y: 24},
+  					        {x: 4, y: 60},
+  					        {x: 5, y: 22}
+  					      ]
+  					    }
+  						]
+  					}
+  				]
+  			}
+      }
+    });
+
+	</script>
+</body>
+</html>

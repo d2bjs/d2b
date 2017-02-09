@@ -1,0 +1,63 @@
+.d2b-chart-frame {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .d2b-legend-frame, .d2b-breadcrumbs-frame, .d2b-chart {
+    position: absolute;
+    overflow: auto;
+  }
+
+  .d2b-legend-frame, .d2b-breadcrumbs-frame {
+
+    .d2b-breadcrumbs {
+      padding-left: 10px;
+      padding-right: 2px;
+    }
+
+    &:not(.d2b-vertical) {
+      overflow-y: hidden;
+
+      &.d2b-legend-frame {
+        height: 20px;
+        text-align: center;
+      }
+
+      &.d2b-breadcrumbs-frame {
+        height: 55px;
+      }
+
+      .d2b-legend, .d2b-legend-item {
+        white-space: nowrap;
+        overflow-y: hidden;
+      }
+
+      .d2b-breadcrumbs, .d2b-breadcrumbs {
+        white-space: nowrap;
+        overflow-y: hidden;
+      }
+    }
+
+    &.d2b-vertical {
+      &.d2b-breadcrumbs-frame {
+        width: 180px;
+      }
+      &.d2b-legend-frame {
+        width: 110px;
+      }
+      .d2b-legend-container, .d2b-breadcrumbs-container {
+        display: table;
+        height: 100%;
+        width: 100%;
+        .d2b-legend {
+          display: table-cell;
+          vertical-align: middle;
+        }
+        .d2b-breadcrumbs {
+          display: table-cell;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}

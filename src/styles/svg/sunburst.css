@@ -1,0 +1,33 @@
+.d2b-sunburst-arc {
+  transition: opacity 0.2s, stroke-width 0.2s;
+  cursor: pointer;
+  opacity: 0.9;
+  stroke-width: 0.8px;
+  stroke: white;
+
+  &.d2b-transparent {
+    fill-opacity: 0.2;
+  }
+}
+
+.d2b-sunburst-label {
+  font-size: 8pt;
+  fill-opacity: 0.8;
+  pointer-events: none;
+  font-family: arial;
+
+  &.d2b-transparent {
+    fill-opacity: 0.2;
+  }
+}
+
+.d2b-sunburst-center {
+  fill-opacity: 0;
+  stroke: none;
+
+  cursor: pointer;
+}
+
+.d2b-sunburst-ancestor {
+  opacity: 0.4;
+}

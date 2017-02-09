@@ -1,0 +1,57 @@
+{
+  "name": "d2b",
+  "version": "0.0.1",
+  "description": "A d3-based reusable chart library.",
+  "keywords": [
+    "d3",
+    "d3-module",
+    "chart",
+    "charts",
+    "pie",
+    "axis"
+  ],
+  "license": "MIT",
+  "main": "build/d2b.js",
+  "jsnext:main": "index",
+  "homepage": "https://d2b.academicdashboards.org",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/d2b/d2b.git"
+  },
+  "scripts": {
+    "watch": "npm-watch",
+    "build": "rollup -c -g d3:d3",
+    "buildproduction": "NODE_ENV=production rollup -c -g d3:d3",
+    "server": "http-server -a localhost -p 8000",
+    "start": "npm-run-all --parallel watch server"
+  },
+  "dependencies": {
+    "d3": "^4.5.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "cssnano": "^3.10.0",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^4.0.1",
+    "npm-watch": "^0.1.8",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-triangle": "^1.0.1",
+    "precss": "^1.4.0",
+    "rollup": "0.27",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-postcss": "^0.2.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^3.2.2",
+    "tape": "4",
+    "uglify-js": "2"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,css,scss"
+    }
+  }
+}

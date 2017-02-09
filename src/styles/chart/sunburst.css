@@ -1,0 +1,37 @@
+.d2b-chart-breadcrumbs {
+  width: 200px;
+}
+.d2b-chart-breadcrumbs {
+  padding-left: 10px;
+}
+.d2b-sunburst-breadcrumb, .d2b-sunburst-tooltip {
+  .d2b-sunburst-label {
+    text-align: center;
+  }
+  .d2b-sunburst-value {
+    font-size: 14pt;
+    margin-top: 5px;
+  }
+}
+.d2b-sunburst-breadcrumb {
+  .d2b-sunburst-percent {
+    float: right;
+  }
+}
+.d2b-breadcrumbs:not(.d2b-vertical) {
+  .d2b-sunburst-percent {
+    margin-left: 30px;
+  }
+}
+.d2b-sunburst-tooltip {
+  text-align: center;
+  .d2b-sunburst-percent {
+    display: inline;
+    &:before {
+      content: '(';
+    }
+    &:after {
+      content: ')';
+    }
+  }
+}

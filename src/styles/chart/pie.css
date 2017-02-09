@@ -1,0 +1,14 @@
+.d2b-pie-chart {
+  .d2b-pie-arc {
+    path {
+      stroke-width: 1px;
+      stroke: white;
+    }
+		text{
+			fill:white;
+			font-weight:bold;
+			pointer-events:none;
+			text-anchor:middle;
+		}
+  }
+}

@@ -1,0 +1,23 @@
+.d2b-bubble-pack-graph {
+
+  .d2b-bubble-point {
+    opacity: 0.75;
+  }
+  .d2b-bubble-indicator {
+    rect {
+      fill-opacity: 0.25;
+      stroke-opacity: 0.9;
+      cursor: pointer;
+      stroke-width: 1px;
+      &:hover {
+        stroke-width: 2px;
+      }
+    }
+    text {
+      pointer-events: none;
+    }
+    path {
+      pointer-events: none;
+    }
+  }
+}

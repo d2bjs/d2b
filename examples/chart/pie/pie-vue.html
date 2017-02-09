@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.min.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  #app {
+    height: 500px;
+  }
+</style>
+
+<body>
+  <div id = 'app'>
+    <pie-chart :data = 'pieChartData' :config = 'pieChartConfig'></pie-chart>
+  </div>
+
+	<script>
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'pie-chart': d2b.vueChartPie
+      },
+      data: {
+        pieChartData: [
+					{label: 'arc 1', value: 23, empty: true},
+					{label: 'arc 2', value: 31},
+					{label: 'arc 3', value: 80},
+					{label: 'arc 4', value: 8}
+				],
+        pieChartConfig: function (chart) {
+          chart.donutRatio(0.5);
+        }
+      }
+    });
+
+	</script>
+</body>
+</html>

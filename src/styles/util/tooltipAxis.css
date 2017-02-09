@@ -1,0 +1,40 @@
+.d2b-tooltip-axis-area {
+  pointer-events: none;
+  font-family: 'Arial';
+
+  .d2b-tooltip-marker {
+    stroke-width: 2px;
+    stroke: #bbb;
+    stroke-dasharray: 5, 5;
+  }
+
+  .d2b-tooltip {
+    opacity: 0.9;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    box-shadow: 0px 0px 2px #ccc;
+    .d2b-tooltip-title {
+      text-align: center;
+      background: rgba(150, 165, 175, 0.8);
+      padding: 5px 10px;
+      font-weight: bold;
+      color: white;
+    }
+    .d2b-tooltip-content {
+      padding: 5px 10px;
+      .d2b-tooltip-row {
+        padding-left: 5px;
+        border-left-width: 3px;
+        border-left-style: solid;
+        margin-bottom: 5px;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.min.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<body>
+	<div class = 'axis-chart'></div>
+
+	<script>
+
+			var axis = d2b.chartAxis()
+				.y({
+					scale: d3.scaleLinear().domain([0, 100]),
+					label: "Test"
+				});
+
+			axis.chartFrame().size({height: 400})
+
+			var chart = d3.selectAll('.axis-chart');
+
+			var data = {
+				sets: [
+					{
+						generators: [d2b.svgBar().padding(0.5).stackBy(true)],
+						graphs: [
+					    {
+					      label: 'bar 1',
+								// hidden: true,
+					      values: [
+					        {x: 1, y: 25},
+					        {x: 2, y: 38},
+					        {x: 3, y: 24},
+					        {x: 4, y: 60},
+					        {x: 5, y: 22}
+					      ]
+					    },
+					    {
+					      label: 'bar 2',
+					      values: [
+					        {x: 3, y: 45},
+					        {x: 5, y: 31},
+					      ]
+					    },
+					    {
+					      label: 'bar 3',
+					      values: [
+					        {x: 2, y: 25},
+					        {x: 3, y: 15},
+					        {x: 4, y: 35},
+					        {x: 5, y: 25},
+					        {x: 6, y: 18},
+					      ]
+					    }
+						]
+					},
+					{
+						generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
+						graphs: [
+					    {
+					      label: 'area 1',
+								hidden: true,
+					      values: [
+					        {x: 1, y: 25},
+					        {x: 2, y: 38},
+					        {x: 3, y: 24},
+					        {x: 4, y: 60},
+					        {x: 5, y: 22}
+					      ]
+					    },
+					    {
+					      label: 'area 2',
+								hidden: true,
+					      values: [
+					        {x: 3, y: 45},
+					        {x: 5, y: 31},
+					      ]
+					    }
+						]
+					},
+					{
+						generators: [d2b.svgBubblePack()],
+						graphs: [
+					    {
+								hidden: true,
+					      label: 'bubble pack 1',
+					      values: [
+					        {
+					          label: 'one',
+					          children: [
+					            {
+					              label: 'one-one',
+					              size: 5,
+					              x: 7,
+					              y: 25
+					            }
+					          ]
+					        },
+					        {
+					          expanded: true,
+					          label: 'two',
+					          children: [
+					            {
+					              label: 'two-one',
+					              size: 5,
+					              x: 3,
+					              y: 15
+					            },
+					            {
+					              label: 'two-two',
+					              children: [
+					                {
+					                  label: 'two-two-one',
+					                  size: 2,
+					                  x: 6,
+					                  y: 8
+					                },
+					                {
+					                  label: 'two-two-two',
+					                  size: 17,
+					                  x: 8,
+					                  y: 21
+					                }
+					              ]
+					            }
+					          ]
+					        }
+					      ]
+					    }
+						]
+					}
+				]
+			};
+
+  	chart
+  			.data([data])
+  		.transition()
+  			.call(axis);
+
+		window.onresize = function () { chart.call(axis); };
+	</script>
+</body>
+</html>

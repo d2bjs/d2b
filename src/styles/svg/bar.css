@@ -1,0 +1,5 @@
+.d2b-bar-graph {
+  .d2b-bar-group rect {
+    opacity: 0.8;
+  }
+}

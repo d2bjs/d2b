@@ -22,14 +22,12 @@ export default {
   },
   methods: {
     watcher: function () {
-      const unwatch = this.$watch('properties', {
-        deep: true,
-        handler: function () {
-          unwatch();
-          this.update();
-          this.watcher();
-        }
-      });
+      const handler = function () {
+        unwatch();
+        this.update();
+        this.watcher();
+      };
+      const unwatch = this.$watch('properties', handler, {deep: true});
     },
     update: function (options = {}) {
       const data = this.data;

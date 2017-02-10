@@ -22,10 +22,13 @@ export default {
   },
   methods: {
     watcher: function () {
-      const unwatch = this.$watch('properties', function () {
-        unwatch();
-        this.update();
-        this.watcher();
+      const unwatch = this.$watch('properties', {
+        deep: true,
+        handler: function () {
+          unwatch();
+          this.update();
+          this.watcher();
+        }
       });
     },
     update: function (options = {}) {

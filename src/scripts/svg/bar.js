@@ -223,6 +223,7 @@ export default function () {
 
   /* Inherit from base model */
   base(bar, $$)
+    .addPropGet('type', 'bar')
     .addPropFunctor('graphs', d => d)
     .addPropFunctor('padding', 0.5)
     .addPropFunctor('groupPadding', 0)

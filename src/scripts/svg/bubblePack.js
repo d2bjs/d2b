@@ -307,6 +307,7 @@ export default function () {
     .addProp('point', point().size(d => d.size * 100), null, () => {
       $$.point.active(d => !!d.children.length);
     })
+    .addPropGet('type', 'bubblePack')
     .addPropFunctor('duration', 250)
     .addPropFunctor('graphs', d => d)
     // graph props

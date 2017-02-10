@@ -45,8 +45,6 @@ export default function () {
     // set functors
     .addPropFunctor('setGenerators', d => d.generators)
     .addPropFunctor('setGraphs', d => d.graphs)
-    // generator functors
-    .addPropFunctor('generatorKey', d => d.name)
     // graph functors
     .addPropFunctor('graphLabel', d => d.label)
     .addPropFunctor('graphGroup', d => d.group)
@@ -130,9 +128,9 @@ export default function () {
 
     set.each(function (s) {
       const el = d3.select(this);
-
+      
       this.genUpdate = el.selectAll('.d2b-graph-generator')
-        .data(s.generators, d => d.key);
+        .data(s.generators, d => d.generator.type());
 
       this.genEnter = this.genUpdate.enter().append('g')
         .attr('class', 'd2b-graph-generator')
@@ -198,8 +196,7 @@ export default function () {
 
       if (transition) {
         this.genUpdate = this.genUpdate.transition(transition);
-        this.genExit.transition(transition).style('opacity', 0);
-        this.genEnter.transition(transition);
+        this.genExit = this.genExit.transition(transition).style('opacity', 0);
       }
 
       this.genExit.remove();
@@ -318,8 +315,7 @@ export default function () {
         generators: $$.setGenerators(set).map(generator => {
           return {
             data: generator,
-            generator: $$.generator(generator),
-            key: $$.generatorKey(generator)
+            generator: $$.generator(generator)
           };
         }),
         graphs: getSetGraphs(set)

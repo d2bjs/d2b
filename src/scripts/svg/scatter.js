@@ -133,6 +133,7 @@ export default function () {
   /* Inherit from base model */
   base(scatter, $$)
     .addProp('point', point().active(true))
+     .addPropGet('type', 'scatter')
     .addPropFunctor('graphs', d => d)
     // graph props
     .addScaleFunctor('x', d3.scaleLinear())

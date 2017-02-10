@@ -100,6 +100,7 @@ export default function () {
   /* Inherit from base model */
   base(line, $$)
     .addProp('line', d3.line())
+    .addPropGet('type', 'line')
     .addPropFunctor('graphs', d => d)
     // graph props
     .addScaleFunctor('x', d3.scaleLinear())

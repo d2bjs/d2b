@@ -101,6 +101,7 @@ export default function () {
   /* Inherit from base model */
   base(area, $$)
     .addProp('area', d3.area())
+    .addPropGet('type', 'area')
     .addPropFunctor('graphs', d => d)
     // graph props
     .addScaleFunctor('x', d3.scaleLinear())

@@ -14,62 +14,30 @@ export default function () {
 
   const $$ = {};
 
+  // chart updater
   const chart = function (context) {
     context.call($$.chartFrame);
-
-    $$.sunburst.duration($$.duration);
 
     const selection = (context.selection)? context.selection() : context;
 
     selection.each(function (datum) {
-      const el = d3.select(this),
-            selection = el.select('.d2b-chart-container'),
-            size = selection.node().__size__,
-            transform = `translate(${size.width / 2}, ${size.height / 2})`;
-
-      let sunburstChart = selection.selectAll('.d2b-sunburst-chart').data(d => [d]),
-          sunburstChartEnter = sunburstChart.enter()
-            .append('g')
-              .attr('transform', transform)
-              .attr('class', 'd2b-sunburst-chart');
-
-      sunburstChart = sunburstChart.merge(sunburstChartEnter);
-
-      if (context !== selection) {
-        sunburstChart = sunburstChart.transition(context);
-      }
-
-      $$.sunburst
-        .outerRadius($$.outerRadius(datum, size.width, size.height))
-        .innerRadius($$.innerRadius(datum, size.width, size.height));
-
-      sunburstChart
-        .attr('transform', transform)
-        .call($$.sunburst);
-
-      defineEvents(el);
+      update.call(this, datum, context !== selection ? context : null);
     });
 
     return chart;
   };
 
-	// configure model properties
+	// configure chart properties
   base(chart, $$)
 		.addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(true))
 		.addProp('sunburst', svgSunburst())
     .addProp('breadcrumbs', breadcrumbs())
+		.addProp( 'tooltip', tooltip(), null, tooltip => tooltip.color(d => d.color) )
 		.addPropFunctor('duration', 250)
 		.addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
-		.addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4))
-		.addProp(
-			'tooltip',
-			tooltip()
-				.followMouse(true)
-				.html(d => `<b>${d.label}:</b> ${d.value}`),
-			null,
-			tooltip => tooltip.color(d => d.color)
-		);
+		.addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
 
+  // helpers
   const format = d3.format(',.0f'),
         formatPercent = d3.format('.1%');
 
@@ -92,14 +60,18 @@ export default function () {
     `;
   };
 
+  // configure breadcrumbs
   $$.breadcrumbs
     .html(d => `<div class = 'd2b-sunburst-breadcrumb'>${tipTemplate(d)}</div>`)
     .color(d => d.color)
     .key((d, i) => i);
 
+  // configure tooltip
   $$.tooltip
+    .followMouse(true)
     .html(d => `<div class = 'd2b-sunburst-tooltip'>${tipTemplate(d)}</div>`);
 
+  // update breadcrumbs
   function setBreadcrumbs (el, data) {
     el.select('.d2b-breadcrumbs-container')
         .datum(data)
@@ -108,6 +80,7 @@ export default function () {
         .call($$.breadcrumbs);
   }
 
+  // define mouseover and click events
   function defineEvents (el) {
     const sunburstChart = el.select('.d2b-sunburst-chart'),
           root = el.selectAll('.d2b-sunburst-arc.d2b-sunburst-level-0').datum(),
@@ -127,6 +100,36 @@ export default function () {
     sunburstChart
 			.on('mouseout', () => defineEvents (el))
 			.on('click', () => defineEvents (el));
+  }
+
+  // update sunburst
+  function update (datum, transition) {
+    const el = d3.select(this),
+          selection = el.select('.d2b-chart-container'),
+          size = selection.node().__size__,
+          transform = `translate(${size.width / 2}, ${size.height / 2})`;
+
+    let sunburstChart = selection.selectAll('.d2b-sunburst-chart').data(d => [d]),
+        sunburstChartEnter = sunburstChart.enter()
+          .append('g')
+            .attr('transform', transform)
+            .attr('class', 'd2b-sunburst-chart');
+
+    sunburstChart = sunburstChart.merge(sunburstChartEnter);
+
+    if (transition) {
+      sunburstChart = sunburstChart.transition(transition);
+    }
+
+    $$.sunburst
+      .outerRadius($$.outerRadius(datum, size.width, size.height))
+      .innerRadius($$.innerRadius(datum, size.width, size.height));
+
+    sunburstChart
+      .attr('transform', transform)
+      .call($$.sunburst);
+
+    defineEvents(el);
   }
 
   return chart;

@@ -16,7 +16,7 @@
   "homepage": "https://d2b.academicdashboards.org",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/d2b/d2b.git"
+    "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
     "watch": "npm-watch",

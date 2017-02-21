@@ -23,18 +23,24 @@ export default function () {
         color:         $$.color(graph, i)
       };
       newGraph.values = $$.values(graph, i).map((point, i) => {
-        return {
+        const newPoint = {
           data:   point,
           index:  i,
           graph:  newGraph,
           x:      $$.px(point, i),
           y:      $$.py(point, i)
         };
+        // initialize y1 and y0 (these will be overwritten by the stack if stacking applies)
+        newPoint.y1 = newPoint.y;
+        newPoint.y0 = 0;
+        return newPoint;
       });
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
+    stackNest.entries(graphs).forEach(sg => {
+      if (sg.values.length > 1) stacker(sg.values);
+    });
 
     return graphs;
   }
@@ -101,6 +107,7 @@ export default function () {
   /* Inherit from base model */
   base(area, $$)
     .addProp('area', d3.area())
+    .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
     .addPropGet('type', 'area')
     .addPropFunctor('graphs', d => d)
     // graph props

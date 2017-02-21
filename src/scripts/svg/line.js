@@ -14,6 +14,7 @@ export default function () {
       const newGraph = {
         data:          graph,
         index:         i,
+        align:         $$.align(graph, i),
         x:             $$.x(graph, i),
         y:             $$.y(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
@@ -23,18 +24,24 @@ export default function () {
         color:         $$.color(graph, i)
       };
       newGraph.values = $$.values(graph, i).map((point, i) => {
-        return {
+        const newPoint = {
           data:   point,
           index:  i,
           graph:  newGraph,
           x:      $$.px(point, i),
           y:      $$.py(point, i)
         };
+        // initialize y values (these will be overwritten by the stack if stacking applies)
+        newPoint.y0 = newPoint.y1 = newPoint.y;
+        return newPoint;
       });
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
+    // only stack points if a particular stack has more than 1 graph
+    stackNest.entries(graphs).forEach(sg => {
+      if (sg.values.length > 1) stacker(sg.values);
+    });
 
     return graphs;
   }
@@ -73,13 +80,13 @@ export default function () {
 
           if (d.tooltipGraph) d.tooltipGraph
             .data(d.values)
-            .x(d => x(d.x) + shift)
-            .y(d => y(d.y1))
+            .x(dd => x(dd.x) + shift)
+            .y(dd => y(dd[d.align]))
             .color(d.color);
 
           $$.line
-            .x(d => x(d.x) + shift)
-            .y(d => y(d.y1));
+            .x(dd => x(dd.x) + shift)
+            .y(dd => y(dd[d.align]));
 
           return $$.line(d.values);
         });
@@ -100,11 +107,13 @@ export default function () {
   /* Inherit from base model */
   base(line, $$)
     .addProp('line', d3.line())
+    .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
     .addPropGet('type', 'line')
     .addPropFunctor('graphs', d => d)
     // graph props
     .addScaleFunctor('x', d3.scaleLinear())
     .addScaleFunctor('y', d3.scaleLinear())
+    .addPropFunctor('align', 'y1')
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('shift', null)
     .addPropFunctor('stackBy', null)
@@ -123,7 +132,7 @@ export default function () {
       return data.map(graphs => {
         return [].concat.apply([], graphs.map(graph => {
           return graph.values.map(v => {
-            return {x: v.x, y: v.y1, graph: graph};
+            return {x: v.x, y: v[graph.align], graph: graph};
           });
         }));
       });

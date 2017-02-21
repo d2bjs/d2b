@@ -20,7 +20,7 @@
 
 		var axis = d2b.chartAxis()
 			.y({
-				scale: d3.scaleLinear().domain([0, 100]),
+				// scale: d3.scaleLinear().domain([0, 100]),
 				label: "Test"
 			});
 
@@ -28,14 +28,37 @@
 
 		var chart = d3.selectAll('.axis-chart');
 
+    var area = d2b.svgArea().stackBy(true),
+        line = d2b.svgLine().stackBy(true),
+        scatter = d2b.svgScatter().stackBy(true);
+
+    // area.area().curve(d3.curveBasis);
+    // line.line().curve(d3.curveBasis);
+
+    var stack = d3.stack().offset(d3.stackOffsetExpand);
+
+    area.stack(stack);
+    line.stack(stack);
+    scatter.stack(stack);
+
   	chart
   			.datum({
           sets: [
             {
-              generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
+              generators: [area, line, scatter],
               graphs: [
                 {
                   label: 'area 1',
+                  values: [
+                    {x: 1, y: 25},
+                    {x: 2, y: 38},
+                    {x: 3, y: 24},
+                    {x: 4, y: 60},
+                    {x: 5, y: 22}
+                  ]
+                },
+                {
+                  label: 'area 2',
                   values: [
                     {x: 1, y: 25},
                     {x: 2, y: 38},
@@ -50,31 +73,31 @@
         })
   		.transition()
   			.call(axis);
-
-    setTimeout(function () {
-      chart
-          .datum({
-            sets: [
-              {
-                generators: [d2b.svgLine()],
-                graphs: [
-                  {
-                    label: 'bar 1',
-                    values: [
-                      {x: 1, y: 25},
-                      {x: 2, y: 38},
-                      {x: 3, y: 24},
-                      {x: 4, y: 60},
-                      {x: 5, y: 22}
-                    ]
-                  }
-                ]
-              }
-            ]
-          })
-        .transition()
-          .call(axis);
-    }, 2000)
+    //
+    // setTimeout(function () {
+    //   chart
+    //       .datum({
+    //         sets: [
+    //           {
+    //             generators: [d2b.svgLine()],
+    //             graphs: [
+    //               {
+    //                 label: 'bar 1',
+    //                 values: [
+    //                   {x: 1, y: 25},
+    //                   {x: 2, y: 38},
+    //                   {x: 3, y: 24},
+    //                   {x: 4, y: 60},
+    //                   {x: 5, y: 22}
+    //                 ]
+    //               }
+    //             ]
+    //           }
+    //         ]
+    //       })
+    //     .transition()
+    //       .call(axis);
+    // }, 2000)
 
 		window.onresize = function () { chart.call(axis); };
 	</script>

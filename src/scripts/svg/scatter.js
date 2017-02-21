@@ -17,6 +17,7 @@ export default function () {
         index:         i,
         x:             $$.x(graph, i),
         y:             $$.y(graph, i),
+        align:         $$.align(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
         stackBy:       $$.stackBy(graph, i),
@@ -25,7 +26,7 @@ export default function () {
         symbol:        $$.symbol(graph, i)
       };
       newGraph.values = $$.values(graph, i).map((point, i) => {
-        return {
+        const newPoint = {
           data:   point,
           index:  i,
           graph:  newGraph,
@@ -36,11 +37,16 @@ export default function () {
           key:    $$.pkey(point, i),
           size:   $$.psize(point, i)
         };
+        // initialize y values (these will be overwritten by the stack if stacking applies)
+        newPoint.y0 = newPoint.y1 = newPoint.y;
+        return newPoint;
       });
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
+    stackNest.entries(graphs).forEach(sg => {
+      if (sg.values.length > 1) stacker(sg.values);
+    });
 
     return graphs;
   }
@@ -98,12 +104,12 @@ export default function () {
 
       pointEnter
           .style('opacity', 0)
-          .call(pointTransform, x, y, shift);
+          .call(pointTransform, x, y, shift, d.align);
 
       pointUpdate
           .style('opacity', 1)
           .call($$.point)
-          .call(pointTransform, x, y, shift);
+          .call(pointTransform, x, y, shift, d.align);
 
       pointExit
           .style('opacity', 0)
@@ -114,9 +120,10 @@ export default function () {
     return scatter;
   };
 
-  function pointTransform (transition, x, y, shift) {
+  function pointTransform (transition, x, y, shift, align) {
     transition.attr('transform', p => {
-      return `translate(${x(p.x) + shift}, ${y(p.y1)})`;
+      const yVal = p[align];
+      return `translate(${x(p.x) + shift}, ${y(yVal)})`;
     });
   }
 
@@ -133,11 +140,13 @@ export default function () {
   /* Inherit from base model */
   base(scatter, $$)
     .addProp('point', point().active(true))
-     .addPropGet('type', 'scatter')
+    .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
+    .addPropGet('type', 'scatter')
     .addPropFunctor('graphs', d => d)
     // graph props
     .addScaleFunctor('x', d3.scaleLinear())
     .addScaleFunctor('y', d3.scaleLinear())
+    .addPropFunctor('align', 'y1')
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('shift', null)
     .addPropFunctor('stackBy', null)
@@ -161,7 +170,7 @@ export default function () {
       return data.map(graphs => {
         return [].concat.apply([], graphs.map(graph => {
           return graph.values.map(v => {
-            return {x: v.x, y: v.y1, graph: graph};
+            return {x: v.x, y: v[graph.align], graph: graph};
           });
         }));
       });

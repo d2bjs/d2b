@@ -19,11 +19,14 @@
     "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
-    "watch": "npm-watch",
-    "build": "rollup -c -g d3:d3",
-    "buildproduction": "NODE_ENV=production rollup -c -g d3:d3",
-    "server": "http-server -a localhost -p 8000",
-    "start": "npm-run-all --parallel watch server"
+    "build:dev": "rollup -c -g d3:d3",
+    "build:prod": "NODE_ENV=production rollup -c -g d3:d3",
+    "build:watch": "npm-watch && http-server -a localhost -p 8000",
+    "build:publish": "npm run build:prod && npm version patch && npm publish",
+    "docs:prepare": "gitbook install",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
+    "docs:publish": "npm run docs:build && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout master && git add . && git commit -am 'Update docs' && git push git@github.com:d2bjs/d2bjs.github.io master --force"
   },
   "dependencies": {
     "d3": "^4.5.0"
@@ -32,7 +35,6 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "cssnano": "^3.10.0",
     "http-server": "^0.9.0",
-    "npm-run-all": "^4.0.1",
     "npm-watch": "^0.1.8",
     "postcss-cssnext": "^2.9.0",
     "postcss-triangle": "^1.0.1",
@@ -47,7 +49,7 @@
     "uglify-js": "2"
   },
   "watch": {
-    "build": {
+    "build:dev": {
       "patterns": [
         "src"
       ],

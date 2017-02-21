@@ -128,7 +128,7 @@ export default function () {
 
     set.each(function (s) {
       const el = d3.select(this);
-      
+
       this.genUpdate = el.selectAll('.d2b-graph-generator')
         .data(s.generators, d => d.generator.type());
 

@@ -1,0 +1,22 @@
+{
+	"root": "./docs",
+	"output": "public",
+	"title": "Damour",
+	"description": "Agave reference documentation.",
+	"author": "Damour Team",
+
+	"plugins": ["-sharing", "custom-favicon", "toggle-chapters"],
+
+  "pluginsConfig" : {
+    "favicon": "docs/images/favicon.ico"
+  },
+
+	"styles": {
+		"website": "styles/website.css"
+	},
+
+	"variables": {
+		"title": "Damour",
+		"file_types": "* **CSV** (comma-separated values)\n* **TSV** (tab-separated values)"
+	}
+}

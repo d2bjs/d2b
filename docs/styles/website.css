@@ -1,0 +1,17 @@
+.gitbook-link {
+  display: none !important;
+}
+
+/*maybe add image to sidebar in future*/
+/*.book-summary:before {
+  position: absolute;
+  bottom:200px;
+  left:0;
+  content: " ";
+  background: url(/images/logo.png);
+  background-size: 100% 100%;
+  width: 100%;
+  margin: 2px;
+  float: left;
+  background-size: cover;
+}*/

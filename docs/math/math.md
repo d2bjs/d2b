@@ -1,4 +1,4 @@
-> [Wiki](README.md) › **Math**
+> [d2b](../README.md) › **Math**
 
 # {#mean}
 [#](math.md#mean) d2b.**mean**(*array*[, *value*[, *weight*]])

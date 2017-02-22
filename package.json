@@ -19,10 +19,10 @@
     "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
-    "build:dev": "rollup -c -g d3:d3",
+    "build:dev": "npm run test && rollup -c -g d3:d3",
     "build:prod": "NODE_ENV=production rollup -c -g d3:d3",
     "build:watch": "npm-watch && http-server -a localhost -p 8000",
-    "build:publish": "npm run build:prod && npm version patch && npm publish",
+    "test": "jasmine",
     "docs:prepare": "gitbook install",
     "docs:watch": "npm run docs:prepare && gitbook serve",
     "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
@@ -35,6 +35,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "cssnano": "^3.10.0",
     "http-server": "^0.9.0",
+    "jasmine-es6": "^0.4.0",
     "npm-watch": "^0.1.8",
     "postcss-cssnext": "^2.9.0",
     "postcss-triangle": "^1.0.1",
@@ -51,7 +52,8 @@
   "watch": {
     "build:dev": {
       "patterns": [
-        "src"
+        "src",
+        "spec"
       ],
       "extensions": "js,css,scss"
     }

@@ -1,8 +1,8 @@
 import chartSunburst from '../chart/sunburst.js';
-import visMixin from './visMixin.js';
+import genMixin from './genMixin.js';
 
 export default {
-  mixins: [visMixin],
+  mixins: [genMixin],
   template: '<div class = "d2b-vue-container d2b-vue-sunburst-chart"></div>',
   props: {
     generator: { default: () => chartSunburst() }

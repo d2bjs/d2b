@@ -2,7 +2,7 @@
 
 A reusable d3-based chart library.
 
-d2b is currently at pre-release state 0.x.x. It will remain here while I finish testing the library and putting together the API references. The source code is currently stable and other then some logic cleaning won't change much before the the first major release 1.0.0. Stay tuned for when the first major release date. 
+d2b is currently at pre-release state 0.x.x. It will remain here while I finish testing the library and putting together the API references. The source code is currently stable and other then some logic cleaning won't change much before the the first major release 1.0.0. Stay tuned for more information about the official release. 
 
 ## Installing
 

@@ -28,43 +28,81 @@
 
 		var chart = d3.selectAll('.axis-chart');
 
-    var area = d2b.svgArea().stackBy(true),
-        line = d2b.svgLine().stackBy(true),
-        scatter = d2b.svgScatter().stackBy(true);
-
-    // area.area().curve(d3.curveBasis);
-    // line.line().curve(d3.curveBasis);
-
-    var stack = d3.stack().offset(d3.stackOffsetExpand);
-
-    area.stack(stack);
-    line.stack(stack);
-    scatter.stack(stack);
+    var bubblePack = d2b.svgBubblePack();
+    //
+    // var area = d2b.svgArea().stackBy(true),
+    //     line = d2b.svgLine().stackBy(true),
+    //     scatter = d2b.svgScatter().stackBy(true);
+    //
+    // // area.area().curve(d3.curveBasis);
+    // // line.line().curve(d3.curveBasis);
+    //
+    // var stack = d3.stack().offset(d3.stackOffsetExpand);
+    //
+    // area.stack(stack);
+    // line.stack(stack);
+    // scatter.stack(stack);
 
   	chart
   			.datum({
           sets: [
             {
-              generators: [area, line, scatter],
+              generators: [bubblePack],
               graphs: [
                 {
-                  label: 'area 1',
+                  label: 'Bubble Pack Graph 1',
                   values: [
-                    {x: 1, y: 25},
-                    {x: 2, y: 38},
-                    {x: 3, y: 24},
-                    {x: 4, y: 60},
-                    {x: 5, y: 22}
+                    {
+                      label: 'Parent 1',
+                      children: [
+                        {
+                          label: 'Parent 1 Child 1',
+                          children: [
+                            {
+                              label: 'Parent 1 Child 1 Child 1',
+                              size: 20,
+                              x: 15,
+                              y: 25
+                            },
+                            {
+                              label: 'Parent 1 Child 1 Child 2',
+                              size: 4,
+                              x: 34,
+                              y: 14
+                            }
+                          ]
+                        },
+                        {
+                          label: 'Parent 1 Child 2',
+                          size: 10,
+                          x: 25,
+                          y: 14
+                        }
+                      ],
+                    },
+                    {
+                      label: 'Parent 2',
+                      size: 10,
+                      x: 31,
+                      y: 45
+                    }
                   ]
                 },
                 {
-                  label: 'area 2',
+                  label: 'Bubble Pack Graph 2',
                   values: [
-                    {x: 1, y: 25},
-                    {x: 2, y: 38},
-                    {x: 3, y: 24},
-                    {x: 4, y: 60},
-                    {x: 5, y: 22}
+                    {
+                      label: 'Parent 1',
+                      size: 22,
+                      x: 4,
+                      y: 50
+                    },
+                    {
+                      label: 'Parent 2',
+                      size: 22,
+                      x: 41,
+                      y: 10
+                    }
                   ]
                 }
               ]

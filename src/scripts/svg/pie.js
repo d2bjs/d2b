@@ -71,8 +71,8 @@ export default function () {
 
   /* Inherit from base model */
   base(pie, $$)
-    .addProp('key', d => d.label)
-    .addProp('arc', d3.arc().innerRadius(100).outerRadius(200))
+    .addProp('arc', d3.arc())
+    .addPropFunctor('key', d => d.label)
     .addPropFunctor('values', d => d)
     .addPropFunctor('color', d => color(d.label));
 

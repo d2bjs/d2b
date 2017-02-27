@@ -50,7 +50,7 @@ d3.select('.chart')
 # {#line_type}
 [#](line.md#line_type) line.**type**()
 
-Returns the string `"line"`.
+Returns the string `line`.
 
 # {#line_line}
 [#](line.md#line_line) line.**line**([*d3-line*])
@@ -68,7 +68,7 @@ The *d3-stack* can be configured at will, except for the [keys](https://github.c
 
 ### Datum Level Accessors
 
-When the d2b line generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d`.
+When the d2b line generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#line_graphs}
 [#](line.md#line_graphs) line.**graphs**([*graphs*])
@@ -83,7 +83,7 @@ function (d) {
 
 ### Graph Level Accessors
 
-When the d2b line generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#line_graphs) array. The function will be passed the graph data `d`.
+When the d2b line generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#line_graphs) array. The function will be passed the graph data `d` and the corresponding graph index `i`.
 
 ```javascript
 function (d) {
@@ -215,7 +215,7 @@ function (d) {
 
 ### Value Level Accessors
 
-When the d2b line generator is applied to a selection, the following properties will be invoked for each element in the [values](#line_values) array. The function will be passed the value data `d`.
+When the d2b line generator is applied to a selection, the following properties will be invoked for each element in the [values](#line_values) array. The function will be passed the value data `d` and the index position within the [values](#bubble_pack_children) array `i`.
 
 ```javascript
 function (d) {

@@ -292,7 +292,7 @@ export default function (id = d2bid()) {
     .addPropFunctor('y', d => d.y)
     .addPropFunctor('color', null)
     .addPropFunctor('row', null)
-    .addDispatcher(['insert', 'move', 'remove']);
+    .addDispatcher(['move']);
 
 
   // construct an interface for each graph that is initialized

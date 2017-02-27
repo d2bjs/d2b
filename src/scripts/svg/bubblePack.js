@@ -20,7 +20,7 @@ export default function () {
       x:         $$.px(point, i),
       y:         $$.py(point, i),
       color:     $$.pcolor(point, i) || graph.color,
-      symbol:    $$.psymbol(point, i) || graph.color,
+      symbol:    $$.psymbol(point, i) || graph.symbol,
       key:       $$.pkey(point, i),
       size:      $$.psize(point, i),
       indicator: $$.pindicator(point, i),
@@ -100,6 +100,7 @@ export default function () {
         if (shift === null) shift = (graph.x.bandwidth)? graph.x.bandwidth() / 2 : 0;
 
         $$.point
+            .active(d => !!d.children.length)
             .fill(point => point.color)
             .type(point => point.symbol);
 
@@ -304,9 +305,7 @@ export default function () {
 
   /* Inherit from base model */
   base(bubblePack, $$)
-    .addProp('point', point().size(d => d.size * 100), null, () => {
-      $$.point.active(d => !!d.children.length);
-    })
+    .addProp('point', point().size(d => d.size * 100))
     .addPropGet('type', 'bubblePack')
     .addPropFunctor('duration', 250)
     .addPropFunctor('graphs', d => d)
@@ -332,7 +331,7 @@ export default function () {
     .addPropFunctor('psize', d => d.size)
     .addPropFunctor('pchildren', d => d.children)
     .addPropFunctor('pcolor', null)
-    .addPropFunctor('psymbol', d3.symbolCircle)
+    .addPropFunctor('psymbol', null)
     .addPropFunctor('pindicator', d => d.label)
     .addPropFunctor('pkey', (d, i) => i)
     // methods

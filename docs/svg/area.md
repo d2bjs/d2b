@@ -50,7 +50,7 @@ d3.select('.chart')
 # {#area_type}
 [#](area.md#area_type) area.**type**()
 
-Returns the string `"area"`.
+Returns the string `area`.
 
 # {#area_area}
 [#](area.md#area_area) area.**area**([*d3-area*])
@@ -68,7 +68,7 @@ The *d3-stack* can be configured at will, except for the [keys](https://github.c
 
 ### Datum Level Accessors
 
-When the d2b area generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d`.
+When the d2b area generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#area_graphs}
 [#](area.md#area_graphs) area.**graphs**([*graphs*])
@@ -83,7 +83,7 @@ function (d) {
 
 ### Graph Level Accessors
 
-When the d2b area generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#area_graphs) array. The function will be passed the graph data `d`.
+When the d2b area generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#area_graphs) array. The function will be passed the graph data `d` and the corresponding graph index `i`.
 
 ```javascript
 function (d) {
@@ -104,12 +104,12 @@ function (d) {
 # {#area_x}
 [#](area.md#area_x) area.**x**([*x*])
 
-If *x* is specified, sets the *x* scale to the specified accessor function or [d3-scale](https://github.com/d3/d3-scale) and returns the area generator. If *x* is not specified, returns the current *x* scale accessor, which defaults to a [d3.scaleAreaar()](https://github.com/d3/d3-scale#scaleAreaar).
+If *x* is specified, sets the *x* scale to the specified accessor function or [d3-scale](https://github.com/d3/d3-scale) and returns the area generator. If *x* is not specified, returns the current *x* scale accessor, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
 # {#area_y}
 [#](area.md#area_y) area.**y**([*y*])
 
-If *y* is specified, sets the *y* scale to the specified accessor function or [d3-scale](https://github.com/d3/d3-scale) and returns the area generator. If *y* is not specified, returns the current *y* scale accessor, which defaults to [d3.scaleAreaar()](https://github.com/d3/d3-scale#scaleAreaar).
+If *y* is specified, sets the *y* scale to the specified accessor function or [d3-scale](https://github.com/d3/d3-scale) and returns the area generator. If *y* is not specified, returns the current *y* scale accessor, which defaults to [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
 # {#area_tooltip_graph}
 [#](area.md#area_tooltip_graph) area.**tooltipGraph**([*tooltip_graph*])
@@ -208,10 +208,10 @@ function (d) {
 
 ### Value Level Accessors
 
-When the d2b area generator is applied to a selection, the following properties will be invoked for each element in the [values](#area_values) array. The function will be passed the value data `d`.
+When the d2b area generator is applied to a selection, the following properties will be invoked for each element in the [values](#area_values) array. The function will be passed the value data `d` and the index position within the [values](#bubble_pack_children) array `i`.
 
 ```javascript
-function (d) {
+function (d, i) {
   // d => {
   //   x: 1,
   //   y: 18

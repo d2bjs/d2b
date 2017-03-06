@@ -80,7 +80,7 @@ export default function () {
 		// legend functionality
     legendContainer
         .call($$.legend)
-        .on('change', () => container.transition(duration).call(chart))
+        .on('change', () => container.transition().duration(duration).call(chart))
       .selectAll('.d2b-legend-item')
         .on('mouseover', d => legendMouseover(d, chartContainer))
         .on('mouseout', d => legendMouseout(d, chartContainer));
@@ -130,7 +130,7 @@ export default function () {
       const el = d3.select(this);
 
       this.genUpdate = el.selectAll('.d2b-graph-generator')
-        .data(s.generators, d => d.generator.type());
+        .data(s.generators, d => d.key);
 
       this.genEnter = this.genUpdate.enter().append('g')
         .attr('class', 'd2b-graph-generator')
@@ -206,12 +206,14 @@ export default function () {
         if (transition) el = el.transition(transition);
 
         d.generator
-          .x((graph) => {
-            return graph.xType === 'x2'? x2Data.__axis__.scale() : xData.__axis__.scale();
-          })
-          .y((graph) => {
-            return graph.yType === 'y2'? y2Data.__axis__.scale() : yData.__axis__.scale();
-          });
+          .x(xData.__axis__.scale())
+          .y(yData.__axis__.scale());
+          // .x((graph) => {
+          //   return graph.xType === 'x2'? x2Data.__axis__.scale() : xData.__axis__.scale();
+          // })
+          // .y((graph) => {
+          //   return graph.yType === 'y2'? y2Data.__axis__.scale() : yData.__axis__.scale();
+          // });
           // .x((graph, i) => {
           //   return matchGraph(graph, allGraphs).xType === 'x2'? x2Data.__axis__.scale() : xData.__axis__.scale();
           // })
@@ -221,8 +223,8 @@ export default function () {
 
         el.style('opacity', 1).call(d.generator);
       });
-
-      d3.select(this).on('change', () => container.transition(duration).call(chart));
+      
+      d3.select(this).on('change', () => container.transition().duration(duration).call(chart));
     });
 
     // remaining transitions and exits
@@ -310,12 +312,17 @@ export default function () {
 
   function getSets (d) {
     return $$.sets(d).map(set => {
+      const generatorTypes = {};
       return {
         data: set,
         generators: $$.setGenerators(set).map(generator => {
+          const gen = $$.generator(generator),
+                type = gen.type();
+          generatorTypes[type] = generatorTypes[type] || 0;
           return {
             data: generator,
-            generator: $$.generator(generator)
+            key: `${type}-${generatorTypes[type] += 1}`,
+            generator: gen
           };
         }),
         graphs: getSetGraphs(set)

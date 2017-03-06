@@ -15,8 +15,6 @@ export default function () {
         data:          graph,
         index:         i,
         align:         $$.align(graph, i),
-        x:             $$.x(graph, i),
-        y:             $$.y(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
         stackBy:       $$.stackBy(graph, i),
@@ -32,7 +30,8 @@ export default function () {
           y:      $$.py(point, i)
         };
         // initialize y values (these will be overwritten by the stack if stacking applies)
-        newPoint.y0 = newPoint.y1 = newPoint.y;
+        newPoint.y1 = newPoint.y;
+        newPoint.y0 = 0;
         return newPoint;
       });
       return newGraph;
@@ -50,13 +49,29 @@ export default function () {
   const line = function (context) {
     const selection = context.selection? context.selection() : context;
 
-    const graph = selection.selectAll('.d2b-line-graph').data((d, i) => getGraphs(d, i), d => d.key);
+    let graphs = selection.selectAll('.d2b-line-graphs').data(d => [d]);
+
+    graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-line-graphs'));
+
+    const graph = graphs.selectAll('.d2b-line-graph').data((d, i) => getGraphs(d, i), d => d.key);
 
     const graphEnter = graph.enter().append('g')
         .attr('class', 'd2b-line-graph d2b-graph')
         .style('opacity', 0);
 
-    graphEnter.append('path').attr('class', 'd2b-line');
+    graphEnter
+      .append('path')
+        .attr('class', 'd2b-line')
+        .style('stroke', d => d.color)
+        .attr('d', function (d) {
+          // on entered graphs initialize with the preserved scales
+          // if there are any
+          const graphsNode = this.parentNode.parentNode,
+                x = graphsNode.__d2bPreserveScaleX__,
+                y = graphsNode.__d2bPreserveScaleY__;
+
+          return getPath(d, x || $$.x, y || $$.y);
+        });
 
     let graphUpdate = graph.merge(graphEnter).order(),
         graphExit = graph.exit();
@@ -67,31 +82,45 @@ export default function () {
       graphUpdate = graphUpdate.transition(context);
       graphExit = graphExit.transition(context);
       lineUpdate = lineUpdate.transition(context);
+
+      graphExit
+          .style('opacity', 0)
+        .select('.d2b-line')
+          .attr('d', d => getPath(d, $$.x, $$.y));
     }
 
     graphUpdate.style('opacity', 1);
-    graphExit.style('opacity', 0).remove();
+
+    graphExit.remove();
+
     lineUpdate
         .style('stroke', d => d.color)
-        .attr('d', function (d) {
-          const x = d.x, y = d.y;
-          let shift = d.shift;
-          if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+        .attr('d', d => getPath(d, $$.x, $$.y, true));
 
-          if (d.tooltipGraph) d.tooltipGraph
-            .data(d.values)
-            .x(dd => x(dd.x) + shift)
-            .y(dd => y(dd[d.align]))
-            .color(d.color);
-
-          $$.line
-            .x(dd => x(dd.x) + shift)
-            .y(dd => y(dd[d.align]));
-
-          return $$.line(d.values);
-        });
+    // Make a copy of the scales sticky on the 'graphs' node
+    graphs.each(function () {
+      this.__d2bPreserveScaleX__ = $$.x.copy();
+      this.__d2bPreserveScaleY__ = $$.y.copy();
+    });
 
     return line;
+  };
+
+  const getPath = function (d, x, y, setupTooltip = false) {
+    let shift = d.shift;
+    if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+
+    if (d.tooltipGraph && setupTooltip) d.tooltipGraph
+      .data(d.values)
+      .x(dd => x(dd.x) + shift)
+      .y(dd => y(dd[d.align]))
+      .color(d.color);
+
+    $$.line
+      .x(dd => x(dd.x) + shift)
+      .y(dd => y(dd[d.align]));
+
+    return $$.line(d.values);
   };
 
   const stacker = stack()
@@ -108,11 +137,11 @@ export default function () {
   base(line, $$)
     .addProp('line', d3.line())
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
+    .addProp('x', d3.scaleLinear())
+    .addProp('y', d3.scaleLinear())
     .addPropGet('type', 'line')
     .addPropFunctor('graphs', d => d)
     // graph props
-    .addScaleFunctor('x', d3.scaleLinear())
-    .addScaleFunctor('y', d3.scaleLinear())
     .addPropFunctor('align', 'y1')
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('shift', null)

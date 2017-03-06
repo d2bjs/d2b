@@ -1,3 +1,5 @@
+// TODO: Clean up bar graph code flow it's a bit messy
+
 import * as d3 from 'd3';
 
 import {default as base} from '../model/base.js';
@@ -21,8 +23,6 @@ export default function () {
       const newGraph = {
         data:           graph,
         index:          i,
-        x:              $$.x(graph, i),
-        y:              $$.y(graph, i),
         tooltipGraph:   $$.tooltipGraph(graph, i),
         shift:          $$.shift(graph, i),
         stackBy:        $$.stackBy(graph, i),
@@ -60,29 +60,46 @@ export default function () {
   /* Update Function */
   const bar = function (context) {
     const selection = context.selection? context.selection() : context;
+
+    const scales = {x: $$.x, y: $$.y};
     // iterate through each selection element
     selection.each(function (d, i) {
       const orient = $$.orient(d, i),
             orientMap = getOrientMap(orient),
-            graphs = getGraphs(d, i, orientMap);
+            graphs = getGraphs(d, i, orientMap),
+            x = scales[orientMap.x].copy(),
+            y = scales[orientMap.y].copy();
 
       let padding = $$.padding(d, i),
           groupPadding = $$.groupPadding(d, i),
           bandwidth = $$.bandwidth(d, i);
 
-      bandwidth = (1 - padding) * (bandwidth || getBandwidth(graphs, orientMap));
+      bandwidth = (1 - padding) * (bandwidth || getBandwidth(x, graphs, orientMap));
 
       const stacking = stackNest.entries(graphs),
-            barWidth = bandwidth / stacking.length;
+            barWidth = bandwidth / Math.max(1, stacking.length);
 
       groupPadding = barWidth * groupPadding;
 
-      // enter update exit bar graph container
-      const graph = d3.select(this).selectAll('.d2b-bar-graph').data(graphs, d => d.key);
+      const trueBarWidth = barWidth - groupPadding * 2;
+
+      // get custom scales
+      const base = getBaseScale (x, bandwidth, barWidth, groupPadding),
+            extent = getExtentScale (y);
+
+      let graphsSVG = d3.select(this).selectAll('.d2b-bar-graphs').data(d => [d]);
+
+      graphsSVG = graphsSVG.merge(graphsSVG.enter().append('g').attr('class', 'd2b-bar-graphs'));
+
+      const graphsNode = graphsSVG.node(),
+            preBase = graphsNode.__d2bPreserveScaleBase__ || base,
+            preY = graphsNode.__d2bPreserveScaleY__ || y,
+            preTrueBarWidth = graphsNode.__d2bPreserveTrueBarWidth__ || trueBarWidth;
+
+      const graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs, d => d.key);
 
       const graphEnter = graph.enter().append('g')
-          .attr('class', 'd2b-bar-graph d2b-graph')
-          .style('opacity', 0);
+          .attr('class', 'd2b-bar-graph d2b-graph');
 
       let graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
@@ -90,15 +107,27 @@ export default function () {
       if (context !== selection) {
         graphUpdate = graphUpdate.transition(context);
         graphExit = graphExit.transition(context);
+
+        graphExit
+            .each(function (d) {
+              let shift = d.shift;
+              if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+
+              d3.select(this).selectAll('.d2b-bar-group').transition(context)
+                  .style('opacity', 0)
+                  .call(transformBar, {x: point => base(point, shift), y: () => y(0)}, orientMap)
+                .select('rect')
+                  .attr(orientMap.w, trueBarWidth)
+                  .attr(orientMap.h, 0);
+            });
+
       }
 
-      graphUpdate.style('opacity', 1);
-      graphExit.style('opacity', 0).remove();
+      graphExit.remove();
 
       // iterate through graph containers
       graphUpdate.each(function (d) {
-        const graph = d3.select(this), scales = {x: d.x, y: d.y};
-        const x = scales[orientMap.x], y = scales[orientMap.y];
+        const graph = d3.select(this);
 
         let shift = d.shift;
         if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
@@ -110,15 +139,8 @@ export default function () {
         let barUpdate = bar.merge(barEnter).order(),
             barExit = bar.exit();
 
-        barUpdate.each(point => {
-          const barShift = (point.centered)? shift - bandwidth / 4 : shift - bandwidth / 2 + point.stackIndex * barWidth + groupPadding;
-          point.basepx = x(point.base) + barShift;
-          point.extentpx = [y(point.extent[0]), y(point.extent[1])];
-          point.extentpxSorted = point.extentpx.slice().sort(d3.ascending);
-        });
-
         if (d.tooltipGraph) d.tooltipGraph
-          .data(d.values)[orientMap.x](point => d[orientMap.x](point.base) + shift)[orientMap.y](point => point.extentpx[1])
+          .data(d.values)[orientMap.x](point => x(point.base) + shift)[orientMap.y](point => extent(point)[1])
           .color(point => point.color || d.color);
 
         if (context !== selection) {
@@ -129,23 +151,36 @@ export default function () {
         barEnter
             .attr('class', 'd2b-bar-group')
             .style('opacity', 0)
-            .call(transformBar, {x: point => point.basepx, y: () => y(0)}, orientMap)
+            .call(transformBar, {x: point => preBase(point, shift), y: () => preY(0)}, orientMap)
           .select('rect')
             .attr('fill', point => point.color || d.color)
-            .attr(orientMap.w, barWidth - groupPadding * 2)
+            .attr(orientMap.w, preTrueBarWidth)
             .attr(orientMap.h, 0);
 
         barUpdate
             .style('opacity', 1)
-            .call(transformBar, {x: point => point.basepx, y: point => point.extentpxSorted[0]}, orientMap)
+            .call(transformBar, {x: point => base(point, shift), y: point => extent.sorted(point)[0]}, orientMap)
           .select('rect')
             .attr('fill', point => point.color || d.color)
-            .attr(orientMap.w, barWidth - groupPadding * 2)
-            .attr(orientMap.h, d => d.extentpxSorted[1] - d.extentpxSorted[0]);
+            .attr(orientMap.w, trueBarWidth)
+            .attr(orientMap.h, d => extent.sorted(d)[1] - extent.sorted(d)[0]);
 
-        barExit.style('opacity', 0).remove();
+        barExit
+            .style('opacity', 0)
+            .call(transformBar, {x: point => base(point, shift), y: () => y(0)}, orientMap)
+            .remove()
+          .select('rect')
+            .attr(orientMap.w, trueBarWidth)
+            .attr(orientMap.h, 0);
 
       });
+
+      // Make a copy of the scales sticky on the 'graphs' node
+      graphsNode.__d2bPreserveScaleY__ = y;
+      graphsNode.__d2bPreserveScaleBase__ = base;
+      graphsNode.__d2bPreserveTrueBarWidth__ = trueBarWidth;
+
+
     });
 
     return bar;
@@ -176,12 +211,30 @@ export default function () {
     });
   }
 
+  function getBaseScale (x, bandwidth, barWidth, groupPadding) {
+    return function (point, shift) {
+      var barShift = (point.centered)? shift - bandwidth / 4 : shift - bandwidth / 2 + point.stackIndex * barWidth + groupPadding;
+      return x(point.base) + barShift;
+    };
+  }
+
+  function getExtentScale (y) {
+    var scale = function (point) {
+      return [y(point.extent[0]), y(point.extent[1])];
+    };
+
+    scale.sorted = function (point) {
+      return scale(point).slice().sort(d3.ascending);
+    };
+
+    return scale;
+  }
+
   // find closes non equal point pixel distance on the base axis
-  function getBandwidth (graphs, orientMap) {
+  function getBandwidth (x, graphs, orientMap) {
     let xVals = [], bandwidth = Infinity;
     graphs.forEach( graph => {
-      const x = graph[orientMap.x],
-            values = graph.values,
+      const values = graph.values,
             range = x.range();
 
       bandwidth = Math.min(bandwidth, Math.abs(range[1] - range[0]));
@@ -198,7 +251,7 @@ export default function () {
       bandwidth = Math.min(xVals[i+1] - xVals[i], bandwidth);
     }
 
-    return bandwidth;
+    return bandwidth === Infinity ? 0 : bandwidth;
   }
 
   function modifyBaseline (graphs, baseline) {
@@ -223,6 +276,8 @@ export default function () {
 
   /* Inherit from base model */
   base(bar, $$)
+    .addProp('x', d3.scaleLinear())
+    .addProp('y', d3.scaleLinear())
     .addPropGet('type', 'bar')
     .addPropFunctor('graphs', d => d)
     .addPropFunctor('padding', 0.5)
@@ -230,8 +285,6 @@ export default function () {
     .addPropFunctor('bandwidth', null)
     .addPropFunctor('baseline', 0)
     // graph props
-    .addScaleFunctor('x', d3.scaleLinear())
-    .addScaleFunctor('y', d3.scaleLinear())
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('orient', 'vertical')
     .addPropFunctor('shift', null)

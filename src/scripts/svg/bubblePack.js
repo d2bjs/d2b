@@ -35,8 +35,6 @@ export default function () {
         data:          graph,
         index:         i,
         tendancy:      $$.tendancy(graph, i),
-        x:             $$.x(graph, i),
-        y:             $$.y(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
         key:           $$.key(graph, i),
@@ -56,10 +54,21 @@ export default function () {
 
 
   // bubble pack updater
-  const bubblePack = function (context) {
+  // The autoEnter flag will decide whether the entering bubbles will render
+  // at their respective location or if they will expand from their parents
+  // location. When the bubblePack is re-rendered upon clicking
+  // on a parent bubble, this will be called with autoEnter = false to preserve
+  // the flow of child bubbles flowing from their parents location to their
+  // location.
+  const bubblePack = function (context, autoEnter = true) {
     const transition = context.selection? context : null,
-          selection = context.selection? context.selection() : context,
-          graph = selection.selectAll('.d2b-bubble-pack-graph').data((d, i) => getGraphs(d, i), d => d.key);
+          selection = context.selection? context.selection() : context;
+
+    let graphs = selection.selectAll('.d2b-bubble-pack-graphs').data(d => [d]);
+
+    graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-bubble-pack-graphs'));
+
+    const graph = graphs.selectAll('.d2b-bubble-pack-graph').data((d, i) => getGraphs(d, i), d => d.key);
 
     // enter graph
     const graphEnter = graph.enter().append('g').attr('class', 'd2b-bubble-pack-graph d2b-graph');
@@ -82,22 +91,25 @@ export default function () {
     context.each(function (d, i) {
       const selection = d3.select(this),
             duration = $$.duration(d, i),
-            graph = selection.selectAll('.d2b-bubble-pack-graph');
+            graph = selection.selectAll('.d2b-bubble-pack-graph'),
+            graphsNode = selection.selectAll('.d2b-bubble-pack-graphs').node(),
+            preX = graphsNode.__d2bPreserveScaleX__ || $$.x,
+            preY = graphsNode.__d2bPreserveScaleY__ || $$.y;
 
       selection.on('change', function () {
-        selection.transition().duration(duration).call(bubblePack);
+        selection.transition().duration(duration).call(bubblePack, false);
       });
 
       let maxWidth = 0;
 
       // render the bubble packs for each graph
       graph.each( function (graph) {
-        const el = d3.select(this), xRange = graph.x.range();
+        const el = d3.select(this), xRange = $$.x.range();
 
         maxWidth = Math.max(maxWidth, Math.abs(xRange[0] - xRange[1]));
 
         let shift = graph.shift;
-        if (shift === null) shift = (graph.x.bandwidth)? graph.x.bandwidth() / 2 : 0;
+        if (shift === null) shift = ($$.x.bandwidth)? $$.x.bandwidth() / 2 : 0;
 
         $$.point
             .active(d => !!d.children.length)
@@ -107,8 +119,8 @@ export default function () {
         const addTooltipPoint = graph.tooltipGraph?
             graph.tooltipGraph
                 .clear()
-                .x(point => graph.x(point.x) + shift)
-                .y(point => graph.y(point.y))
+                .x(point => $$.x(point.x) + shift)
+                .y(point => $$.y(point.y))
                 .color(point => point.color)
                 .addPoint
               : null;
@@ -117,14 +129,23 @@ export default function () {
           el,
           graph.values,
           transition,
-          graph.x,
-          graph.y,
+          $$.x,
+          $$.y,
+          preX,
+          preY,
           shift,
           selection,
-          addTooltipPoint
+          addTooltipPoint,
+          autoEnter
         );
       });
       positionIndicators(selection, maxWidth);
+    });
+
+    // Make a copy of the scales sticky on the 'graphs' node
+    graphs.each(function () {
+      this.__d2bPreserveScaleX__ = $$.x.copy();
+      this.__d2bPreserveScaleY__ = $$.y.copy();
     });
 
     return bubblePack;
@@ -174,7 +195,7 @@ export default function () {
           `${y(d.parent? d.parent.y : d.y)})`);
       }
 
-      if (d.children.length) {
+      if (d.children.length && !d.data.expanded) {
         el
             .attr('cursor', 'pointer')
             .on('click', function () {
@@ -248,7 +269,7 @@ export default function () {
    * @param {function} addTooltipPoint - function to append a point to the tooltip component
    * @param {Number} depth - depth tracker
    */
-  function renderPacks(el, data, trans, x, y, shift, chart, addTooltipPoint, depth = 0) {
+  function renderPacks(el, data, trans, x, y, preX, preY, shift, chart, addTooltipPoint, autoEnter, depth = 0) {
     // set pack data
     const pack = el.selectAll(`.d2b-bubble-pack.d2b-depth-${depth}`)
               .data(data, d => d.key),
@@ -256,7 +277,9 @@ export default function () {
               .attr('class', `d2b-bubble-pack d2b-depth-${depth}`),
           packUpdate = pack.merge(packEnter);
 
-    packEnter.append('g').attr('class', 'd2b-bubble-point').style('opacity', 0);
+    const pointEnter = packEnter.append('g').attr('class', 'd2b-bubble-point');
+    if (autoEnter) renderPoint(pointEnter, false, preX, preY, shift);
+    pointEnter.style('opacity', 0);
     renderPoint(packUpdate.select('.d2b-bubble-point'), trans, x, y, shift);
     packEnter.append('g').attr('class', 'd2b-bubble-indicator');
     renderIndicator(packUpdate.select('.d2b-bubble-indicator'));
@@ -268,7 +291,7 @@ export default function () {
       subPacks = trans? subPacks.transition(trans) : subPacks;
 
       if (point.children.length && point.data.expanded) {
-        renderPacks(el, point.children, trans, x, y, shift, chart, addTooltipPoint, depth + 1);
+        renderPacks(el, point.children, trans, x, y, preX, preY, shift, chart, addTooltipPoint, autoEnter, depth + 1);
       } else {
         if (addTooltipPoint) addTooltipPoint(point);
         subPacks
@@ -306,12 +329,12 @@ export default function () {
   /* Inherit from base model */
   base(bubblePack, $$)
     .addProp('point', point().size(d => d.size * 100))
+    .addProp('x', d3.scaleLinear())
+    .addProp('y', d3.scaleLinear())
     .addPropGet('type', 'bubblePack')
     .addPropFunctor('duration', 250)
     .addPropFunctor('graphs', d => d)
     // graph props
-    .addScaleFunctor('x', d3.scaleLinear())
-    .addScaleFunctor('y', d3.scaleLinear())
     .addPropFunctor('tendancy', mean, function (_) {
       if (!arguments.length) return $$.tendancy;
       if (_ && _.tendancy) $$.tendancy = () => _;

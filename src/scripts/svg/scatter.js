@@ -15,8 +15,6 @@ export default function () {
       const newGraph = {
         data:          graph,
         index:         i,
-        x:             $$.x(graph, i),
-        y:             $$.y(graph, i),
         align:         $$.align(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
@@ -38,7 +36,8 @@ export default function () {
           size:   $$.psize(point, i)
         };
         // initialize y values (these will be overwritten by the stack if stacking applies)
-        newPoint.y0 = newPoint.y1 = newPoint.y;
+        newPoint.y1 = newPoint.y;
+        newPoint.y0 = 0;
         return newPoint;
       });
       return newGraph;
@@ -55,7 +54,11 @@ export default function () {
   const scatter = function (context) {
     const selection = context.selection? context.selection() : context;
 
-    const graph = selection.selectAll('.d2b-scatter-graph').data((d, i) => getGraphs(d, i), d => d.key);
+    let graphs = selection.selectAll('.d2b-scatter-graphs').data(d => [d]);
+
+    graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-scatter-graphs'));
+
+    const graph = graphs.selectAll('.d2b-scatter-graph').data((d, i) => getGraphs(d, i), d => d.key);
 
     const graphEnter = graph.enter().append('g')
         .attr('class', 'd2b-scatter-graph d2b-graph')
@@ -67,16 +70,47 @@ export default function () {
     if (context !== selection) {
       graphUpdate = graphUpdate.transition(context);
       graphExit = graphExit.transition(context);
+
+      graphExit
+          .style('opacity', 0)
+          // points needs to be transitioned to where there new locations "would be"
+          // if the graphs had been included
+          .each(function (d) {
+            const el = d3.select(this),
+                  x = $$.x,
+                  y = $$.y;
+
+            let pointExit = el.selectAll('.d2b-scatter-point');
+
+            if (context !== selection) pointExit = pointExit.transition(context);
+
+            let shift = d.shift;
+            if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+
+            pointExit
+                .style('opacity', 0)
+                .call(pointTransform, x, y, shift, d.align)
+                .remove();
+          });
     }
 
     graphUpdate.style('opacity', 1);
-    graphExit.style('opacity', 0).remove();
+
+    graphExit.remove();
 
     graphUpdate.each( function (d) {
-      const el = d3.select(this), x = d.x, y = d.y;
+      const el = d3.select(this),
+            x = $$.x,
+            y = $$.y,
+            graphsNode = this.parentNode,
+            preX = graphsNode.__d2bPreserveScaleX__ || x,
+            preY = graphsNode.__d2bPreserveScaleY__ || y;
 
       let shift = d.shift;
       if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+
+      let preShift = d.shift;
+      if (preShift === null) shift = (preX.bandwidth)? preX.bandwidth() / 2 : 0;
 
       if (d.tooltipGraph) d.tooltipGraph
         .data(d.values)
@@ -104,7 +138,7 @@ export default function () {
 
       pointEnter
           .style('opacity', 0)
-          .call(pointTransform, x, y, shift, d.align);
+          .call(pointTransform, preX, preY, preShift, d.align);
 
       pointUpdate
           .style('opacity', 1)
@@ -113,8 +147,15 @@ export default function () {
 
       pointExit
           .style('opacity', 0)
+          .call(pointTransform, x, y, shift, d.align)
           .remove();
 
+    });
+
+    // Make a copy of the scales sticky on the 'graphs' node
+    graphs.each(function () {
+      this.__d2bPreserveScaleX__ = $$.x.copy();
+      this.__d2bPreserveScaleY__ = $$.y.copy();
     });
 
     return scatter;
@@ -141,11 +182,11 @@ export default function () {
   base(scatter, $$)
     .addProp('point', point().active(true))
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
+    .addProp('x', d3.scaleLinear())
+    .addProp('y', d3.scaleLinear())
     .addPropGet('type', 'scatter')
     .addPropFunctor('graphs', d => d)
     // graph props
-    .addScaleFunctor('x', d3.scaleLinear())
-    .addScaleFunctor('y', d3.scaleLinear())
     .addPropFunctor('align', 'y1')
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('shift', null)

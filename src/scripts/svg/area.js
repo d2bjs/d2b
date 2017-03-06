@@ -14,8 +14,6 @@ export default function () {
       const newGraph = {
         data:          graph,
         index:         i,
-        x:             $$.x(graph, i),
-        y:             $$.y(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
         stackBy:       $$.stackBy(graph, i),
@@ -49,13 +47,29 @@ export default function () {
   const area = function (context) {
     const selection = context.selection? context.selection() : context;
 
-    const graph = selection.selectAll('.d2b-area-graph').data((d, i) => getGraphs(d, i), d => d.key);
+    let graphs = selection.selectAll('.d2b-area-graphs').data(d => [d]);
+
+    graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-area-graphs'));
+
+    const graph = graphs.selectAll('.d2b-area-graph').data((d, i) => getGraphs(d, i), d => d.key);
 
     const graphEnter = graph.enter().append('g')
         .attr('class', 'd2b-area-graph d2b-graph')
         .style('opacity', 0);
 
-    graphEnter.append('path').attr('class', 'd2b-area');
+    graphEnter
+      .append('path')
+        .attr('class', 'd2b-area')
+        .style('fill', d => d.color)
+        .attr('d', function (d) {
+          // on entered graphs initialize with the preserved scales
+          // if there are any
+          const graphsNode = this.parentNode.parentNode,
+                x = graphsNode.__d2bPreserveScaleX__,
+                y = graphsNode.__d2bPreserveScaleY__;
+
+          return getPath(d, x || $$.x, y || $$.y);
+        });
 
     let graphUpdate = graph.merge(graphEnter).order(),
         graphExit = graph.exit();
@@ -66,32 +80,48 @@ export default function () {
       graphUpdate = graphUpdate.transition(context);
       graphExit = graphExit.transition(context);
       areaUpdate = areaUpdate.transition(context);
+
+      graphExit
+          .style('opacity', 0)
+        .select('.d2b-area')
+          .attr('d', d => getPath(d, $$.x, $$.y));
     }
 
     graphUpdate.style('opacity', 1);
-    graphExit.style('opacity', 0).remove();
+
+    graphExit.remove();
+
     areaUpdate
         .style('fill', d => d.color)
-        .attr('d', function (d) {
-          const x = d.x, y = d.y;
-          let shift = d.shift;
-          if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+        .attr('d', d => getPath(d, $$.x, $$.y, true));
 
-          if (d.tooltipGraph) d.tooltipGraph
-            .data(d.values)
-            .x(d => x(d.x) + shift)
-            .y(d => y(d.y1))
-            .color(d.color);
-
-          $$.area
-            .x(d => x(d.x) + shift)
-            .y0(d => y(d.y0))
-            .y1(d => y(d.y1));
-
-          return $$.area(d.values);
-        });
+    // Make a copy of the scales sticky on the 'graphs' node
+    graphs.each(function () {
+      this.__d2bPreserveScaleX__ = $$.x.copy();
+      this.__d2bPreserveScaleY__ = $$.y.copy();
+    });
 
     return area;
+  };
+
+  const getPath = function (d, x, y, setupTooltip = false) {
+
+    let shift = d.shift;
+    if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
+
+    if (d.tooltipGraph && setupTooltip) d.tooltipGraph
+      .data(d.values)
+      .x(d => x(d.x) + shift)
+      .y(d => y(d.y1))
+      .color(d.color);
+
+    $$.area
+      .x(d => x(d.x) + shift)
+      .y0(d => y(d.y0))
+      .y1(d => y(d.y1));
+
+    return $$.area(d.values);
+
   };
 
   const stacker = stack()
@@ -108,11 +138,11 @@ export default function () {
   base(area, $$)
     .addProp('area', d3.area())
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
+    .addProp('x', d3.scaleLinear())
+    .addProp('y', d3.scaleLinear())
     .addPropGet('type', 'area')
     .addPropFunctor('graphs', d => d)
     // graph props
-    .addScaleFunctor('x', d3.scaleLinear())
-    .addScaleFunctor('y', d3.scaleLinear())
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('shift', null)
     .addPropFunctor('stackBy', null)

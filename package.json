@@ -18,7 +18,7 @@
   "license": "MIT",
   "main": "build/d2b.js",
   "jsnext:main": "index",
-  "homepage": "https://d2bjs.org",
+  "homepage": "http://d2bjs.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/d2bjs/d2b"

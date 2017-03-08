@@ -164,7 +164,7 @@ export default function () {
             return {x: v.x, y: v[graph.align], graph: graph};
           });
         }));
-      });
+      })[0];
     });
 
   return line;

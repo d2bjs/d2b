@@ -12,13 +12,20 @@ import cssnano from 'cssnano';
 
 export default {
   entry: 'src/scripts/index.js',
-  dest: 'build/d2b.min.js',
-  format: 'iife',
+  targets: [
+    {
+      dest: 'build/d2b.cjs.js',
+      format: 'cjs',
+    },
+    {
+      dest: 'build/d2b.min.js',
+      format: 'iife',
+      globals: {d3: 'd3'},
+      moduleName: 'd2b',
+      plugins: [uglify()]
+    },
+  ],
   sourceMap: 'inline',
-  moduleName: 'd2b',
-  globals: {
-    'd3': 'd3',
-  },
   plugins: [
     postcss({
       extensions: ['.css', '.scss'],

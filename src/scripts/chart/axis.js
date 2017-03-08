@@ -152,7 +152,7 @@ export default function () {
                 })
                 .color(graph => matchGraph(graph, allGraphs).color)
                 .graphs(s.graphs.map(g => g.data).filter(g => !g.hidden))
-                .getVisiblePoints(gen)[0];
+                .getVisiblePoints(gen);
 
         if (d.generator.duration) d.generator.duration(duration);
 
@@ -223,7 +223,7 @@ export default function () {
 
         el.style('opacity', 1).call(d.generator);
       });
-      
+
       d3.select(this).on('change', () => container.transition().duration(duration).call(chart));
     });
 

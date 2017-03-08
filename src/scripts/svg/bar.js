@@ -328,7 +328,7 @@ export default function () {
         }));
 
         return extent0.concat(extent1);
-      });
+      })[0];
     });
 
   return bar;

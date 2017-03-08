@@ -16,8 +16,8 @@
     "tooltip"
   ],
   "license": "MIT",
-  "main": "build/d2b.js",
-  "jsnext:main": "index",
+  "main": "build/d2b.cjs.js",
+  "jsnext:main": "src/scripts/index.js",
   "homepage": "http://d2bjs.org",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "build:server": "http-server -a localhost -p 8000",
     "build:watcher": "npm-watch",
     "build:watch": "npm-run-all --parallel build:watcher build:server",
-    "test": "jasmine",
+    "test": "tape 'test/**/*.test.js'",
     "docs:prepare": "gitbook install",
     "docs:watch": "npm run docs:prepare && gitbook serve",
     "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
@@ -42,7 +42,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "cssnano": "^3.10.0",
     "http-server": "^0.9.0",
-    "jasmine-es6": "^0.4.0",
+    "jasmine": "^2.5.3",
     "npm-run-all": "^4.0.1",
     "npm-watch": "^0.1.8",
     "postcss-cssnext": "^2.9.0",
@@ -54,7 +54,6 @@
     "rollup-plugin-postcss": "^0.2.0",
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-watch": "^3.2.2",
-    "tape": "4",
     "uglify-js": "2"
   },
   "watch": {

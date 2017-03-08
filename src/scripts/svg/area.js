@@ -170,7 +170,7 @@ export default function () {
           });
         }));
         return y0s.concat(y1s);
-      });
+      })[0];
     });
 
   return area;

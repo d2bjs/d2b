@@ -378,7 +378,7 @@ export default function () {
           graph.values.forEach(point => addPoint(point, points, graph));
           return points;
         }));
-      });
+      })[0];
     });
 
   return bubblePack;

@@ -1,193 +1,252 @@
-describe("d2b.svgLine()", function() {
+'use strict';
 
-    var pathDescription;
+// load dependencies
+var d3 = require('d3');
+var d2b = require('../../');
+var jsdom = require('jsdom-no-contextify');
 
-    beforeEach(function() {
-      pathDescription = this.pathDescription;
+// get graph fixtures
+var fixtures = require('../support/fixtures/graphFixtures');
 
-      this.svg = d3.select('body').append('svg');
-      this.line = d2b.svgLine();
+// get method for retrieving a normalized path description from a d3 selection
+var pathDesc = require('../support/utilities/path').description;
 
-      this.x = d3.scaleLinear().domain([1, 5]).range([0, 300]),
-      this.y = d3.scaleLinear().domain([0, 10]).range([100, 0]);
+// describe svgLine
+describe('d2b.svgLine()', function() {
 
-      this.line.x(this.x).y(this.y);
+  var x, y, line;
 
-      this.svg.datum(this.graphFixture1).call(this.line);
+  function domTest (callback) {
+    var htmlStub ='<html><svg></svg></html>';
+
+    return jsdom.env({
+      features: {QuerySelector: true},
+      html : htmlStub,
+      done: callback
     });
+  };
 
-    afterEach(function() {
-      if (!this.skipRemove) this.svg.remove();
+  function generate (window, fixture) {
+    // Get d3 svg selection.
+    var svg = d3.select(window.document.querySelector('svg'));
+    // Set datum to fixture and apply the line generator
+    return svg.datum(fixture).call(line);
+  };
+
+  beforeEach(function () {
+    x = d3.scaleLinear().domain([1, 5]).range([0, 300]);
+    y = d3.scaleLinear().domain([0, 10]).range([100, 0]);
+
+    line = d2b.svgLine().x(x).y(y);
+  });
+
+  it('has correct type', function () {
+    expect(line.type()).toBe('line');
+  });
+
+  it('has line-graphs `g` group', function (done) {
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[0]);
+
+      expect(svg.selectAll('g.d2b-line-graphs').size()).toBe(1);
+
+      done();
     });
+  });
 
-    it('has correct type', function () {
-      expect(this.line.type()).toBe('line');
+  it('has correct amount of line `g` groups', function (done) {
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[1]);
+
+      expect(svg.selectAll('g.d2b-line-graph').size()).toBe(2);
+
+      done();
     });
+  });
 
-    it('has line-graphs `g` group', function () {
-      expect(this.svg.selectAll('g.d2b-line-graphs').size()).toBe(1);
-    });
+  it('has custom colors', function (done) {
+    var color = d3.scaleOrdinal()
+      .domain(['Graph 1', 'Graph 2'])
+      .range(['rgb(128, 0, 128)', 'rgb(0, 128, 128)']);
 
-    it('has correct amount of line `g` groups', function () {
-      this.svg
-        .datum(this.graphFixture2)
-        .call(this.line);
+    line.color(function (d) { return color(d.label); });
 
-      expect(this.svg.selectAll('g.d2b-line-graph').size()).toBe(2);
-    });
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[1]);
 
-    it('has custom colors', function () {
-
-      var color = d3.scaleOrdinal()
-        .domain(['Line Graph 1', 'Line Graph 2'])
-        .range(['rgb(128, 0, 128)', 'rgb(0, 128, 128)']);
-
-      this.line.color(function (d) { return color(d.label); });
-
-      this.svg.call(this.line);
-
-      this.svg.selectAll('path.d2b-line').each(function (d) {
+      svg.selectAll('path.d2b-line').each(function (d) {
         expect(d3.select(this).style('stroke')).toBe(color(d.data.label));
       });
 
+      done();
     });
+  });
 
-    it('has correct path description `d`', function () {
-      var path = this.svg.select('path.d2b-line'),
-          description = 'M0,80L75,60L150,90L225,10L300,30';
-      expect(this.pathDescription(path)).toBe(description);
+  it('has correct path description `d`', function(done) {
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[0]);
+
+      expect(pathDesc(svg.select('path.d2b-line'))).toBe('M0,80L75,60L150,90L225,10L300,30');
+
+      done();
     });
+  });
 
+  it('supports basic stacking', function(done) {
+    line.stackBy(true);
 
-    it('supports basic stacking', function () {
-      this.line.stackBy(true);
-      this.svg.datum(this.graphFixture2).call(this.line);
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[1]);
 
       var paths = {
         'Graph 1': 'M0,80L75,60L150,90L225,10L300,30',
         'Graph 2': 'M0,20L75,30L150,40L225,-80L300,20',
       };
 
-      this.svg.selectAll('path.d2b-line').each(function (d) {
-        expect(pathDescription(d3.select(this))).toBe(paths[d.data.label]);
+      svg.selectAll('path.d2b-line').each(function (d) {
+        expect(pathDesc(d3.select(this))).toBe(paths[d.data.label]);
       });
+
+      done();
     });
+  });
 
-    it('supports custom d3 line', function () {
-      var d3Line = d3.line().curve(d3.curveBasis);
+  it('supports custom d3 line', function(done) {
+    var d3Line = d3.line().curve(d3.curveBasis);
+    line.line(d3Line);
 
-      this.line.line(d3Line);
-      this.svg.call(this.line);
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[0]);
 
-        var path = this.svg.select('path.d2b-line'),
-            description = 'M0,80L12.500000,76.666667C25,73.333333,50,66.666667,75,68.333333C100,70,125,80,150,71.666667C175,63.333333,200,36.666667,225,26.666667C250,16.666667,275,23.333333,287.500000,26.666667L300,30';
+      var description = 'M0,80L12.500000,76.666667C25,73.333333,50,66.666667,75,68.333333C100,70,125,80,150,71.666667C175,63.333333,200,36.666667,225,26.666667C250,16.666667,275,23.333333,287.500000,26.666667L300,30';
 
-        expect(this.pathDescription(path)).toBe(description);
+      expect(pathDesc(svg.select('path.d2b-line'))).toBe(description);
+
+      done();
     });
+  });
 
-    it('supports custom stacking', function () {
-      var stack = d3.stack().offset(d3.stackOffsetExpand);
+  it('supports custom stacking', function(done) {
+    var d3Stack = d3.stack().offset(d3.stackOffsetExpand);
+    line.stackBy(true).stack(d3Stack);
+    y.domain([0, 1]);
 
-      this.y.domain([0, 1]);
-      this.line.stackBy(true).stack(stack);
-      this.svg.datum(this.graphFixture2).call(this.line);
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[1]);
 
       var paths = {
         'Graph 1': 'M0,75L75,42.857143L150,83.333333L225,50L300,12.500000',
         'Graph 2': 'M0,0L75,0L150,0L225,0L300,0',
       };
 
-      this.svg.selectAll('path.d2b-line').each(function (d) {
-        expect(pathDescription(d3.select(this))).toBe(paths[d.data.label]);
+      svg.selectAll('path.d2b-line').each(function (d) {
+        expect(pathDesc(d3.select(this))).toBe(paths[d.data.label]);
       });
-    });
 
-    it('supports stacking with custom alignment', function () {
-      this.line.stackBy(true).align(function (d) { return d.align; });
-      this.svg.datum(this.graphFixture6).call(this.line);
+      done();
+    });
+  });
+
+  it('supports stacking with custom alignment', function(done) {
+    var d3Stack = d3.stack().offset(d3.stackOffsetExpand);
+    line.stackBy(true).align(function (d) { return d.align; });
+
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[5]);
 
       var paths = {
         'Graph 1': 'M0,80L75,60L150,90L225,10L300,30',
         'Graph 2': 'M0,80L75,60L150,90L225,10L300,30',
       };
 
-      this.svg.selectAll('path.d2b-line').each(function (d) {
-        expect(pathDescription(d3.select(this))).toBe(paths[d.data.label]);
+      svg.selectAll('path.d2b-line').each(function (d) {
+        expect(pathDesc(d3.select(this))).toBe(paths[d.data.label]);
       });
+
+      done();
+    });
+  });
+
+  it('supports custom scales', function(done) {
+    line
+      .x(d3.scaleBand().domain([1, 2, 3, 4, 5]).range([0, 300]))
+      .y(d3.scalePow().exponent(0.5).domain([0, 100]).range([150, 0]));
+
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[0]);
+
+      expect(pathDesc(svg.select('path.d2b-line'))).toBe('M30,128.786797L90,120L150,135L210,105L270,110.313730');
+
+      done();
+    });
+  });
+
+  it('supports graph key accessor', function(done) {
+    var oldNodes;
+    line.key(function (d) { return d.label; });
+
+    domTest(function (errors, window) {
+      var oldNodes = getNodes(generate(window, fixtures[1]));
+      expect(oldNodes).toEqual(getNodes(generate(window, fixtures[1])));
+      expect(oldNodes[0]).toEqual(getNodes(generate(window, fixtures[4]))[0]);
+      expect(oldNodes).not.toBeEqualNodes(getNodes(generate(window, fixtures[4])));
+
+      done();
     });
 
-    it('supports custom scales', function () {
-      this.line.x(d3.scaleBand().domain([1, 2, 3, 4, 5]).range([0, 300]));
-      this.line.y(d3.scalePow().exponent(0.5).domain([0, 100]).range([150, 0]));
-      this.svg.call(this.line);
+    function getNodes (svg) {
+      return svg.selectAll('path.d2b-line').nodes();
+    }
+  });
 
-      var path = this.svg.select('path.d2b-line'),
-          description = 'M30,128.786797L90,120L150,135L210,105L270,110.313730';
+  it('supports graphs accessor', function(done) {
+    line.graphs(function (d) { return d.graphs; });
 
-      expect(this.pathDescription(path)).toBe(description);
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[2]);
+
+      expect(svg.selectAll('g.d2b-line-graph').size()).toBe(1);
+
+      done();
     });
+  });
 
-    it('supports graph key accessor', function () {
-      var oldNodes, newNodes, svg = this.svg;
+  it('supports values accessor', function(done) {
+    line.values(function (d) { return d.vals; });
 
-      var getNodes = function () {
-        return svg.selectAll('path.d2b-line').nodes();
-      };
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[3]);
 
-      this.line.key(function (d) { return d.label; });
-      svg.datum(this.graphFixture2).call(this.line);
+      expect(pathDesc(svg.select('path.d2b-line'))).toBe('M0,80L75,60L150,90L225,10L300,30');
 
-      oldNodes = getNodes();
-
-      svg.call(this.line);
-
-      expect(oldNodes).toEqual(getNodes());
-
-      svg.datum(this.graphFixture5).call(this.line);
-
-      expect(oldNodes).not.toEqual(getNodes());
-      expect(oldNodes[0]).toEqual(getNodes()[0]);
+      done();
     });
+  });
 
-    it('supports graphs accessor', function () {
-      this.line.graphs(function (d) { return d.graphs; });
-      this.svg.datum(this.graphFixture3).call(this.line);
+  it('supports x and y point accessor', function(done) {
+    line
+      .px(function (d) { return d.xVal; })
+      .py(function (d) { return d.yVal; });
 
-      expect(this.svg.selectAll('g.d2b-line-graph').size()).toBe(1);
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[6]);
+
+      expect(pathDesc(svg.select('path.d2b-line'))).toBe('M0,80L75,60L150,90L225,10L300,30');
+
+      done();
     });
+  });
 
-    it('supports values accessor', function () {
-      var path, description;
+  it('has correct visible points', function(done) {
+    domTest(function (errors, window) {
+      var svg = generate(window, fixtures[7]);
 
-      this.line.values(function (d) { return d.vals; });
-      this.svg.datum(this.graphFixture4).call(this.line);
+      var points = line.getVisiblePoints(svg).map(function (d) { return [d.x, d.y]; });
 
-      path = this.svg.select('path.d2b-line');
-      description = 'M0,80L75,60L150,90L225,10L300,30';
-      expect(this.pathDescription(path)).toBe(description);
+      expect(points).toEqual([[1,2], [2,4], [1,6], [2,3]])
+
+      done();
     });
-
-    it('supports x and y point accessor', function () {
-      var path, description;
-
-      this.line
-        .px(function (d) { return d.xVal; })
-        .py(function (d) { return d.yVal; });
-      this.svg.datum(this.graphFixture7).call(this.line);
-
-      path = this.svg.select('path.d2b-line');
-      description = 'M0,80L75,60L150,90L225,10L300,30';
-      expect(this.pathDescription(path)).toBe(description);
-    });
-
-    it('has correct visible points', function () {
-      this.svg.datum(this.graphFixture8);
-
-      var mapper = function (d) { return [d.x, d.y]; },
-          points = this.line.getVisiblePoints(this.svg).map(mapper),
-          expected = [[1,2], [2,4], [1,6], [2,3]];
-
-      expect(points).toEqual(expected);
-    });
+  });
 
 });

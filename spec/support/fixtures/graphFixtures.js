@@ -1,6 +1,6 @@
-beforeEach(function () {
-
-  this.graphFixture1 = [
+module.exports = [
+  // fixture 0
+  [
     {
       label: 'Graph 1',
       values: [
@@ -11,9 +11,9 @@ beforeEach(function () {
         { x: 5, y: 7 }
       ]
     }
-  ];
-
-  this.graphFixture2 = [
+  ],
+  // fixture 1
+  [
     {
       label: 'Graph 1',
       values: [
@@ -34,9 +34,9 @@ beforeEach(function () {
         { x: 5, y: 1 }
       ]
     }
-  ];
-
-  this.graphFixture3 = {
+  ],
+  // fixture 2
+  {
     graphs: [
       {
         label: 'Graph 1',
@@ -49,9 +49,9 @@ beforeEach(function () {
         ]
       }
     ]
-  };
-
-  this.graphFixture4 = [
+  },
+  // fixture 3
+  [
     {
       label: 'Graph 1',
       vals: [
@@ -62,9 +62,9 @@ beforeEach(function () {
         { x: 5, y: 7 }
       ]
     }
-  ];
-
-  this.graphFixture5 = [
+  ],
+  // fixture 4
+  [
     {
       label: 'Graph 1',
       values: [
@@ -78,16 +78,16 @@ beforeEach(function () {
     {
       label: 'Graph 3',
       values: [
-        { x: 1, y: 2 },
-        { x: 2, y: 4 },
-        { x: 3, y: 1 },
+        { x: 1, y: 6 },
+        { x: 2, y: 3 },
+        { x: 3, y: 5 },
         { x: 4, y: 9 },
-        { x: 5, y: 7 }
+        { x: 5, y: 1 }
       ]
     }
-  ];
-
-  this.graphFixture6 = [
+  ],
+  // fixture 5
+  [
     {
       label: 'Graph 1',
       align: 'y1',
@@ -103,16 +103,16 @@ beforeEach(function () {
       label: 'Graph 2',
       align: 'y0',
       values: [
-        { x: 1, y: 2 },
-        { x: 2, y: 4 },
-        { x: 3, y: 1 },
+        { x: 1, y: 6 },
+        { x: 2, y: 3 },
+        { x: 3, y: 5 },
         { x: 4, y: 9 },
-        { x: 5, y: 7 }
+        { x: 5, y: 1 }
       ]
     }
-  ];
-
-  this.graphFixture7 = [
+  ],
+  // fixture 6
+  [
     {
       label: 'Graph 1',
       values: [
@@ -123,9 +123,9 @@ beforeEach(function () {
         { xVal: 5, yVal: 7 }
       ]
     }
-  ];
-
-  this.graphFixture8 = [
+  ],
+  // fixture 7
+  [
     {
       label: 'Graph 1',
       values: [
@@ -140,6 +140,5 @@ beforeEach(function () {
         { x: 2, y: 3 }
       ]
     }
-  ];
-
-});
+  ]
+];

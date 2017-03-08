@@ -1,3 +1,7 @@
+'use strict';
+
+var d2b = require('../../');
+
 describe("d2b.median()", function() {
 
   it("computes a zero median.", function () {

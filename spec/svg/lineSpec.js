@@ -17,7 +17,7 @@ describe('d2b.svgLine()', function() {
   var x, y, line;
 
   function domTest (callback) {
-    var htmlStub ='<html><svg></svg></html>';
+    var htmlStub ='<html><body><svg></svg></body></html>';
 
     return jsdom.env({
       features: {QuerySelector: true},

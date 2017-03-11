@@ -1,6 +1,6 @@
 # D2B: Data to DashBoards
 
-<a href = 'http://d2bjs.org'><img width = '250' src = 'docs/images/logo.png'></a>
+<a href = 'http://d2bjs.org'><img width = '250' src = 'https://raw.githubusercontent.com/d2bjs/d2b/master/logo/logo.png'></a>
 
 A reusable d3-based chart library.
 

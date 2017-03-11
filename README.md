@@ -1,3 +1,5 @@
+![d2b](docs/images/logo.png)
+
 # d2b
 
 A reusable d3-based chart library.

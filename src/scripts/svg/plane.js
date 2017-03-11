@@ -103,10 +103,10 @@ export default function () {
     .addPropFunctor('orient', d => d.orient || 'outer')
     .addPropFunctor('wrapLength', d => d.wrapLength || Infinity)
     .addPropFunctor('tickSize', d => d.tickSize || 6)
-    .addPropFunctor('showGrid', d => d.showGrid!==null && d.showGrid!==undefined? d.showGrid : true)
+    .addPropFunctor('showGrid', d => d.showGrid === false)
     .addPropFunctor('label', d => d.label)
     .addPropFunctor('labelOrient', d => d.labelOrient || 'outer middle')
-    // Method to get the computed box of a specific legend container. This
+    // Method to get the computed box of a specific plane container. This
     // method should be used after the plane has been rendered. Either the
     // legend SVG node or a d3 selection of the node may be specified.
     .addMethod('box', (_) => {
@@ -239,7 +239,11 @@ export default function () {
 
   function setAxisRange(axis, extent) {
     if (!axis.data) return;
-    axis.info.axis.scale().range([0, extent]);
+    if (['y', 'y2'].indexOf(axis.type) > -1) {
+      axis.info.axis.scale().range([extent, 0]);
+    } else {
+      axis.info.axis.scale().range([0, extent]);
+    }
   }
 
   // insert and remove dummy ticks and labels to pad axes accordingly

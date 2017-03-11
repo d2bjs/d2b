@@ -173,9 +173,9 @@ export default function () {
 
 
     setupAxis(xData, visible.x, axisDefaults.x);
-    setupAxis(yData, visible.y, axisDefaults.y, true);
+    setupAxis(yData, visible.y, axisDefaults.y);
     setupAxis(x2Data, visible.x2, axisDefaults.x2);
-    setupAxis(y2Data, visible.y2, axisDefaults.y2, true);
+    setupAxis(y2Data, visible.y2, axisDefaults.y2);
 
     $$.plane
       .axis(d => d.__axis__)
@@ -374,14 +374,12 @@ export default function () {
     return allGraphs.filter(g => g.data === graph || g.data === graph.data)[0];
   }
 
-  function setupAxis(data, points, defaults, reverse) {
+  function setupAxis(data, points, defaults) {
     if (!points.length) return;
     const axis = data.axis || defaults.axis,
           scale = data.scale ? data.scale.copy() : getScale(points, defaults);
 
     let domain = scale.domain();
-
-    if (reverse) domain.reverse();
 
     if (!scale.bandwidth && data.linearPadding) {
       const dist = domain[1] - domain[0];
@@ -397,7 +395,7 @@ export default function () {
     const band = points.some(d => isNaN(d)),
           domain = band ? d3.set(points).values() : d3.extent(points),
           scale = band ? defaults.band : defaults.linear;
-
+          
     return scale.domain(domain);
   }
 

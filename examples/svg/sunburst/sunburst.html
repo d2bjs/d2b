@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 600px;
+    height: 600px;
+  }
+
+</style>
+
+<body>
+  <svg>
+    <g transform = 'translate(300, 300)'></g>
+  </svg>
+
+	<script>
+
+    var sunburst= d2b.svgSunburst();
+
+
+    // use d3 to select the svg, set the datum, and apply the line generator
+    var svg = d3.select('svg g')
+    	.datum({
+        label: 'top level',
+        children: [
+          {
+            zoomable: true,
+            label: 'one',
+            children: [
+              { label: 'one-one', size: 5 }
+            ]
+          },
+          {
+            selected: true,
+            label: 'two',
+            children: [
+              { label: 'two-one', size: 5 },
+              {
+                label: 'two-two',
+                children: [
+                  { label: 'two-two-one', size: 2 },
+                  { label: 'two-two-two', size: 17 }
+                ]
+              }
+            ]
+          }
+        ]
+      })
+    	.call(sunburst);
+
+	</script>
+</body>
+</html>

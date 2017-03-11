@@ -105,25 +105,27 @@ export default function () {
 
   /* Inherit from base model */
   base(sunburst, $$)
+    .addProp('pie', d3.pie().sort(null))
+    .addProp('ancestorBanding', d3.scaleLinear())
+    .addProp('descendantBanding', d3.scalePow().exponent(0.85))
+    // Datum Level Accessors
     .addPropFunctor('duration', 250)
+    .addPropFunctor('innerRadius', 30)
+    .addPropFunctor('outerRadius', 200)
+    .addPropFunctor('ancestorPadding', 10)
+    .addPropFunctor('ancestorRatio', 0.2)
+    .addPropFunctor('descendantLevels', Infinity)
+    .addPropFunctor('startAngle', 0)
+    .addPropFunctor('endAngle', 2 * Math.PI)
+    .addPropFunctor('showLabels', false)
+    .addPropFunctor('zoomable', true)
+    .addPropFunctor('highlight', true)
+    // Node Level Accessors
     .addPropFunctor('key', d => d.label)
     .addPropFunctor('label', d => d.label)
     .addPropFunctor('color', d => color(d.label))
     .addPropFunctor('children', d => d.children)
-    .addPropFunctor('size', d => d.size)
-    .addPropFunctor('zoomable', true)
-    .addPropFunctor('highlight', true)
-    .addPropFunctor('innerRadius', 30)
-    .addPropFunctor('outerRadius', 200)
-    .addPropFunctor('startAngle', 0)
-    .addPropFunctor('endAngle', 2 * Math.PI)
-    .addPropFunctor('ancestorPadding', 10)
-    .addPropFunctor('ancestorRatio', 0.2)
-    .addPropFunctor('descendantLevels', Infinity)
-    .addPropFunctor('showLabels', false)
-    .addProp('ancestorBanding', d3.scaleLinear())
-    .addProp('descendantBanding', d3.scalePow().exponent(0.85))
-    .addProp('pie', d3.pie().sort(null));
+    .addPropFunctor('size', d => d.size);
 
   function getHierarchy (d) {
     return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));

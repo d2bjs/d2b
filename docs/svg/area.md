@@ -1,14 +1,14 @@
 > [d2b](../README.md) › **SVG Area**
 
 # {#area}
-[#](area.md#area) d2b.**svgArea**()
+[#](#area) d2b.**svgArea**()
 
 Constructs a new area generator with the default settings. This is not the same as [d3.area](https;//github.com/d3/d3-shape#area). The purpose of this module is to provide a common graph interface used in other types of graphs (e.g. area, line, bar).
 
 When using the d2b-area generator you can draw multiple area graphs onto each element in the selection. This is shown in the data example below.
 
 # {#area_apply}
-[#](area.md#area_apply) *area*(*context*)
+[#](#area_apply) *area*(*context*)
 
 Render the area(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
 
@@ -48,31 +48,31 @@ d3.select('.chart')
 ```
 
 # {#area_type}
-[#](area.md#area_type) area.**type**()
+[#](#area_type) area.**type**()
 
 Returns the string `area`.
 
 # {#area_area}
-[#](area.md#area_area) area.**area**([*d3-area*])
+[#](#area_area) area.**area**([*d3-area*])
 
 If *d3-area* is specified, sets the *d3-area* generator to the specified [d3-area](https;//github.com/d3/d3-shape#area) and returns the d2b area generator. If *d3-area* is not specified, returns the current *d3-area* generator, which defaults to [d3.area()](https;//github.com/d3/d3-shape#area).
 
 The *d3-area* can be configured at will, except for the [x](https;//github.com/d3/d3-shape#area_x) and [y](https;//github.com/d3/d3-shape#area_y) properties which will be set automatically by the d2b area generator.
 
 # {#area_stack}
-[#](area.md#area_stack) area.**stack**([*d3-stack*])
+[#](#area_stack) area.**stack**([*d3-stack*])
 
 If *d3-stack* is specified, sets the *d3-stack* generator to the specified [d3-stack](https;//github.com/d3/d3-shape/blob/master/README.md#stack) and returns the area generator. If *d3-stack* is not specified, returns the current *d3-stack* generator, which defaults to [d3.stack()](https;//github.com/d3/d3-shape/blob/master/README.md#stack).
 
 The *d3-stack* can be configured at will, except for the [keys](https;//github.com/d3/d3-shape/blob/master/README.md#stack_keys) and [values](https;//github.com/d3/d3-shape/blob/master/README.md#stack_value) properties which will be set automatically by the area generator.
 
 # {#area_x}
-[#](area.md#area_x) area.**x**([*x*])
+[#](#area_x) area.**x**([*x*])
 
 If *x* is specified, sets the *x* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the area generator. If *x* is not specified, returns the current *x* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
 
 # {#area_y}
-[#](area.md#area_y) area.**y**([*y*])
+[#](#area_y) area.**y**([*y*])
 
 If *y* is specified, sets the *y* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the area generator. If *y* is not specified, returns the current *y* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
 
@@ -81,7 +81,7 @@ If *y* is specified, sets the *y* scale to the specified [d3-scale](https;//gith
 When the d2b area generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#area_graphs}
-[#](area.md#area_graphs) area.**graphs**([*graphs*])
+[#](#area_graphs) area.**graphs**([*graphs*])
 
 If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the area generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to:
 
@@ -112,7 +112,7 @@ function (d) {
 ```
 
 # {#area_tooltip_graph}
-[#](area.md#area_tooltip_graph) area.**tooltipGraph**([*tooltip_graph*])
+[#](#area_tooltip_graph) area.**tooltipGraph**([*tooltip_graph*])
 
 If *tooltip_graph* is specified, sets the *tooltip_graph* to the specified accessor function and returns the area generator. If *tooltip_graph* is not specified, returns the current *tooltip_graph* accessor, which defaults to:
 
@@ -123,14 +123,14 @@ If *tooltip_graph* is specified, sets the *tooltip_graph* to the specified acces
 ```
 
 # {#area_shift}
-[#](area.md#area_shift) area.**shift**([*shift*])
+[#](#area_shift) area.**shift**([*shift*])
 
 If *shift* is specified, sets the horizontal *shift* to the specified accessor function or value and returns the area generator. If *shift* is not specified, returns the current *shift* accessor, which defaults to `() => null`.
 
 If a `null` accessor is used this shift will be computed dynamically based on the type of [d3-scale](https;//github.com/d3/d3-scale) being used. If a band scale is used then the shift will be set to half of the scales bandwidth.
 
 # {#area_stack_by}
-[#](area.md#area_stack_by) area.**stackBy**([*stack_by*])
+[#](#area_stack_by) area.**stackBy**([*stack_by*])
 
 If *stack_by* is specified, sets the *stack_by* accessor to the specified accessor function and returns the area generator. If *stack_by* is not specified, returns the current *stack_by* accessor, which defaults to `() => null`.
 
@@ -173,14 +173,14 @@ data = {
 ```
 
 # {#area_key}
-[#](area.md#area_key) area.**key**([*key*])
+[#](#area_key) area.**key**([*key*])
 
 If *key* is specified, sets the graph *key* accessor to the specified accessor function and returns the area generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d) => d.label`.
 
 If you are transitioning from one data set to another the key function is useful in making sure the proper graphs get updated to their corresponding values.
 
 # {#area_color}
-[#](area.md#area_color) area.**color**([*color*])
+[#](#area_color) area.**color**([*color*])
 
 If *color* is specified, sets the *color* accessor to the specified accessor function and returns the area generator. If *color* is not specified, returns the current *color* accessor, which defaults to:
 
@@ -196,7 +196,7 @@ function (d) {
 If you are transitioning from one data set to another the key function is useful in making sure the proper graphs get updated to their corresponding values.
 
 # {#area_values}
-[#](area.md#area_values) area.**values**([*values*])
+[#](#area_values) area.**values**([*values*])
 
 If *values* is specified, sets the *values* array to the specified accessor function or array and returns the area generator. If *values* is not specified, returns the current *values* accessor, which defaults to:
 
@@ -220,7 +220,7 @@ function (d, i) {
 ```
 
 # {#area_px}
-[#](area.md#area_px) area.**px**([*px*])
+[#](#area_px) area.**px**([*px*])
 
 If *px* is specified, sets the *px* accessor to the specified accessor function and returns the area generator. If *px* is not specified, returns the current *px* accessor, which defaults to:
 
@@ -231,7 +231,7 @@ function (d) {
 ```
 
 # {#area_py}
-[#](area.md#area_py) area.**px**([*py*])
+[#](#area_py) area.**px**([*py*])
 
 If *py* is specified, sets the *py* accessor to the specified accessor function and returns the area generator. If *py* is not specified, returns the current *py* accessor, which defaults to:
 
@@ -244,12 +244,12 @@ function (d) {
 ### Other Methods
 
 # {#area_get_computed_graphs}
-[#](area.md#area_get_computed_graphs) area.**getComputedGraphs**(*context*)
+[#](#area_get_computed_graphs) area.**getComputedGraphs**(*context*)
 
 Returns the array of computed graphs for the context's datum. This is not the same as the graphs array provided in the datum. This is a constructed graphs array that invokes all of the accessors described above. Usually this is used internally by the [d2b.chartAxis](../charts/chart-axis.md) module.
 
 # {#area_get_visible_points}
-[#](area.md#area_get_visible_points) area.**getVisiblePoints**(*context*)
+[#](#area_get_visible_points) area.**getVisiblePoints**(*context*)
 
 Returns the array of visible points. This array will be formed by concatenating all of the graph values and invoking the [px](#area_px) and [py](#area_py) accessor for each. Each value will have two elements from this visible points array, one for the discrete point's y0 and one for y1. This is helpful when trying to dynamically update the scale domains based on the range of x and y values. Usually this is used internally by the [d2b.chartAxis](../charts/chart-axis.md) module.
 

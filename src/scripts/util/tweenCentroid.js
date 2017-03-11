@@ -8,7 +8,8 @@ export default function (context, arc, options = { omit: ['data'] }) {
     return context
         .attr('transform', function (d) {
           this.current = omit(d, options.omit);
-          return `translate(${arc.centroid(this.current)})`;
+          return `translate(${arc.centroid(this.current)})`+
+                 `rotate(${this.current.rotate || 0})`;
         });
   }
 

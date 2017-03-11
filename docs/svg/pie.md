@@ -1,14 +1,14 @@
 > [d2b](../README.md) › **SVG Pie**
 
 # {#pie}
-[#](pie.md#pie) d2b.**svgPie**()
+[#](#pie) d2b.**svgPie**()
 
 Constructs a new pie generator with the default settings. This is not the same as [d3.pie](https;//github.com/d3/d3-shape#pie). However, the data set must first be processed through the [d3.pie](https;//github.com/d3/d3-shape#pie) layout.
 
 When using the d2b-pie generator you can draw a pie onto each element in the selection.
 
 # {#pie_apply}
-[#](pie.md#pie_apply) *pie*(*context*)
+[#](#pie_apply) *pie*(*context*)
 
 Render the pie(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
 
@@ -37,7 +37,7 @@ var svg = d3.select('svg g')
 ```
 
 # {#pie_arc}
-[#](pie.md#pie_arc) pie.**arc**([*d3-arc*])
+[#](#pie_arc) pie.**arc**([*d3-arc*])
 
 If *d3-arc* is specified, sets the *d3-arc* generator to the specified [d3-arc](https;//github.com/d3/d3-shape/blob/master/README.md#stack) and returns the pie generator. If *d3-arc* is not specified, returns the current *d3-arc* generator, which defaults to [d3.arc()](https;//github.com/d3/d3-shape/blob/master/README.md#arc).
 
@@ -48,7 +48,7 @@ The *d3-arc* can be configured at will.
 When the d2b pie generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#pie_values}
-[#](pie.md#pie_values) pie.**values**([*values*])
+[#](#pie_values) pie.**values**([*values*])
 
 If *values* is specified, sets the *values* array to the specified accessor function or array and returns the pie generator. If *values* is not specified, returns the current *values* accessor, which defaults to:
 
@@ -72,7 +72,7 @@ function (d) {
 ```
 
 # {#pie_color}
-[#](pie.md#pie_color) pie.**color**([*color*])
+[#](#pie_color) pie.**color**([*color*])
 
 If *color* is specified, sets the *color* accessor to the specified accessor function and returns the pie generator. If *color* is not specified, returns the current *color* accessor, which defaults to:
 
@@ -86,7 +86,7 @@ function (d) {
 ```
 
 # {#pie_key}
-[#](pie.md#pie_key) pie.**key**([*key*])
+[#](#pie_key) pie.**key**([*key*])
 
 If *key* is specified, sets the *key* accessor to the specified accessor function and returns the pie generator. If *key* is not specified, returns the current *key* accessor, which defaults to:
 

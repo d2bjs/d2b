@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<body>
+  <svg><text></text></svg>
+
+	<script>
+
+    d3.select('svg text')
+        .attr('y', 15)
+        .datum({label: 'A really really long label that needs to be wrapped.'})
+        .call(d2b.textWrap, function (d) { return d.label; }, 15);
+
+	</script>
+</body>
+</html>

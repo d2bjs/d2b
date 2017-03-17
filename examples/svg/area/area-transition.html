@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+  }
+
+</style>
+
+<body>
+  <svg><g transform = 'translate(10, 10)'></g></svg>
+
+	<script>
+
+    var dataSets = [
+      [{label: '1', values: values(1)}, {label: '2', values: values(0.5)}],
+      [{label: '1', values: values(1)}, {label: '2', values: values(0.5)}],
+      [{label: '1', values: values(1)}, {label: '2', values: values(0.5)}],
+    ];
+
+    var area = d2b.svgArea(),
+        x = d3.scaleLinear().domain([0, 19]).range([0, getWidth()]),
+        y = d3.scaleLinear().domain([0, 1]).range([280, 0]);
+
+    area.x(x).y(y);
+
+    area.area().curve(d3.curveBasis);
+
+    var svg = d3.select('svg'),
+        i = 0;
+
+    window.addEventListener('resize', function(){
+      x.range([0, getWidth()]);
+    	svg.call(area);
+    });
+
+    svg.datum(dataSets[i]).call(area);
+
+    setInterval(function () {
+      svg.datum(dataSets[index()]).transition().duration(500).call(area);
+    }, 2000);
+
+    function index() {
+      if ((i += 1) === dataSets.length) i = 0;
+      return i;
+    }
+
+    function values(m) {
+      return d3.range(0, 20).map(function (x) {
+        return { x: x, y: Math.random() * m }
+      });
+    }
+
+    function getWidth() {
+      return document.documentElement.clientWidth - 20;
+    }
+
+	</script>
+</body>
+</html>

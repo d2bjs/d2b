@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .breadcrumbs {
+    margin: 10px;
+  }
+
+</style>
+
+<body>
+  <div class = 'breadcrumbs'></div>
+
+	<script>
+
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var breadcrumbs = d2b.breadcrumbs();
+
+    breadcrumbs
+      .vertical(false)
+      .color(function (d, i) { return color(i); });
+
+    d3.select('div.breadcrumbs')
+      .datum([
+        { html: 'First' },
+        { html: 'Second' },
+        { html: 'Third' },
+        { html: 'Fourth' },
+      ])
+      .call(breadcrumbs);
+
+	</script>
+</body>
+</html>

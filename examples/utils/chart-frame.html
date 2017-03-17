@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .chart {
+    width: 100%;
+    height: 500px;
+  }
+
+</style>
+
+<body>
+  <div class = 'chart'></div>
+
+	<script>
+
+    // setup a chart frame
+
+    var chartFrame = d2b.chartFrame();
+
+    chartFrame
+      .legendEnabled(true)
+      .breadcrumbsEnabled(true);
+
+    var chart = d3.select('div.chart');
+
+    chart.call(chartFrame);
+
+    // add something to the chart that corresponds to the inner __size__
+
+    var chartContainer = chart.select('.d2b-chart-container');
+
+    var innerSize = chartContainer.node().__size__;
+
+    chartContainer
+      .append('rect')
+        .style('fill', 'steelblue')
+        .attr('width', innerSize.width)
+        .attr('height', innerSize.height)
+
+    // set some breadcrumbs
+
+    var breadcrumbs = d2b.breadcrumbs();
+
+    breadcrumbs
+      .color('steelblue');
+
+    var breadcrumbsContainer = chart.select('.d2b-breadcrumbs-container');
+
+    breadcrumbsContainer
+      .datum([
+        { html: 'First' },
+        { html: 'Second' },
+        { html: 'Third' },
+        { html: 'Fourth' },
+      ])
+      .call(breadcrumbs);
+
+    // set some legend
+
+    var legend = d2b.legend();
+
+    legend
+      .vertical(false)
+      .clickable(true)
+      .dblclickable(true)
+      .color('steelblue');
+
+    var legendContainer = chart.select('.d2b-legend-container');
+
+    legendContainer
+      .datum([
+        { html: 'First' },
+        { html: 'Second' },
+        { html: 'Third' },
+        { html: 'Fourth' },
+      ])
+      .call(legend);
+
+    // update as needed..
+
+	</script>
+</body>
+</html>

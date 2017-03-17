@@ -5,7 +5,7 @@
 	"description": "Agave reference documentation.",
 	"author": "Damour Team",
 
-	"plugins": ["-sharing", "custom-favicon", "expandable-chapters"],
+	"plugins": ["-sharing", "custom-favicon", "toggle-chapters"],
 
   "pluginsConfig" : {
     "favicon": "docs/images/favicon.ico"

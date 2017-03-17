@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+  }
+
+</style>
+
+<body>
+  <svg></svg>
+
+	<script>
+
+    var svg = d3.select('svg');
+
+    // construct a graph of circles
+
+    var circleData = [
+      {x: 100, y: 100, color: 'red'},
+      {x: 200, y: 200, color: 'purple'},
+      {x: 300, y: 300, color: 'blue'},
+      {x: 400, y: 400, color: 'green'},
+    ]
+
+    var circle = svg.selectAll('circle').data(circleData);
+
+    circle.enter()
+      .append('circle')
+        .attr('r', 10)
+        .style('fill', function (d) { return d.color; })
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+
+    // construct a graph of rects
+
+    var rectData = [
+      {x: 100, y: 320, color: 'orange'},
+      {x: 200, y: 36, color: 'gray'},
+      {x: 300, y: 450, color: 'steelblue'},
+      {x: 400, y: 310, color: 'black'},
+    ]
+
+    var rect = svg.selectAll('rect').data(rectData);
+
+    rect.enter()
+      .append('rect')
+        .attr('width', 10)
+        .attr('height', 10)
+        .style('fill', function (d) { return d.color; })
+        .attr('x', function (d) { return d.x - 5; })
+        .attr('y', function (d) { return d.y - 5; });
+
+
+    // configure the tooltip-axis
+
+    var tooltipAxis = d2b.tooltipAxis();
+
+    tooltipAxis
+      // svg container to know where to add grid markers
+      .svgContainer(svg)
+      // size of the axis
+      .size({width: 500, height: 500})
+      // title or header accessor for the tooltip
+      .title(function (d) { return d[0].x; })
+      // row accessor for the tooltip
+      .row(function (d) { return d.y; })
+      // row-color accessor for the tooltip
+      .color(function (d) { return d.color; })
+      // max distance that a tooltip will be generated for a set of points
+      .threshold(100)
+      // container where the mouse events will be bound
+      .tracker(svg);
+
+    // create circle tooltip graph and supply data
+    tooltipAxis.graph('circle').data(circleData);
+
+    // create rect tooltip graph and supply data
+    tooltipAxis.graph('rect').data(rectData);
+
+	</script>
+</body>
+</html>

@@ -1,13 +1,20 @@
 import * as d3 from 'd3';
 
-import {omit} from './object.js';
+export default function (context, arc) {
+  function getProperties(d) {
+    return {
+      innerRadius: arc.innerRadius()(d),
+      outerRadius: arc.outerRadius()(d),
+      startAngle: arc.startAngle()(d),
+      endAngle: arc.endAngle()(d),
+    };
+  }
 
-export default function (context, arc, options = { omit: ['data'] }) {
 	// if context is not a transition just render the arc and update current
   if (!context.selection) {
     return context
         .attr('d', function (d) {
-          this.current = omit(d, options.omit);
+          this.current = getProperties(d);
           return arc(d);
         });
   }
@@ -15,7 +22,7 @@ export default function (context, arc, options = { omit: ['data'] }) {
   // if context is a transition tween the 'd' attribute
   context.attrTween('d', function (d) {
     // omit data attribute incase of a pie chart with nested associations
-    d = omit(d, options.omit);
+    d = getProperties(d);
     this.current = this.current || d;
     const i = d3.interpolate(this.current, d);
     return t => {

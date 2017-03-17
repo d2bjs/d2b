@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 300px;
+    height: 300px;
+  }
+
+</style>
+
+<body>
+  <svg><g transform = 'translate(150, 150)'></g></svg>
+
+	<script>
+
+    var pie = d2b.svgPie(),
+        layout = d3.pie(),
+        i = 0;
+
+    dataSets = [
+      [{label: '1', value: 120}, {label: '2', value: 101}, {label: '3', value: 351}],
+      [{label: '1', value: 221}, {label: '2', value: 250}],
+      [{label: '1', value: 221}, {label: '2', value: 250}, {label: '3', value: 210}, {label: '4', value: 110}],
+    ];
+
+    pie.arc().outerRadius(150).innerRadius(100);
+
+    layout.value(function (d) { return d.value; }).sort(null);
+
+    var svg = d3.select('svg g');
+
+    svg.datum(layout(dataSets[i])).call(pie);
+
+    setInterval(function () {
+      svg.datum(layout(dataSets[index()])).transition().duration(500).call(pie);
+    }, 2000);
+
+    function index() {
+      if ((i += 1) === dataSets.length) i = 0;
+      return i;
+    }
+
+	</script>
+</body>
+</html>

@@ -316,7 +316,7 @@ export default function () {
                   return d;
                 })
               .transition(tools.transition)
-                .call(tween, arc, { omit: ['data', 'children', 'parent', 'selected'] });
+                .call(tween, arc);
 
             if (type === 'label') {
               pathExit
@@ -335,7 +335,7 @@ export default function () {
     arcExit.remove();
 
     const pathUpdate = arcUpdate.select(`.d2b-sunburst-${type}.${levelClass}`)
-        .call(tween, arc, { omit: ['data', 'children', 'parent', 'selected'] });
+        .call(tween, arc);
 
     if (type === 'arc') {
       pathUpdate.style('fill', d => d.color);

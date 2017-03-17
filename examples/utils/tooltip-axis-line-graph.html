@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 960px;
+    height: 500px;
+  }
+
+</style>
+
+<body>
+  <svg></svg>
+
+	<script>
+
+    var line = d2b.svgLine(),
+        x = d3.scaleLinear().domain([1, 5]).range([0, 960]),
+        y = d3.scaleLinear().domain([100, 0]).range([0, 500]);
+
+    line.x(x).y(y);
+
+    var svg = d3.select('svg');
+
+    // construct and confiture the tooltip axis
+    var tooltipAxis = d2b.tooltipAxis();
+
+    tooltipAxis
+      .svgContainer(svg)
+      .tracker(svg)
+      .title(function (d) { return d[0].x; })
+      .row(function (d) { return d.y; })
+      .size({width: 960, height: 500});
+
+    svg
+    	.datum([
+        {
+          label: 'Line Graph 1',
+          // add a tooltip graph for the first line graph
+          tooltipGraph: tooltipAxis.graph('line', 'graph 1'),
+          values: [
+            { x: 1, y: 22 },
+            { x: 2, y: 41 },
+            { x: 3, y: 36 },
+            { x: 4, y: 51 },
+            { x: 5, y: 10 }
+          ]
+        },
+        {
+          label: 'Line Graph 2',
+          // and for the second line graph
+          tooltipGraph: tooltipAxis.graph('line', 'graph 2'),
+          values: [
+            { x: 1, y: 12 },
+            { x: 2, y: 15 },
+            { x: 3, y: 60 },
+            { x: 4, y: 31 },
+            { x: 5, y: 40 }
+          ]
+        }
+    	])
+    	.call(line);
+
+	</script>
+</body>
+</html>

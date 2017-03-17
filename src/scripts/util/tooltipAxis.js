@@ -167,7 +167,7 @@ export default function (id = d2bid()) {
   };
 
   // Enter tooltip components.
-  const enter = function () {
+  const enter = function (d, i) {
     const markerX = $$.selectionSvg.selectAll('.d2b-tooltip-marker-x').data($$.trackX? [tooltip] : []);
     const markerXEnter = markerX.enter()
       .append('line')
@@ -190,6 +190,8 @@ export default function (id = d2bid()) {
 
     tooltipEnter.append('div').attr('class', 'd2b-tooltip-title');
     tooltipEnter.append('div').attr('class', 'd2b-tooltip-content');
+
+    $$.dispatch.call('insert', $$.tooltip, d, i);
   };
 
   // Exit tooltip components.
@@ -224,12 +226,14 @@ export default function (id = d2bid()) {
         .call(populateTooltip, pointInfo)
         .call(positionTooltip, pointInfo, baseBox);
 
-    $$.dispatch.call('move', $$.tooltip, this, d, i);
+    $$.dispatch.call('move', $$.tooltip, d, i);
   };
 
   // Tracker mouseout event.
-  const mouseout = function () {
+  const mouseout = function (d, i) {
     exit();
+
+    $$.dispatch.call('remove', $$.tooltip, d, i);
   };
 
   // Event key builder.
@@ -292,7 +296,7 @@ export default function (id = d2bid()) {
     .addPropFunctor('y', d => d.y)
     .addPropFunctor('color', null)
     .addPropFunctor('row', null)
-    .addDispatcher(['move']);
+    .addDispatcher(['move', 'insert', 'remove']);
 
 
   // construct an interface for each graph that is initialized

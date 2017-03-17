@@ -17,9 +17,9 @@
 }*/
 
 
-.book .book-summary .expanded > a .exc-trigger:before, .book .book-summary .expanded > span .exc-trigger:before {
+/*.book .book-summary .expanded > a .exc-trigger:before, .book .book-summary .expanded > span .exc-trigger:before {
   content: "\f0d7" !important;
 }
 .book .book-summary .exc-trigger:before {
   content: '\f0da' !important;
-}
+}*/

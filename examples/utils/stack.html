@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<body>
+  <svg></svg>
+
+	<script>
+
+    var data = [
+      [
+        {x: 100, y: 20},
+        {x: 200, y: 410},
+        {x: 300, y: 45},
+        {x: 400, y: 90},
+      ],
+      [
+        {x: 100, y: 200},
+        {x: 200, y: 120},
+        {x: 300, y: 310},
+        {x: 400, y: 330},
+      ]
+    ];
+
+    var stacker = d2b.stack();
+
+    // retrive the d3.stack component and reconfigure the offset type
+    stacker.stack().offset(d3.stackOffsetExpand);
+
+    // stack the data
+    stacker(data);
+
+    // now each point object will have it's y0 and y1 property set
+    console.log(data)
+
+	</script>
+</body>
+</html>

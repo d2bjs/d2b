@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 500px;
+    height: 500px;
+  }
+
+</style>
+
+<body>
+  <svg></svg>
+
+	<script>
+
+    var circleData = [
+      {x: 100, y: 100, color: 'red'},
+      {x: 200, y: 200, color: 'purple'},
+      {x: 300, y: 300, color: 'blue'},
+      {x: 400, y: 400, color: 'green'},
+    ]
+
+    var circle = d3.select('svg').selectAll('circle').data(circleData);
+
+    var tooltip = d2b.tooltip();
+
+    tooltip
+      .html(function (d) { return 'x: ' + d.x + ' y: ' + d.y; })
+      .color(function (d) { return d.color; });
+
+    circle.enter()
+      .append('circle')
+        .attr('r', 10)
+        .style('fill', function (d) { return d.color; })
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; })
+        .call(tooltip);
+
+	</script>
+</body>
+</html>

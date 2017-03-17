@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .legend {
+    margin: 10px;
+  }
+
+</style>
+
+<body>
+  <div class = 'legend'></div>
+
+	<script>
+
+    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    var legend = d2b.legend();
+
+    legend
+      .vertical(false)
+      .clickable(true)
+      .icon(d3.symbolSquare)
+      .dblclickable(true)
+      .color(function (d, i) { return color(i); });
+
+    d3.select('div.legend')
+      .datum([
+        { html: 'First' },
+        { html: 'Second' },
+        { html: 'Third' },
+        { html: 'Fourth' },
+      ])
+      .call(legend);
+
+	</script>
+</body>
+</html>

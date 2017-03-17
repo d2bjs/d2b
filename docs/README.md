@@ -1,4 +1,5 @@
-![Local Image](./images/logo.png)
+
+<img src = './images/logo.png' style = 'max-width: 500px;display:block;margin:auto;width:100%;'>
 
 ## What is it?
 
@@ -8,11 +9,12 @@ A d3-based reusable charting library.
 
 There are several reasons to use d2b over other charting frameworks. Here are some of them:
 
-* It harnesses the power of d3.js, and is built using the same module design.
+* It is built using the same module design as d3.js.
 * Easy to start using if you already know d3 and a great place to start if you'd like to learn more about d3.
-* It Uses rollup.js as a bundler, which makes it possible to create a custom d2b build.
+* Uses rollup.js as a bundler, which enables tree shaking and custom builds.
 * Although it uses a similar implementation pattern as d3, it's purpose is to give you a suite of charts to use out of the box.  
-* The d2b charts are highly configurable, which is made easy by the module design.
+* The module design pattern exposes internal d2b and d3 components that can be reconfigured to fit your needs.
+* It comes with optional Vue.js components for rendering reactive charts.
 
 ## Installing
 

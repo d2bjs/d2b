@@ -1,14 +1,16 @@
 > [d2b](../README.md) › **SVG Scatter**
 
-# {#scatter}
-[#](#scatter) d2b.**svgScatter**()
+![Local Image](../gifs/scatter-svg-transition.gif)
 
-Constructs a new scatter generator with the default settings. The purpose of this module is to provide a common graph interface used in other types of graphs (e.g. scatter, line, bar).
+# {#generator}
+[#](#generator) d2b.**svgScatter**()
+
+Constructs a new scatter generator with the default settings. The purpose of this module is to provide a common graph API used in other types of graphs (e.g. scatter, line, bar).
 
 When using the d2b-scatter generator you can draw multiple scatter graphs onto each element in the selection. This is shown in the data example below.
 
-# {#scatter_apply}
-[#](#scatter_apply) *scatter*(*context*)
+# {#apply}
+[#](#apply) *scatter*(*context*)
 
 Render the scatter(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
 
@@ -47,13 +49,13 @@ d3.select('.chart')
     .call(scatter);  
 ```
 
-# {#scatter_type}
-[#](#scatter_type) scatter.**type**()
+# {#type}
+[#](#type) scatter.**type**()
 
 Returns the string `scatter`.
 
-# {#scatter_stack}
-[#](#scatter_stack) scatter.**stack**([*d3-stack*])
+# {#stack}
+[#](#stack) scatter.**stack**([*d3-stack*])
 
 If *d3-stack* is specified, sets the *d3-stack* generator to the specified [d3-stack](https;//github.com/d3/d3-shape/blob/master/README.md#stack) and returns the scatter generator. If *d3-stack* is not specified, returns the current *d3-stack* generator, which defaults to [d3.stack()](https;//github.com/d3/d3-shape/blob/master/README.md#stack).
 
@@ -61,13 +63,13 @@ The *d3-stack* can be configured at will, except for the [keys](https;//github.c
 
 Usually scatter graphs are not stacked by themselves, but if they are used to overlay on a stacked area graph then stacking should be used to make sure they are aligned.
 
-# {#scatter_x}
-[#](#scatter_x) scatter.**x**([*x*])
+# {#x}
+[#](#x) scatter.**x**([*x*])
 
 If *x* is specified, sets the *x* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the scatter generator. If *x* is not specified, returns the current *x* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
 
-# {#scatter_y}
-[#](#scatter_y) scatter.**y**([*y*])
+# {#y}
+[#](#y) scatter.**y**([*y*])
 
 If *y* is specified, sets the *y* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the area generator. If *y* is not specified, returns the current *y* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
 
@@ -75,8 +77,8 @@ If *y* is specified, sets the *y* scale to the specified [d3-scale](https;//gith
 
 When the d2b scatter generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
-# {#scatter_graphs}
-[#](#scatter_graphs) scatter.**graphs**([*graphs*])
+# {#graphs}
+[#](#graphs) scatter.**graphs**([*graphs*])
 
 If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the scatter generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to:
 
@@ -88,7 +90,7 @@ function (d) {
 
 ### Graph Level Accessors
 
-When the d2b scatter generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#scatter_graphs) array. The function will be passed the graph data `d` and the corresponding graph index `i`.
+When the d2b scatter generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#graphs) array. The function will be passed the graph data `d` and the corresponding graph index `i`.
 
 ```javascript
 function (d) {
@@ -106,8 +108,8 @@ function (d) {
 }
 ```
 
-# {#scatter_tooltip_graph}
-[#](#scatter_tooltip_graph) scatter.**tooltipGraph**([*tooltip_graph*])
+# {#tooltip_graph}
+[#](#tooltip_graph) scatter.**tooltipGraph**([*tooltip_graph*])
 
 If *tooltip_graph* is specified, sets the *tooltip_graph* to the specified accessor function and returns the scatter generator. If *tooltip_graph* is not specified, returns the current *tooltip_graph* accessor, which defaults to:
 
@@ -117,19 +119,19 @@ If *tooltip_graph* is specified, sets the *tooltip_graph* to the specified acces
   }
 ```
 
-# {#scatter_shift}
-[#](#scatter_shift) scatter.**shift**([*shift*])
+# {#shift}
+[#](#shift) scatter.**shift**([*shift*])
 
 If *shift* is specified, sets the horizontal *shift* to the specified accessor function or value and returns the scatter generator. If *shift* is not specified, returns the current *shift* accessor, which defaults to `() => null`.
 
 If a `null` accessor is used this shift will be computed dynamically based on the type of [d3-scale](https;//github.com/d3/d3-scale) being used. If a band scale is used then the shift will be set to half of the scales bandwidth.
 
-# {#scatter_stack_by}
-[#](#scatter_stack_by) scatter.**stackBy**([*stack_by*])
+# {#stack_by}
+[#](#stack_by) scatter.**stackBy**([*stack_by*])
 
 If *stack_by* is specified, sets the *stack_by* accessor to the specified accessor function and returns the scatter generator. If *stack_by* is not specified, returns the current *stack_by* accessor, which defaults to `() => null`.
 
-If the accessor returns `falsy` then no graph stacking will be performed. If the accessor returns `truthy` then all graphs in a `datum` set will be stacked together. A more advanced method of stacking allows to stack specific graphs together, this can be done by using a stack property on the graph and setting the [stackBy](#scatter_stack_by) accessor accordingly. In the example below there will be two graphs stacked together under the key `1`, two graphs stacked together under the key `2`, and one other graph that is denoted as stack `3`.
+If the accessor returns `falsy` then no graph stacking will be performed. If the accessor returns `truthy` then all graphs in a `datum` set will be stacked together. A more advanced method of stacking allows to stack specific graphs together, this can be done by using a stack property on the graph and setting the [stackBy](#stack_by) accessor accordingly. In the example below there will be two graphs stacked together under the key `1`, two graphs stacked together under the key `2`, and one other graph that is denoted as stack `3`.
 
 ```javascript
 scatter.stackBy(function (d) {
@@ -167,22 +169,22 @@ data = {
 }
 ```
 
-# {#scatter_symbol}
-[#](#scatter_symbol) scatter.**symbol**([*symbol*])
+# {#symbol}
+[#](#symbol) scatter.**symbol**([*symbol*])
 
 If *symbol* is specified, sets the graph *symbol* accessor to the specified accessor function and returns the scatter generator. If *symbol* is not specified, returns the current *symbol* accessor, which defaults to `(d) => d3.symbolCircle`.
 
 This property should be set to one of the preset or custom [d3 symbols](https;//github.com/d3/d3-shape#symbols). This symbol type will set the default symbol type for an entire graph.
 
-# {#scatter_key}
-[#](#scatter_key) scatter.**key**([*key*])
+# {#key}
+[#](#key) scatter.**key**([*key*])
 
 If *key* is specified, sets the graph *key* accessor to the specified accessor function and returns the scatter generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d) => d.label`.
 
 If you are transitioning from one data set to another the key function is useful in making sure the proper graphs get updated to their corresponding values.
 
-# {#scatter_color}
-[#](#scatter_color) scatter.**color**([*color*])
+# {#color}
+[#](#color) scatter.**color**([*color*])
 
 If *color* is specified, sets the *color* accessor to the specified accessor function and returns the scatter generator. If *color* is not specified, returns the current *color* accessor, which defaults to:
 
@@ -197,8 +199,8 @@ function (d) {
 
 If you are transitioning from one data set to another the key function is useful in making sure the proper graphs get updated to their corresponding values.
 
-# {#scatter_values}
-[#](#scatter_values) scatter.**values**([*values*])
+# {#values}
+[#](#values) scatter.**values**([*values*])
 
 If *values* is specified, sets the *values* array to the specified accessor function or array and returns the scatter generator. If *values* is not specified, returns the current *values* accessor, which defaults to:
 
@@ -210,7 +212,7 @@ function (d) {
 
 ### Value Level Accessors
 
-When the d2b scatter generator is applied to a selection, the following properties will be invoked for each element in the [values](#scatter_values) array. The function will be passed the value data `d` and the index position within the [values](#bubble_pack_children) array `i`.
+When the d2b scatter generator is applied to a selection, the following properties will be invoked for each element in the [values](#values) array. The function will be passed the value data `d` and the index position within the [values](#bubble_pack_children) array `i`.
 
 ```javascript
 function (d) {
@@ -221,8 +223,8 @@ function (d) {
 }
 ```
 
-# {#scatter_px}
-[#](#scatter_px) scatter.**px**([*px*])
+# {#px}
+[#](#px) scatter.**px**([*px*])
 
 If *px* is specified, sets the *px* accessor to the specified accessor function and returns the scatter generator. If *px* is not specified, returns the current *px* accessor, which defaults to:
 
@@ -232,8 +234,8 @@ function (d) {
 }
 ```
 
-# {#scatter_py}
-[#](#scatter_py) scatter.**py**([*py*])
+# {#py}
+[#](#py) scatter.**py**([*py*])
 
 If *py* is specified, sets the *py* accessor to the specified accessor function and returns the scatter generator. If *py* is not specified, returns the current *py* accessor, which defaults to:
 
@@ -243,40 +245,40 @@ function (d) {
 }
 ```
 
-# {#scatter_pcolor}
-[#](#scatter_pcolor) scatter.**pcolor**([*color*])
+# {#pcolor}
+[#](#pcolor) scatter.**pcolor**([*color*])
 
 If *color* is specified, sets the *color* accessor to the specified accessor function and returns the scatter generator. If *color* is not specified, returns the current *color* accessor, which defaults to `() => null`.
 
-If *color* is null then the corresponding graph [color](#scatter_color) will be used.
+If *color* is null then the corresponding graph [color](#color) will be used.
 
-# {#scatter_psymbol}
-[#](#scatter_psymbol) scatter.**psymbol**([*symbol*])
+# {#psymbol}
+[#](#psymbol) scatter.**psymbol**([*symbol*])
 
 If *symbol* is specified, sets the *symbol* accessor to the specified accessor function and returns the scatter generator. If *symbol* is not specified, returns the current *symbol* accessor, which defaults to `() => null`.
 
-If *symbol* is `null` then the corresponding graph [symbol](#scatter_symbol) type will be used.
+If *symbol* is `null` then the corresponding graph [symbol](#symbol) type will be used.
 
-# {#scatter_psize}
-[#](#scatter_psize) scatter.**psize**([*size*])
+# {#psize}
+[#](#psize) scatter.**psize**([*size*])
 
 If *size* is specified, sets the *size* accessor to the specified accessor function and returns the scatter generator. If *size* is not specified, returns the current *size* accessor, which defaults to `() => 25`. The *size* is a numerical value corresponding to the pixel area of the defined symbol type.
 
-# {#scatter_pkey}
-[#](#scatter_pkey) scatter.**pkey**([*key*])
+# {#pkey}
+[#](#pkey) scatter.**pkey**([*key*])
 
 If *key* is specified, sets the *key* accessor to the specified accessor function and returns the scatter generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
 
-If transitioning between data sets, the [key](#scatter_pkey) may be used to be sure that the matching scatter points transition properly.
+If transitioning between data sets, the [key](#pkey) may be used to be sure that the matching scatter points transition properly.
 
 ### Other Methods
 
-# {#scatter_get_computed_graphs}
-[#](#scatter_get_computed_graphs) scatter.**getComputedGraphs**(*context*)
+# {#get_computed_graphs}
+[#](#get_computed_graphs) scatter.**getComputedGraphs**(*context*)
 
 Returns the array of computed graphs for the context's datum. This is not the same as the graphs array provided in the datum. This is a constructed graphs array that invokes all of the accessors described above. Usually this is used internally by the [d2b.chartAxis](../charts/chart-axis.md) module.
 
-# {#scatter_get_visible_points}
-[#](#scatter_get_visible_points) scatter.**getVisiblePoints**(*context*)
+# {#get_visible_points}
+[#](#get_visible_points) scatter.**getVisiblePoints**(*context*)
 
-Returns the array of visible points. This array will be formed by concatenating all of the graph values and invoking the [px](#scatter_px) and [py](#scatter_py) accessor for each. This is helpful when trying to dynamically update the scale domains based on the range of x and y values. Usually this is used internally by the [d2b.chartAxis](../charts/chart-axis.md) module.
+Returns the array of visible points. This array will be formed by concatenating all of the graph values and invoking the [px](#px) and [py](#py) accessor for each. This is helpful when trying to dynamically update the scale domains based on the range of x and y values. Usually this is used internally by the [d2b.chartAxis](../charts/chart-axis.md) module.

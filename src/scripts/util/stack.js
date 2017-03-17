@@ -69,7 +69,7 @@ export default function () {
     .addPropFunctor('values', d => d)
     .addPropFunctor('x', d => d.x)
     .addPropFunctor('y', d => d.y)
-    .addPropFunctor('out', (d, y0, y1) => {
+    .addProp('out', (d, y0, y1) => {
       d.y0 = y0;
       d.y1 = y1;
     });

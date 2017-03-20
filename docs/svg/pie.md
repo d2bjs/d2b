@@ -5,49 +5,52 @@
 # {#generator}
 [#](#generator) d2b.**svgPie**()
 
-Constructs a new pie generator with the default settings. This is not the same as [d3.pie](https;//github.com/d3/d3-shape#pie). However, the data set must first be processed through the [d3.pie](https;//github.com/d3/d3-shape#pie) layout.
+Constructs a new pie generator with the default settings. This is not the same as [d3.pie](https://github.com/d3/d3-shape#pie), however it does use [d3.pie](https://github.com/d3/d3-shape#pie) internally.
 
 When using the d2b-pie generator you can draw a pie onto each element in the selection.
 
 # {#apply}
 [#](#apply) *pie*(*context*)
 
-Render the pie(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Render the pie(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
-Before applying the d2b-pie generator, you should join the data to the selected element(s) using [selection.data](https;//github.com/d3/d3-selection#selection_data) or [selection.datum](https;//github.com/d3/d3-selection#selection_datum). Here is the default data format.
+Before applying the d2b-pie generator, you should join the data to the selected element(s) using [selection.data](https://github.com/d3/d3-selection#selection_data) or [selection.datum](https://github.com/d3/d3-selection#selection_datum). Here is the default data format.
 
 ```javascript
-var pie = d2b.svgPie(),
-    layout = d3.pie();
+var pie = d2b.svgPie();
 
 pie.arc()
   .outerRadius(150)
   .innerRadius(100);
 
-layout
-  .value(function (d) { return d.value; });
-
 var data = [
     {label: 'Apples', value: 120},
     {label: 'Oranges', value: 101},
     {label: 'Grapes', value: 351}
-];    
+];
 
 var svg = d3.select('svg g')
-	.datum(layout(data))
-	.call(pie);
+    .datum(data)
+    .call(pie);
 ```
 
 # {#arc}
 [#](#arc) pie.**arc**([*d3-arc*])
 
-If *d3-arc* is specified, sets the *d3-arc* generator to the specified [d3-arc](https;//github.com/d3/d3-shape/blob/master/README.md#stack) and returns the pie generator. If *d3-arc* is not specified, returns the current *d3-arc* generator, which defaults to [d3.arc()](https;//github.com/d3/d3-shape/blob/master/README.md#arc).
+If *d3-arc* is specified, sets the *d3-arc* generator to the specified [d3-arc](https://github.com/d3/d3-shape/blob/master/README.md#arc) and returns the d2b-pie generator. If *d3-arc* is not specified, returns the current *d3-arc* generator, which defaults to [d3.arc()](https://github.com/d3/d3-shape/blob/master/README.md#arc).
 
-The *d3-arc* can be configured at will.
+The *d3-arc* can be configured at will, except for the [startAngle](https://github.com/d3/d3-shape/blob/master/README.md#arc_startAngle), [endAngle](https://github.com/d3/d3-shape/blob/master/README.md#arc_endAngle), and [padAngle](https://github.com/d3/d3-shape/blob/master/README.md#arc_padAngle) properties which will be set automatically by the d2b-pie generator.
+
+# {#pie}
+[#](#pie) pie.**pie**([*d3-pie*])
+
+If *d3-pie* is specified, sets the *d3-pie* layout to the specified [d3.pie](https://github.com/d3/d3-shape/blob/master/README.md#pie) and returns the d2b-pie generator. If *d3-pie* is not specified, returns the current *d3-pie* layout, which defaults to [d3.pie()](https://github.com/d3/d3-shape/blob/master/README.md#pie).
+
+The *d3-pie* can be configured at will, except for the [value](https://github.com/d3/d3-shape/blob/master/README.md#pie_value) property which will be set automatically by the d2b-pie generator.
 
 ### Datum Level Accessors
 
-When the d2b pie generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
+When the d2b pie generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#values}
 [#](#values) pie.**values**([*values*])
@@ -62,16 +65,21 @@ function (d) {
 
 ### Value Level Accessors
 
-When the d2b pie generator is applied to a selection, the following properties will be invoked for each element in the [values](#values) array. The function will be passed the value data `d` and the index position within the [values](#bubble_pack_children) array `i`.
+When the d2b pie generator is applied to a selection, the following properties will be invoked for each element in the [values](#values) array. The function will be passed the value data `d` and the index position within the [values](#values) array `i`.
 
 ```javascript
-function (d) {
+function (d, i) {
   // d => {
   //   label: 'Apples',
   //   value: 120
   // }
 }
 ```
+
+# {#value}
+[#](#value) pie.**value**([*value*])
+
+If *value* is specified, sets the *value* accessor to the specified accessor function and returns the pie generator. If *value* is not specified, returns the current *value* accessor, which defaults to `d => d.value`.
 
 # {#color}
 [#](#color) pie.**color**([*color*])

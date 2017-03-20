@@ -5,7 +5,7 @@ This function is used to wrap svg text based on a threshold pixel width. Based o
 # {#function}
 [#](#function) d2b.**textWrapPX**(*context*, [*width*])
 
-Wrap the *context* text, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of svg text elements or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Wrap the *context* text, which may be either a [d3-selection](https://github.com/d3/d3-selection) of svg text elements or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
 If *width* is provided, it will be used to set the pixel threshold where text wrapping should occur. The *width* defaults to `Infinity`.
 

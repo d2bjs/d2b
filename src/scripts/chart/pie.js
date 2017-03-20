@@ -21,6 +21,23 @@ export default function () {
   const chart = function (context) {
     context.call($$.chartFrame);
 
+    // make sure pie, arc, and legend accessors are defined properly
+    $$.pie
+      .value($$.value)
+      .color($$.color)
+      .key($$.key);
+
+    $$.pie.arc()
+      .outerRadius(d => d.outerRadius)
+      .innerRadius(d => d.innerRadius);
+
+    $$.legend
+      .html($$.label)
+      .key($$.key)
+      .color($$.color);
+
+    $$.tooltip.color(d => d3.rgb($$.color(d.data)).darker(0.3));
+
     const selection = (context.selection)? context.selection() : context;
 
     selection.each(function (datum) {
@@ -30,17 +47,6 @@ export default function () {
     return chart;
   };
 
-  // pie data layout
-  const layout = d3.pie().sort(null);
-
-  // arc generator
-  const arc = d3.arc()
-			.outerRadius(d => d.outerRadius)
-			.innerRadius(d => d.innerRadius);
-
-	// d2b pie generator
-  const pie = svgPie().arc(arc);
-
 	// percent formater
   const percent = d3.format('.0%');
 
@@ -48,31 +54,21 @@ export default function () {
   base(chart, $$)
     .addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))
     .addProp('legend', legend().clickable(true).dblclickable(true))
-    .addProp('key', d => d.label, null, d => {
-      $$.legend.key(d);
-      pie.key(d);
-    })
+    .addProp('key', d => d.label)
+    .addProp('pie', svgPie())
     .addProp('tooltip',
       tooltip()
         .followMouse(true)
         .html(d => `<b>${$$.label(d.data)}</b>: ${$$.value(d.data)} (${percent(d.__percent__)})`)
     )
-    .addPropFunctor('duration', 250)
     .addPropFunctor('values', d => d)
+    .addPropFunctor('duration', 250)
     .addPropFunctor('donutRatio', 0)
-    .addPropFunctor('startAngle', 0)
-    .addPropFunctor('endAngle', 2 * Math.PI)
     .addPropFunctor('at', 'center center')
     .addPropFunctor('showPercent', (d, total) => $$.value(d) / total > 0.03)
-    .addPropFunctor('center', null)
     .addPropFunctor('radius', (d, w, h) => Math.min(w, h) / 2)
-    .addPropFunctor('sort', null)
-    .addPropFunctor('color', d => color(d.label), null, (d) => {
-      $$.tooltip.color(dd => d3.rgb(d(dd.data)).darker(0.3));
-      $$.legend.color(d);
-      pie.color(d);
-    })
-    .addPropFunctor('value', d => d.value, null, d => layout.value(d))
+    .addPropFunctor('color', d => color(d.label))
+    .addPropFunctor('value', d => d.value)
     .addPropFunctor('label', d => d.label);
 
 	// update chart
@@ -81,13 +77,13 @@ export default function () {
           selection = el.select('.d2b-chart-container'),
           size = selection.node().__size__,
           radius = $$.radius(datum, size.width, size.height),
-          startAngle = $$.startAngle(datum),
-          endAngle = $$.endAngle(datum),
           donutRatio = $$.donutRatio(datum),
           legendEmpty = $$.legend.empty(),
-          values = $$.values(datum).filter(d => !legendEmpty(d));
+          values = $$.values(datum),
+          filtered = values.filter(d => !legendEmpty(d));
 
-    $$.legend.html($$.label);
+    $$.pie.values(filtered);
+    $$.legend.values(values);
 
 		// legend functionality
     el
@@ -98,37 +94,30 @@ export default function () {
         .on('mouseover', function (d) { arcGrow.call(this, el, d); })
         .on('mouseout', function (d) { arcShrink.call(this, el, d); });
 
-		// Filter and sort for current data.
-		// const total = d3.sum(values, (d, i) => d.__value__ = $$.value(d, i));
-    const total = d3.sum(values, d => $$.value(d));
+		// get pie total
+    const total = d3.sum(filtered, d => $$.value(d));
 
-		// Select and enter pie chart 'g' element.
-    let chartGroup = selection.selectAll('.d2b-pie-chart').data([values]);
+		// select and enter pie chart 'g' element.
+    let chartGroup = selection.selectAll('.d2b-pie-chart').data([filtered]);
     const chartGroupEnter = chartGroup.enter()
 			.append('g')
 				.attr('class', 'd2b-pie-chart');
 
-    const getDatum = d => {
-      d = layout.startAngle(startAngle).endAngle(endAngle)(d);
-      d.forEach(dd => {
-        dd.outerRadius = radius;
-        dd.innerRadius = radius * donutRatio;
-      });
-      return d;
-    };
-
-    chartGroup = chartGroup.merge(chartGroupEnter).datum(getDatum);
+    chartGroup = chartGroup.merge(chartGroupEnter);
 
     if (transition) chartGroup = chartGroup.transition(transition);
 
-    chartGroup.call(pie);
+    chartGroup.call($$.pie);
 
-		// For each arc in the pie chart assert the transitioning flag and store
-		// the element node in data. Also setup hover and tooltip events;
     let arcGroup = selection
 			.selectAll('.d2b-pie-arc')
         .each(function (d) {
-          this.__outerRadius__ = d.outerRadius;
+          // store inner and outer radii so that they can be used for hover
+          // transitions
+          d.innerRadius = d.__innerRadius__ = radius * donutRatio;
+          d.outerRadius = d.__outerRadius__ = radius;
+
+          // store percent for use with the tooltip
           d.__percent__ = d.value / total;
         })
         .on('mouseover', function (d) { arcGrow.call(this, el, d.data); })
@@ -142,8 +131,6 @@ export default function () {
 				.attr('class', 'd2b-pie-arc-percent')
 			.append('text')
 				.attr('y', 6);
-
-
 
     arcGroup
         .each(function () {
@@ -165,7 +152,7 @@ export default function () {
 
     arcGroup
 			.select('.d2b-pie-arc-percent')
-				.call(tweenCentroid, arc)
+				.call(tweenCentroid, $$.pie.arc())
 			.select('text')
 				.call(tweenNumber, d => $$.value(d.data) / total, percent)
         .style('opacity', function (d) {
@@ -178,14 +165,14 @@ export default function () {
   }
 
   // Position the pie chart according to the 'at' string (e.g. 'center left',
-  // 'top center', ..). Unless a `$$.center` function is specified by the user
-  // to return the {x: , y:} coordinates of the pie chart center.
+  // 'top center', ..). Unless at is an object like {x: , y:}, then position
+  // according to these coordinates.
   function chartCoords (datum, radius, size) {
-    let coords = $$.center(datum, size.width, size.height, radius),
-        at = $$.at(datum, size.width, size.height).split(' ');
+    let coords = $$.at(datum, size.width, size.height, radius);
 
-    if (!coords) {
-      at = {x: at[1], y: at[0]};
+    if (typeof coords !== 'object') {
+      coords = coords.split(' ');
+      let at = {x: coords[1], y: coords[0]};
       coords = {};
       switch (at.x) {
         case 'left':
@@ -218,10 +205,18 @@ export default function () {
   }
 
   function arcGrow (el, d) {
-    if (this.transitioning) return;
+    const arc = $$.pie.arc();
+
+    arc
+      .outerRadius(d => d.outerRadius)
+      .innerRadius(d => d.innerRadius);
+
     el.selectAll('.d2b-pie-arc')
       .filter(dd => dd.data === d)
-        .each(function (dd) { dd.outerRadius = this.__outerRadius__ * 1.03; })
+        .each(function (d) {
+          d.outerRadius = d.__outerRadius__ * 1.03;
+          d.innerRadius = d.__innerRadius__;
+        })
       .select('path')
       .transition()
         .duration(100)
@@ -229,10 +224,18 @@ export default function () {
   }
 
   function arcShrink (el, d) {
-    if (this.transitioning) return;
+    const arc = $$.pie.arc();
+
+    arc
+      .outerRadius(d => d.outerRadius)
+      .innerRadius(d => d.innerRadius);
+
     el.selectAll('.d2b-pie-arc')
       .filter(dd => dd.data === d)
-        .each(function (dd) { dd.outerRadius = this.__outerRadius__; })
+        .each(function (d) {
+          d.outerRadius = d.__outerRadius__;
+          d.innerRadius = d.__innerRadius__;
+        })
       .select('path')
       .transition()
         .duration(100)

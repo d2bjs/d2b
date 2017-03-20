@@ -1,5 +1,7 @@
 > [d2b](../README.md) › **Tooltip Axis**
 
+![Local Image](../gifs/tooltip-axis-utils.gif)
+
 The d2b tooltip-axis component allows for a tooltip to be added to an axis chart based on a set of data points. Unlike most other d2b components, tooltip-axis is limited to 1 chart per generator. Here is a simple example using the tooltip axis for two "graphs".
 
 ```javascript

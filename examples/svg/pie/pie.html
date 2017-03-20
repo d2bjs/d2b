@@ -2,7 +2,7 @@
 <html>
 
 <script src="../../../node_modules/d3/build/d3.min.js"></script>
-<script src="../../../build/d2b.min.js"></script>
+<script src="../../../build/d2b.js"></script>
 
 <style>
 
@@ -25,15 +25,11 @@
 
 	<script>
 
-    var pie = d2b.svgPie(),
-        layout = d3.pie();
+    var pie = d2b.svgPie();
 
     pie.arc()
       .outerRadius(150)
       .innerRadius(100);
-
-    layout
-      .value(function (d) { return d.value; });
 
     var data = [
         {label: 'Apples', value: 120},
@@ -42,7 +38,7 @@
     ];
 
     var svg = d3.select('svg g')
-        .datum(layout(data))
+        .datum(data)
         .call(pie);
 
 	</script>

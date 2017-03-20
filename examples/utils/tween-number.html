@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+  div {
+    font-size: 100pt;
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div></div>
+
+	<script>
+
+    var div = d3.select('div'),
+        format = d3.format(',.2f');
+
+    div.call(d2b.tweenNumber, 100, format);
+
+    setTimeout(function () {
+      div
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenNumber, 122.8, format);
+    }, 2000);
+
+    setTimeout(function () {
+      div
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenNumber, 103452, format);
+    }, 4000);
+
+    setTimeout(function () {
+      div
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenNumber, 100, format);
+    }, 6000);
+
+	</script>
+</body>
+</html>

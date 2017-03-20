@@ -10,9 +10,9 @@ Constructs a new sunburst generator with the default settings.
 # {#apply}
 [#](#apply) *sunburst*(*context*)
 
-Render the sunburst(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Render the sunburst(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
-Before applying the d2b-sunburst generator, you should join the data to the selected element(s) using [selection.data](https;//github.com/d3/d3-selection#selection_data) or [selection.datum](https;//github.com/d3/d3-selection#selection_datum). Here is the default data format.
+Before applying the d2b-sunburst generator, you should join the data to the selected element(s) using [selection.data](https://github.com/d3/d3-selection#selection_data) or [selection.datum](https://github.com/d3/d3-selection#selection_datum). Here is the default data format.
 
 ```javascript
 var sunburst= d2b.svgSunburst();
@@ -57,20 +57,20 @@ The *d3-pie* can be configured at will, except for the [startAngle](https://gith
 # {#ancestor_banding}
 [#](#ancestor_banding) sunburst.**ancestorBanding**([*bandingScale*])
 
-If *bandingScale* is specified, sets the *bandingScale* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the sunburst generator. If *bandingScale* is not specified, returns the current *bandingScale* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
+If *bandingScale* is specified, sets the *bandingScale* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the sunburst generator. If *bandingScale* is not specified, returns the current *bandingScale* scale, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
 The ancestor *bandingScale* will decide how the inner rings of the sunburst are distributed. Usually a [continuous scale](https://github.com/d3/d3-scale#continuous-scales) should be used.
 
 # {#descendant_banding}
 [#](#descendant_banding) sunburst.**descendantBanding**([*bandingScale*])
 
-If *bandingScale* is specified, sets the *bandingScale* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the sunburst generator. If *bandingScale* is not specified, returns the current *bandingScale* scale, which defaults to a [d3.scalePow().exponent(0.85)](https;//github.com/d3/d3-scale#scalePow)
+If *bandingScale* is specified, sets the *bandingScale* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the sunburst generator. If *bandingScale* is not specified, returns the current *bandingScale* scale, which defaults to a [d3.scalePow().exponent(0.85)](https://github.com/d3/d3-scale#scalePow)
 
 The descendant *bandingScale* will decide how the outer rings of the sunburst are distributed. Usually a [continuous scale](https://github.com/d3/d3-scale#continuous-scales) should be used.
 
 ### Datum Level Accessors
 
-When the d2b sunburst generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
+When the d2b sunburst generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#duration}
 [#](#duration) sunburst.**duration**([*duration*])

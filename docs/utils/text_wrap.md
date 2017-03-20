@@ -5,7 +5,7 @@ This function is used to wrap svg text based on a threshold character count widt
 # {#function}
 [#](#function) d2b.**textWrap**(*context*, [*text*, [*width*, [*anchor*]]])
 
-Wrap the *context* text, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of svg text elements or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Wrap the *context* text, which may be either a [d3-selection](https://github.com/d3/d3-selection) of svg text elements or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
 If *text* is provided, it will be used to set the text accessor function. The *text* accessor defaults to `d => d.label`.
 

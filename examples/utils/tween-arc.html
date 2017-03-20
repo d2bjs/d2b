@@ -4,15 +4,81 @@
 <script src="../../node_modules/d3/build/d3.min.js"></script>
 <script src="../../build/d2b.min.js"></script>
 
+<style>
+  svg {
+    width: 400px;
+    height: 400px;
+    padding: 50px;
+  }
+
+  path {
+    fill: steelblue;
+  }
+</style>
+
 <body>
-  <svg><text></text></svg>
+  <svg><path transform = 'translate(150, 150)'></path></svg>
 
 	<script>
 
-    d3.select('svg text')
-        .attr('y', 15)
-        .datum({label: 'A really really long label that needs to be wrapped.'})
-        .call(d2b.textWrap, function (d) { return d.label; }, 15);
+    var arc = d3.arc();
+
+    arc
+      .innerRadius(function (d) { return d.innerRadius; })
+      .outerRadius(function (d) { return d.outerRadius; })
+      .startAngle(function (d) { return d.startAngle; })
+      .endAngle(function (d) { return d.endAngle; });
+
+    var path = d3.select('path');
+
+    path
+        .datum({
+          innerRadius: 140,
+          outerRadius: 150,
+          startAngle: 0,
+          endAngle: Math.PI / 2
+        })
+        .call(d2b.tweenArc, arc);
+
+    setTimeout(function () {
+      path
+          .datum({
+            innerRadius: 30,
+            outerRadius: 150,
+            startAngle: Math.PI / 3,
+            endAngle: Math.PI * 2
+          })
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenArc, arc);
+    }, 2000);
+
+    setTimeout(function () {
+      path
+          .datum({
+            innerRadius: 0,
+            outerRadius: 150,
+            startAngle: Math.PI / 2,
+            endAngle: Math.PI * 1.75
+          })
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenArc, arc);
+    }, 4000);
+
+    setTimeout(function () {
+      path
+          .datum({
+            innerRadius: 140,
+            outerRadius: 150,
+            startAngle: 0,
+            endAngle: Math.PI / 2
+          })
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenArc, arc);
+    }, 6000);
+
 
 	</script>
 </body>

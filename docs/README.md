@@ -27,3 +27,16 @@ You can see the d2b API references [here](http://docs.d2bjs.org).
 ## Examples
 
 You can try out many d2b examples [here](http://d2bjs.org).
+
+## Future Components
+
+Here is a list of components that I plan to add in the future.
+
+* **d2b.chartSankey** - A sankey chart component that uses the d3.sankey plugin.
+* **d2b.chartBubble** - A bubble pack chart component with grouping and plotting for change over time.
+* **d2b.chartRadar** - A radar chart component. Might also require a d2b.svgRadar component.
+* **d2b.chartGauge** - A convenience gauge chart component. This is currently achievable through the pie chart component.
+* **d2b.chartScatterMatrix** - A scatter-matrix chart component. Will likely use canvas and render queueing to allow for many more points to be drawn.
+* **d2b.chartParallelCoordinates** - A parallel-coordinates chart component. Will likely use canvas and render queueing to allow for many more lines to be drawn.
+* **d2b.svgAnnotation** - A axis-chart graph component for adding annotations to an axis chart. Might make use of Susie Lu's d3.annotate plugin.
+* **d2b.svgBoxWhisker** - A axis-chart graph component for adding box and whisker plots to an axis chart.

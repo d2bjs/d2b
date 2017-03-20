@@ -1,5 +1,7 @@
 > [d2b](../README.md) › **Legend**
 
+![Local Image](../gifs/legend-utils-transition.gif)
+
 The d2b legend component is used to render a vertical or horizontal legend.
 
 # {#generator}
@@ -10,9 +12,9 @@ Constructs a new legend generator.
 # {#apply}
 [#](#apply) *legend*(*context*)
 
-Render the legend(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of HTML containers (e.g. `div`) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Render the legend(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of HTML containers (e.g. `div`) or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
-Before applying the d2b-legend generator, you should join the data to the selected element(s) using [selection.data](https;//github.com/d3/d3-selection#selection_data) or [selection.datum](https;//github.com/d3/d3-selection#selection_datum). Here is the default data format.
+Before applying the d2b-legend generator, you should join the data to the selected element(s) using [selection.data](https://github.com/d3/d3-selection#selection_data) or [selection.datum](https://github.com/d3/d3-selection#selection_datum). Here is the default data format.
 
 ```javascript
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -36,7 +38,7 @@ d3.select('div.legend')
 
 ### Datum Level Accessors
 
-When the d2b legend generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
+When the d2b legend generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#clickable}
 [#](#clickable) legend.**clickable**([*clickable*])
@@ -164,7 +166,7 @@ function (d) {
 ```
 
 # {#icon}
-[#](#icon legend.**icon**([*icon*])
+[#](#icon) legend.**icon**([*icon*])
 
 If *icon* is specified, sets the *icon* function to the specified accessor function and returns the legend generator. If *icon* is not specified, returns the current *icon* accessor, which defaults to:
 

@@ -1,5 +1,7 @@
 > [d2b](../README.md) › **Tooltip**
 
+![Local Image](../gifs/tooltip-utils.gif)
+
 The d2b tooltip component allows for a simple tooltip to be added to DOM elements.
 
 If you want a tooltip generator geared towards axis-charts then you might want to check out [d2b.tooltipAxis](axis.md)
@@ -12,7 +14,7 @@ Constructs a new tooltip generator.
 # {#apply}
 [#](#apply) *tooltip*(*context*)
 
-Apply the tooltip to a [d3-selection](https;//github.com/d3/d3-selection). Bind `mouseover`, `mousemove`, and `mouseout` tooltip events for the specified selection of elements. For example:
+Apply the tooltip to a [d3-selection](https://github.com/d3/d3-selection). Bind `mouseover`, `mousemove`, and `mouseout` tooltip events for the specified selection of elements. For example:
 
 ```javascript
 var circleData = [
@@ -105,7 +107,7 @@ If *html* is specified, sets the html-accessor to the specified function or stri
 # {#target}
 [#](#target) tooltip.**target**([*selection*])
 
-If *selection* is specified, sets the target-accessor to the specified function or [d3-selection](https;//github.com/d3/d3-selection). If *target* is not specified, returns the current target-accessor, which defaults to `() => null`. Target represents to the element at which the tooltip will point. This defaults to the applied element, but in some cases it may be necessary to set it dynamically. This is helpful when you have a larger parent element that you want to trigger a tooltip, but once triggered you want the tooltip pointing at a specific child element within that parent.
+If *selection* is specified, sets the target-accessor to the specified function or [d3-selection](https://github.com/d3/d3-selection). If *target* is not specified, returns the current target-accessor, which defaults to `() => null`. Target represents to the element at which the tooltip will point. This defaults to the applied element, but in some cases it may be necessary to set it dynamically. This is helpful when you have a larger parent element that you want to trigger a tooltip, but once triggered you want the tooltip pointing at a specific child element within that parent.
 
 ### Events
 

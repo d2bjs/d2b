@@ -26,7 +26,6 @@
 	<script>
 
     var pie = d2b.svgPie(),
-        layout = d3.pie(),
         i = 0;
 
     dataSets = [
@@ -37,14 +36,12 @@
 
     pie.arc().outerRadius(150).innerRadius(100);
 
-    layout.value(function (d) { return d.value; }).sort(null);
-
     var svg = d3.select('svg g');
 
-    svg.datum(layout(dataSets[i])).call(pie);
+    svg.datum(dataSets[i]).call(pie);
 
     setInterval(function () {
-      svg.datum(layout(dataSets[index()])).transition().duration(500).call(pie);
+      svg.datum(dataSets[index()]).transition().duration(500).call(pie);
     }, 2000);
 
     function index() {

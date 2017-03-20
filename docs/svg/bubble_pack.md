@@ -12,9 +12,9 @@ When using the d2b-bubblePack generator you can draw multiple bubblePack graphs 
 # {#apply}
 [#](#apply) *bubblePack*(*context*)
 
-Render the bubblePack(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Render the bubblePack(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
-Before applying the d2b-bubblePack generator, you should join the data to the selected element(s) using [selection.data](https;//github.com/d3/d3-selection#selection_data) or [selection.datum](https;//github.com/d3/d3-selection#selection_datum). The data format is different than other d2b graph generators because it is hierarchical. Here is the default data format.
+Before applying the d2b-bubblePack generator, you should join the data to the selected element(s) using [selection.data](https://github.com/d3/d3-selection#selection_data) or [selection.datum](https://github.com/d3/d3-selection#selection_datum). The data format is different than other d2b graph generators because it is hierarchical. Here is the default data format.
 
 ```javascript
 var bubblePack = d2b.svgBubblePack();
@@ -78,7 +78,7 @@ var datum = {
 
 d3.select('.chart')
     .datum(datum)
-    .call(bubble_pack);  
+    .call(bubblePack);  
 ```
 
 The leaf nodes of the data should contain size, x, and y values.
@@ -108,18 +108,18 @@ If *point* is specified, sets the *point* generator to the specified *point* and
 The *point* can be configured at will, except for the [active](point.md#point_active), [fill](point.md#point_fill), and [type](point.md#point_type) properties which will be set automatically by the bubblePack generator.
 
 # {#x}
-[#](#x) bubble_pack.**x**([*x*])
+[#](#x) bubblePack.**x**([*x*])
 
-If *x* is specified, sets the *x* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the bubble_pack generator. If *x* is not specified, returns the current *x* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
+If *x* is specified, sets the *x* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the bubblePack generator. If *x* is not specified, returns the current *x* scale, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
 # {#y}
-[#](#y) bubble_pack.**y**([*y*])
+[#](#y) bubblePack.**y**([*y*])
 
-If *y* is specified, sets the *y* scale to the specified [d3-scale](https;//github.com/d3/d3-scale) and returns the bubble_pack generator. If *y* is not specified, returns the current *y* scale, which defaults to a [d3.scaleLinear()](https;//github.com/d3/d3-scale#scaleLinear).
+If *y* is specified, sets the *y* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the bubblePack generator. If *y* is not specified, returns the current *y* scale, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
 ### Datum Level Accessors
 
-When the d2b bubblePack generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
+When the d2b bubblePack generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#graphs}
 [#](#graphs) bubblePack.**graphs**([*graphs*])
@@ -185,14 +185,14 @@ If *tooltip_graph* is specified, sets the *tooltip_graph* to the specified acces
 
 If *shift* is specified, sets the horizontal *shift* to the specified accessor function or value and returns the bubblePack generator. If *shift* is not specified, returns the current *shift* accessor, which defaults to `() => null`.
 
-If a `null` accessor is used this shift will be computed dynamically based on the type of [d3-scale](https;//github.com/d3/d3-scale) being used. If a band scale is used then the shift will be set to half of the scale's bandwidth.
+If a `null` accessor is used this shift will be computed dynamically based on the type of [d3-scale](https://github.com/d3/d3-scale) being used. If a band scale is used then the shift will be set to half of the scale's bandwidth.
 
 # {#symbol}
 [#](#symbol) bubblePack.**symbol**([*symbol*])
 
 If *symbol* is specified, sets the graph *symbol* accessor to the specified accessor function and returns the bubblePack generator. If *symbol* is not specified, returns the current *symbol* accessor, which defaults to `(d) => d3.symbolCircle`.
 
-This property should be set to one of the preset or custom [d3 symbols](https;//github.com/d3/d3-shape#symbols). This symbol type will set the default symbol type for an entire graph.
+This property should be set to one of the preset or custom [d3 symbols](https://github.com/d3/d3-shape#symbols). This symbol type will set the default symbol type for an entire graph.
 
 # {#key}
 [#](#key) bubblePack.**key**([*key*])
@@ -230,7 +230,7 @@ function (d) {
 
 ### Value Level Accessors
 
-When the d2b bubblePack generator is applied to a selection, the hierarchical `value` data will be flattened and the following accessors will invoked for each node in the flattened array. The function will be passed the value data `d`, the index position within it's [values](#children) or [children](#children) array `i`, and the corresponding graph data `graph`.
+When the d2b bubblePack generator is applied to a selection, the hierarchical `value` data will be flattened and the following accessors will invoked for each node in the flattened array. The function will be passed the value data `d`, the index position within it's [values](#values) or [children](#children) array `i`, and the corresponding graph data `graph`.
 
 Note that not every accessor will be invoked for all nodes in the hierarchy, sometimes the "hidden" nodes won't need certain properties to be processed.
 
@@ -287,9 +287,9 @@ If *color* is specified, sets the *color* accessor to the specified accessor fun
 If *color* is `null` then the corresponding graph [color](#color) will be used.
 
 # {#psymbol}
-[#](#psymbol) bubble_pack.**psymbol**([*symbol*])
+[#](#psymbol) bubblePack.**psymbol**([*symbol*])
 
-If *symbol* is specified, sets the *symbol* accessor to the specified accessor function and returns the bubble_pack generator. If *symbol* is not specified, returns the current *symbol* accessor, which defaults to `() => null`.
+If *symbol* is specified, sets the *symbol* accessor to the specified accessor function and returns the bubblePack generator. If *symbol* is not specified, returns the current *symbol* accessor, which defaults to `() => null`.
 
 If *symbol* is `null` then the corresponding graph [symbol](#symbol) type will be used.
 

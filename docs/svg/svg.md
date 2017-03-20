@@ -2,9 +2,9 @@
 
 # SVG
 
-d2b comes with several SVG utility generators. They can be used on their own or as components with various other d2b [axisChart](../charts/axis.md) generator.
+d2b comes with several SVG generators.
 
-Here is the current list of d2b generators:
+Here is the current list of SVG generators:
 
 * [area](area.md) - basic area graphs
 * [bar](bar.md) - basic bar graphs

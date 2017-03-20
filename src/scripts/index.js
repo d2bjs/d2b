@@ -1,5 +1,6 @@
 import '../styles/index.css';
 
+export {version} from '../../build/package.js';
 export * from './util/util.js';
 export * from './math/math.js';
 export * from './model/model.js';

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../build/d2b.min.js"></script>
+
+<style>
+  svg {
+    width: 400px;
+    height: 400px;
+  }
+
+  path {
+    fill: steelblue;
+    opacity: 0.2;
+  }
+
+  text {
+    text-anchor: middle;
+  }
+</style>
+
+<body>
+  <svg><g transform = 'translate(200, 200)'><text y = '5'>Centroid Text</text><path></path></svg>
+
+	<script>
+
+    var arc = d3.arc();
+
+    arc
+      .innerRadius(function (d) { return d.innerRadius; })
+      .outerRadius(function (d) { return d.outerRadius; })
+      .startAngle(function (d) { return d.startAngle; })
+      .endAngle(function (d) { return d.endAngle; });
+
+    var path = d3.select('path'),
+        text = d3.select('text');
+
+    var datum = {
+      innerRadius: 140,
+      outerRadius: 150,
+      startAngle: 0,
+      endAngle: Math.PI / 2
+    };
+
+    path
+        .datum(datum)
+        .call(d2b.tweenArc, arc);
+
+    text
+        .datum(datum)
+        .call(d2b.tweenCentroid, arc);
+
+    setTimeout(function () {
+      var datum = {
+        innerRadius: 30,
+        outerRadius: 150,
+        startAngle: Math.PI / 3,
+        endAngle: Math.PI * 2
+      };
+
+      path
+          .datum(datum)
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenArc, arc);
+
+      text
+          .datum(datum)
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenCentroid, arc);
+    }, 2000);
+
+    setTimeout(function () {
+      var datum = {
+        innerRadius: 0,
+        outerRadius: 150,
+        startAngle: Math.PI / 2,
+        endAngle: Math.PI * 1.75
+      };
+
+      path
+          .datum(datum)
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenArc, arc);
+
+      text
+          .datum(datum)
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenCentroid, arc);
+    }, 4000);
+
+    setTimeout(function () {
+      var datum = {
+        innerRadius: 140,
+        outerRadius: 150,
+        startAngle: 0,
+        endAngle: Math.PI / 2
+      };
+
+      path
+          .datum(datum)
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenArc, arc);
+
+      text
+          .datum(datum)
+        .transition()
+          .duration(1000)
+          .call(d2b.tweenCentroid, arc);
+    }, 6000);
+
+	</script>
+</body>
+</html>

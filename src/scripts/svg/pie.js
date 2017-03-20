@@ -13,14 +13,29 @@ export default function () {
   const pie = function (context) {
     const selection = (context.selection)? context.selection() : context;
 
-    selection.each( function () {
+    $$.pie.value($$.value);
+
+    $$.arc
+      .startAngle(d => d.startAngle)
+      .endAngle(d => d.endAngle)
+      .padAngle(d => d.padAngle);
+
+    let pieSvg = selection.selectAll('.d2b-pie').data(d => [$$.pie($$.values(d))]),
+        pieSvgEnter = pieSvg.enter().append('g').attr('class', 'd2b-pie');
+
+    pieSvg = pieSvg.merge(pieSvgEnter);
+
+    pieSvg.each( function (values) {
       const el = d3.select(this);
 
       // select arc group and get their old data
       let arc = el.selectAll('.d2b-pie-arc');
       const oldData = arc.data();
 
-      arc = arc.data($$.values, (d, i) => $$.key(d.data, i));
+      arc = arc.data(values, (d, i) => {
+        d.key = $$.key(d.data, i);
+        return d.key;
+      });
 
       let arcEnter = arc.enter().append('g').attr('class', 'd2b-pie-arc'),
           arcExit = arc.exit(),
@@ -66,14 +81,17 @@ export default function () {
       arcExit.remove().select('path').call(tweenArc, $$.arc);
 
     });
+
     return pie;
   };
 
   /* Inherit from base model */
   base(pie, $$)
     .addProp('arc', d3.arc())
-    .addPropFunctor('key', d => d.label)
+    .addProp('pie', d3.pie().sort(null))
     .addPropFunctor('values', d => d)
+    .addPropFunctor('key', d => d.label)
+    .addPropFunctor('value', d => d.value)
     .addPropFunctor('color', d => color(d.label));
 
 

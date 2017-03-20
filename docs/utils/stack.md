@@ -40,7 +40,7 @@ console.log(data)
 
 ### Datum Level Accessors
 
-When the d2b stack generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
+When the d2b stack generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#values}
 [#](#values) stack.**values**([*values*])

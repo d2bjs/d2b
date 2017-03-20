@@ -22,6 +22,8 @@ function __$styleInject(css, returnValue) {
 }
 __$styleInject("@import \"//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css\";.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{stroke-width:0.2px;stroke-opacity:0.4;//:5 5}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane .tick line{//:#aaa}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{-webkit-transition:opacity 0.2s,stroke-width 0.2s;transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-tooltip-area{pointer-events:none}.d2b-tooltip-area .d2b-tooltip{background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-area .d2b-tooltip-content{padding:6px 10px}.d2b-tooltip-area .d2b-tooltip{margin:0}.d2b-tooltip-area .d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-area .d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-area .d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-area .d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-area .d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-area .d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-area .d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-area .d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-area .d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}.d2b-tooltip-axis-area{pointer-events:none;font-family:Arial}.d2b-tooltip-axis-area .d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis-area .d2b-tooltip{opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis-area .d2b-tooltip .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis-area .d2b-tooltip .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis-area .d2b-tooltip .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis-area .d2b-tooltip .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;alignment-baseline:central;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
 
+var version = "0.0.19";
+
 function functor(v) {
   return typeof v === 'function' ? v : function () {
     return v;
@@ -1886,15 +1888,33 @@ function svgPie () {
   var pie = function pie(context) {
     var selection = context.selection ? context.selection() : context;
 
-    selection.each(function () {
+    $$.pie.value($$.value);
+
+    $$.arc.startAngle(function (d) {
+      return d.startAngle;
+    }).endAngle(function (d) {
+      return d.endAngle;
+    }).padAngle(function (d) {
+      return d.padAngle;
+    });
+
+    var pieSvg = selection.selectAll('.d2b-pie').data(function (d) {
+      return [$$.pie($$.values(d))];
+    }),
+        pieSvgEnter = pieSvg.enter().append('g').attr('class', 'd2b-pie');
+
+    pieSvg = pieSvg.merge(pieSvgEnter);
+
+    pieSvg.each(function (values) {
       var el = d3.select(this);
 
       // select arc group and get their old data
       var arc = el.selectAll('.d2b-pie-arc');
       var oldData = arc.data();
 
-      arc = arc.data($$.values, function (d, i) {
-        return $$.key(d.data, i);
+      arc = arc.data(values, function (d, i) {
+        d.key = $$.key(d.data, i);
+        return d.key;
       });
 
       var arcEnter = arc.enter().append('g').attr('class', 'd2b-pie-arc'),
@@ -1934,14 +1954,17 @@ function svgPie () {
 
       arcExit.remove().select('path').call(tweenArc, $$.arc);
     });
+
     return pie;
   };
 
   /* Inherit from base model */
-  base(pie, $$).addProp('arc', d3.arc()).addPropFunctor('key', function (d) {
-    return d.label;
-  }).addPropFunctor('values', function (d) {
+  base(pie, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addPropFunctor('values', function (d) {
     return d;
+  }).addPropFunctor('key', function (d) {
+    return d.label;
+  }).addPropFunctor('value', function (d) {
+    return d.value;
   }).addPropFunctor('color', function (d) {
     return color(d.label);
   });
@@ -4060,6 +4083,125 @@ function plane () {
   }
 }
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
+
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
+        }
+      });
+    }
+
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
+
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
+        }
+      } catch (err) {
+        settle("throw", err);
+      }
+    }
+
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
+
+        case "throw":
+          front.reject(value);
+          break;
+
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
+
+      front = front.next;
+
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
+    }
+
+    this._invoke = send;
+
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
+
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
+
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
+  };
+
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
+
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
+
 /**
  * d2b.chartPie() returns a d2b
  * pie chart generator
@@ -4071,6 +4213,21 @@ function chartPie () {
   var chart = function chart(context) {
     context.call($$.chartFrame);
 
+    // make sure pie, arc, and legend accessors are defined properly
+    $$.pie.value($$.value).color($$.color).key($$.key);
+
+    $$.pie.arc().outerRadius(function (d) {
+      return d.outerRadius;
+    }).innerRadius(function (d) {
+      return d.innerRadius;
+    });
+
+    $$.legend.html($$.label).key($$.key).color($$.color);
+
+    $$.tooltip.color(function (d) {
+      return d3.rgb($$.color(d.data)).darker(0.3);
+    });
+
     var selection = context.selection ? context.selection() : context;
 
     selection.each(function (datum) {
@@ -4080,48 +4237,24 @@ function chartPie () {
     return chart;
   };
 
-  // pie data layout
-  var layout = d3.pie().sort(null);
-
-  // arc generator
-  var arc = d3.arc().outerRadius(function (d) {
-    return d.outerRadius;
-  }).innerRadius(function (d) {
-    return d.innerRadius;
-  });
-
-  // d2b pie generator
-  var pie = svgPie().arc(arc);
-
   // percent formater
   var percent = d3.format('.0%');
 
   // configure model properties
   base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addProp('key', function (d) {
     return d.label;
-  }, null, function (d) {
-    $$.legend.key(d);
-    pie.key(d);
-  }).addProp('tooltip', tooltip().followMouse(true).html(function (d) {
+  }).addProp('pie', svgPie()).addProp('tooltip', tooltip().followMouse(true).html(function (d) {
     return '<b>' + $$.label(d.data) + '</b>: ' + $$.value(d.data) + ' (' + percent(d.__percent__) + ')';
-  })).addPropFunctor('duration', 250).addPropFunctor('values', function (d) {
+  })).addPropFunctor('values', function (d) {
     return d;
-  }).addPropFunctor('donutRatio', 0).addPropFunctor('startAngle', 0).addPropFunctor('endAngle', 2 * Math.PI).addPropFunctor('at', 'center center').addPropFunctor('showPercent', function (d, total) {
+  }).addPropFunctor('duration', 250).addPropFunctor('donutRatio', 0).addPropFunctor('at', 'center center').addPropFunctor('showPercent', function (d, total) {
     return $$.value(d) / total > 0.03;
-  }).addPropFunctor('center', null).addPropFunctor('radius', function (d, w, h) {
+  }).addPropFunctor('radius', function (d, w, h) {
     return Math.min(w, h) / 2;
-  }).addPropFunctor('sort', null).addPropFunctor('color', function (d) {
+  }).addPropFunctor('color', function (d) {
     return color(d.label);
-  }, null, function (d) {
-    $$.tooltip.color(function (dd) {
-      return d3.rgb(d(dd.data)).darker(0.3);
-    });
-    $$.legend.color(d);
-    pie.color(d);
   }).addPropFunctor('value', function (d) {
     return d.value;
-  }, null, function (d) {
-    return layout.value(d);
   }).addPropFunctor('label', function (d) {
     return d.label;
   });
@@ -4132,15 +4265,15 @@ function chartPie () {
         selection = el.select('.d2b-chart-container'),
         size = selection.node().__size__,
         radius = $$.radius(datum, size.width, size.height),
-        startAngle = $$.startAngle(datum),
-        endAngle = $$.endAngle(datum),
         donutRatio = $$.donutRatio(datum),
         legendEmpty = $$.legend.empty(),
-        values = $$.values(datum).filter(function (d) {
+        values = $$.values(datum),
+        filtered = values.filter(function (d) {
       return !legendEmpty(d);
     });
 
-    $$.legend.html($$.label);
+    $$.pie.values(filtered);
+    $$.legend.values(values);
 
     // legend functionality
     el.select('.d2b-legend-container').call($$.legend).on('change', function () {
@@ -4151,35 +4284,28 @@ function chartPie () {
       arcShrink.call(this, el, d);
     });
 
-    // Filter and sort for current data.
-    // const total = d3.sum(values, (d, i) => d.__value__ = $$.value(d, i));
-    var total = d3.sum(values, function (d) {
+    // get pie total
+    var total = d3.sum(filtered, function (d) {
       return $$.value(d);
     });
 
-    // Select and enter pie chart 'g' element.
-    var chartGroup = selection.selectAll('.d2b-pie-chart').data([values]);
+    // select and enter pie chart 'g' element.
+    var chartGroup = selection.selectAll('.d2b-pie-chart').data([filtered]);
     var chartGroupEnter = chartGroup.enter().append('g').attr('class', 'd2b-pie-chart');
 
-    var getDatum = function getDatum(d) {
-      d = layout.startAngle(startAngle).endAngle(endAngle)(d);
-      d.forEach(function (dd) {
-        dd.outerRadius = radius;
-        dd.innerRadius = radius * donutRatio;
-      });
-      return d;
-    };
-
-    chartGroup = chartGroup.merge(chartGroupEnter).datum(getDatum);
+    chartGroup = chartGroup.merge(chartGroupEnter);
 
     if (transition) chartGroup = chartGroup.transition(transition);
 
-    chartGroup.call(pie);
+    chartGroup.call($$.pie);
 
-    // For each arc in the pie chart assert the transitioning flag and store
-    // the element node in data. Also setup hover and tooltip events;
     var arcGroup = selection.selectAll('.d2b-pie-arc').each(function (d) {
-      this.__outerRadius__ = d.outerRadius;
+      // store inner and outer radii so that they can be used for hover
+      // transitions
+      d.innerRadius = d.__innerRadius__ = radius * donutRatio;
+      d.outerRadius = d.__outerRadius__ = radius;
+
+      // store percent for use with the tooltip
       d.__percent__ = d.value / total;
     }).on('mouseover', function (d) {
       arcGrow.call(this, el, d.data);
@@ -4210,7 +4336,7 @@ function chartPie () {
       });
     }
 
-    arcGroup.select('.d2b-pie-arc-percent').call(tweenCentroid, arc).select('text').call(tweenNumber, function (d) {
+    arcGroup.select('.d2b-pie-arc-percent').call(tweenCentroid, $$.pie.arc()).select('text').call(tweenNumber, function (d) {
       return $$.value(d.data) / total;
     }, percent).style('opacity', function (d) {
       return $$.showPercent.call(this, d.data, total) ? 1 : 0;
@@ -4222,14 +4348,14 @@ function chartPie () {
   }
 
   // Position the pie chart according to the 'at' string (e.g. 'center left',
-  // 'top center', ..). Unless a `$$.center` function is specified by the user
-  // to return the {x: , y:} coordinates of the pie chart center.
+  // 'top center', ..). Unless at is an object like {x: , y:}, then position
+  // according to these coordinates.
   function chartCoords(datum, radius, size) {
-    var coords = $$.center(datum, size.width, size.height, radius),
-        at = $$.at(datum, size.width, size.height).split(' ');
+    var coords = $$.at(datum, size.width, size.height, radius);
 
-    if (!coords) {
-      at = { x: at[1], y: at[0] };
+    if ((typeof coords === 'undefined' ? 'undefined' : _typeof(coords)) !== 'object') {
+      coords = coords.split(' ');
+      var at = { x: coords[1], y: coords[0] };
       coords = {};
       switch (at.x) {
         case 'left':
@@ -4262,20 +4388,36 @@ function chartPie () {
   }
 
   function arcGrow(el, d) {
-    if (this.transitioning) return;
+    var arc = $$.pie.arc();
+
+    arc.outerRadius(function (d) {
+      return d.outerRadius;
+    }).innerRadius(function (d) {
+      return d.innerRadius;
+    });
+
     el.selectAll('.d2b-pie-arc').filter(function (dd) {
       return dd.data === d;
-    }).each(function (dd) {
-      dd.outerRadius = this.__outerRadius__ * 1.03;
+    }).each(function (d) {
+      d.outerRadius = d.__outerRadius__ * 1.03;
+      d.innerRadius = d.__innerRadius__;
     }).select('path').transition().duration(100).call(tweenArc, arc);
   }
 
   function arcShrink(el, d) {
-    if (this.transitioning) return;
+    var arc = $$.pie.arc();
+
+    arc.outerRadius(function (d) {
+      return d.outerRadius;
+    }).innerRadius(function (d) {
+      return d.innerRadius;
+    });
+
     el.selectAll('.d2b-pie-arc').filter(function (dd) {
       return dd.data === d;
-    }).each(function (dd) {
-      dd.outerRadius = this.__outerRadius__;
+    }).each(function (d) {
+      d.outerRadius = d.__outerRadius__;
+      d.innerRadius = d.__innerRadius__;
     }).select('path').transition().duration(100).call(tweenArc, arc);
   }
 
@@ -4889,6 +5031,7 @@ var chartSunburst$1 = {
   }
 };
 
+exports.version = version;
 exports.textWrap = textWrap;
 exports.textWrapPX = textWrapPX;
 exports.tweenArc = tweenArc;

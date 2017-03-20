@@ -10,9 +10,9 @@ Constructs a new chartFrame generator.
 # {#apply}
 [#](#apply) *chartFrame*(*context*)
 
-Render the chartFrame(s) to the given *context*, which may be either a [d3-selection](https;//github.com/d3/d3-selection) of HTML containers (e.g. `div`) or a corresponding [d3-transition](https;//github.com/d3/d3-transition).
+Render the chartFrame(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of HTML containers (e.g. `div`) or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 
-Before applying the d2b-chartFrame generator, you may join the data to the selected element(s) using [selection.data](https;//github.com/d3/d3-selection#selection_data) or [selection.datum](https;//github.com/d3/d3-selection#selection_datum). By default, no properties are derived from the bound datum. Here is a basic implementation of the *chartFrame*.
+Before applying the d2b-chartFrame generator, you may join the data to the selected element(s) using [selection.data](https://github.com/d3/d3-selection#selection_data) or [selection.datum](https://github.com/d3/d3-selection#selection_datum). By default, no properties are derived from the bound datum. Here is a basic implementation of the *chartFrame*.
 
 After the chartFrame has been applied to a context, then a `g.d2b-chart-container` will be inserted and can be used for rendering the chart content.
 
@@ -89,7 +89,7 @@ After the chartFrame has been applied to a context, then a `g.d2b-chart-containe
 
 ### Datum Level Accessors
 
-When the d2b chartFrame generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https;//github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
+When the d2b chartFrame generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
 # {#size}
 [#](#size) chartFrame.**size**([*size*])

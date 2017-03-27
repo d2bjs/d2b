@@ -76,25 +76,27 @@ export default function () {
 
       bandwidth = (1 - padding) * (bandwidth || getBandwidth(x, graphs, orientMap));
 
-      const stacking = stackNest.entries(graphs),
-            barWidth = bandwidth / Math.max(1, stacking.length);
+      const stacking = stackNest.entries(graphs);
+
+      let barWidth = bandwidth / Math.max(1, stacking.length);
 
       groupPadding = barWidth * groupPadding;
-
-      const trueBarWidth = barWidth - groupPadding * 2;
 
       // get custom scales
       const base = getBaseScale (x, bandwidth, barWidth, groupPadding),
             extent = getExtentScale (y);
+
+      barWidth -= groupPadding * 2;
 
       let graphsSVG = d3.select(this).selectAll('.d2b-bar-graphs').data(d => [d]);
 
       graphsSVG = graphsSVG.merge(graphsSVG.enter().append('g').attr('class', 'd2b-bar-graphs'));
 
       const graphsNode = graphsSVG.node(),
-            preBase = graphsNode.__d2bPreserveScaleBase__ || base,
-            preY = graphsNode.__d2bPreserveScaleY__ || y,
-            preTrueBarWidth = graphsNode.__d2bPreserveTrueBarWidth__ || trueBarWidth;
+            preBase = graphsNode.__scaleBase || base,
+            preY = graphsNode.__scaleY || y,
+            preX = graphsNode.__scaleX || x,
+            preBarWidth = graphsNode.__barWidth || barWidth;
 
       const graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs, d => d.key);
 
@@ -113,12 +115,26 @@ export default function () {
               let shift = d.shift;
               if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
 
-              d3.select(this).selectAll('.d2b-bar-group').transition(context)
-                  .style('opacity', 0)
-                  .call(transformBar, {x: point => base(point, shift), y: () => y(0)}, orientMap)
-                .select('rect')
-                  .attr(orientMap.w, trueBarWidth)
-                  .attr(orientMap.h, 0);
+              const barExit = d3.select(this)
+                .selectAll('.d2b-bar-group')
+                .transition(context);
+
+              if (preX.bandwidth || preY.bandwidth || x.bandwidth || y.bandwidth) {
+                // exit
+                barExit.style('opacity', 0);
+              } else {
+                // exit
+                barExit.call(updateBars, {
+                  opacity: 0,
+                  x: point => base(point, shift),
+                  y: () => y(0),
+                  width: barWidth,
+                  height: 0,
+                  graph: d,
+                  orientMap: orientMap
+                });
+              }
+
             });
 
       }
@@ -148,37 +164,70 @@ export default function () {
           barExit = barExit.transition(context);
         }
 
-        barEnter
-            .attr('class', 'd2b-bar-group')
-            .style('opacity', 0)
-            .call(transformBar, {x: point => preBase(point, shift), y: () => preY(0)}, orientMap)
-          .select('rect')
-            .attr('fill', point => point.color || d.color)
-            .attr(orientMap.w, preTrueBarWidth)
-            .attr(orientMap.h, 0);
+        barEnter.attr('class', 'd2b-bar-group');
 
-        barUpdate
-            .style('opacity', 1)
-            .call(transformBar, {x: point => base(point, shift), y: point => extent.sorted(point)[0]}, orientMap)
-          .select('rect')
-            .attr('fill', point => point.color || d.color)
-            .attr(orientMap.w, trueBarWidth)
-            .attr(orientMap.h, d => extent.sorted(d)[1] - extent.sorted(d)[0]);
+        barExit.remove();
 
-        barExit
-            .style('opacity', 0)
-            .call(transformBar, {x: point => base(point, shift), y: () => y(0)}, orientMap)
-            .remove()
-          .select('rect')
-            .attr(orientMap.w, trueBarWidth)
-            .attr(orientMap.h, 0);
+        if (preX.bandwidth || preY.bandwidth || x.bandwidth || y.bandwidth) {
+
+          // enter
+          barEnter.call(updateBars, {
+            opacity: 0,
+            x: point => base(point, shift),
+            y: () => y(0),
+            width: preBarWidth,
+            height: 0,
+            graph: d,
+            orientMap: orientMap
+          });
+
+          // exit
+          barExit.style('opacity', 0);
+
+        } else {
+
+          // enter
+          barEnter.call(updateBars, {
+            opacity: 0,
+            x: point => preBase(point, shift),
+            y: () => preY(0),
+            width: preBarWidth,
+            height: 0,
+            graph: d,
+            orientMap: orientMap
+          });
+
+          // exit
+          barExit.call(updateBars, {
+            opacity: 0,
+            x: point => base(point, shift),
+            y: () => y(0),
+            width: barWidth,
+            height: 0,
+            graph: d,
+            orientMap: orientMap
+          });
+
+        }
+
+        // update
+        barUpdate.call(updateBars, {
+          opacity: 1,
+          x: point => base(point, shift),
+          y: point => extent.sorted(point)[0],
+          width: barWidth,
+          height: d => extent.sorted(d)[1] - extent.sorted(d)[0],
+          graph: d,
+          orientMap: orientMap
+        });
 
       });
 
       // Make a copy of the scales sticky on the 'graphs' node
-      graphsNode.__d2bPreserveScaleY__ = y;
-      graphsNode.__d2bPreserveScaleBase__ = base;
-      graphsNode.__d2bPreserveTrueBarWidth__ = trueBarWidth;
+      graphsNode.__scaleY = y;
+      graphsNode.__scaleX = x;
+      graphsNode.__scaleBase = base;
+      graphsNode.__barWidth = barWidth;
 
 
     });
@@ -204,10 +253,21 @@ export default function () {
     };
   }
 
+  function updateBars (bars, options) {
+    bars
+        .style('opacity', options.opacity)
+        .call(transformBar, options, options.orientMap)
+      .select('rect')
+        .attr('fill', point => point.color || options.graph.color)
+        .attr(options.orientMap.w, options.width)
+        .attr(options.orientMap.h, options.height);
+  }
+
   // transform bar position
   function transformBar (transition, pos, orientMap) {
-    transition.attr('transform', d => {
-      return `translate(${[pos[orientMap.x](d), pos[orientMap.y](d)]})`;
+    transition.attr('transform', function (d) {
+      var xPos = pos[orientMap.x](d), yPos = pos[orientMap.y](d);
+      return `translate(${[xPos, yPos]})`;
     });
   }
 

@@ -5,6 +5,7 @@ import {default as chartFrame} from '../util/chartFrame.js';
 import {default as tooltip} from '../util/tooltip.js';
 import {default as breadcrumbs} from '../util/breadcrumbs.js';
 import {default as svgSunburst} from '../svg/sunburst.js';
+import {default as color} from '../util/color.js';
 
 /**
  * d2b.chartSunburst() returns a d2b
@@ -17,6 +18,13 @@ export default function () {
   // chart updater
   const chart = function (context) {
     context.call($$.chartFrame);
+
+    // configure sunburst
+    $$.sunburst.color($$.color);
+    // configure breadcrumbs
+    $$.breadcrumbs.color($$.color).key((d, i) => i);
+    // configure tooltip
+    $$.tooltip.color($$.color);
 
     const selection = (context.selection)? context.selection() : context;
 
@@ -31,9 +39,9 @@ export default function () {
   base(chart, $$)
 		.addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(true))
 		.addProp('sunburst', svgSunburst())
-    .addProp('breadcrumbs', breadcrumbs())
-		.addProp( 'tooltip', tooltip(), null, tooltip => tooltip.color(d => d.color) )
-		.addPropFunctor('duration', 250)
+    .addProp('breadcrumbs', breadcrumbs().html(d => `<div class = 'd2b-sunburst-breadcrumb'>${tipTemplate(d)}</div>`))
+		.addProp('tooltip', tooltip().followMouse(true).html(d => `<div class = 'd2b-sunburst-tooltip'>${tipTemplate(d)}</div>`))
+    .addPropFunctor('color', d => color(d.label))
 		.addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
 		.addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
 
@@ -59,17 +67,6 @@ export default function () {
       </div>
     `;
   };
-
-  // configure breadcrumbs
-  $$.breadcrumbs
-    .html(d => `<div class = 'd2b-sunburst-breadcrumb'>${tipTemplate(d)}</div>`)
-    .color(d => d.color)
-    .key((d, i) => i);
-
-  // configure tooltip
-  $$.tooltip
-    .followMouse(true)
-    .html(d => `<div class = 'd2b-sunburst-tooltip'>${tipTemplate(d)}</div>`);
 
   // update breadcrumbs
   function setBreadcrumbs (el, data) {

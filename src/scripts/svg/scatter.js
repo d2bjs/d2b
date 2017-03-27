@@ -103,13 +103,13 @@ export default function () {
             x = $$.x,
             y = $$.y,
             graphsNode = this.parentNode,
-            preX = graphsNode.__d2bPreserveScaleX__ || x,
-            preY = graphsNode.__d2bPreserveScaleY__ || y;
+            preX = graphsNode.__scaleX || x,
+            preY = graphsNode.__scaleY || y;
 
       let shift = d.shift;
       if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
 
-      let preShift = d.shift;
+      let preShift = shift;
       if (preShift === null) shift = (preX.bandwidth)? preX.bandwidth() / 2 : 0;
 
       if (d.tooltipGraph) d.tooltipGraph
@@ -136,9 +136,15 @@ export default function () {
         pointExit = pointExit.transition(context);
       }
 
+      // if band scale is used enter points at their new location
+      if (preX.bandwidth || preY.bandwidth || x.bandwidth || y.bandwidth) {
+        pointEnter.call(pointTransform, x, y, shift, d.align);
+      } else {
+        pointEnter.call(pointTransform, preX, preY, preShift, d.align);
+      }
+
       pointEnter
-          .style('opacity', 0)
-          .call(pointTransform, preX, preY, preShift, d.align);
+          .style('opacity', 0);
 
       pointUpdate
           .style('opacity', 1)
@@ -154,17 +160,17 @@ export default function () {
 
     // Make a copy of the scales sticky on the 'graphs' node
     graphs.each(function () {
-      this.__d2bPreserveScaleX__ = $$.x.copy();
-      this.__d2bPreserveScaleY__ = $$.y.copy();
+      this.__scaleX = $$.x.copy();
+      this.__scaleY = $$.y.copy();
     });
 
     return scatter;
   };
 
   function pointTransform (transition, x, y, shift, align) {
-    transition.attr('transform', p => {
-      const yVal = p[align];
-      return `translate(${x(p.x) + shift}, ${y(yVal)})`;
+    transition.attr('transform', function (p) {
+      const yPos = y(p[align]), xPos = x(p.x) + shift;
+      return isFinite(xPos) && isFinite(yPos) ? `translate(${[xPos, yPos]})` : this.getAttribute('transform');
     });
   }
 

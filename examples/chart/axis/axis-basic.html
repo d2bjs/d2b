@@ -2,7 +2,7 @@
 <html>
 
 <script src="../../../node_modules/d3/build/d3.min.js"></script>
-<script src="../../../build/d2b.min.js"></script>
+<script src="../../../build/d2b.js"></script>
 
 <style>
   body, html {
@@ -20,22 +20,31 @@
 
 		var axis = d2b.chartAxis()
 			.y({
-				scale: d3.scaleLinear().domain([0, 100]),
-				label: "Test"
-			});
+				label: 'Y-Axis',
+      })
+			.y2({
+				label: 'Another Y-Axis',
+			})
+      .x(function (d, points) {
+        return {
+  				scale: d3.scaleLinear()
+            .domain([(d3.min(points) || 1) - 1, (d3.max(points) || -1) + 1]),
+  				label: 'X-Axis',
+  			};
+      });
 
-		axis.chartFrame().size({height: 400})
+		axis.chartFrame().size({height: 400});
 
 		var chart = d3.selectAll('.axis-chart');
 
 		var data = {
 			sets: [
 				{
+          yType: 'y2',
 					generators: [d2b.svgBar().padding(0.5).stackBy(true)],
 					graphs: [
 				    {
 				      label: 'bar 1',
-							// hidden: true,
 				      values: [
 				        {x: 1, y: 25},
 				        {x: 2, y: 38},

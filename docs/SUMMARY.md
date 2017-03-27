@@ -8,6 +8,30 @@
 
   * [d2b.chartAxis](charts/axis.md)
 
+    * [axis](charts/axis.md#apply)
+    * [axis.chartFrame](charts/axis.md#chart_frame)
+    * [axis.plane](charts/axis.md#plane)
+    * [axis.legend](charts/axis.md#legend)
+    * [axis.tooltipConfig](charts/axis.md#tooltip_config)
+    * [axis.duration](charts/axis.md#duration)
+    * [axis[axisType]](charts/axis.md#axes)
+    * [axis.x](charts/axis.md#x)
+    * [axis.y](charts/axis.md#y)
+    * [axis.x2](charts/axis.md#x2)
+    * [axis.y2](charts/axis.md#y2)
+    * [axis.groups](charts/axis.md#groups)
+    * [axis.sets](charts/axis.md#sets)
+    * [axis.groupColor](charts/axis.md#group_color)
+    * [axis.groupLabel](charts/axis.md#group_label)
+    * [axis.setGenerators](charts/axis.md#set_generators)
+    * [axis.setXType](charts/axis.md#set_x_type)
+    * [axis.setYType](charts/axis.md#set_y_type)
+    * [axis.setGraphs](charts/axis.md#set_graphs)
+    * [axis.graphColor](charts/axis.md#graph_color)
+    * [axis.graphLabel](charts/axis.md#graph_label)
+    * [axis.graphGroup](charts/axis.md#graph_group)
+    * [axis.graphTooltipConfig](charts/axis.md#graph_tooltip_config)
+
   * [d2b.chartPie](charts/pie.md)
 
     * [pie](charts/pie.md#apply)
@@ -26,6 +50,15 @@
     * [pie.label](charts/pie.md#label)
 
   * [d2b.chartSunburst](charts/sunburst.md)
+
+    * [sunburst](charts/sunburst.md#apply)
+    * [sunburst.chartFrame](charts/sunburst.md#chart_frame)
+    * [sunburst.breadcrumbs](charts/sunburst.md#breadcrumbs)
+    * [sunburst.tooltip](charts/sunburst.md#tooltip)
+    * [sunburst.sunburst](charts/sunburst.md#sunburst)
+    * [sunburst.outerRadius](charts/sunburst.md#outer_radius)
+    * [sunburst.innerRadius](charts/sunburst.md#inner_radius)
+    * [sunburst.color](charts/sunburst.md#color)
 
 ---
 

@@ -1,5 +1,3 @@
-// TODO: fix axis chart bug when all graphs are initially hidden
-
 import * as d3 from 'd3';
 
 import {default as base} from '../model/base.js';
@@ -17,6 +15,13 @@ export default function () {
   const chart = function (context) {
     context.call($$.chartFrame);
 
+    $$.legend
+      .empty(d => d.data.hidden)
+      .setEmpty((d, i, state) => d.data.hidden = state)
+      .html(d => d.label)
+      .key(d => d.label)
+      .color(d => d.color);
+
     const selection = (context.selection)? context.selection() : context;
 
     selection.each(function (datum) {
@@ -30,32 +35,32 @@ export default function () {
     .addProp('plane', plane())
 		.addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))
 		.addProp('legend', legend().clickable(true).dblclickable(true))
-    .addPropFunctor('duration', 250)
-    .addPropFunctor('x', () => { return {}; })
-    .addPropFunctor('y', () => { return {}; })
-    .addPropFunctor('x2', () => { return {}; })
-    .addPropFunctor('y2', () => { return {}; })
     .addPropFunctor('tooltipConfig', d => d.tooltipConfig)
+    .addPropFunctor('duration', 250)
+    .addPropFunctor('x', {})
+    .addPropFunctor('y', {})
+    .addPropFunctor('x2', {})
+    .addPropFunctor('y2', {})
     .addPropFunctor('groups', d => d.groups)
     .addPropFunctor('sets', d => d.sets)
-    .addPropFunctor('generator', d => d)
     // group functors
     .addPropFunctor('groupLabel', d => d.label)
     .addPropFunctor('groupColor', d => color($$.groupLabel(d)))
     // set functors
     .addPropFunctor('setGenerators', d => d.generators)
+    .addPropFunctor('setXType', d => d.xType)
+    .addPropFunctor('setYType', d => d.yType)
     .addPropFunctor('setGraphs', d => d.graphs)
     // graph functors
     .addPropFunctor('graphLabel', d => d.label)
     .addPropFunctor('graphGroup', d => d.group)
     .addPropFunctor('graphColor', d => color($$.graphLabel(d)))
-    // .addPropFunctor('graphXType', 'x')
-    // .addPropFunctor('graphYType', 'y')
     .addPropFunctor('graphTooltipConfig', d => d.tooltipConfig);
 
   function update (datum, transition) {
     const container = d3.select(this),
           chartContainer = container.select('.d2b-chart-container'),
+          chartNode = chartContainer.node(),
           legendContainer = container.select('.d2b-legend-container'),
           size = chartContainer.node().__size__,
           sets = getSets(datum),
@@ -65,19 +70,16 @@ export default function () {
 
     propagateHidden(groups);
 
-    let tooltip = this.tooltip = this.tooltip || tooltipAxis().trackX(true).trackY(false).threshold(50);
+    // make tooltip sticky on the chart node because tooltipAxis requires
+    // one instance per axisChart
+    let tooltip = chartNode.tooltip = chartNode.tooltip || tooltipAxis().trackX(true).trackY(false).threshold(50);
+
     tooltip
       .title(points => `${points[0].x || points[0].x1}`)
       .clear();
 
-    $$.legend
-      .values(groups)
-      .empty(d => d.data.hidden)
-      .setEmpty((d, i, state) => d.data.hidden = state)
-      .html(d => d.label)
-      .color(d => d.color);
-
-		// legend functionality
+		// update functionality
+    $$.legend.values(groups);
     legendContainer
         .call($$.legend)
         .on('change', () => container.transition().duration(duration).call(chart))
@@ -157,9 +159,8 @@ export default function () {
         if (d.generator.duration) d.generator.duration(duration);
 
         visiblePoints.forEach(point => {
-          const graph = matchGraph(point.graph, allGraphs);
-          visible[graph.xType || 'x'].push(point.x);
-          visible[graph.yType || 'y'].push(point.y);
+          visible[s.xType].push(point.x);
+          visible[s.yType].push(point.y);
         });
 
       });
@@ -191,8 +192,13 @@ export default function () {
     // after plane update, fetch plane box
     const planeBox = $$.plane.box(plane);
 
+    // add clip path from plane
+    set.attr('clip-path', `url(#${plane.select('.d2b-clip-plane').attr('id')})`);
+
     // update the graphs with their generators
-    set.each(function () {
+    set.each(function (s) {
+      const xAxis = s.xType === 'x2'? x2Data.__axis__ : xData.__axis__,
+            yAxis = s.yType === 'y2'? y2Data.__axis__ : yData.__axis__;
 
       if (transition) {
         this.genUpdate = this.genUpdate.transition(transition);
@@ -206,20 +212,8 @@ export default function () {
         if (transition) el = el.transition(transition);
 
         d.generator
-          .x(xData.__axis__.scale())
-          .y(yData.__axis__.scale());
-          // .x((graph) => {
-          //   return graph.xType === 'x2'? x2Data.__axis__.scale() : xData.__axis__.scale();
-          // })
-          // .y((graph) => {
-          //   return graph.yType === 'y2'? y2Data.__axis__.scale() : yData.__axis__.scale();
-          // });
-          // .x((graph, i) => {
-          //   return matchGraph(graph, allGraphs).xType === 'x2'? x2Data.__axis__.scale() : xData.__axis__.scale();
-          // })
-          // .y((graph, i) => {
-          //   return matchGraph(graph, allGraphs).yType === 'y2'? y2Data.__axis__.scale() : yData.__axis__.scale();
-          // });
+          .x(xAxis.scale())
+          .y(yAxis.scale());
 
         el.style('opacity', 1).call(d.generator);
       });
@@ -257,7 +251,7 @@ export default function () {
 
   }
 
-  // default default axis components
+  // defaultz axis components
   const bandDefault = d3.scaleBand(),
         linearDefault = d3.scaleLinear(),
         axisDefaults = {
@@ -315,14 +309,15 @@ export default function () {
       const generatorTypes = {};
       return {
         data: set,
+        xType: $$.setXType(set) || 'x',
+        yType: $$.setYType(set) || 'y',
         generators: $$.setGenerators(set).map(generator => {
-          const gen = $$.generator(generator),
-                type = gen.type();
+          const type = generator.type();
           generatorTypes[type] = generatorTypes[type] || 0;
           return {
             data: generator,
             key: `${type}-${generatorTypes[type] += 1}`,
-            generator: gen
+            generator: generator
           };
         }),
         graphs: getSetGraphs(set)
@@ -335,8 +330,6 @@ export default function () {
       return {
         data: graph,
         label: $$.graphLabel(graph) || '',
-        // xType: $$.graphXType(graph, i) || 'x',
-        // yType: $$.graphYType(graph, i) || 'y',
         color: $$.graphColor(graph),
         group: $$.graphGroup(graph),
         tooltipConfig: $$.graphTooltipConfig || function () {}
@@ -375,7 +368,8 @@ export default function () {
   }
 
   function setupAxis(data, points, defaults) {
-    if (!points.length) return;
+    if (!points.length) data.hidden = true;
+
     const axis = data.axis || defaults.axis,
           scale = data.scale ? data.scale.copy() : getScale(points, defaults);
 
@@ -393,9 +387,9 @@ export default function () {
 
   function getScale(points, defaults) {
     const band = points.some(d => isNaN(d)),
-          domain = band ? d3.set(points).values() : d3.extent(points),
+          domain = band ? d3.set(points).values() : d3.extent(points).map(d => d || 0),
           scale = band ? defaults.band : defaults.linear;
-          
+
     return scale.domain(domain);
   }
 

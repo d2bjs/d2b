@@ -2,7 +2,7 @@
 <html>
 
 <script src="../../../node_modules/d3/build/d3.min.js"></script>
-<script src="../../../build/d2b.min.js"></script>
+<script src="../../../build/d2b.js"></script>
 
 <style>
   body, html {
@@ -17,7 +17,7 @@
 	<div class = 'sunburst-chart'></div>
 
 	<script>
-  		var sunburst = d2b.chartSunburst().duration(750);
+  		var sunburst = d2b.chartSunburst();
 
       sunburst.chartFrame().size({height: 500});
 

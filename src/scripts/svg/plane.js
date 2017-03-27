@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 
 import {default as base} from '../model/base.js';
 import {default as textWrap} from '../util/textWrap.js';
+import {default as id} from '../util/id.js';
 
 // TODO: Clean up text wrapping with transition udpates
 // TODO: Clean up plane build workflow
@@ -38,6 +39,15 @@ export default function () {
       let planeUpdate = el.selectAll('.d2b-plane').data([d]),
           planeEnter = planeUpdate.enter().append('g').attr('class', 'd2b-plane'),
           plane = planeUpdate.merge(planeEnter);
+
+      const clipID = this.__clipID = this.__clipID || `d2b-clip-plane-${(id())}`;
+
+      planeEnter
+        .append('defs')
+        .append('clipPath')
+          .attr('id', clipID)
+          .attr('class', 'd2b-clip-plane')
+        .append('rect');
 
       const transCtx = context !== selection? context : null;
 
@@ -83,6 +93,15 @@ export default function () {
       updateLabel (axes.y, - planeBox.height);
       updateLabel (axes.y2, - planeBox.height);
 
+      plane
+        .select('.d2b-clip-plane')
+        .select('rect')
+          .attr('width', planeBox.width + 1)
+          .attr('height', planeBox.height + 1);
+
+      plane
+        .selectAll('.d2b-grid')
+          .attr('clip-path', `url(#${clipID})`);
     });
 
     return plane;

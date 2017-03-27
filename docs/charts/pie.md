@@ -44,7 +44,7 @@ The *chartFrame* can be configured at will.
 # {#legend}
 [#](#legend) pie.**legend**([*legend*])
 
-If *legend* is specified, sets the *legend* generator to the specified [d2b.legend](../utils/legend.md) and returns the pie-chart generator. If *legend* is not specified, returns the current *legend* generator, which defaults to `legend().clickable(true).dblclickable(true)`.
+If *legend* is specified, sets the *legend* generator to the specified [d2b.legend](../utils/legend.md) and returns the pie-chart generator. If *legend* is not specified, returns the current *legend* generator, which defaults to `d2b.legend().clickable(true).dblclickable(true)`.
 
 The *legend* can be configured at will, except for the [html](../utils/legend.md#html), [color](../utils/legend.md#color), [key](../utils/legend.md#key), and [values](../utils/legend.md#values) properties which will be set automatically by the pie-chart.
 
@@ -55,7 +55,7 @@ If *tooltip* is specified, sets the *tooltip* generator to the specified [d2b.to
 
 ```javascript
   const percent = d3.format('.0%');
-  tooltip()
+  d2b.tooltip()
     .followMouse(true)
     .html(d => `<b>${pie.label()(d.data)}</b>: ${pie.value()(d.data)} (${percent(d.__percent__)})`)
 ```
@@ -126,7 +126,7 @@ function (d) {
 
 ### Value Level Accessors
 
-When the d2b pie-chart generator is applied to a selection, the following properties will be invoked for each element in the [values](#values) array. The function will be passed the value data `d` and the index position within the [values](#bubble_pack_children) array `i`.
+When the d2b pie-chart generator is applied to a selection, the following properties will be invoked for each element in the [values](#values) array. The function will be passed the value data `d`.
 
 ```javascript
 function (d) {

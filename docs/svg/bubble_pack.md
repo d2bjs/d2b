@@ -112,10 +112,14 @@ The *point* can be configured at will, except for the [active](point.md#point_ac
 
 If *x* is specified, sets the *x* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the bubblePack generator. If *x* is not specified, returns the current *x* scale, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
+Currently, only [continuous](https://github.com/d3/d3-scale#continuous-scales) scales are supported for the bubble pack.
+
 # {#y}
 [#](#y) bubblePack.**y**([*y*])
 
 If *y* is specified, sets the *y* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the bubblePack generator. If *y* is not specified, returns the current *y* scale, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
+
+Currently, only [continuous](https://github.com/d3/d3-scale#continuous-scales) scales are supported for the bubble pack.
 
 ### Datum Level Accessors
 

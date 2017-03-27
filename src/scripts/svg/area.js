@@ -4,6 +4,7 @@ import {default as base} from '../model/base.js';
 import {default as color} from '../util/color.js';
 import {default as stack} from '../util/stack.js';
 import {default as id} from '../util/id.js';
+import {default as isFinitePath} from '../util/isFinitePath.js';
 
 // line svg generator
 export default function () {
@@ -65,10 +66,10 @@ export default function () {
           // on entered graphs initialize with the preserved scales
           // if there are any
           const graphsNode = this.parentNode.parentNode,
-                x = graphsNode.__d2bPreserveScaleX__,
-                y = graphsNode.__d2bPreserveScaleY__;
+                x = graphsNode.__scaleX,
+                y = graphsNode.__scaleY;
 
-          return getPath(d, x || $$.x, y || $$.y);
+          return getPath.call(this, d, x || $$.x, y || $$.y);
         });
 
     let graphUpdate = graph.merge(graphEnter).order(),
@@ -84,7 +85,7 @@ export default function () {
       graphExit
           .style('opacity', 0)
         .select('.d2b-area')
-          .attr('d', d => getPath(d, $$.x, $$.y));
+          .attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y); });
     }
 
     graphUpdate.style('opacity', 1);
@@ -93,12 +94,14 @@ export default function () {
 
     areaUpdate
         .style('fill', d => d.color)
-        .attr('d', d => getPath(d, $$.x, $$.y, true));
+        .attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y, true); });
 
     // Make a copy of the scales sticky on the 'graphs' node
+    const xCopy = $$.x.copy(), yCopy = $$.y.copy();
+
     graphs.each(function () {
-      this.__d2bPreserveScaleX__ = $$.x.copy();
-      this.__d2bPreserveScaleY__ = $$.y.copy();
+      this.__scaleX = xCopy;
+      this.__scaleY = yCopy;
     });
 
     return area;
@@ -120,7 +123,9 @@ export default function () {
       .y0(d => y(d.y0))
       .y1(d => y(d.y1));
 
-    return $$.area(d.values);
+    const path = $$.area(d.values);
+
+    return isFinitePath(path) ? path : this.getAttribute('d');
 
   };
 

@@ -27,10 +27,6 @@ export default function () {
       .color($$.color)
       .key($$.key);
 
-    $$.pie.arc()
-      .outerRadius(d => d.outerRadius)
-      .innerRadius(d => d.innerRadius);
-
     $$.legend
       .html($$.label)
       .key($$.key)
@@ -107,6 +103,10 @@ export default function () {
 
     if (transition) chartGroup = chartGroup.transition(transition);
 
+    $$.pie.arc()
+      .innerRadius(radius * donutRatio)
+      .outerRadius(radius);
+
     chartGroup.call($$.pie);
 
     let arcGroup = selection
@@ -114,8 +114,8 @@ export default function () {
         .each(function (d) {
           // store inner and outer radii so that they can be used for hover
           // transitions
-          d.innerRadius = d.__innerRadius__ = radius * donutRatio;
-          d.outerRadius = d.__outerRadius__ = radius;
+          d.__innerRadius__ = radius * donutRatio;
+          d.__outerRadius__ = radius;
 
           // store percent for use with the tooltip
           d.__percent__ = d.value / total;

@@ -15,9 +15,9 @@
 
   .d2b-grid {
     .tick line {
-      stroke-width: 0.2px;
-      stroke-opacity: 0.4;
-      // stroke-dasharray: 5 5;
+      shape-rendering: crispEdges;
+      stroke-width: 0.5px;
+      stroke-opacity: 0.15;
     }
     .tick text {
       display: none;
@@ -27,9 +27,6 @@
   .d2b-axis-label {
     fill: #000;
     font-weight: bold;
-  }
-  .tick line {
-    // stroke: #aaa;
   }
   path.domain {
     stroke-width: 0.4px;

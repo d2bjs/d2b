@@ -122,7 +122,7 @@ export default function () {
     .addPropFunctor('orient', d => d.orient || 'outer')
     .addPropFunctor('wrapLength', d => d.wrapLength || Infinity)
     .addPropFunctor('tickSize', d => d.tickSize || 6)
-    .addPropFunctor('showGrid', d => d.showGrid === false)
+    .addPropFunctor('showGrid', d => d.showGrid !== false)
     .addPropFunctor('label', d => d.label)
     .addPropFunctor('labelOrient', d => d.labelOrient || 'outer middle')
     // Method to get the computed box of a specific plane container. This

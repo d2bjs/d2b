@@ -1,6 +1,5 @@
 import {default as functor} from '../util/functor.js';
 import {default as number} from '../util/number.js';
-import {default as mean} from './mean.js';
 
 function mode(arr, value, weight){
   weight = functor(weight || 1);
@@ -22,7 +21,9 @@ function mode(arr, value, weight){
     }
   });
 
-  if(arr.length) return mean(modes);
+  if(maxFrequency <= 1 || !modes.length) return null;
+  else if(modes.length === 1) return modes[0];
+  else return modes;
 }
 
 mode.tendancy = 'mode';

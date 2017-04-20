@@ -270,6 +270,15 @@
 
   * [d2b.chartFrame](utils/chart_frame.md)
 
+    * [chartFrame](utils/chart_frame.md#apply)
+    * [chartFrame.size](utils/chart_frame.md#size)
+    * [chartFrame.legendEnabled](utils/chart_frame.md#legend_enabled)
+    * [chartFrame.legendOrient](utils/chart_frame.md#legend_orient)
+    * [chartFrame.breadcrumbsEnabled](utils/chart_frame.md#breadcrumbs_enabled)
+    * [chartFrame.breadcrumbsOrient](utils/chart_frame.md#breadcrumbs_orient)
+    * [chartFrame.chartPadding](utils/chart_frame.md#chart_padding)
+    * [chartFrame.padding](utils/chart_frame.md#padding)
+
   * [d2b.legend](utils/legend.md)
 
     * [legend](utils/legend.md#apply)

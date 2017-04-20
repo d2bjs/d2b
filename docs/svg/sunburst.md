@@ -151,7 +151,9 @@ function (d) {
 # {#key}
 [#](#key) sunburst.**key**([*key*])
 
-If *key* is specified, sets the arc-key-accessor to the specified function. If *key* is not specified, returns the current arc-key-accessor, which defaults to `() => d.label`. The arcs are entered in hierarchical order, so that arcs with the same keys do not conflict with one another unless they are direct siblings.
+If *key* is specified, sets the arc-key-accessor to the specified function. If *key* is not specified, returns the current arc-key-accessor, which defaults to `() => $$.label(d)`. The arcs are entered in hierarchical order, so that arcs with the same keys do not conflict with one another unless they are direct siblings.
+
+Note: By default, the key will be retrieved by invoking the current sunburst label accessor. This means that as the label accessor is changed the key will automatically reflect this change. Unless a different key accessor is provided.
 
 # {#label}
 [#](#label) sunburst.**label**([*label*])
@@ -168,9 +170,11 @@ If *color* is specified, sets the color-accessor to the specified function. If *
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 function (d) {
-  return color(d.label);
+  return color($$.label(d));
 }
 ```
+
+Note: By default, the color will be retrieved by invoking the current sunburst label accessor. This means that as the label accessor is changed the color will automatically reflect this change. Unless a different color accessor is provided.
 
 # {#children}
 [#](#children) sunburst.**children**([*children*])

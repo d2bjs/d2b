@@ -20,11 +20,11 @@ export default function () {
     context.call($$.chartFrame);
 
     // configure sunburst
-    $$.sunburst.color($$.color);
+    $$.sunburst.label($$.label).color($$.color);
     // configure breadcrumbs
-    $$.breadcrumbs.color($$.color).key((d, i) => i);
+    $$.breadcrumbs.color(d => $$.color(d.data)).key((d, i) => i);
     // configure tooltip
-    $$.tooltip.color($$.color);
+    $$.tooltip.color(d => $$.color(d.data));
 
     const selection = (context.selection)? context.selection() : context;
 
@@ -41,7 +41,8 @@ export default function () {
 		.addProp('sunburst', svgSunburst())
     .addProp('breadcrumbs', breadcrumbs().html(d => `<div class = 'd2b-sunburst-breadcrumb'>${tipTemplate(d)}</div>`))
 		.addProp('tooltip', tooltip().followMouse(true).html(d => `<div class = 'd2b-sunburst-tooltip'>${tipTemplate(d)}</div>`))
-    .addPropFunctor('color', d => color(d.label))
+		.addPropFunctor('label', d => d.label)
+    .addPropFunctor('color', d => color($$.label(d)))
 		.addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
 		.addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
 
@@ -59,7 +60,7 @@ export default function () {
 
     return `
       <div class = 'd2b-sunburst-label'>
-        ${d.label}
+        ${$$.label(d.data)}
       </div>
       <div class = 'd2b-sunburst-value'>
         ${format(d.value)}

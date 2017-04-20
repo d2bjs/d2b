@@ -157,7 +157,7 @@ The *tooltip* can be configured at will, except for the [color](../utils/tooltip
 
 If *sunburst* is specified, sets the *sunburst* generator to the specified [d2b.sunburst](../svg/sunburst.md) and returns the sunburst-chart generator. If *sunburst* is not specified, returns the current *sunburst* generator, which defaults to `d2b.svgSunburst()`.
 
-The *sunburst* can be configured at will, except for the [color](../svg/sunburst.md#color) property which will be set automatically by the sunburst-chart.
+The *sunburst* can be configured at will, except for the [color](../svg/sunburst.md#color) and [label](../svg/sunburst.md#label) properties which will be set automatically by the sunburst-chart.
 
 ### Datum Level Accessors
 
@@ -192,6 +192,17 @@ In addition to the element datum `d`, the *innerRadius* accessor function is als
 ### Value Level Accessors
 
 When the d2b sunburst-chart generator is applied to a selection, the following properties will be invoked for each node in the hierarchy. The function will be passed the value data `d` as defined by the [svg-sunburst](#sunburst).
+
+# {#label}
+[#](#label) sunburst.**label**([*label*])
+
+If *label* is specified, sets the *label* accessor to the specified accessor function and returns the sunburst generator. If *label* is not specified, returns the current *label* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.label;
+}
+```
 
 # {#color}
 [#](#color) sunburst.**color**([*color*])

@@ -121,9 +121,9 @@ export default function () {
     .addPropFunctor('zoomable', true)
     .addPropFunctor('highlight', true)
     // Node Level Accessors
-    .addPropFunctor('key', d => d.label)
+    .addPropFunctor('key', d => $$.label(d))
     .addPropFunctor('label', d => d.label)
-    .addPropFunctor('color', d => color(d.label))
+    .addPropFunctor('color', d => color($$.label(d)))
     .addPropFunctor('children', d => d.children)
     .addPropFunctor('size', d => d.size);
 

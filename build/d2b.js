@@ -1407,7 +1407,7 @@
       }
     });
 
-    if (maxFrequency <= 1 || !modes.length) null;else if (modes.length === 1) return modes[0];else return modes;
+    if (maxFrequency <= 1 || !modes.length) return null;else if (modes.length === 1) return modes[0];else return modes;
   }
 
   mode.tendancy = 'mode';
@@ -3538,11 +3538,11 @@
     .addPropFunctor('duration', 250).addPropFunctor('innerRadius', 30).addPropFunctor('outerRadius', 200).addPropFunctor('ancestorPadding', 10).addPropFunctor('ancestorRatio', 0.2).addPropFunctor('descendantLevels', Infinity).addPropFunctor('startAngle', 0).addPropFunctor('endAngle', 2 * Math.PI).addPropFunctor('showLabels', false).addPropFunctor('zoomable', true).addPropFunctor('highlight', true)
     // Node Level Accessors
     .addPropFunctor('key', function (d) {
-      return d.label;
+      return $$.label(d);
     }).addPropFunctor('label', function (d) {
       return d.label;
     }).addPropFunctor('color', function (d) {
-      return color(d.label);
+      return color($$.label(d));
     }).addPropFunctor('children', function (d) {
       return d.children;
     }).addPropFunctor('size', function (d) {
@@ -4936,13 +4936,17 @@
       context.call($$.chartFrame);
 
       // configure sunburst
-      $$.sunburst.color($$.color);
+      $$.sunburst.label($$.label).color($$.color);
       // configure breadcrumbs
-      $$.breadcrumbs.color($$.color).key(function (d, i) {
+      $$.breadcrumbs.color(function (d) {
+        return $$.color(d.data);
+      }).key(function (d, i) {
         return i;
       });
       // configure tooltip
-      $$.tooltip.color($$.color);
+      $$.tooltip.color(function (d) {
+        return $$.color(d.data);
+      });
 
       var selection = context.selection ? context.selection() : context;
 
@@ -4958,8 +4962,10 @@
       return '<div class = \'d2b-sunburst-breadcrumb\'>' + tipTemplate(d) + '</div>';
     })).addProp('tooltip', tooltip().followMouse(true).html(function (d) {
       return '<div class = \'d2b-sunburst-tooltip\'>' + tipTemplate(d) + '</div>';
-    })).addPropFunctor('color', function (d) {
-      return color(d.label);
+    })).addPropFunctor('label', function (d) {
+      return d.label;
+    }).addPropFunctor('color', function (d) {
+      return color($$.label(d));
     }).addPropFunctor('outerRadius', function (d, w, h) {
       return Math.min(w, h) / 2;
     }).addPropFunctor('innerRadius', function (d, w, h) {
@@ -4974,7 +4980,7 @@
       var percent = d.value / d.selected.value;
       var percentText = percent > 1 ? '' : '<div class = \'d2b-sunburst-percent\'>\n        ' + formatPercent(d.value / d.selected.value) + '\n      </div>';
 
-      return '\n      <div class = \'d2b-sunburst-label\'>\n        ' + d.label + '\n      </div>\n      <div class = \'d2b-sunburst-value\'>\n        ' + format(d.value) + '\n        ' + percentText + '\n      </div>\n    ';
+      return '\n      <div class = \'d2b-sunburst-label\'>\n        ' + $$.label(d.data) + '\n      </div>\n      <div class = \'d2b-sunburst-value\'>\n        ' + format(d.value) + '\n        ' + percentText + '\n      </div>\n    ';
     };
 
     // update breadcrumbs

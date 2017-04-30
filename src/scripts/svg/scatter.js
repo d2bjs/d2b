@@ -43,9 +43,7 @@ export default function () {
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => {
-      if (sg.values.length > 1) stacker(sg.values);
-    });
+    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
 
     return graphs;
   }

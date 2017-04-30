@@ -38,10 +38,7 @@ export default function () {
       return newGraph;
     });
 
-    // only stack points if a particular stack has more than 1 graph
-    stackNest.entries(graphs).forEach(sg => {
-      if (sg.values.length > 1) stacker(sg.values);
-    });
+    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
 
     return graphs;
   }

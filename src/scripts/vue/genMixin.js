@@ -1,9 +1,15 @@
 import * as d3 from 'd3';
+import d2bid from '../util/id';
 
 export default {
   props: {
     data:         { default: () => {} },
     config:       { default: () => () => {} }
+  },
+  data () {
+    return {
+      visId: d2bid()
+    };
   },
   computed: {
     properties () {
@@ -16,10 +22,11 @@ export default {
   },
   destroyed () {
     d3.selectAll('.d2b-tooltip').remove();
+    d3.select(window).on(`resize.${this.id}`, null);
   },
   mounted () {
     this.updateDefer();
-    window.addEventListener('resize', this.updateDefer);
+    d3.select(window).on(`resize.${this.id}`, this.updateDefer);
 
     this.watcher();
   },

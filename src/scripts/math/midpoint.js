@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-import {default as functor} from '../util/functor.js';
+import functor from '../util/functor';
 
 function midpoint(arr, value) {
   value = functor(value || function(d){return d;});

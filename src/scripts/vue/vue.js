@@ -1,4 +1,4 @@
-export {default as vueGenMixin} from './genMixin.js';
-export {default as vueChartAxis} from './chartAxis.js';
-export {default as vueChartPie} from './chartPie.js';
-export {default as vueChartSunburst} from './chartSunburst.js';
+export {default as vueGenMixin} from './genMixin';
+export {default as vueChartAxis} from './chartAxis';
+export {default as vueChartPie} from './chartPie';
+export {default as vueChartSunburst} from './chartSunburst';

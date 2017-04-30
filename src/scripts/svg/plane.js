@@ -1,8 +1,9 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as textWrap} from '../util/textWrap.js';
-import {default as id} from '../util/id.js';
+import base from '../model/base';
+import textWrap from '../util/textWrap';
+import id from '../util/id';
+import oreq from '../util/oreq';
 
 // TODO: Clean up text wrapping with transition udpates
 // TODO: Clean up plane build workflow
@@ -120,8 +121,8 @@ export default function () {
     // axis level functors
     .addPropFunctor('axis', d => d.axis)
     .addPropFunctor('orient', d => d.orient || 'outer')
-    .addPropFunctor('wrapLength', d => d.wrapLength || Infinity)
-    .addPropFunctor('tickSize', d => d.tickSize || 6)
+    .addPropFunctor('wrapLength', d => oreq(d.wrapLength, Infinity))
+    .addPropFunctor('tickSize', d => oreq(d.tickSize, 6))
     .addPropFunctor('showGrid', d => d.showGrid !== false)
     .addPropFunctor('label', d => d.label)
     .addPropFunctor('labelOrient', d => d.labelOrient || 'outer middle')
@@ -273,7 +274,7 @@ export default function () {
     info.axis = $$.axis(d, i);
     info.orient = $$.orient(d, i);
     info.wrapLength = $$.wrapLength(d, i);
-    info.label = $$.label(d, i) || '';
+    info.label = oreq($$.label(d, i), '');
     info.labelOrient = $$.labelOrient(d, i);
     info.tickSize = $$.tickSize(d, i);
     info.showGrid = $$.showGrid(d, i);
@@ -408,7 +409,7 @@ export default function () {
     el.selectAll('.tick text')
       .each(function () {
         const tick = d3.select(this);
-        if ((tick.html() || '').indexOf('tspan') === -1) this.storeText = tick.text();
+        if ((oreq(tick.html(), '')).indexOf('tspan') === -1) this.storeText = tick.text();
         tick.text('');
       })
       .call(textWrap, function () { return this.storeText; }, length, anchor);

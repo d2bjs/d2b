@@ -1,5 +1,5 @@
-import {default as functor} from '../util/functor.js';
-import {default as number} from '../util/number.js';
+import functor from '../util/functor';
+import number from '../util/number';
 
 function mode(arr, value, weight){
   weight = functor(weight || 1);

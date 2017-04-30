@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-import {default as functor} from '../util/functor.js';
+import functor from '../util/functor';
 
 export default function (context, arc, rotate = d => d.rotate) {
   rotate = functor(rotate);

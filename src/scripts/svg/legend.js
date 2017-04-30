@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as textWrap} from '../util/textWrap.js';
-import {default as svgPoint} from '../svg/point.js';
+import base from '../model/base';
+import color from '../util/color';
+import textWrap from '../util/textWrap';
+import svgPoint from '../svg/point';
 
 export default function () {
   const $$ = {};

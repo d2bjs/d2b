@@ -1,5 +1,5 @@
-import {default as functor} from '../util/functor.js';
-import {default as number} from '../util/number.js';
+import functor from '../util/functor';
+import number from '../util/number';
 
 function mean(arr, value, weight) {
   var totalWeight = 0, contribution = 0;

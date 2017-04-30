@@ -1,12 +1,13 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as chartFrame} from '../util/chartFrame.js';
-import {default as legend} from '../util/legend.js';
-import {default as plane} from '../svg/plane.js';
-import {default as color} from '../util/color.js';
-import {default as tooltipAxis} from '../util/tooltipAxis.js';
-import {default as d2bid} from '../util/id.js';
+import base from '../model/base';
+import chartFrame from '../util/chartFrame';
+import legend from '../util/legend';
+import plane from '../svg/plane';
+import color from '../util/color';
+import tooltipAxis from '../util/tooltipAxis';
+import d2bid from '../util/id';
+import oreq from '../util/oreq';
 
 export default function () {
 
@@ -75,7 +76,7 @@ export default function () {
     let tooltip = chartNode.tooltip = chartNode.tooltip || tooltipAxis().trackX(true).trackY(false).threshold(50);
 
     tooltip
-      .title(points => `${points[0].x || points[0].x1}`)
+      .title(points => `${oreq(points[0].x, points[0].x1)}`)
       .clear();
 
 		// update functionality
@@ -240,7 +241,7 @@ export default function () {
     // configure tooltip
     tooltip.row(point => {
       const graphLabel = matchGraph(point.graph.data, allGraphs).label;
-      return `${graphLabel}: ${point.y || point.y1}`;
+      return `${graphLabel}: ${oreq(point.y, point.y1)}`;
     });
 
     $$.tooltipConfig(tooltip);

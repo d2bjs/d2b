@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
+import base from '../model/base';
 // d2b.stack will stack the x and y values in place for
 // some datum and d3.stack configuration.
 export default function () {

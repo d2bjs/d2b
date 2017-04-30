@@ -1,10 +1,10 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as stack} from '../util/stack.js';
-import {default as id} from '../util/id.js';
-import {default as isFinitePath} from '../util/isFinitePath.js';
+import base from '../model/base';
+import color from '../util/color';
+import stack from '../util/stack';
+import id from '../util/id';
+import isFinitePath from '../util/isFinitePath';
 
 // line svg generator
 export default function () {

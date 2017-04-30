@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as d2bid} from '../util/id.js';
-import {default as oreq} from '../util/oreq.js';
+import base from '../model/base';
+import d2bid from '../util/id';
+import oreq from '../util/oreq';
 
 export default function (id = d2bid()) {
   const $$ = {};

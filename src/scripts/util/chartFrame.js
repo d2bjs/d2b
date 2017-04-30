@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
+import base from '../model/base';
 
 export default function () {
 

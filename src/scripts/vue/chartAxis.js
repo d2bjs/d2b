@@ -1,5 +1,5 @@
-import chartAxis from '../chart/axis.js';
-import genMixin from './genMixin.js';
+import chartAxis from '../chart/axis';
+import genMixin from './genMixin';
 
 export default {
   mixins: [genMixin],

@@ -1,10 +1,10 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as point} from '../svg/point.js';
-import {default as stack} from '../util/stack.js';
-import {default as id} from '../util/id.js';
+import base from '../model/base';
+import color from '../util/color';
+import point from '../svg/point';
+import stack from '../util/stack';
+import id from '../util/id';
 
 // scatter svg generator
 export default function () {

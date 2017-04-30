@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 
-import {default as functor} from '../util/functor.js';
+import functor from '../util/functor';
+import oreq from '../util/oreq';
 
 // Wraps text based on character count and text accessor. This method uses
 // d3's enter/update/exit strategy as to be less destructive on the text content.
@@ -19,7 +20,7 @@ export default function (text, getText = d => d.label, count = Infinity, anchor 
         dy = parseFloat(text.attr('dy')) || 0;
 
     // clear text if the wrapper is being run for the first time
-    if ((text.html() || '').indexOf('tspan') === -1) text.text('');
+    if ((oreq(text.html(), '')).indexOf('tspan') === -1) text.text('');
 
     word = words.pop();
     while (word) {

@@ -2,9 +2,10 @@
 
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as stack} from '../util/stack.js';
+import base from '../model/base';
+import color from '../util/color';
+import stack from '../util/stack';
+import oreq from '../util/oreq';
 
 // bar svg generator
 export default function () {
@@ -74,7 +75,7 @@ export default function () {
           groupPadding = $$.groupPadding(d, i),
           bandwidth = $$.bandwidth(d, i);
 
-      bandwidth = (1 - padding) * (bandwidth || getBandwidth(x, graphs, orientMap));
+      bandwidth = (1 - padding) * (oreq(bandwidth || getBandwidth(x, graphs, orientMap)));
 
       const stacking = stackNest.entries(graphs);
 

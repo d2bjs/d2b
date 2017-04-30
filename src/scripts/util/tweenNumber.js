@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
-import {default as functor} from '../util/functor.js';
-import {default as numberize} from '../util/numberize.js';
+import functor from '../util/functor';
+import numberize from '../util/numberize';
 
 export default function (context, number = d => d, format = d => d) {
   number = functor(number);

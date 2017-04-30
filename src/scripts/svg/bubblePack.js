@@ -1,10 +1,11 @@
 import * as d3 from 'd3';
 
-import {default as functor} from '../util/functor.js';
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as point} from '../svg/point.js';
-import {default as mean} from '../math/mean.js';
+import functor from '../util/functor';
+import base from '../model/base';
+import color from '../util/color';
+import point from '../svg/point';
+import mean from '../math/mean';
+import oreq from '../util/oreq';
 
 // bubble pack svg generator
 export default function () {
@@ -320,10 +321,10 @@ export default function () {
       });
     }
 
-    d.size = d.size || d3.sum(d.leaves, d => d.size);
+    d.size = oreq(d.size, d3.sum(d.leaves, d => d.size));
 
-    d.x = d.x || (tendancy.x || tendancy)(d.leaves, d => d.x, d => d.size);
-    d.y = d.y || (tendancy.y || tendancy)(d.leaves, d => d.y, d => d.size);
+    d.x = oreq(d.x, (tendancy.x || tendancy)(d.leaves, d => d.x, d => d.size));
+    d.y = oreq(d.y, (tendancy.y || tendancy)(d.leaves, d => d.y, d => d.size));
   }
 
   /* Inherit from base model */

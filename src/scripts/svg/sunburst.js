@@ -1,12 +1,12 @@
 // TODO : Clean up node updater code.
 import * as d3 from 'd3';
 
-
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as tweenArc} from '../util/tweenArc.js';
-import {default as tweenCentroid} from '../util/tweenCentroid.js';
-import {default as toDegrees} from '../math/toDegrees.js';
+import base from '../model/base';
+import color from '../util/color';
+import tweenArc from '../util/tweenArc';
+import tweenCentroid from '../util/tweenCentroid';
+import oreq from '../util/oreq';
+import toDegrees from '../math/toDegrees';
 
 // sunburst svg generator
 export default function () {
@@ -38,14 +38,14 @@ export default function () {
 
       updateNodes.call(this, [root], 'arc', 0, $$.startAngle(d, i), $$.endAngle(d, i), {
         transition:     (context !== selection)? context : null,
-        oldRadii:       this.oldRadii || radii,
+        oldRadii:       oreq(this.__radii, radii),
         radii:          radii,
         zoomable:       zoomable
       });
 
       updateNodes.call(this, showLabels? [root] : [], 'label', 0, $$.startAngle(d, i), $$.endAngle(d, i), {
         transition:     (context !== selection)? context : null,
-        oldRadii:       this.oldRadii || radii,
+        oldRadii:       oreq(this.__radii, radii),
         radii:          radii
       });
 
@@ -66,7 +66,7 @@ export default function () {
             el.transition().duration($$.duration(d, i)).call(sunburst);
           });
 
-      this.oldRadii = radii;
+      this.__radii = radii;
 
       el.selectAll('path.d2b-sunburst-arc')
           .on('click',

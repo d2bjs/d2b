@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as d2bid} from '../util/id.js';
+import base from '../model/base';
+import d2bid from '../util/id';
 
 // tooltip with id in case of multiple d2b.tooltip generators
 export default function (id = d2bid()) {

@@ -1,5 +1,5 @@
-import chartPie from '../chart/pie.js';
-import genMixin from './genMixin.js';
+import chartPie from '../chart/pie';
+import genMixin from './genMixin';
 
 export default {
   mixins: [genMixin],

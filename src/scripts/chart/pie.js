@@ -1,14 +1,14 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as chartFrame} from '../util/chartFrame.js';
-import {default as legend} from '../util/legend.js';
-import {default as tooltip} from '../util/tooltip.js';
-import {default as tweenArc} from '../util/tweenArc.js';
-import {default as tweenCentroid} from '../util/tweenCentroid.js';
-import {default as tweenNumber} from '../util/tweenNumber.js';
-import {default as svgPie} from '../svg/pie.js';
-import {default as color} from '../util/color.js';
+import base from '../model/base';
+import chartFrame from '../util/chartFrame';
+import legend from '../util/legend';
+import tooltip from '../util/tooltip';
+import tweenArc from '../util/tweenArc';
+import tweenCentroid from '../util/tweenCentroid';
+import tweenNumber from '../util/tweenNumber';
+import svgPie from '../svg/pie';
+import color from '../util/color';
 
 /**
  * d2b.chartPie() returns a d2b

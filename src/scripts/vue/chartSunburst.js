@@ -1,5 +1,5 @@
-import chartSunburst from '../chart/sunburst.js';
-import genMixin from './genMixin.js';
+import chartSunburst from '../chart/sunburst';
+import genMixin from './genMixin';
 
 export default {
   mixins: [genMixin],

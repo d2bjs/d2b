@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 
-import {default as functor} from '../util/functor.js';
-import {default as number} from '../util/number.js';
-import {default as mean} from './mean.js';
+import functor from '../util/functor';
+import number from '../util/number';
+import mean from './mean';
 
 function median(arr, value, weight){
   weight = functor(weight || 1);

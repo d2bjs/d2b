@@ -1,11 +1,11 @@
 import '../styles/index.css';
 
-export {version} from '../../build/package.js';
-export * from './util/util.js';
-export * from './math/math.js';
-export * from './model/model.js';
-export * from './shape/shape.js';
-export * from './util/util.js';
-export * from './svg/svg.js';
-export * from './chart/chart.js';
-export * from './vue/vue.js';
+export {version} from '../../build/package';
+export * from './util/util';
+export * from './math/math';
+export * from './model/model';
+export * from './shape/shape';
+export * from './util/util';
+export * from './svg/svg';
+export * from './chart/chart';
+export * from './vue/vue';

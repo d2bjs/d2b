@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as color} from '../util/color.js';
-import {default as tweenArc} from '../util/tweenArc.js';
+import base from '../model/base';
+import color from '../util/color';
+import tweenArc from '../util/tweenArc';
 
 // pie svg generator
 export default function () {

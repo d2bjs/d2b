@@ -1,4 +1,4 @@
-import {pi, sqrt8, sqrt2} from '../math.js';
+import {pi, sqrt8, sqrt2} from '../math';
 
 export default {
   draw: (context, size) => {

@@ -1,11 +1,11 @@
 import * as d3 from 'd3';
 
-import {default as base} from '../model/base.js';
-import {default as chartFrame} from '../util/chartFrame.js';
-import {default as tooltip} from '../util/tooltip.js';
-import {default as breadcrumbs} from '../util/breadcrumbs.js';
-import {default as svgSunburst} from '../svg/sunburst.js';
-import {default as color} from '../util/color.js';
+import base from '../model/base';
+import chartFrame from '../util/chartFrame';
+import tooltip from '../util/tooltip';
+import breadcrumbs from '../util/breadcrumbs';
+import svgSunburst from '../svg/sunburst';
+import color from '../util/color';
 
 /**
  * d2b.chartSunburst() returns a d2b

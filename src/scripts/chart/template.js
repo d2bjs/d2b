@@ -1,11 +1,11 @@
-import {default as base} from '../model/base.js';
-import {default as chartFrame} from '../util/chartFrame.js';
+import base from '../model/base';
+import chartFrame from '../util/chartFrame';
 
 // if a legend is required
-import {default as legend} from '../util/legend.js';
+import legend from '../util/legend';
 
 // if breadcrumbs are required
-import {default as breadcrumbs} from '../util/breadcrumbs.js';
+import breadcrumbs from '../util/breadcrumbs';
 
 export default function () {
 

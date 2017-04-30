@@ -1,4 +1,4 @@
-import {pi} from '../math.js';
+import {pi} from '../math';
 
 export default {
   draw: (context, size) => {

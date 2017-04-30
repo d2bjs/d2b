@@ -1,17 +1,22 @@
 import * as d3 from 'd3';
 
 import base from '../model/base';
-import d2bid from '../util/id';
+import { isTouchDevice } from '../util/browser';
 
-// tooltip with id in case of multiple d2b.tooltip generators
-export default function (id = d2bid()) {
+export default function () {
   const $$ = {};
 
   const tooltip = function (context) {
-    ((context.selection)? context.selection() : context)
+    const selection = (context.selection)? context.selection() : context;
+    selection
       .on(event('mouseover'), mouseover)
-      .on(event('mouseout'), mouseout)
-      .on(event('mousemove'), mousemove);
+      .on(event('mouseout'), mouseout);
+
+    if (isTouchDevice()) {
+      selection.on(event('click'), mouseout);
+    } else {
+      selection.on(event('mousemove'), mousemove);
+    }
 
     return tooltip;
   };
@@ -51,7 +56,7 @@ export default function (id = d2bid()) {
   };
 
   const mouseover = function (d, i) {
-    let tooltipUpdate = $$.selection.selectAll('.d2b-tooltip').data(d => [d]);
+    let tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(d => [d]);
 
     const newTooltip = tooltipUpdate.enter()
       .append('div')
@@ -70,6 +75,8 @@ export default function (id = d2bid()) {
         .style('opacity', 1);
 
     $$.dispatch.call('insert', tooltipUpdate, this, d, i);
+
+    mousemove.call(this, d, i);
   };
 
   const mousemove = function (d, i) {
@@ -81,7 +88,9 @@ export default function (id = d2bid()) {
                     {x: d3.event.clientX, y: d3.event.clientY} :
                     getCoords.call(targetNode, d, i);
 
-    let tooltipUpdate = $$.selection.selectAll('.d2b-tooltip').data(d => [d]);
+    // if (!$$.container.selectAll('.d2b-tooltip').size()) return mouseover(d, i);
+
+    let tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(d => [d]);
 
     let my = ($$.my.call(this, d, i) || ((d3.event.clientX > window.innerWidth / 2)? 'left' : 'right'));
 
@@ -97,7 +106,7 @@ export default function (id = d2bid()) {
   };
 
   const mouseout = function (d, i) {
-    let tooltipUpdate = $$.selection.selectAll('.d2b-tooltip').data(d => [d]);
+    let tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(d => [d]);
 
     tooltipUpdate
       .transition()
@@ -112,18 +121,9 @@ export default function (id = d2bid()) {
     return `${listener}.d2b-tooltip`;
   };
 
-  const updateContainer = (n, o) => {
-    if (o) o.select(`.d2b-tooltip-area-${id}`).remove();
-    if (!n) return;
-    $$.selection = n.selectAll(`.d2b-tooltip-area-${id}`).data([tooltip]);
-    $$.selection = $$.selection.merge(
-      $$.selection.enter().append('div').attr('class', `d2b-tooltip-area-${id} d2b-tooltip-area`)
-    );
-  };
-
   /* Inherit from base model */
   base(tooltip, $$)
-    .addProp('container', d3.select('body'), null, updateContainer)
+    .addProp('container', d3.select('body'))//, null, updateContainer)
     .addMethod('clear', function (context) {
       ((context.selection)? context.selection() : context)
         .on(event('mouseover'), null)

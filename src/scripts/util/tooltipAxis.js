@@ -1,10 +1,9 @@
 import * as d3 from 'd3';
 
 import base from '../model/base';
-import d2bid from '../util/id';
 import oreq from '../util/oreq';
 
-export default function (id = d2bid()) {
+export default function () {
   const $$ = {};
 
   const tooltip = {};
@@ -168,21 +167,21 @@ export default function (id = d2bid()) {
 
   // Enter tooltip components.
   const enter = function (d, i) {
-    const markerX = $$.selectionSvg.selectAll('.d2b-tooltip-marker-x').data($$.trackX? [tooltip] : []);
+    const markerX = $$.svgContainer.selectAll('.d2b-tooltip-marker-x').data($$.trackX? [tooltip] : []);
     const markerXEnter = markerX.enter()
       .append('line')
         .attr('class', 'd2b-tooltip-marker-x d2b-tooltip-marker');
 
-    const markerY = $$.selectionSvg.selectAll('.d2b-tooltip-marker-y').data($$.trackY? [tooltip] : []);
+    const markerY = $$.svgContainer.selectAll('.d2b-tooltip-marker-y').data($$.trackY? [tooltip] : []);
     const markerYEnter = markerY.enter()
       .append('line')
         .attr('class', 'd2b-tooltip-marker-y d2b-tooltip-marker');
 
-    const tooltipEl = $$.selection.selectAll('.d2b-tooltip').data([tooltip]);
+    const tooltipEl = $$.htmlContainer.selectAll('.d2b-tooltip').data([tooltip]);
 
     const tooltipEnter = tooltipEl.enter()
       .append('div')
-        .attr('class', 'd2b-tooltip');
+        .attr('class', 'd2b-tooltip d2b-tooltip-axis');
 
     tooltipEnter.merge(tooltipEl).call(enterElement);
     markerY.merge(markerYEnter).call(enterElement);
@@ -196,14 +195,14 @@ export default function (id = d2bid()) {
 
   // Exit tooltip components.
   const exit = function () {
-    $$.selectionSvg.selectAll('.d2b-tooltip-marker-x').data([]).exit().call(exitElement);
-    $$.selectionSvg.selectAll('.d2b-tooltip-marker-y').data([]).exit().call(exitElement);
-    $$.selection.selectAll('.d2b-tooltip').data([]).exit().call(exitElement);
+    $$.svgContainer.selectAll('.d2b-tooltip-marker-x').data([]).exit().call(exitElement);
+    $$.svgContainer.selectAll('.d2b-tooltip-marker-y').data([]).exit().call(exitElement);
+    $$.htmlContainer.selectAll('.d2b-tooltip').data([]).exit().call(exitElement);
   };
 
   // Tracker mousemove event.
   const mousemove = function (d, i) {
-    let base = $$.selectionSvg.selectAll('.d2b-tooltip-base').data([d]);
+    let base = $$.svgContainer.selectAll('.d2b-tooltip-base').data([d]);
     base = base.merge(base.enter().append('rect').attr('class', 'd2b-tooltip-base'));
     let baseBox = base.node().getBoundingClientRect();
     baseBox = {x: baseBox.left, y: baseBox.top};
@@ -213,15 +212,15 @@ export default function (id = d2bid()) {
     if (pointInfo.points.length) enter();
     else return exit();
 
-    $$.selectionSvg
+    $$.svgContainer
       .select('.d2b-tooltip-marker-x')
         .call(positionMarker, pointInfo, 'x');
 
-    $$.selectionSvg
+    $$.svgContainer
       .select('.d2b-tooltip-marker-y')
         .call(positionMarker, pointInfo, 'y');
 
-    $$.selection
+    $$.htmlContainer
       .select('.d2b-tooltip')
         .call(populateTooltip, pointInfo)
         .call(positionTooltip, pointInfo, baseBox);
@@ -241,26 +240,6 @@ export default function (id = d2bid()) {
     return `${listener}.d2b-tooltip-axis`;
   };
 
-  // update container which houses tooltip html components
-  const updateContainerHtml = (n, o) => {
-    if (o) o.select(`div.d2b-tooltip-axis-area-${id}`).remove();
-    if (!n) return;
-    $$.selection = n.selectAll(`div.d2b-tooltip-axis-area-${id}`).data([tooltip]);
-    $$.selection = $$.selection.merge(
-      $$.selection.enter().append('div').attr('class', `d2b-tooltip-axis-area-${id} d2b-tooltip-axis-area`)
-    );
-  };
-
-  // update container which houses tooltip svg components
-  const updateContainerSvg = (n, o) => {
-    if (o) o.select(`g.d2b-tooltip-axis-area-${id}`).remove();
-    if (!n) return;
-    $$.selectionSvg = n.selectAll(`g.d2b-tooltip-axis-area-${id}`).data([tooltip]);
-    $$.selectionSvg = $$.selectionSvg.merge(
-      $$.selectionSvg.enter().append('g').attr('class', `d2b-tooltip-axis-area-${id} d2b-tooltip-axis-area`)
-    );
-  };
-
   // update mouse event tracker
   const updateTracker = (n, o) => {
     if (o) {
@@ -277,8 +256,8 @@ export default function (id = d2bid()) {
 
   // setup tooltip model
   base(tooltip, $$)
-    .addProp('htmlContainer', d3.select('body'), null, updateContainerHtml)
-    .addProp('svgContainer', null, null, updateContainerSvg)
+    .addProp('htmlContainer', d3.select('body'))
+    .addProp('svgContainer', null)
     .addProp('tracker', d3.select('body'), null, updateTracker)
     .addProp('size', {height: 0, width: 0})
     .addProp('trackX', true)

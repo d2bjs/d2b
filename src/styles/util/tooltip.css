@@ -1,22 +1,13 @@
-.d2b-tooltip-area {
-  pointer-events: none;
+/*.d2b-tooltip-area {
+  pointer-events: none;*/
 
   .d2b-tooltip {
+    pointer-events: none;
     background: white;
     border: 1px solid #bbb;
     border-radius: 2px;
     position: fixed;
     box-shadow: 0px 0px 2px #ccc;
-  }
-
-  .d2b-tooltip-content {
-    padding: 6px 10px;
-  }
-
-  $pad: 15px;
-  $arrowSize: 6px;
-
-  .d2b-tooltip {
     margin: 0;
     &:before {
       left: 0;
@@ -26,6 +17,13 @@
       content: '';
     }
   }
+
+  .d2b-tooltip-content {
+    padding: 6px 10px;
+  }
+
+  $pad: 15px;
+  $arrowSize: 6px;
 
   .d2b-tooltip-top {
     transform: translate(-50%, -100%);
@@ -87,4 +85,4 @@
     }
   }
 
-}
+/*}*/

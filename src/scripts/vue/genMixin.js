@@ -6,7 +6,7 @@ export default {
     config:       { default: () => () => {} }
   },
   computed: {
-    properties: function () {
+    properties () {
       return {
         generator: this.generator,
         data: this.data,
@@ -14,14 +14,17 @@ export default {
       };
     }
   },
-  mounted: function () {
+  destroyed () {
+    d3.selectAll('.d2b-tooltip').remove();
+  },
+  mounted () {
     this.updateDefer();
     window.addEventListener('resize', this.updateDefer);
 
     this.watcher();
   },
   methods: {
-    watcher: function () {
+    watcher () {
       const handler = function () {
         unwatch();
         this.update();
@@ -29,7 +32,7 @@ export default {
       };
       const unwatch = this.$watch('properties', handler, {deep: true});
     },
-    update: function (options = {}) {
+    update (options = {}) {
       const data = this.data;
 
       this.config(this.generator);
@@ -41,13 +44,13 @@ export default {
 
       elTransition.call(this.generator);
     },
-    updateNow: function () {
+    updateNow () {
       var self = this;
       setTimeout(function () {
         self.update({skipTransition: true});
       }, 0);
     },
-    updateDefer: function () {
+    updateDefer () {
       setTimeout(this.updateNow, 0);
     }
   }

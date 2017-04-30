@@ -1,6 +1,6 @@
-.d2b-tooltip-axis-area {
+/*.d2b-tooltip-axis-area {
   pointer-events: none;
-  font-family: 'Arial';
+  font-family: 'Arial';*/
 
   .d2b-tooltip-marker {
     stroke-width: 2px;
@@ -8,7 +8,10 @@
     stroke-dasharray: 5, 5;
   }
 
-  .d2b-tooltip {
+  .d2b-tooltip-axis {
+    pointer-events: none;
+    font-family: 'Arial';
+
     opacity: 0.9;
     white-space: nowrap;
     border: 1px solid #ddd;
@@ -37,4 +40,4 @@
     }
   }
 
-}
+/*}*/

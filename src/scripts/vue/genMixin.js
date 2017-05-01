@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import d2bid from '../util/id';
 
 export default {
   props: {
@@ -8,7 +7,7 @@ export default {
   },
   data () {
     return {
-      visId: d2bid()
+      unwatch: null,
     };
   },
   computed: {
@@ -33,13 +32,15 @@ export default {
   methods: {
     watcher () {
       const handler = function () {
-        unwatch();
+        if (this.unwatch) this.unwatch();
         this.update();
         this.watcher();
       };
-      const unwatch = this.$watch('properties', handler, {deep: true});
+      this.unwatch = this.$watch('properties', handler, {deep: true});
     },
     update (options = {}) {
+      this.$emit('beforeRender', this.$el, this.generator);
+
       const data = this.data;
 
       this.config(this.generator);
@@ -50,12 +51,11 @@ export default {
       el.datum(data);
 
       elTransition.call(this.generator);
+
+      this.$emit('rendered', this.$el, this.generator);
     },
     updateNow () {
-      var self = this;
-      setTimeout(function () {
-        self.update({skipTransition: true});
-      }, 0);
+      this.update({skipTransition: true});
     },
     updateDefer () {
       setTimeout(this.updateNow, 0);

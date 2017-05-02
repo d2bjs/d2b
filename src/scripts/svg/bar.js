@@ -232,6 +232,8 @@ export default function () {
 
 
     });
+    
+    selection.dispatch('svg-bar-updated', {bubbles: true});
 
     return bar;
   };

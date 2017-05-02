@@ -134,6 +134,8 @@ export default function () {
 
     });
 
+    selection.dispatch('legend-updated', {bubbles: true});
+
     legItemExit.remove();
   };
 

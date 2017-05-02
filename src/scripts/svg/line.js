@@ -103,6 +103,8 @@ export default function () {
       this.__scaleY = yCopy;
     });
 
+    selection.dispatch('svg-line-updated', {bubbles: true});
+
     return line;
   };
 

@@ -162,6 +162,8 @@ export default function () {
       this.__scaleY = $$.y.copy();
     });
 
+    selection.dispatch('svg-scatter-updated', {bubbles: true});
+
     return scatter;
   };
 

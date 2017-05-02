@@ -82,6 +82,8 @@ export default function () {
 
     });
 
+    selection.dispatch('svg-pie-updated', {bubbles: true});
+
     return pie;
   };
 

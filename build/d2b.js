@@ -19,7 +19,7 @@
   }
   __$styleInject("@import \"//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css\";.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{-webkit-transition:opacity 0.2s,stroke-width 0.2s;transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;alignment-baseline:central;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
 
-  var version = "0.0.27";
+  var version = "0.0.28";
 
   function functor(v) {
     return typeof v === 'function' ? v : function () {
@@ -251,6 +251,15 @@
     var $$ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var protect = arguments[2];
 
+
+    // Define an emitter updater that will fire events around the base updater
+    // if (typeof base === 'function') {
+    //   base.emitter = function (context) {
+    //     if (context.dispatch) context.dispatch('beforeApply', {bubbles: true});
+    //     base.apply(this, arguments);
+    //     if (context.dispatch) context.dispatch('applied', {bubbles: true});
+    //   };
+    // }
 
     var propFn = function propFn(prop, cb) {
       return function (_) {
@@ -974,6 +983,10 @@
       bc.style('border-color', $$.color).style('opacity', 1).select('.d2b-breadcrumb-icon').style('background-color', $$.color);
 
       bcExit.remove();
+
+      selection.dispatch('breadcrumbs-updated', { bubbles: true });
+
+      return breadcrumbs;
     };
 
     /* Inherit from base model */
@@ -1104,6 +1117,8 @@
           d3.select(this).on('click', clickable ? click : null).on('dblclick', dblclickable ? dblclick : null);
         });
       });
+
+      selection.dispatch('legend-updated', { bubbles: true });
 
       legItemExit.remove();
     };
@@ -1237,6 +1252,8 @@
         // true size instead of the transitioning size.
         chart.select('.d2b-chart-container').node().__size__ = size;
       });
+
+      selection.dispatch('chart-frame-updated', { bubbles: true });
 
       return chartFrame;
     };
@@ -1513,6 +1530,8 @@
         d3.select(this).on('mouseover.d2b-point', active ? mouseover : null).on('mouseout.d2b-point', active ? mouseout : null);
       });
 
+      selection.dispatch('point-updated', { bubbles: true });
+
       return point;
     };
 
@@ -1565,303 +1584,6 @@
     }
 
     return point;
-  }
-
-  function legend$1 () {
-    var $$ = {};
-
-    var legend = function legend(context) {
-
-      context.each(function (data, index) {
-        var selection = d3.select(this),
-            itemSize = $$.itemSize.call(this, data, index),
-            size = $$.size.call(this, data, index),
-            orient = $$.orient.call(this, data, index).split(' '),
-            orient1 = orient[0],
-            maxTextLength = $$.maxTextLength.call(this, data, index),
-            items = $$.items.call(this, data, index);
-
-        // Set point size and stroke width for.
-        point$$.size(1.5 * Math.pow(itemSize / 2, 2)).strokeWidth(itemSize * 0.1);
-
-        // enter d2b-legend container
-        var g = selection.selectAll('.d2b-legend').data([items]),
-            gEnter = g.enter().append('g').attr('class', 'd2b-legend');
-        g = g.merge(gEnter);
-
-        // enter d2b-legend-items
-        var item = g.selectAll('.d2b-legend-item').data(function (d) {
-          return d.sort($$.order);
-        }, $$.key);
-
-        var itemEnter = item.enter().append('g').attr('class', 'd2b-legend-item').style('opacity', 0);
-
-        itemEnter.append('g').append('text');
-
-        // exit d2b-legend-items
-        var itemExit = item.exit();
-
-        // merge enter and update items
-        item = item.merge(itemEnter).style('cursor', function (d, i) {
-          var clickable = $$.clickable.call(this, d, i),
-              dblclickable = $$.dblclickable.call(this, d, i);
-          return clickable || dblclickable ? 'pointer' : 'auto';
-        });
-
-        // bind item events for each selection
-        selection.call(bindEvents, index);
-
-        // select item wrapper
-        var wrap = item.select('g').attr('transform', 'translate(' + itemSize / 2 + ', ' + itemSize / 2 + ')');
-
-        // select item text
-        var text = item.select('text').attr('transform', 'translate(' + itemSize / 1.5 + ', ' + itemSize / 3 + ')').style('font-size', itemSize + 'px').call(textWrap, $$.label, maxTextLength);
-
-        // init transitions if context is a transition
-        if (context.selection) {
-          itemExit = itemExit.transition(context).style('opacity', 0);
-          item = item.transition(context);
-          wrap = wrap.transition(context);
-          text = text.transition(context);
-          g = g.transition(context);
-        }
-
-        // remove exiting items
-        itemExit.remove();
-
-        // wrap update
-        wrap.call(point$$);
-
-        // find max item width
-        var maxWidth = 0;
-        text.each(function () {
-          maxWidth = Math.max(maxWidth, this.getBBox().width);
-        });
-        maxWidth += itemSize;
-
-        // inital item padding
-        var pad = { x: itemSize, y: 5 };
-
-        // entering items will be positioned immediately
-        itemEnter.call(positionItems[orient1], {}, pad, itemSize, size, maxWidth);
-
-        // Initialize computed box dimensions of the legend to 0. These are
-        // attached as attributes to the legend selection node.
-        this.__box__ = {
-          width: 0,
-          height: 0,
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0
-        };
-
-        // update item position and opacity
-        item.style('opacity', 1).call(positionItems[orient1], this.__box__, pad, itemSize, size, maxWidth);
-
-        // postiion legend
-        gEnter.call(positionLegend, this.__box__, size, orient);
-        g.call(positionLegend, this.__box__, size, orient);
-      });
-
-      return legend;
-    };
-
-    // Bind events and dispatchers to all legend items within selection. Use the
-    // 'd2b-legend' namespace.
-    function bindEvents(selection, index) {
-      selection.selectAll('.d2b-legend-item').on('click', function (d, i) {
-        click.call(this, d, i, selection, index);
-      }).on('dblclick', function (d, i) {
-        dblclick.call(this, d, i, selection, index);
-      });
-    }
-
-    // On legend item click decide and perform any necessary actions.
-    function click(d, i, selection, index) {
-      var clickable = $$.clickable.call(this, d, i),
-          allowEmptied = $$.allowEmptied.call(selection.node(), selection.datum(), index);
-
-      if (!clickable) return;
-
-      $$.setEmpty(d, i, !$$.empty(d, i));
-
-      var el = d3.select(this),
-          items = selection.selectAll('.d2b-legend-item');
-
-      var allEmpty = true;
-      items.each(function (d, i) {
-        return allEmpty = $$.empty(d, i) ? allEmpty : false;
-      });
-
-      if (allEmpty && !allowEmptied) {
-        items.each(function (d, i) {
-          return $$.setEmpty(d, i, false);
-        }).transition().duration(100).call(point$$);
-        items.filter(function (dd) {
-          return dd != d;
-        }).dispatch('change');
-      } else {
-        el.transition().duration(100).call(point$$);
-      }
-
-      el.dispatch('change', { bubbles: true });
-    }
-
-    // On legend item dblclick decide and perform any necessary actions.
-    function dblclick(d, i, selection) {
-      var dblclickable = $$.dblclickable.call(this, d, i);
-
-      if (!dblclickable) return;
-
-      var items = selection.selectAll('.d2b-legend-item');
-
-      items.each(function (d, i) {
-        return $$.setEmpty(d, i, true);
-      });
-      $$.setEmpty(d, i, false);
-
-      items.transition().duration(100).call(point$$);
-      items.filter(function (dd) {
-        return dd != d;
-      }).dispatch('change');
-      d3.select(this).dispatch('change', { bubbles: true });
-    }
-
-    // Initialize new d2b point.
-    var point$$ = point();
-
-    // Position legend according the the box width/height
-    function positionLegend(ctx, box, size, orient) {
-      var x = 0,
-          y = 0;
-      switch (orient[1]) {
-        case 'center':
-        case 'middle':
-          y = size.height / 2 - box.height / 2;
-          break;
-        case 'bottom':
-          y = size.height - box.height;
-          break;
-        case 'top':
-        default:
-          y = 0;
-      }
-      switch (orient[2]) {
-        case 'center':
-        case 'middle':
-          x = size.width / 2 - box.width / 2;
-          break;
-        case 'right':
-          x = size.width - box.width;
-          break;
-        case 'left':
-        default:
-          x = 0;
-      }
-      box.left = x;
-      box.right = size.width - x + box.width;
-      box.top = y;
-      box.bottom = size.height - y + box.height;
-
-      ctx.attr('transform', 'translate(' + x + ', ' + y + ')');
-    }
-
-    // Position legend items either horizontally or vertically.
-    var positionItems = {
-      // ctx - d3 context for legend items that need to be positioned
-      // legendNode - svg node for the current legend (to set compute dimensions)
-      // pad - item padding
-      // itemSize - legend 'itemSize', usually the height of each legend item
-      // size - object with 'width' and 'height' attributes to bound either the vertical or horizontal legend
-      // maxWidth - maximum width of all legend items
-      horizontal: function horizontal(ctx, legendBox, pad, itemSize, size, maxWidth) {
-        var x = 0,
-            y = 0,
-            maxHeight = 0;
-
-        ctx.attr('transform', function () {
-          var el = d3.select(this),
-              boxHeight = itemSize * el.selectAll('tspan').size(),
-              boxWidth = el.select('text').node().getBBox().width;
-
-          if (x + maxWidth > size.width) {
-            x = 0;
-            y += maxHeight + pad.y;
-            maxHeight = 0;
-          }
-          var translate = 'translate(' + x + ', ' + y + ')';
-          maxHeight = Math.max(maxHeight, boxHeight);
-          legendBox.width = Math.max(legendBox.width, x + boxWidth + 1.5 * itemSize);
-          x += maxWidth + pad.x;
-          return translate;
-        });
-        legendBox.height = y + maxHeight;
-      },
-      vertical: function vertical(ctx, legendBox, pad, itemSize, size) {
-        var x = 0,
-            y = 0,
-            maxWidth = 0;
-        ctx.attr('transform', function () {
-          var el = d3.select(this),
-              boxHeight = itemSize * el.selectAll('tspan').size(),
-              boxWidth = el.select('text').node().getBBox().width;
-
-          if (y + boxHeight > size.height) {
-            x += maxWidth + pad.x + itemSize;
-            y = 0;
-            maxWidth = 0;
-          }
-          var translate = 'translate(' + x + ', ' + y + ')';
-          maxWidth = Math.max(maxWidth, boxWidth);
-          legendBox.height = Math.max(legendBox.height, y + boxHeight);
-          y += boxHeight + pad.y;
-          return translate;
-        });
-        legendBox.width = x + maxWidth + 1.5 * itemSize;
-      }
-    };
-
-    /* Inherit from base model */
-    base(legend, $$)
-    // legend level functors
-    .addPropFunctor('items', function (d) {
-      return d;
-    }).addPropFunctor('itemSize', 12).addPropFunctor('size', { width: 960, height: 500 }).addPropFunctor('orient', 'vertical center right').addPropFunctor('maxTextLength', Infinity).addPropFunctor('allowEmptied', false).addPropFunctor('order', function (a, b) {
-      return d3.ascending($$.label(a), $$.label(b));
-    })
-    // legend item level functors
-    .addPropFunctor('key', function (d, i) {
-      return i;
-    }).addPropFunctor('clickable', false).addPropFunctor('dblclickable', false).addPropFunctor('label', function (d) {
-      return d.label;
-    }).addPropFunctor('empty', function (d) {
-      return d.empty;
-    }, null, function (_) {
-      return point$$.empty(_);
-    }).addPropFunctor('setEmpty', function (d, i, state) {
-      d.empty = state;
-    })
-    // legend item point functors
-    .addPropFunctor('active', false, null, function (_) {
-      return point$$.active(_);
-    }).addPropFunctor('symbol', d3.symbolCircle, null, function (_) {
-      return point$$.type(_);
-    }).addPropFunctor('color', function (d) {
-      return color(d.label);
-    }, null, function (_) {
-      return point$$.fill(_);
-    })
-    // Method to get the computed box of a specific legend container. This
-    // method should be used after the legend has been rendered. Either the
-    // legend SVG node or a d3 selection of the node may be specified.
-    .addMethod('box', function (_) {
-      var node = _.node ? _.node() : _;
-      if (!node) return null;
-      return node.__box__;
-    });
-
-    return legend;
   }
 
   // pie svg generator
@@ -1939,6 +1661,8 @@
 
         arcExit.remove().select('path').call(tweenArc, $$.arc);
       });
+
+      selection.dispatch('svg-pie-updated', { bubbles: true });
 
       return pie;
     };
@@ -2097,6 +1821,8 @@
         this.__scaleX = xCopy;
         this.__scaleY = yCopy;
       });
+
+      selection.dispatch('svg-line-updated', { bubbles: true });
 
       return line;
     };
@@ -2279,6 +2005,8 @@
         this.__scaleX = xCopy;
         this.__scaleY = yCopy;
       });
+
+      selection.dispatch('svg-area-updated', { bubbles: true });
 
       return area;
     };
@@ -2523,6 +2251,8 @@
         this.__scaleX = $$.x.copy();
         this.__scaleY = $$.y.copy();
       });
+
+      selection.dispatch('svg-scatter-updated', { bubbles: true });
 
       return scatter;
     };
@@ -2840,6 +2570,8 @@
         graphsNode.__scaleBase = base;
         graphsNode.__barWidth = barWidth;
       });
+
+      selection.dispatch('svg-bar-updated', { bubbles: true });
 
       return bar;
     };
@@ -3185,6 +2917,8 @@
         this.__d2bPreserveScaleY__ = $$.y.copy();
       });
 
+      selection.dispatch('svg-bubble-pack-updated', { bubbles: true });
+
       return bubblePack;
     };
 
@@ -3515,6 +3249,8 @@
           el.selectAll('.d2b-sunburst-label').classed('d2b-transparent', false);
         });
       });
+
+      selection.dispatch('svg-sunburst-updated', { bubbles: true });
 
       return sunburst;
     };
@@ -3881,6 +3617,8 @@
 
         plane.selectAll('.d2b-grid').attr('clip-path', 'url(#' + clipID + ')');
       });
+
+      selection.dispatch('plane-updated', { bubbles: true });
 
       return plane;
     };
@@ -4318,6 +4056,8 @@
         update.call(this, datum, context !== selection ? context : null);
       });
 
+      selection.dispatch('chart-pie-updated', { bubbles: true });
+
       return chart;
     };
 
@@ -4534,6 +4274,8 @@
       selection.each(function (datum) {
         update.call(this, datum, context !== selection ? context : null);
       });
+
+      selection.dispatch('chart-axis-updated', { bubbles: true });
 
       return chart;
     };
@@ -4941,6 +4683,8 @@
         update.call(this, datum, context !== selection ? context : null);
       });
 
+      selection.dispatch('chart-sunburst-updated', { bubbles: true });
+
       return chart;
     };
 
@@ -5030,7 +4774,8 @@
       data: { default: function _default() {} },
       config: { default: function _default() {
           return function () {};
-        } }
+        } },
+      duration: { default: 500 }
     },
     data: function data() {
       return {
@@ -5077,7 +4822,7 @@
         this.config(this.generator);
 
         var el = d3.select(this.$el),
-            elTransition = options.skipTransition ? el : el.transition().duration(500);
+            elTransition = options.skipTransition ? el : el.transition().duration(this.duration);
 
         el.datum(data);
 
@@ -5151,7 +4896,6 @@
   exports.symbolMars = mars;
   exports.symbolVenus = venus;
   exports.point = point;
-  exports.svgLegend = legend$1;
   exports.svgPie = svgPie;
   exports.svgLine = line;
   exports.svgArea = area;

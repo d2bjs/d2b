@@ -3,7 +3,8 @@ import * as d3 from 'd3';
 export default {
   props: {
     data:         { default: () => {} },
-    config:       { default: () => () => {} }
+    config:       { default: () => () => {} },
+    duration:     { default: 500 }
   },
   data () {
     return {
@@ -46,7 +47,7 @@ export default {
       this.config(this.generator);
 
       var el = d3.select(this.$el),
-          elTransition = options.skipTransition? el : el.transition().duration(500);
+          elTransition = options.skipTransition? el : el.transition().duration(this.duration);
 
       el.datum(data);
 

@@ -1,5 +1,5 @@
 export {default as point} from './point';
-export {default as svgLegend} from './legend';
+// export {default as svgLegend} from './legend';
 export {default as svgPie} from './pie';
 export {default as svgLine} from './line';
 export {default as svgArea} from './area';

@@ -102,6 +102,8 @@ export default function () {
       this.__scaleY = yCopy;
     });
 
+    selection.dispatch('svg-area-updated', {bubbles: true});
+
     return area;
   };
 

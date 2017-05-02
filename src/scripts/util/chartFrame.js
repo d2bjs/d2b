@@ -126,6 +126,8 @@ export default function () {
 
     });
 
+    selection.dispatch('chart-frame-updated', {bubbles: true});
+
     return chartFrame;
   };
 

@@ -149,6 +149,8 @@ export default function () {
       this.__d2bPreserveScaleY__ = $$.y.copy();
     });
 
+    selection.dispatch('svg-bubble-pack-updated', {bubbles: true});
+
     return bubblePack;
   };
 

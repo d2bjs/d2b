@@ -100,6 +100,8 @@ export default function () {
 
     });
 
+    selection.dispatch('svg-sunburst-updated', {bubbles: true});
+
     return sunburst;
   };
 

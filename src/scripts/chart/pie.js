@@ -40,6 +40,8 @@ export default function () {
       update.call(this, datum, context !== selection ? context : null);
     });
 
+    selection.dispatch('chart-pie-updated', {bubbles: true});
+
     return chart;
   };
 

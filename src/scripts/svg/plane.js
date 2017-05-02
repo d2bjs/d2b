@@ -105,6 +105,8 @@ export default function () {
           .attr('clip-path', `url(#${clipID})`);
     });
 
+    selection.dispatch('plane-updated', {bubbles: true});
+
     return plane;
   };
 

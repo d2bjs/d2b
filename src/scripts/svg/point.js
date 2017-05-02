@@ -62,6 +62,8 @@ export default function () {
           .on('mouseout.d2b-point', (active)? mouseout : null );
       });
 
+    selection.dispatch('point-updated', {bubbles: true});
+
     return point;
   };
 

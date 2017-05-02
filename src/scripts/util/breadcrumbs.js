@@ -41,6 +41,10 @@ export default function () {
         .style('background-color', $$.color);
 
     bcExit.remove();
+
+    selection.dispatch('breadcrumbs-updated', {bubbles: true});
+
+    return breadcrumbs;
   };
 
   /* Inherit from base model */

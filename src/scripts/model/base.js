@@ -14,6 +14,15 @@ import functor from '../util/functor';
 
 export default function (base = {}, $$ = {}, protect) {
 
+  // Define an emitter updater that will fire events around the base updater
+  // if (typeof base === 'function') {
+  //   base.emitter = function (context) {
+  //     if (context.dispatch) context.dispatch('beforeApply', {bubbles: true});
+  //     base.apply(this, arguments);
+  //     if (context.dispatch) context.dispatch('applied', {bubbles: true});
+  //   };
+  // }
+
   const propFn = (prop, cb) => {
     return function (_) {
       if (!arguments.length) return $$[prop];

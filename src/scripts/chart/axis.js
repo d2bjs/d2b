@@ -28,6 +28,8 @@ export default function () {
     selection.each(function (datum) {
       update.call(this, datum, context !== selection ? context : null);
     });
+    
+    selection.dispatch('chart-axis-updated', {bubbles: true});
 
     return chart;
   };

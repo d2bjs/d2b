@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../node_modules/d3-sankey/build/d3-sankey.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<body>
+	<div class = 'sankey-chart'></div>
+
+	<script>
+		var sankey = d2b.chartSankey();
+
+    sankey.sankey().nodeDraggableX(true).nodeDraggableY(true).nodePreserveDragging(true);
+
+    sankey.sankey().sankey().nodePadding(100);
+
+		sankey.chartFrame().size({height: 400});
+
+		var chart = d3.selectAll('.sankey-chart');
+
+    var nodes = [
+      {name: 'Node A'},
+      {name: 'Node B'},
+      {name: 'Node C'},
+      {name: 'Node D'},
+      {name: 'Node E'},
+    ];
+
+    var links = [
+      {source: 'Node A', target: 'Node E', value: 2},
+      {source: 'Node A', target: 'Node C', value: 2},
+      {source: 'Node B', target: 'Node C', value: 2},
+      {source: 'Node B', target: 'Node D', value: 2},
+      {source: 'Node C', target: 'Node D', value: 2},
+      {source: 'Node C', target: 'Node E', value: 2},
+      {source: 'Node D', target: 'Node E', value: 4},
+    ];
+
+		var data = {
+      nodes: nodes,
+      links: links
+		};
+
+  	chart
+  			.datum(data)
+  		.transition()
+  			.call(sankey);
+
+		window.onresize = function () { chart.call(sankey); };
+	</script>
+</body>
+</html>

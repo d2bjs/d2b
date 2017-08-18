@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../node_modules/d3-sankey/build/d3-sankey.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  #app {
+    height: 500px;
+  }
+</style>
+
+<body>
+  <div id = 'app'>
+    <sankey-chart :data = 'sankeyChartData'></sankey-chart>
+  </div>
+
+	<script>
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'sankey-chart': d2b.vueChartSankey
+      },
+      data: {
+        sankeyChartData: {
+          nodes: [
+            {name: 'Node A'},
+            {name: 'Node B'},
+            {name: 'Node C'},
+            {name: 'Node D'},
+            {name: 'Node E'},
+          ],
+          links: [
+            {source: 'Node A', target: 'Node E', value: 2},
+            {source: 'Node A', target: 'Node C', value: 2},
+            {source: 'Node B', target: 'Node C', value: 2},
+            {source: 'Node B', target: 'Node D', value: 2},
+            {source: 'Node C', target: 'Node D', value: 2},
+            {source: 'Node C', target: 'Node E', value: 2},
+            {source: 'Node D', target: 'Node E', value: 4},
+          ]
+    		}
+      }
+    });
+
+	</script>
+</body>
+</html>

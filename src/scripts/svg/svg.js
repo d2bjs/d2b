@@ -7,4 +7,5 @@ export {default as svgScatter} from './scatter';
 export {default as svgBar} from './bar';
 export {default as svgBubblePack} from './bubblePack';
 export {default as svgSunburst} from './sunburst';
+export {default as svgSankey} from './sankey';
 export {default as plane} from './plane';

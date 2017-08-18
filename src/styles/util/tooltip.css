@@ -19,6 +19,7 @@
   }
 
   .d2b-tooltip-content {
+    white-space:nowrap;
     padding: 6px 10px;
   }
 

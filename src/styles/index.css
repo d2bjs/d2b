@@ -1,5 +1,6 @@
 @import '//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css';
 
+@import './global.css';
 @import './vue/vue.css';
 @import './chart/chart.css';
 @import './svg/svg.css';

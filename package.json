@@ -24,7 +24,7 @@
     "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
-    "build:dev": "npm run build:package && npm run test && rollup -c -g d3:d3",
+    "build:dev": "npm run build:package && rollup -c -g d3:d3 && npm run test",
     "build:prod": "npm run build:package && NODE_ENV=production rollup -c -g d3:d3",
     "build:server": "http-server -a 0.0.0.0 -p 8000",
     "build:watcher": "npm-watch",
@@ -38,7 +38,8 @@
     "docs:publish": "npm run docs:build && cp docs/cname _book && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout master && git add . && git commit -am 'Update docs' && git push git@github.com:d2bjs/d2bjs.github.io master --force"
   },
   "dependencies": {
-    "d3": "^4.5.0"
+    "d3": "^4.5.0",
+    "d3-sankey": "^0.7.1"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",

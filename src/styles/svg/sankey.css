@@ -1,0 +1,23 @@
+.d2b-sankey-links {
+  path {
+    fill: none;
+  }
+
+  path, rect {
+    opacity: 0.4;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.d2b-sankey-nodes {
+  rect {
+    stroke-width: 1px;
+    stroke: black;
+    opacity: 0.6;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

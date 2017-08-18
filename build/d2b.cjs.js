@@ -20,9 +20,9 @@ function __$styleInject(css, returnValue) {
   head.appendChild(style);
   return returnValue;
 }
-__$styleInject("@import \"//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css\";.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{-webkit-transition:opacity 0.2s,stroke-width 0.2s;transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;alignment-baseline:central;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
+__$styleInject("@import \"//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css\";.d2b-draggable{cursor:move}.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{-webkit-transition:opacity 0.2s,stroke-width 0.2s;transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:1px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;alignment-baseline:central;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
 
-var version = "0.0.28";
+var version = "0.0.29";
 
 function functor(v) {
   return typeof v === 'function' ? v : function () {
@@ -3531,6 +3531,410 @@ function svgSunburst () {
   return sunburst;
 }
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
+
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
+        }
+      });
+    }
+
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
+
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
+        }
+      } catch (err) {
+        settle("throw", err);
+      }
+    }
+
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
+
+        case "throw":
+          front.reject(value);
+          break;
+
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
+
+      front = front.next;
+
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
+    }
+
+    this._invoke = send;
+
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
+
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
+
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
+  };
+
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
+
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
+
+// sankey svg generator
+function sankey () {
+
+  var $$ = {};
+
+  /* Update Function */
+  var sankey = function sankey(context) {
+    var selection = context.selection ? context.selection() : context;
+
+    selection.each(function (datum) {
+      var transition = context === selection ? null : context;
+
+      var el = d3.select(this),
+          size = $$.size(datum),
+          sankeyLink = d3.sankeyLinkHorizontal();
+
+      // map node data wrapper
+      var nodesData = $$.nodes(datum).map(function (d, i) {
+        var key = $$.nodeKey(d);
+
+        return {
+          key: key,
+          color: $$.nodeColor(d, key),
+          draggableX: $$.nodeDraggableX(d),
+          draggableY: $$.nodeDraggableY(d),
+          preserveDragging: $$.nodePreserveDragging(d),
+          data: d,
+          index: i
+        };
+      });
+
+      // map link data wrapper
+      var linksData = $$.links(datum).map(function (d, i) {
+        var source = $$.linkSource(d, i),
+            target = $$.linkTarget(d, i);
+
+        var sourceKey = (typeof source === 'undefined' ? 'undefined' : _typeof(source)) === 'object' ? $$.nodeKey(source) : source,
+            targetKey = (typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object' ? $$.nodeKey(target) : target;
+
+        var key = $$.linkKey(d, i, sourceKey, targetKey);
+
+        return {
+          sourceKey: sourceKey,
+          targetKey: targetKey,
+          key: key,
+          keyTrim: key.replace(/ /g, ''),
+          sourceColor: $$.linkSourceColor(d, i, sourceKey),
+          targetColor: $$.linkTargetColor(d, i, targetKey),
+          value: $$.linkValue(d, i),
+          source: source,
+          target: target,
+          data: d,
+          index: i
+        };
+      });
+
+      // config sankey
+      $$.sankey.size([size.width, size.height]).nodeId(function (d) {
+        return d.key;
+      }).nodes(nodesData).links(linksData);
+
+      var nodeWidth = $$.sankey.nodeWidth();
+
+      // get sankey graph layout
+      var graph = $$.sankey();
+
+      // render link gradients
+      var linkDefs = el.selectAll('.d2b-sankey-link-defs').data([graph.links]),
+          linksDefsEnter = linkDefs.enter().append('defs').attr('class', 'd2b-sankey-link-defs');
+
+      linkDefs = linkDefs.merge(linksDefsEnter);
+
+      var linkGradient = linkDefs.selectAll('.d2b-def-gradient').data(function (d) {
+        return d;
+      }, function (d) {
+        return d.keyTrim;
+      }),
+          linkGradientEnter = linkGradient.enter().append('linearGradient').attr('class', 'd2b-def-gradient'),
+          linkGradientExit = linkGradient.exit();
+
+      linkGradientEnter.append('stop').attr('class', 'd2b-gradient-from').attr('offset', '0%');
+
+      linkGradientEnter.append('stop').attr('class', 'd2b-gradient-to').attr('offset', '100%');
+
+      linkGradient = linkGradient.merge(linkGradientEnter);
+
+      if (transition) {
+        linkGradientExit = linkGradientExit.transition(transition);
+        linkGradient = linkGradient.transition(transition);
+      }
+
+      linkGradientExit.remove();
+
+      linkGradient.attr('id', function (d) {
+        return d.keyTrim;
+      });
+
+      linkGradient.select('.d2b-gradient-from').attr('stop-color', function (d) {
+        return d.sourceColor;
+      });
+
+      linkGradient.select('.d2b-gradient-to').attr('stop-color', function (d) {
+        return d.targetColor;
+      });
+
+      // render links
+      var links = el.selectAll('.d2b-sankey-links').data([graph.links]),
+          linksEnter = links.enter().append('g').attr('class', 'd2b-sankey-links');
+
+      links = links.merge(linksEnter);
+
+      var link = links.selectAll('.d2b-sankey-link').data(function (d) {
+        return d;
+      }, function (d) {
+        return d.key;
+      }),
+          linkEnter = link.enter().append('g').attr('class', 'd2b-sankey-link'),
+          linkExit = link.exit();
+
+      var linkStatic = link = link.merge(linkEnter);
+
+      if (transition) {
+        link = link.transition(transition);
+        linkExit = linkExit.transition(transition);
+      }
+
+      // render nodes
+      var nodes = el.selectAll('.d2b-sankey-nodes').data([graph.nodes]),
+          nodesEnter = nodes.enter().append('g').attr('class', 'd2b-sankey-nodes');
+
+      nodes = nodes.merge(nodesEnter);
+
+      var node = nodes.selectAll('.d2b-sankey-node').data(function (d) {
+        return d;
+      }, function (d) {
+        return d.key;
+      }),
+          nodeEnter = node.enter().append('g').attr('class', 'd2b-sankey-node'),
+          nodeExit = node.exit();
+
+      var nodeStatic = node = node.merge(nodeEnter);
+
+      if (transition) {
+        node = node.transition(transition);
+        nodeExit = nodeExit.transition(transition);
+      }
+
+      // setup node dragging and preserve previous dragging
+      node.each(function (d) {
+        if (d.draggableX || d.draggableY) {
+          d3.select(this).classed('d2b-draggable', true).call(d3.drag().on('drag', drag));
+        } else {
+          d3.select(this).classed('d2b-draggable', false).on('.drag', null);
+        }
+
+        if (d.preserveDragging) {
+          if (this.__dragX0 !== undefined) {
+            d.x0 = this.__dragX0 * size.width;
+            d.x1 = d.x0 + nodeWidth;
+          }
+
+          if (this.__dragY0 !== undefined) {
+            var height = d.y1 - d.y0;
+            d.y0 = this.__dragY0 * size.height;
+            d.y1 = d.y0 + height;
+          }
+        }
+      });
+
+      $$.sankey.update(graph);
+
+      linkEnter.style('opacity', 0).append('path').attr('d', sankeyLink).style('stroke', function (d) {
+        return 'url(#' + d.keyTrim + ')';
+      }).style('stroke-width', function (d) {
+        return d.width + 'px';
+      });
+
+      linkExit.style('opacity', 0).remove();
+
+      nodeEnter.style('opacity', 0).append('rect').attr('width', Math.max(0, nodeWidth)).attr('height', function (d) {
+        return Math.max(0, d.y1 - d.y0);
+      }).attr('x', function (d) {
+        return d.x0;
+      }).attr('y', function (d) {
+        return d.y0;
+      });
+
+      nodeExit.style('opacity', 0).remove();
+
+      updater(transition);
+
+      function drag(d) {
+        if (d.draggableX) {
+          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + d3.event.dx));
+          d.x1 = d.x0 + nodeWidth;
+          this.__dragX0 = d.x0 / size.width; // save drag position as a percent of the width
+        }
+        if (d.draggableY) {
+          var height = d.y1 - d.y0;
+          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + d3.event.dy));
+          d.y1 = d.y0 + height;
+          this.__dragY0 = d.y0 / size.height; // save drag position as a percent of the height
+        }
+        $$.sankey.update(graph);
+        updater();
+      }
+
+      function updater() {
+        var transition = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+        var l = transition ? link : linkStatic,
+            n = transition ? node : nodeStatic;
+
+        l.style('opacity', 1).select('path').attr('d', sankeyLink).style('stroke', function (d) {
+          return 'url(#' + d.keyTrim + ')';
+        }).style('stroke-width', function (d) {
+          return d.width + 'px';
+        });
+
+        // fix for rectangular link gradients
+        l.each(function (d) {
+          var l = d3.select(this);
+
+          // special case draw a rect
+          if (Math.abs(d.y1 - d.y0) < 0.00001) {
+            var rect = l.selectAll('rect').data([d]),
+                rectEnter = rect.enter().append('rect'),
+                width = d.target.x0 - d.source.x1;
+
+            rect = rect.merge(rectEnter);
+
+            if (transition) rect = rect.transition(transition);
+
+            rect.attr('x', d.source.x1 + Math.min(0, width)).attr('y', d.y0 - d.width / 2).attr('height', Math.max(0, d.width)).attr('width', Math.abs(d.target.x0 - d.source.x1)).style('fill', 'url(#' + d.keyTrim + ')');
+
+            l.select('path').style('display', 'none');
+          } else {
+            l.select('rect').remove();
+            l.select('path').style('display', '');
+          }
+        });
+
+        n.style('opacity', 1).select('rect').attr('width', Math.max(0, nodeWidth)).attr('height', function (d) {
+          return Math.max(0, d.y1 - d.y0);
+        }).attr('x', function (d) {
+          return d.x0;
+        }).attr('y', function (d) {
+          return d.y0;
+        }).style('fill', function (d) {
+          return d.color;
+        });
+      }
+    });
+
+    selection.dispatch('svg-sankey-updated', { bubbles: true });
+
+    return sankey;
+  };
+
+  /* Inherit from base model */
+  base(sankey, $$).addProp('sankey', d3.sankey()).addPropFunctor('size', { width: 960, height: 500 }).addPropFunctor('nodes', function (d) {
+    return d.nodes;
+  }).addPropFunctor('nodeKey', function (d) {
+    return d.name;
+  }).addPropFunctor('nodeDraggableX', false).addPropFunctor('nodeDraggableY', false).addPropFunctor('nodePreserveDragging', true).addPropFunctor('nodeColor', function (d, key) {
+    return color(key);
+  }).addPropFunctor('links', function (d) {
+    return d.links;
+  }).addPropFunctor('linkSource', function (d) {
+    return d.source;
+  }).addPropFunctor('linkSourceColor', function (d, i, sourceKey) {
+    return color(sourceKey);
+  }).addPropFunctor('linkTarget', function (d) {
+    return d.target;
+  }).addPropFunctor('linkTargetColor', function (d, i, targetKey) {
+    return color(targetKey);
+  }).addPropFunctor('linkKey', function (d, i, sourceKey, targetKey) {
+    return sourceKey + '-' + targetKey;
+  }).addPropFunctor('linkValue', function (d) {
+    return d.value;
+  });
+
+  return sankey;
+}
+
 // TODO: Clean up text wrapping with transition udpates
 // TODO: Clean up plane build workflow
 
@@ -3913,125 +4317,6 @@ function plane () {
     return makePadding(m || 0);
   }
 }
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-var asyncGenerator = function () {
-  function AwaitValue(value) {
-    this.value = value;
-  }
-
-  function AsyncGenerator(gen) {
-    var front, back;
-
-    function send(key, arg) {
-      return new Promise(function (resolve, reject) {
-        var request = {
-          key: key,
-          arg: arg,
-          resolve: resolve,
-          reject: reject,
-          next: null
-        };
-
-        if (back) {
-          back = back.next = request;
-        } else {
-          front = back = request;
-          resume(key, arg);
-        }
-      });
-    }
-
-    function resume(key, arg) {
-      try {
-        var result = gen[key](arg);
-        var value = result.value;
-
-        if (value instanceof AwaitValue) {
-          Promise.resolve(value.value).then(function (arg) {
-            resume("next", arg);
-          }, function (arg) {
-            resume("throw", arg);
-          });
-        } else {
-          settle(result.done ? "return" : "normal", result.value);
-        }
-      } catch (err) {
-        settle("throw", err);
-      }
-    }
-
-    function settle(type, value) {
-      switch (type) {
-        case "return":
-          front.resolve({
-            value: value,
-            done: true
-          });
-          break;
-
-        case "throw":
-          front.reject(value);
-          break;
-
-        default:
-          front.resolve({
-            value: value,
-            done: false
-          });
-          break;
-      }
-
-      front = front.next;
-
-      if (front) {
-        resume(front.key, front.arg);
-      } else {
-        back = null;
-      }
-    }
-
-    this._invoke = send;
-
-    if (typeof gen.return !== "function") {
-      this.return = undefined;
-    }
-  }
-
-  if (typeof Symbol === "function" && Symbol.asyncIterator) {
-    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-      return this;
-    };
-  }
-
-  AsyncGenerator.prototype.next = function (arg) {
-    return this._invoke("next", arg);
-  };
-
-  AsyncGenerator.prototype.throw = function (arg) {
-    return this._invoke("throw", arg);
-  };
-
-  AsyncGenerator.prototype.return = function (arg) {
-    return this._invoke("return", arg);
-  };
-
-  return {
-    wrap: function (fn) {
-      return function () {
-        return new AsyncGenerator(fn.apply(this, arguments));
-      };
-    },
-    await: function (value) {
-      return new AwaitValue(value);
-    }
-  };
-}();
 
 /**
  * d2b.chartPie() returns a d2b
@@ -4772,6 +5057,65 @@ function chartSunburst () {
   return chart;
 }
 
+function chartSankey () {
+
+  var $$ = {};
+
+  function chart(context) {
+    context.call($$.chartFrame);
+
+    var selection = context.selection ? context.selection() : context;
+
+    selection.each(function (datum) {
+      update.call(this, datum, context !== selection ? context : null);
+    });
+
+    selection.dispatch('chart-sankey-updated', { bubbles: true });
+
+    return chart;
+  }
+
+  function update(datum, transition) {
+    var el = d3.select(this),
+        selection = el.select('.d2b-chart-container'),
+        size = selection.node().__size__;
+
+    var sankeyChart = selection.selectAll('.d2b-sankey-chart').data(function (d) {
+      return [d];
+    }),
+        sankeyChartEnter = sankeyChart.enter().append('g').attr('class', 'd2b-sankey-chart');
+
+    sankeyChart = sankeyChart.merge(sankeyChartEnter);
+
+    if (transition) {
+      sankeyChart = sankeyChart.transition(transition);
+    }
+
+    sankeyChart.call($$.sankey.size(size));
+
+    sankeyChart.selectAll('.d2b-sankey-link').call($$.linkTooltip);
+
+    sankeyChart.selectAll('.d2b-sankey-node').call($$.nodeTooltip);
+
+    return chart;
+  }
+
+  var defaultNodeTooltip = tooltip().html(function (d) {
+    return '\n          <b>' + d.key + '</b>:\n          ' + d.value + '\n        ';
+  }).color(function (d) {
+    return d.color;
+  }).followMouse(true);
+
+  var defaultLinkTooltip = tooltip().html(function (d) {
+    return '\n          <b>' + d.source.key + '</b>\n          <i class=\'fa fa-arrow-right d2b-sankey-link-arrow\' aria-hidden=\'true\'></i>\n          <b>' + d.target.key + '</b>:\n          ' + d.value + '\n        ';
+  }).color('#444').followMouse(true);
+
+  // configure the model
+  base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip);
+
+  return chart;
+}
+
 var genMixin = {
   props: {
     data: { default: function _default() {} },
@@ -4872,6 +5216,16 @@ var chartSunburst$1 = {
   }
 };
 
+var chartSankey$1 = {
+  mixins: [genMixin],
+  template: '<div class = "d2b-vue-container d2b-vue-sankey-chart"></div>',
+  props: {
+    generator: { default: function _default() {
+        return chartSankey();
+      } }
+  }
+};
+
 exports.version = version;
 exports.textWrap = textWrap;
 exports.textWrapPX = textWrapPX;
@@ -4906,11 +5260,14 @@ exports.svgScatter = scatter;
 exports.svgBar = bar;
 exports.svgBubblePack = bubblePack;
 exports.svgSunburst = svgSunburst;
+exports.svgSankey = sankey;
 exports.plane = plane;
 exports.chartPie = chartPie;
 exports.chartAxis = chartAxis;
 exports.chartSunburst = chartSunburst;
+exports.chartSankey = chartSankey;
 exports.vueGenMixin = genMixin;
 exports.vueChartAxis = chartAxis$1;
 exports.vueChartPie = chartPie$1;
 exports.vueChartSunburst = chartSunburst$1;
+exports.vueChartSankey = chartSankey$1;

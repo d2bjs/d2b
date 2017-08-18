@@ -27,10 +27,9 @@
 
 	<script>
 
-    var sunburst= d2b.svgSunburst();
+    var sunburst = d2b.svgSunburst();
 
-
-    // use d3 to select the svg, set the datum, and apply the line generator
+    // use d3 to select the svg, set the datum, and apply the sunburst generator
     var svg = d3.select('svg g')
     	.datum({
         label: 'top level',

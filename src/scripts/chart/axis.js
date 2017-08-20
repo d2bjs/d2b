@@ -28,7 +28,7 @@ export default function () {
     selection.each(function (datum) {
       update.call(this, datum, context !== selection ? context : null);
     });
-    
+
     selection.dispatch('chart-axis-updated', {bubbles: true});
 
     return chart;
@@ -36,8 +36,8 @@ export default function () {
 
   base(chart, $$)
     .addProp('plane', plane())
-		.addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))
-		.addProp('legend', legend().clickable(true).dblclickable(true))
+    .addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))
+    .addProp('legend', legend().clickable(true).dblclickable(true))
     .addPropFunctor('tooltipConfig', d => d.tooltipConfig)
     .addPropFunctor('duration', 250)
     .addPropFunctor('x', {})
@@ -81,7 +81,7 @@ export default function () {
       .title(points => `${oreq(points[0].x, points[0].x1)}`)
       .clear();
 
-		// update functionality
+    // update functionality
     $$.legend.values(groups);
     legendContainer
         .call($$.legend)

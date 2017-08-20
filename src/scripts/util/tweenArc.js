@@ -10,7 +10,7 @@ export default function (context, arc) {
     };
   }
 
-	// if context is not a transition just render the arc and update current
+  // if context is not a transition just render the arc and update current
   if (!context.selection) {
     return context
         .attr('d', function (d) {

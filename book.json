@@ -1,22 +1,22 @@
 {
-	"root": "./docs",
-	"output": "public",
-	"title": "d2b",
-	"description": "Agave reference documentation.",
-	"author": "Damour Team",
+  "root": "./docs",
+  "output": "public",
+  "title": "d2b",
+  "description": "Agave reference documentation.",
+  "author": "Damour Team",
 
-	"plugins": ["-sharing", "custom-favicon", "toggle-chapters"],
+  "plugins": ["-sharing", "custom-favicon", "toggle-chapters"],
 
   "pluginsConfig" : {
     "favicon": "docs/images/favicon.ico"
   },
 
-	"styles": {
-		"website": "styles/website.css"
-	},
+  "styles": {
+    "website": "styles/website.css"
+  },
 
-	"variables": {
-		"title": "Damour",
-		"file_types": "* **CSV** (comma-separated values)\n* **TSV** (tab-separated values)"
-	}
+  "variables": {
+    "title": "Damour",
+    "file_types": "* **CSV** (comma-separated values)\n* **TSV** (tab-separated values)"
+  }
 }

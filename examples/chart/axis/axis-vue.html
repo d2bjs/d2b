@@ -24,7 +24,7 @@
     <axis-chart :data = 'axisChartData'></axis-chart>
   </div>
 
-	<script>
+  <script>
 
     var app = new Vue({
       el: '#app',
@@ -33,27 +33,27 @@
       },
       data: {
         axisChartData: {
-  				sets: [
+          sets: [
             {
-  						generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
-  						graphs: [
-  					    {
-  					      label: 'area 1',
-  					      values: [
-  					        {x: 1, y: 25},
-  					        {x: 2, y: 38},
-  					        {x: 3, y: 24},
-  					        {x: 4, y: 60},
-  					        {x: 5, y: 22}
-  					      ]
-  					    }
-  						]
-  					}
-  				]
-  			}
+              generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
+              graphs: [
+                {
+                  label: 'area 1',
+                  values: [
+                    {x: 1, y: 25},
+                    {x: 2, y: 38},
+                    {x: 3, y: 24},
+                    {x: 4, y: 60},
+                    {x: 5, y: 22}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       }
     });
 
-	</script>
+  </script>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <body>
   <svg></svg>
 
-	<script>
+  <script>
 
     var bubblePack = d2b.svgBubblePack(),
         x = d3.scaleLinear().domain([1, 10]).range([0, document.documentElement.clientWidth]),
@@ -34,7 +34,7 @@
 
     // use d3 to select the svg, set the datum, and apply the bubble-pack generator
     var svg = d3.select('svg')
-    	.datum([
+      .datum([
         {
           hidden: true,
           label: 'bubble pack 1',
@@ -81,15 +81,15 @@
             }
           ]
         }
-    	])
-    	.call(bubblePack);
+      ])
+      .call(bubblePack);
 
     // on window resize, update the x scale range and reapply the bubble-pack generator
     window.addEventListener('resize', function(){
       x.range([0, document.documentElement.clientWidth]);
-    	svg.call(bubblePack);
+      svg.call(bubblePack);
     });
 
-	</script>
+  </script>
 </body>
 </html>

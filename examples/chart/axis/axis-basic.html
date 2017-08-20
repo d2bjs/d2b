@@ -14,148 +14,148 @@
 </style>
 
 <body>
-	<div class = 'axis-chart'></div>
+  <div class = 'axis-chart'></div>
 
-	<script>
+  <script>
 
-		var axis = d2b.chartAxis()
-			.y({
-				label: 'Y-Axis',
+    var axis = d2b.chartAxis()
+      .y({
+        label: 'Y-Axis',
       })
-			.y2({
-				label: 'Another Y-Axis',
-			})
+      .y2({
+        label: 'Another Y-Axis',
+      })
       .x(function (d, points) {
         return {
-  				scale: d3.scaleLinear()
+          scale: d3.scaleLinear()
             .domain([(d3.min(points) || 1) - 1, (d3.max(points) || -1) + 1]),
-  				label: 'X-Axis',
-  			};
+          label: 'X-Axis',
+        };
       });
 
-		axis.chartFrame().size({height: 400});
+    axis.chartFrame().size({height: 400});
 
-		var chart = d3.selectAll('.axis-chart');
+    var chart = d3.selectAll('.axis-chart');
 
-		var data = {
-			sets: [
-				{
+    var data = {
+      sets: [
+        {
           yType: 'y2',
-					generators: [d2b.svgBar().padding(0.5).stackBy(true)],
-					graphs: [
-				    {
-				      label: 'bar 1',
-				      values: [
-				        {x: 1, y: 25},
-				        {x: 2, y: 38},
-				        {x: 3, y: 24},
-				        {x: 4, y: 60},
-				        {x: 5, y: 22}
-				      ]
-				    },
-				    {
-				      label: 'bar 2',
-				      values: [
-				        {x: 3, y: 45},
-				        {x: 5, y: 31},
-				      ]
-				    },
-				    {
-				      label: 'bar 3',
-				      values: [
-				        {x: 2, y: 25},
-				        {x: 3, y: 15},
-				        {x: 4, y: 35},
-				        {x: 5, y: 25},
-				        {x: 6, y: 18},
-				      ]
-				    }
-					]
-				},
-				{
-					generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
-					graphs: [
-				    {
-				      label: 'area 1',
-							hidden: true,
-				      values: [
-				        {x: 1, y: 25},
-				        {x: 2, y: 38},
-				        {x: 3, y: 24},
-				        {x: 4, y: 60},
-				        {x: 5, y: 22}
-				      ]
-				    },
-				    {
-				      label: 'area 2',
-							hidden: true,
-				      values: [
-				        {x: 3, y: 45},
-				        {x: 5, y: 31},
-				      ]
-				    }
-					]
-				},
-				{
-					generators: [d2b.svgBubblePack()],
-					graphs: [
-				    {
-							hidden: true,
-				      label: 'bubble pack 1',
-				      values: [
-				        {
-				          label: 'one',
-				          children: [
-				            {
-				              label: 'one-one',
-				              size: 5,
-				              x: 7,
-				              y: 25
-				            }
-				          ]
-				        },
-				        {
-				          expanded: true,
-				          label: 'two',
-				          children: [
-				            {
-				              label: 'two-one',
-				              size: 5,
-				              x: 3,
-				              y: 15
-				            },
-				            {
-				              label: 'two-two',
-				              children: [
-				                {
-				                  label: 'two-two-one',
-				                  size: 2,
-				                  x: 6,
-				                  y: 8
-				                },
-				                {
-				                  label: 'two-two-two',
-				                  size: 17,
-				                  x: 8,
-				                  y: 21
-				                }
-				              ]
-				            }
-				          ]
-				        }
-				      ]
-				    }
-					]
-				}
-			]
-		};
+          generators: [d2b.svgBar().padding(0.5).stackBy(true)],
+          graphs: [
+            {
+              label: 'bar 1',
+              values: [
+                {x: 1, y: 25},
+                {x: 2, y: 38},
+                {x: 3, y: 24},
+                {x: 4, y: 60},
+                {x: 5, y: 22}
+              ]
+            },
+            {
+              label: 'bar 2',
+              values: [
+                {x: 3, y: 45},
+                {x: 5, y: 31},
+              ]
+            },
+            {
+              label: 'bar 3',
+              values: [
+                {x: 2, y: 25},
+                {x: 3, y: 15},
+                {x: 4, y: 35},
+                {x: 5, y: 25},
+                {x: 6, y: 18},
+              ]
+            }
+          ]
+        },
+        {
+          generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
+          graphs: [
+            {
+              label: 'area 1',
+              hidden: true,
+              values: [
+                {x: 1, y: 25},
+                {x: 2, y: 38},
+                {x: 3, y: 24},
+                {x: 4, y: 60},
+                {x: 5, y: 22}
+              ]
+            },
+            {
+              label: 'area 2',
+              hidden: true,
+              values: [
+                {x: 3, y: 45},
+                {x: 5, y: 31},
+              ]
+            }
+          ]
+        },
+        {
+          generators: [d2b.svgBubblePack()],
+          graphs: [
+            {
+              hidden: true,
+              label: 'bubble pack 1',
+              values: [
+                {
+                  label: 'one',
+                  children: [
+                    {
+                      label: 'one-one',
+                      size: 5,
+                      x: 7,
+                      y: 25
+                    }
+                  ]
+                },
+                {
+                  expanded: true,
+                  label: 'two',
+                  children: [
+                    {
+                      label: 'two-one',
+                      size: 5,
+                      x: 3,
+                      y: 15
+                    },
+                    {
+                      label: 'two-two',
+                      children: [
+                        {
+                          label: 'two-two-one',
+                          size: 2,
+                          x: 6,
+                          y: 8
+                        },
+                        {
+                          label: 'two-two-two',
+                          size: 17,
+                          x: 8,
+                          y: 21
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
 
-  	chart
-  			.data([data])
-  		.transition()
-  			.call(axis);
+    chart
+        .data([data])
+      .transition()
+        .call(axis);
 
-		window.onresize = function () { chart.call(axis); };
-	</script>
+    window.onresize = function () { chart.call(axis); };
+  </script>
 </body>
 </html>

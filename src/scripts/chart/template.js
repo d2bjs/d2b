@@ -10,17 +10,17 @@ import breadcrumbs from '../util/breadcrumbs';
 export default function () {
 
   function chart (context) {
-		context.call($$.chartFrame);
+    context.call($$.chartFrame);
 
-		const selection = (context.selection)? context.selection() : context;
+    const selection = (context.selection)? context.selection() : context;
 
-		selection.each(function (datum) {
-			update.call(this, datum, context !== selection ? context : null);
-		});
+    selection.each(function (datum) {
+      update.call(this, datum, context !== selection ? context : null);
+    });
 
     selection.dispatch('chart-template-updated', {bubbles: true});
 
-		return chart;
+    return chart;
   }
 
   function update (datum, transition) {

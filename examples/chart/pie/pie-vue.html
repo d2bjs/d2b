@@ -24,7 +24,7 @@
     <pie-chart :data = 'pieChartData' :config = 'pieChartConfig'></pie-chart>
   </div>
 
-	<script>
+  <script>
 
     var app = new Vue({
       el: '#app',
@@ -33,17 +33,17 @@
       },
       data: {
         pieChartData: [
-					{label: 'arc 1', value: 23, empty: true},
-					{label: 'arc 2', value: 31},
-					{label: 'arc 3', value: 80},
-					{label: 'arc 4', value: 8}
-				],
+          {label: 'arc 1', value: 23, empty: true},
+          {label: 'arc 2', value: 31},
+          {label: 'arc 3', value: 80},
+          {label: 'arc 4', value: 8}
+        ],
         pieChartConfig: function (chart) {
           chart.donutRatio(0.5);
         }
       }
     });
 
-	</script>
+  </script>
 </body>
 </html>

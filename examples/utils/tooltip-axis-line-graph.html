@@ -23,7 +23,7 @@
 <body>
   <svg></svg>
 
-	<script>
+  <script>
 
     var line = d2b.svgLine(),
         x = d3.scaleLinear().domain([1, 5]).range([0, 960]),
@@ -44,7 +44,7 @@
       .size({width: 960, height: 500});
 
     svg
-    	.datum([
+      .datum([
         {
           label: 'Line Graph 1',
           // add a tooltip graph for the first line graph
@@ -69,9 +69,9 @@
             { x: 5, y: 40 }
           ]
         }
-    	])
-    	.call(line);
+      ])
+      .call(line);
 
-	</script>
+  </script>
 </body>
 </html>

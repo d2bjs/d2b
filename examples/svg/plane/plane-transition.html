@@ -23,7 +23,7 @@
 <body>
   <svg></svg>
 
-	<script>
+  <script>
 
     var plane = d2b.plane().size(getSize).showGrid(true).margin(30);
 
@@ -51,7 +51,7 @@
     // on window resize, update the x scale range and reapply the line generator
     window.addEventListener('resize', function(){
       plane.size(getSize());
-    	svg.call(plane);
+      svg.call(plane);
     });
 
     function getSize() {
@@ -82,6 +82,6 @@
       svg.transition().duration(500).call(plane);
     }, 6000);
 
-	</script>
+  </script>
 </body>
 </html>

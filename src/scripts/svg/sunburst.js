@@ -368,7 +368,7 @@ export default function () {
     return {startAngle: 0, endAngle: 0, centerAngle: 0};
   }
 
-	// Find the element in data0 that joins the highest preceding element in data1.
+  // Find the element in data0 that joins the highest preceding element in data1.
   function findPreceding (i, data0, data1) {
     const m = data0.length;
     while (--i >= 0) {
@@ -379,7 +379,7 @@ export default function () {
     }
   }
 
-	// Find the element in data0 that joins the lowest following element in data1.
+  // Find the element in data0 that joins the lowest following element in data1.
   function findFollowing (i, data0, data1) {
     const n = data1.length, m = data0.length;
     while (++i < n) {

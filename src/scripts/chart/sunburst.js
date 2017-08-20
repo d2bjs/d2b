@@ -37,16 +37,16 @@ export default function () {
     return chart;
   };
 
-	// configure chart properties
+  // configure chart properties
   base(chart, $$)
-		.addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(true))
-		.addProp('sunburst', svgSunburst())
+    .addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(true))
+    .addProp('sunburst', svgSunburst())
     .addProp('breadcrumbs', breadcrumbs().html(d => `<div class = 'd2b-sunburst-breadcrumb'>${tipTemplate(d)}</div>`))
-		.addProp('tooltip', tooltip().followMouse(true).html(d => `<div class = 'd2b-sunburst-tooltip'>${tipTemplate(d)}</div>`))
-		.addPropFunctor('label', d => d.label)
+    .addProp('tooltip', tooltip().followMouse(true).html(d => `<div class = 'd2b-sunburst-tooltip'>${tipTemplate(d)}</div>`))
+    .addPropFunctor('label', d => d.label)
     .addPropFunctor('color', d => color($$.label(d)))
-		.addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
-		.addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
+    .addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
+    .addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
 
   // helpers
   const format = d3.format(',.0f'),
@@ -88,18 +88,18 @@ export default function () {
 
     setBreadcrumbs(el, [selected]);
     sunburstChart.selectAll('.d2b-sunburst-arc')
-				.call($$.tooltip.clear)
-				.call($$.tooltip)
+        .call($$.tooltip.clear)
+        .call($$.tooltip)
         .on('mouseover.breadcrumbs', function (d) {
           let ancestors = d.ancestors();
           ancestors = ancestors.slice(0, ancestors. indexOf(selected) + 1);
           setBreadcrumbs(el, ancestors.reverse());
         })
-				.on('mouseout.breadcrumbs', () => setBreadcrumbs(el, [selected]));
+        .on('mouseout.breadcrumbs', () => setBreadcrumbs(el, [selected]));
 
     sunburstChart
-			.on('mouseout', () => defineEvents (el))
-			.on('click', () => defineEvents (el));
+      .on('mouseout', () => defineEvents (el))
+      .on('click', () => defineEvents (el));
   }
 
   // update sunburst

@@ -4,11 +4,11 @@
       stroke-width: 1px;
       stroke: white;
     }
-		text{
-			fill:white;
-			font-weight:bold;
-			pointer-events:none;
-			text-anchor:middle;
-		}
+    text{
+      fill:white;
+      font-weight:bold;
+      pointer-events:none;
+      text-anchor:middle;
+    }
   }
 }

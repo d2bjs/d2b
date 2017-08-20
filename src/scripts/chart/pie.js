@@ -45,10 +45,10 @@ export default function () {
     return chart;
   };
 
-	// percent formater
+  // percent formater
   const percent = d3.format('.0%');
 
-	// configure model properties
+  // configure model properties
   base(chart, $$)
     .addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))
     .addProp('legend', legend().clickable(true).dblclickable(true))
@@ -69,7 +69,7 @@ export default function () {
     .addPropFunctor('value', d => d.value)
     .addPropFunctor('label', d => d.label);
 
-	// update chart
+  // update chart
   function update (datum, transition) {
     const el = d3.select(this),
           selection = el.select('.d2b-chart-container'),
@@ -83,7 +83,7 @@ export default function () {
     $$.pie.values(filtered);
     $$.legend.values(values);
 
-		// legend functionality
+    // legend functionality
     el
       .select('.d2b-legend-container')
         .call($$.legend)
@@ -92,14 +92,14 @@ export default function () {
         .on('mouseover', function (d) { arcGrow.call(this, el, d); })
         .on('mouseout', function (d) { arcShrink.call(this, el, d); });
 
-		// get pie total
+    // get pie total
     const total = d3.sum(filtered, d => $$.value(d));
 
-		// select and enter pie chart 'g' element.
+    // select and enter pie chart 'g' element.
     let chartGroup = selection.selectAll('.d2b-pie-chart').data([filtered]);
     const chartGroupEnter = chartGroup.enter()
-			.append('g')
-				.attr('class', 'd2b-pie-chart');
+      .append('g')
+        .attr('class', 'd2b-pie-chart');
 
     chartGroup = chartGroup.merge(chartGroupEnter);
 
@@ -112,7 +112,7 @@ export default function () {
     chartGroup.call($$.pie);
 
     let arcGroup = selection
-			.selectAll('.d2b-pie-arc')
+      .selectAll('.d2b-pie-arc')
         .each(function (d) {
           // store inner and outer radii so that they can be used for hover
           // transitions
@@ -129,10 +129,10 @@ export default function () {
     let arcPercent = arcGroup.selectAll('.d2b-pie-arc-percent').data(d => [d]);
 
     arcPercent.enter()
-			.append('g')
-				.attr('class', 'd2b-pie-arc-percent')
-			.append('text')
-				.attr('y', 6);
+      .append('g')
+        .attr('class', 'd2b-pie-arc-percent')
+      .append('text')
+        .attr('y', 6);
 
     arcGroup
         .each(function () {
@@ -153,10 +153,10 @@ export default function () {
 
 
     arcGroup
-			.select('.d2b-pie-arc-percent')
-				.call(tweenCentroid, $$.pie.arc())
-			.select('text')
-				.call(tweenNumber, d => $$.value(d.data) / total, percent)
+      .select('.d2b-pie-arc-percent')
+        .call(tweenCentroid, $$.pie.arc())
+      .select('text')
+        .call(tweenNumber, d => $$.value(d.data) / total, percent)
         .style('opacity', function (d) {
           return $$.showPercent.call(this, d.data, total)? 1 : 0;
         });

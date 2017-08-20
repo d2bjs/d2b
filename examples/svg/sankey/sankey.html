@@ -26,7 +26,7 @@
     <g></g>
   </svg>
 
-	<script>
+  <script>
 
     var sankey = d2b.svgSankey().nodeDraggableX(true).nodeDraggableY(true).nodePreserveDragging(true);
 
@@ -55,9 +55,9 @@
 
     // use d3 to select the svg, set the datum, and apply the sankey generator
     var svg = d3.select('svg g')
-    	.datum(data)
-    	.call(sankey);
+      .datum(data)
+      .call(sankey);
 
-	</script>
+  </script>
 </body>
 </html>

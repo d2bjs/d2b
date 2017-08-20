@@ -14,28 +14,28 @@
 </style>
 
 <body>
-	<div class = 'pie-chart'></div>
+  <div class = 'pie-chart'></div>
 
-	<script>
+  <script>
 
-		var pie = d2b.chartPie().donutRatio(0.5);
+    var pie = d2b.chartPie().donutRatio(0.5);
 
-		pie.chartFrame().size({height: 400});
+    pie.chartFrame().size({height: 400});
 
-		var chart = d3.select('.pie-chart');
+    var chart = d3.select('.pie-chart');
 
-		chart
-				.datum([
-					{label: 'arc 1', value: 23, empty: true},
-					{label: 'arc 2', value: 31},
-					{label: 'arc 3', value: 80},
-					{label: 'arc 4', value: 8}
-				])
-			.transition()
-				.call(pie);
+    chart
+        .datum([
+          {label: 'arc 1', value: 23, empty: true},
+          {label: 'arc 2', value: 31},
+          {label: 'arc 3', value: 80},
+          {label: 'arc 4', value: 8}
+        ])
+      .transition()
+        .call(pie);
 
-		window.onresize = function () {chart.transition().call(pie)};
+    window.onresize = function () {chart.transition().call(pie)};
 
-	</script>
+  </script>
 </body>
 </html>

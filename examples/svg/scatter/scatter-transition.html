@@ -24,7 +24,7 @@
 <body>
   <svg><g transform = 'translate(30, 30)'></g></svg>
 
-	<script>
+  <script>
 
     var dataSets = [
       [{label: '1', values: values()}, {label: '2', values: values()}],
@@ -43,7 +43,7 @@
 
     window.addEventListener('resize', function(){
       x.range([0, getWidth()]);
-    	svg.call(scatter);
+      svg.call(scatter);
     });
 
     svg.datum(dataSets[i]).call(scatter);
@@ -67,6 +67,6 @@
       return document.documentElement.clientWidth - 60;
     }
 
-	</script>
+  </script>
 </body>
 </html>

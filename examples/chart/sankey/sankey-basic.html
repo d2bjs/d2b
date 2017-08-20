@@ -15,18 +15,18 @@
 </style>
 
 <body>
-	<div class = 'sankey-chart'></div>
+  <div class = 'sankey-chart'></div>
 
-	<script>
-		var sankey = d2b.chartSankey();
+  <script>
+    var sankey = d2b.chartSankey();
 
     sankey.sankey().nodeDraggableX(true).nodeDraggableY(true).nodePreserveDragging(true);
 
     sankey.sankey().sankey().nodePadding(100);
 
-		sankey.chartFrame().size({height: 400});
+    sankey.chartFrame().size({height: 400});
 
-		var chart = d3.selectAll('.sankey-chart');
+    var chart = d3.selectAll('.sankey-chart');
 
     var nodes = [
       {name: 'Node A'},
@@ -46,17 +46,17 @@
       {source: 'Node D', target: 'Node E', value: 4},
     ];
 
-		var data = {
+    var data = {
       nodes: nodes,
       links: links
-		};
+    };
 
-  	chart
-  			.datum(data)
-  		.transition()
-  			.call(sankey);
+    chart
+        .datum(data)
+      .transition()
+        .call(sankey);
 
-		window.onresize = function () { chart.call(sankey); };
-	</script>
+    window.onresize = function () { chart.call(sankey); };
+  </script>
 </body>
 </html>

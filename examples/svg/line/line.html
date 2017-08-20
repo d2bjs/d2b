@@ -23,7 +23,7 @@
 <body>
   <svg></svg>
 
-	<script>
+  <script>
 
     var line = d2b.svgLine(),
         x = d3.scaleLinear().domain([1, 5]).range([0, document.documentElement.clientWidth]),
@@ -34,7 +34,7 @@
 
     // use d3 to select the svg, set the datum, and apply the line generator
     var svg = d3.select('svg')
-    	.datum([
+      .datum([
         {
           label: 'Line Graph 1',
           values: [
@@ -55,15 +55,15 @@
             { x: 5, y: 40 }
           ]
         }
-    	])
-    	.call(line);
+      ])
+      .call(line);
 
     // on window resize, update the x scale range and reapply the line generator
     window.addEventListener('resize', function(){
       x.range([0, document.documentElement.clientWidth]);
-    	svg.call(line);
+      svg.call(line);
     });
 
-	</script>
+  </script>
 </body>
 </html>

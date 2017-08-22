@@ -13,11 +13,15 @@
 
 .d2b-sankey-nodes {
   rect {
-    stroke-width: 1px;
+    stroke-width: 0.3px;
     stroke: black;
     opacity: 0.6;
     &:hover {
       opacity: 0.8;
     }
   }
+}
+
+.d2b-text-anchor-end {
+  text-anchor: end;
 }

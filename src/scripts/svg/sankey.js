@@ -26,6 +26,7 @@ export default function () {
 
         return {
           key: key,
+          label: $$.nodeLabel(d, key),
           color: $$.nodeColor(d, key),
           draggableX: $$.nodeDraggableX(d),
           draggableY: $$.nodeDraggableY(d),
@@ -69,8 +70,11 @@ export default function () {
 
       const nodeWidth = $$.sankey.nodeWidth();
 
-      // get sankey graph layout
-      const graph = $$.sankey();
+      // get sankey graph layout and filter out those that have a falsy value
+      let graph = $$.sankey.nodes(nodesData).links(linksData)();
+      graph.links = graph.links.filter(n => !!n.value);
+      graph.nodes = graph.nodes.filter(n => !!n.value);
+      graph = $$.sankey.nodes(graph.nodes).links(graph.links)();
 
       // render link gradients
       let linkDefs = el.selectAll('.d2b-sankey-link-defs').data([graph.links]),
@@ -182,18 +186,36 @@ export default function () {
           .remove();
 
       nodeEnter
-          .style('opacity', 0)
-          .append('rect')
+          .attr('transform', d => `translate(${d.x0}, ${d.y0})`)
+          .style('opacity', 0);
+
+      nodeEnter
+        .append('rect')
           .attr('width', Math.max(0, nodeWidth))
-          .attr('height', d => Math.max(0, d.y1 - d.y0))
-          .attr('x', d => d.x0)
-          .attr('y', d => d.y0);
+          .attr('height', d => Math.max(0, d.y1 - d.y0));
+
+      nodeEnter
+        .append('text')
+          .attr('x', labelX)
+          .attr('y', labelY);
 
       nodeExit
           .style('opacity', 0)
           .remove();
 
       updater(transition);
+
+      function labelX(d) {
+        return labelLeft(d) ? nodeWidth + 5 : -5;
+      }
+
+      function labelLeft(d) {
+        return d.x0 < size.width / 2;
+      }
+
+      function labelY(d) {
+        return 5 + Math.max(0, d.y1 - d.y0) / 2;
+      }
 
       function drag(d) {
         if (d.draggableX) {
@@ -211,7 +233,13 @@ export default function () {
         updater();
       }
 
+      // set attributes on defined nodes and links
       function updater(transition = false) {
+        nodeStatic
+          .select('text')
+            .text(d => d.label)
+            .classed('d2b-text-anchor-end', d => !labelLeft(d));
+
         const l = transition ? link : linkStatic,
               n = transition ? node : nodeStatic;
 
@@ -251,13 +279,17 @@ export default function () {
         });
 
         n
-            .style('opacity', 1)
-          .select('rect')
+            .attr('transform', d => `translate(${d.x0}, ${d.y0})`)
+            .style('opacity', 1);
+
+        n.select('rect')
             .attr('width', Math.max(0, nodeWidth))
             .attr('height', d => Math.max(0, d.y1 - d.y0))
-            .attr('x', d => d.x0)
-            .attr('y', d => d.y0)
             .style('fill', d => d.color);
+
+        n.select('text')
+            .attr('x', labelX)
+            .attr('y', labelY);
       }
     });
 
@@ -272,6 +304,7 @@ export default function () {
     .addPropFunctor('size', {width: 960, height: 500})
     .addPropFunctor('nodes', d => d.nodes)
     .addPropFunctor('nodeKey', d => d.name)
+    .addPropFunctor('nodeLabel', (d, key) => key)
     .addPropFunctor('nodeDraggableX', false)
     .addPropFunctor('nodeDraggableY', false)
     .addPropFunctor('nodePreserveDragging', true)

@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import {sankey as sankeyGenerator, sankeyLinkHorizontal} from 'd3-sankey';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -17,7 +18,7 @@ export default function () {
 
       const el = d3.select(this),
             size = $$.size(datum),
-            sankeyLink = d3.sankeyLinkHorizontal();
+            sankeyLink = sankeyLinkHorizontal();
 
       // map node data wrapper
       const nodesData = $$.nodes(datum).map((d, i) => {
@@ -267,7 +268,7 @@ export default function () {
 
   /* Inherit from base model */
   base(sankey, $$)
-    .addProp('sankey', d3.sankey())
+    .addProp('sankey', sankeyGenerator())
     .addPropFunctor('size', {width: 960, height: 500})
     .addPropFunctor('nodes', d => d.nodes)
     .addPropFunctor('nodeKey', d => d.name)

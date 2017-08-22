@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
     {
       dest: 'build/d2b.min.js',
       format: 'iife',
-      globals: {d3: 'd3'},
+      globals: {d3: 'd3', 'd3-sankey': 'd3'},
       moduleName: 'd2b'
     }
   ];
@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === 'production') {
     {
       dest: 'build/d2b.js',
       format: 'iife',
-      globals: {d3: 'd3'},
+      globals: {d3: 'd3', 'd3-sankey': 'd3'},
       moduleName: 'd2b'
     },
   ];

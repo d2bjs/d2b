@@ -1,6 +1,11 @@
 import * as d3 from 'd3';
 
+import whenReady from '../util/whenReady.js';
+
 export default {
+  template: `
+    <div :class = '["d2b-vue-container", "d2b-vue-" + name]'></div>
+  `,
   props: {
     data:         { default: () => {} },
     config:       { default: () => () => {} },
@@ -25,7 +30,10 @@ export default {
     d3.select(window).on(`resize.${this.id}`, null);
   },
   mounted () {
-    this.updateDefer();
+    // whenReady(() => {
+      this.updateDefer();
+    // });
+
     d3.select(window).on(`resize.${this.id}`, this.updateDefer);
 
     this.watcher();
@@ -46,8 +54,8 @@ export default {
 
       this.config(this.generator);
 
-      var el = d3.select(this.$el),
-          elTransition = options.skipTransition? el : el.transition().duration(this.duration);
+      const el = d3.select(this.$el),
+            elTransition = options.skipTransition? el : el.transition().duration(this.duration);
 
       el.datum(data);
 

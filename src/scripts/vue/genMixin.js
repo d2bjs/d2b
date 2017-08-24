@@ -1,7 +1,5 @@
 import * as d3 from 'd3';
 
-import whenReady from '../util/whenReady.js';
-
 export default {
   template: `
     <div :class = '["d2b-vue-container", "d2b-vue-" + name]'></div>
@@ -30,9 +28,7 @@ export default {
     d3.select(window).on(`resize.${this.id}`, null);
   },
   mounted () {
-    // whenReady(() => {
-      this.updateDefer();
-    // });
+    this.updateDefer();
 
     d3.select(window).on(`resize.${this.id}`, this.updateDefer);
 

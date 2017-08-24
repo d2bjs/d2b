@@ -72,23 +72,26 @@ export default function () {
 
           svgIcon = svgIcon.merge(svgIconEnter);
 
-          let svgFa = svgIcon.selectAll('text').data(fa);
+          let svgFa = svgIcon.selectAll('text').data(fa),
+              svgFaEnter = svgFa.enter().append('text');
           svgFa.exit().remove();
-          svgFa = svgFa.merge(svgFa.enter().append('text'));
+          svgFaEnter.append('tspan');
+          svgFa = svgFa.merge(svgFaEnter);
           svgFa
-            .text(d => d)
-            .style('stroke', color)
-            .style('fill', empty? 'white' : color)
-            .attr('transform', `translate(${center.x},${center.y})`);
+              .style('stroke', color)
+              .style('fill', empty? 'white' : color)
+              .attr('transform', `translate(${center.x},${center.y * 1.65})`)
+            .select('tspan')
+              .text(d => d);
 
           let svgShape = svgIcon.selectAll('path').data(shape);
           svgShape.exit().remove();
           svgShape = svgShape.merge(svgShape.enter().append('path'));
           svgShape
-            .style('stroke', color)
-            .style('fill', empty? 'white' : color)
-            .attr('d', d => symbol.type(d)())
-            .attr('transform', `translate(${center.x},${center.y})`);
+              .style('stroke', color)
+              .style('fill', empty? 'white' : color)
+              .attr('d', d => symbol.type(d)())
+              .attr('transform', `translate(${center.x},${center.y})`);
 
         });
 

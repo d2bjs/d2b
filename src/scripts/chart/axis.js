@@ -335,7 +335,7 @@ export default function () {
         label: $$.graphLabel(graph) || '',
         color: $$.graphColor(graph),
         group: $$.graphGroup(graph),
-        tooltipConfig: $$.graphTooltipConfig || function () {}
+        tooltipConfig: $$.graphTooltipConfig(graph) || function () {}
       };
     });
   }

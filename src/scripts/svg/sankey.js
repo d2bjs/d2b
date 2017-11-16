@@ -3,6 +3,7 @@ import {sankey as sankeyGenerator, sankeyLinkHorizontal} from 'd3-sankey';
 
 import base from '../model/base';
 import color from '../util/color';
+import textWrap from '../util/textWrap';
 
 // sankey svg generator
 export default function () {
@@ -31,6 +32,7 @@ export default function () {
           draggableX: $$.nodeDraggableX(d),
           draggableY: $$.nodeDraggableY(d),
           preserveDragging: $$.nodePreserveDragging(d),
+          wrapLength: $$.nodeLabelWrapLength(d),
           data: d,
           index: i,
         };
@@ -237,8 +239,8 @@ export default function () {
       function updater(transition = false) {
         nodeStatic
           .select('text')
-            .text(d => d.label)
-            .classed('d2b-text-anchor-end', d => !labelLeft(d));
+            .classed('d2b-text-anchor-end', d => !labelLeft(d))
+            .call(textWrap, function (d) { return d.label; }, function (d) { return d.wrapLength; }, 'middle');
 
         const l = transition ? link : linkStatic,
               n = transition ? node : nodeStatic;
@@ -305,6 +307,7 @@ export default function () {
     .addPropFunctor('nodes', d => d.nodes)
     .addPropFunctor('nodeKey', d => d.name)
     .addPropFunctor('nodeLabel', (d, key) => key)
+    .addPropFunctor('nodeLabelWrapLength', Infinity)
     .addPropFunctor('nodeDraggableX', false)
     .addPropFunctor('nodeDraggableY', false)
     .addPropFunctor('nodePreserveDragging', true)

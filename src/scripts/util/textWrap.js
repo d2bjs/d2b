@@ -5,8 +5,10 @@ import oreq from '../util/oreq';
 
 // Wraps text based on character count and text accessor. This method uses
 // d3's enter/update/exit strategy as to be less destructive on the text content.
-export default function (text, getText = d => d.label, count = Infinity, anchor = 'start') {
+export default function (text, getText = d => d.label, getCount = Infinity, getAnchor = 'start') {
   getText = functor(getText);
+  getCount = functor(getCount);
+  getAnchor = functor(getAnchor);
 
   text.each( function(d, i) {
     let text = d3.select(this),
@@ -15,6 +17,8 @@ export default function (text, getText = d => d.label, count = Infinity, anchor 
         lines = [],
         line = [words.pop()],
         lineHeight = 1.1,
+        count = getCount.call(this, d, i),
+        anchor = getAnchor.call(this, d, i),
         x = +text.attr('x'),
         y = +text.attr('y'),
         dy = parseFloat(text.attr('dy')) || 0;

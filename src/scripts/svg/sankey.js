@@ -23,16 +23,16 @@ export default function () {
 
       // map node data wrapper
       const nodesData = $$.nodes(datum).map((d, i) => {
-        const key = $$.nodeKey(d);
+        const key = $$.nodeKey(d, i);
 
         return {
           key: key,
-          label: $$.nodeLabel(d, key),
-          color: $$.nodeColor(d, key),
-          draggableX: $$.nodeDraggableX(d),
-          draggableY: $$.nodeDraggableY(d),
-          preserveDragging: $$.nodePreserveDragging(d),
-          wrapLength: $$.nodeLabelWrapLength(d),
+          label: $$.nodeLabel(d, i, key),
+          color: $$.nodeColor(d, i, key),
+          draggableX: $$.nodeDraggableX(d, i),
+          draggableY: $$.nodeDraggableY(d, i),
+          preserveDragging: $$.nodePreserveDragging(d, i),
+          wrapLength: $$.nodeLabelWrapLength(d, i),
           data: d,
           index: i,
         };
@@ -306,12 +306,12 @@ export default function () {
     .addPropFunctor('size', {width: 960, height: 500})
     .addPropFunctor('nodes', d => d.nodes)
     .addPropFunctor('nodeKey', d => d.name)
-    .addPropFunctor('nodeLabel', (d, key) => key)
+    .addPropFunctor('nodeLabel', (d, i, key) => key)
     .addPropFunctor('nodeLabelWrapLength', Infinity)
     .addPropFunctor('nodeDraggableX', false)
     .addPropFunctor('nodeDraggableY', false)
     .addPropFunctor('nodePreserveDragging', true)
-    .addPropFunctor('nodeColor', (d, key) => color(key))
+    .addPropFunctor('nodeColor', (d, i, key) => color(key))
     .addPropFunctor('links', d => d.links)
     .addPropFunctor('linkSource', d => d.source)
     .addPropFunctor('linkSourceColor', (d, i, sourceKey) => {

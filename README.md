@@ -16,6 +16,8 @@ You can see the d2b API references [here](http://docs.d2bjs.org).
 
 You can try out many d2b live code examples [here](http://d2bjs.org).
 
+If you are using Vue.js there is a [vue-d2b](https://github.com/d2bjs/vue-d2b) plugin that makes using d2b even easier.
+
 ![Local Image](./docs/gifs/chart-axis.gif)
 
 ![Local Image](./docs/gifs/chart-sankey.gif)

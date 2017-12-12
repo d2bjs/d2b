@@ -88,6 +88,22 @@
 
   * [d2b.box](svg/box.md)
 
+    * [box](svg/box.md#apply)
+    * [box.type](svg/box.md#type)
+    * [box.scale](svg/box.md#scale)
+    * [box.enterScale](svg/box.md#enter_scale)
+    * [box.valueFormat](svg/box.md#value_format)
+    * [box.orient](svg/box.md#orient)
+    * [box.data](svg/box.md#data)
+    * [box.median](svg/box.md#median)
+    * [box.upperQuartile](svg/box.md#upper_quartile)
+    * [box.lowerQuartile](svg/box.md#lower_quartile)
+    * [box.maximum](svg/box.md#maximum)
+    * [box.minimum](svg/box.md#minimum)
+    * [box.outliers](svg/box.md#outliers)
+    * [box.width](svg/box.md#width)
+    * [box.color](svg/box.md#color)
+
   * [d2b.plane](svg/plane.md)
 
     * [plane](svg/plane.md#apply)
@@ -166,6 +182,25 @@
     * [bar.getVisiblePoints](svg/bar.md#get_visible_points)
 
   * [d2b.svgBoxPlot](svg/box_plot.md)
+
+    * [boxPlot](svg/box_plot.md#apply)
+    * [boxPlot.type](svg/box_plot.md#type)
+    * [boxPlot.x](svg/box_plot.md#x)
+    * [boxPlot.y](svg/box_plot.md#y)
+    * [boxPlot.box](svg/box_plot.md#box)
+    * [boxPlot.graphs](svg/box_plot.md#graphs)
+    * [boxPlot.tooltipGraph](svg/box_plot.md#tooltip_graph)
+    * [boxPlot.shift](svg/box_plot.md#shift)
+    * [boxPlot.key](svg/box_plot.md#key)
+    * [boxPlot.color](svg/box_plot.md#color)
+    * [boxPlot.orient](svg/box_plot.md#orient)
+    * [boxPlot.values](svg/box_plot.md#values)
+    * [boxPlot.px](svg/box_plot.md#px)
+    * [boxPlot.py](svg/box_plot.md#py)
+    * [boxPlot.pcolor](svg/box_plot.md#pcolor)
+    * [boxPlot.pkey](svg/box_plot.md#pkey)
+    * [boxPlot.getComputedGraphs](svg/box_plot.md#get_computed_graphs)
+    * [boxPlot.getVisiblePoints](svg/box_plot.md#get_visible_points)
 
   * [d2b.svgBubblePack](svg/bubble_pack.md)
 

@@ -10,7 +10,7 @@ Constructs a new box-plot generator with the default settings. The purpose of th
 When using the d2b-box-plot generator you can draw multiple box-plot graphs onto each element in the selection. This is shown in the data example below.
 
 # {#apply}
-[#](#apply) *box-plot*(*context*)
+[#](#apply) *boxPlot*(*context*)
 
 Render the box-plot(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of SVG containers (either SVG or G elements) or a corresponding [d3-transition](https://github.com/d3/d3-transition).
 

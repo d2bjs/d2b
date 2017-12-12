@@ -19,30 +19,28 @@ Before applying the d2b-line generator, you should join the data to the selected
 ```javascript
 var line = d2b.svgLine();
 
-var datum = {
-  graphs: [
-    {
-      label: 'Line Graph 1',
-      values: [
-        {x: 1, y: 18},
-        {x: 2, y: 10},
-        {x: 3, y: 26},
-        {x: 4, y: 35},
-        {x: 5, y: 14},
-      ]
-    },
-    {
-      label: 'Line Graph 2',
-      values: [
-        {x: 1, y: 13},
-        {x: 2, y: 26},
-        {x: 3, y: 41},
-        {x: 4, y: 14},
-        {x: 5, y: 36},
-      ]
-    }
-  ]
-};
+var datum = [
+  {
+    label: 'Line Graph 1',
+    values: [
+      {x: 1, y: 18},
+      {x: 2, y: 10},
+      {x: 3, y: 26},
+      {x: 4, y: 35},
+      {x: 5, y: 14},
+    ]
+  },
+  {
+    label: 'Line Graph 2',
+    values: [
+      {x: 1, y: 13},
+      {x: 2, y: 26},
+      {x: 3, y: 41},
+      {x: 4, y: 14},
+      {x: 5, y: 36},
+    ]
+  }
+];
 
 d3.select('.chart')
     .datum(datum)
@@ -85,13 +83,7 @@ When the d2b line generator is applied to a selection, the following properties 
 # {#graphs}
 [#](#graphs) line.**graphs**([*graphs*])
 
-If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the line generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to:
-
-```javascript
-function (d) {
-  return d.graphs;
-}
-```
+If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the line generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to `d => d`.
 
 ### Graph Level Accessors
 

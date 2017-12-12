@@ -19,30 +19,28 @@ Before applying the d2b-bar generator, you should join the data to the selected 
 ```javascript
 var bar = d2b.svgBar();
 
-var datum = {
-  graphs: [
-    {
-      label: 'Bar Graph 1',
-      values: [
-        {x: 1, y: 18},
-        {x: 2, y: 10},
-        {x: 3, y: 26},
-        {x: 4, y: 35},
-        {x: 5, y: 14},
-      ]
-    },
-    {
-      label: 'Bar Graph 2',
-      values: [
-        {x: 1, y: 13},
-        {x: 2, y: 26},
-        {x: 3, y: 41},
-        {x: 4, y: 14},
-        {x: 5, y: 36},
-      ]
-    }
-  ]
-};
+var datum = [
+  {
+    label: 'Bar Graph 1',
+    values: [
+      {x: 1, y: 18},
+      {x: 2, y: 10},
+      {x: 3, y: 26},
+      {x: 4, y: 35},
+      {x: 5, y: 14},
+    ]
+  },
+  {
+    label: 'Bar Graph 2',
+    values: [
+      {x: 1, y: 13},
+      {x: 2, y: 26},
+      {x: 3, y: 41},
+      {x: 4, y: 14},
+      {x: 5, y: 36},
+    ]
+  }
+];
 
 d3.select('.chart')
     .datum(datum)
@@ -68,16 +66,38 @@ If *y* is specified, sets the *y* scale to the specified [d3-scale](https://gith
 
 When the d2b bar generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
 
+# {#padding}
+[#](#padding) bar.**padding**([*padding*])
+
+If *padding* is specified, sets the *padding* to the specified padding-accessor function or number in pixels and returns the bar generator. If *padding* is not specified, returns the current padding-accessor function, which defaults to `() => 0.5`.
+
+The **padding**, is used to pad individual bars within a bar grouping.
+
+# {#group_padding}
+[#](#group_padding) bar.**groupPadding**([*padding*])
+
+If *padding* is specified, sets the *padding* to the specified group-padding-accessor function or number in pixels and returns the bar generator. If *padding* is not specified, returns the current group-padding-accessor function, which defaults to `() => 0`.
+
+The **groupPadding**, is used to pad groups of bars.
+
+# {#bandwidth}
+[#](#bandwidth) bar.**bandwidth**([*bandwidth*])
+
+If *bandwidth* is specified, sets the *bandwidth* to the specified bandwidth-accessor function or number in pixels and returns the bar generator. If *bandwidth* is not specified, returns the current bandwidth-accessor function, which defaults to `() => null`.
+
+The **bandwidth** determines the pixel width that a bar grouping can occupy. If a `null` bandwidth is used it will be computed dynamically based on the pixel distance between the closest two bar groups.
+
+# {#baseline}
+[#](#baseline) bar.**baseline**([*baseline*])
+
+If *baseline* is specified, sets the *baseline* to the specified baseline-accessor function or number and returns the bar generator. If *baseline* is not specified, returns the current baseline-accessor function, which defaults to `() => 0`.
+
+The **baseline** is used to determine the origin of a bar or bar stack.
+
 # {#graphs}
 [#](#graphs) bar.**graphs**([*graphs*])
 
-If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the bar generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to:
-
-```javascript
-function (d) {
-  return d.graphs;
-}
-```
+If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the bar generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to `d => d`.
 
 ### Graph Level Accessors
 
@@ -98,6 +118,13 @@ function (d) {
   // }
 }
 ```
+
+.addPropFunctor('orient', 'vertical')
+
+# {#orient}
+[#](#orient) box.**orient**([*orientation*])
+
+If *orientation* is specified, sets the box-orientation. If *orientation* is not specified, returns the current box orientation which defaults to `'vertical'`. The orientation should be one of `'vertical'` or `'horizontal'`.
 
 # {#tooltip_graph}
 [#](#tooltip_graph) bar.**tooltipGraph**([*tooltip_graph*])
@@ -228,6 +255,13 @@ function (d) {
   return d.y;
 }
 ```
+
+# {#pcentered}
+[#](#pcentered) bar.**pcentered**([*boolean*])
+
+If *boolean* is specified, sets the pcentered-accessor function to the specified accessor function or bool and returns the bar generator. If *boolean* is not specified, returns the current pcentered-accessor function, which defaults to `() => false`.
+
+The "point" centered accessor will force a bar to be rendered in the center of a bar group. Useful when doing an opacity overlapped bar chart like in [this block](https://bl.ocks.org/mbostock/4062085).
 
 # {#pcolor}
 [#](#pcolor) bar.**pcolor**([*color*])

@@ -213,7 +213,7 @@ export default function () {
       this.gen.each(function (d) {
         let el = d3.select(this);
         if (transition) el = el.transition(transition);
-
+        
         d.generator
           .x(xAxis.scale())
           .y(yAxis.scale());
@@ -243,7 +243,7 @@ export default function () {
     // configure tooltip
     tooltip.row(point => {
       const graphLabel = matchGraph(point.graph.data, allGraphs).label;
-      return `${graphLabel}: ${oreq(point.y, point.y1)}`;
+      return `${graphLabel}: ${oreq(point.y, point.y1, point.median)}`;
     });
 
     $$.tooltipConfig(tooltip);

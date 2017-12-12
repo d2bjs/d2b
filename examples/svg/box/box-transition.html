@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 500px;
+    height: 500px;
+  }
+
+</style>
+
+<body>
+  <svg class = 'vertical'>
+  </svg>
+
+  <svg class = 'horizontal'>
+  </svg>
+
+  <script>
+
+    renderBoxes('vertical');
+
+    renderBoxes('horizontal');
+
+    function renderBoxes(orient) {
+      var box = d2b.box(),
+          scale = d3.scaleLinear().domain([0, 14]).range([500, 0]);
+
+      // define the scale that the box generator should use
+      box.scale(scale).orient(orient);
+
+      // use d3 to select the svg, set the datum, and apply the box generator
+      var boxSvg = d3.select('svg.' + orient).selectAll('.box')
+          .data([
+            {maximum: 10,   minimum: 1,   upperQuartile: 7.5,   lowerQuartile: 2.8, median: 5.4, outliers: [0.5, 12, 13.3]},
+            {maximum: 12.8, minimum: 4.2, upperQuartile: 11,    lowerQuartile: 4.8, median: 6.4},
+            {maximum: 12,   minimum: 3,   upperQuartile: 9,     lowerQuartile: 5.8, median: 7}
+          ]);
+
+      boxSvg.enter().append('g')
+          .attr('class', 'box')
+          .attr('transform', function (d, i) {
+            return orient === 'vertical' ? 'translate('+ 100 * (i + 1) +', 0)' : 'translate(0, '+ 100 * (i + 1) +')';
+          })
+          .call(box);
+
+      setTimeout(function () {
+        var newScale = d3.scaleLinear().domain([0, 40]).range([500, 0]);
+
+        box.enterScale(scale).scale(newScale).orient(orient);
+
+        boxSvg = d3.select('svg.' + orient).selectAll('.box')
+            .data([
+              {maximum: 22,   minimum: 8,  upperQuartile: 20,   lowerQuartile: 13, median: 15, outliers: [0.5, 23]},
+              {maximum: 37,   minimum: 10, upperQuartile: 30,   lowerQuartile: 14, median: 24},
+              {maximum: 13,   minimum: 3,  upperQuartile: 11,   lowerQuartile: 5,  median: 9},
+              {maximum: 27,   minimum: 6,  upperQuartile: 16,   lowerQuartile: 8,  median: 13, outliers: [3]}
+            ]);
+
+        boxSvg = boxSvg.merge(boxSvg.enter().append('g'))
+            .attr('transform', function (d, i) {
+              return orient === 'vertical' ? 'translate('+ 100 * (i + 1) +', 0)' : 'translate(0, '+ 100 * (i + 1) +')';
+            })
+          .transition()
+            .duration(2000)
+            .attr('class', 'box')
+            .call(box);
+      }, 2000)
+    }
+  </script>
+</body>
+</html>

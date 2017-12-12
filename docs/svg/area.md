@@ -19,30 +19,28 @@ Before applying the d2b-area generator, you should join the data to the selected
 ```javascript
 var area = d2b.svgArea();
 
-var datum = {
-  graphs: [
-    {
-      label: 'Area Graph 1',
-      values: [
-        {x: 1, y: 18},
-        {x: 2, y: 10},
-        {x: 3, y: 26},
-        {x: 4, y: 35},
-        {x: 5, y: 14},
-      ]
-    },
-    {
-      label: 'Area Graph 2',
-      values: [
-        {x: 1, y: 13},
-        {x: 2, y: 26},
-        {x: 3, y: 41},
-        {x: 4, y: 14},
-        {x: 5, y: 36},
-      ]
-    }
-  ]
-};
+var datum = [
+  {
+    label: 'Area Graph 1',
+    values: [
+      {x: 1, y: 18},
+      {x: 2, y: 10},
+      {x: 3, y: 26},
+      {x: 4, y: 35},
+      {x: 5, y: 14},
+    ]
+  },
+  {
+    label: 'Area Graph 2',
+    values: [
+      {x: 1, y: 13},
+      {x: 2, y: 26},
+      {x: 3, y: 41},
+      {x: 4, y: 14},
+      {x: 5, y: 36},
+    ]
+  }
+];
 
 d3.select('.chart')
     .datum(datum)
@@ -85,13 +83,7 @@ When the d2b area generator is applied to a selection, the following properties 
 # {#graphs}
 [#](#graphs) area.**graphs**([*graphs*])
 
-If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the area generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to:
-
-```javascript
-function (d) {
-  return d.graphs;
-}
-```
+If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the area generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to `d => d`.
 
 ### Graph Level Accessors
 

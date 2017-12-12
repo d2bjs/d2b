@@ -19,7 +19,7 @@
 
   <script>
 
-    var axis = d2b.chartAxis()
+    var axis = d2b.chartAxis().duration(1000)
       .y({
         label: 'Y-Axis',
       })
@@ -41,6 +41,7 @@
     var data = {
       sets: [
         {
+          // stacked bar graphs
           yType: 'y2',
           generators: [d2b.svgBar().padding(0.5).stackBy(true)],
           graphs: [
@@ -74,6 +75,7 @@
           ]
         },
         {
+          // area graphs
           generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
           graphs: [
             {
@@ -98,6 +100,30 @@
           ]
         },
         {
+          // box plot graphs
+          generators: [d2b.svgBoxPlot()],
+          graphs: [
+            {
+              label: 'box plot 1',
+              hidden: true,
+              values: [
+                {x: 1, maximum: 10,   minimum: 1,   upperQuartile: 7.5,   lowerQuartile: 2.8, median: 5.4, outliers: [0.5, 12, 13.3]},
+                {x: 2, maximum: 12,   minimum: 3,   upperQuartile: 9,     lowerQuartile: 5.8, median: 7},
+                {x: 3, maximum: 15,   minimum: 4.5, upperQuartile: 12.8,  lowerQuartile: 6.2, median: 7.3}
+              ]
+            },
+            {
+              label: 'box-plot 2',
+              values: [
+                {x: 4, maximum: 6,    minimum: 0,   upperQuartile: 5,     lowerQuartile: 1.4, median: 3.8},
+                {x: 5, maximum: 8.2,  minimum: 1.2, upperQuartile: 7,     lowerQuartile: 2.8, median: 5.5, outliers: [1, 11.1, 14.5]},
+                {x: 6, maximum: 12.8, minimum: 4.2, upperQuartile: 11,    lowerQuartile: 4.8, median: 6.4}
+              ]
+            }
+          ]
+        },
+        {
+          // bubble pack graphs
           generators: [d2b.svgBubblePack()],
           graphs: [
             {

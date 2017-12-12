@@ -86,6 +86,8 @@
 
   * [Graphs](svg/graphs.md)
 
+  * [d2b.box](svg/box.md)
+
   * [d2b.plane](svg/plane.md)
 
     * [plane](svg/plane.md#apply)
@@ -143,7 +145,12 @@
     * [bar.type](svg/bar.md#type)
     * [bar.x](svg/bar.md#x)
     * [bar.y](svg/bar.md#y)
+    * [bar.padding](svg/bar.md#padding)
+    * [bar.groupPadding](svg/bar.md#group_padding)
+    * [bar.bandwidth](svg/bar.md#bandwidth)
+    * [bar.baseline](svg/bar.md#baseline)
     * [bar.graphs](svg/bar.md#graphs)
+    * [bar.orient](svg/bar.md#orient)
     * [bar.tooltipGraph](svg/bar.md#tooltip_graph)
     * [bar.shift](svg/bar.md#shift)
     * [bar.stackBy](svg/bar.md#stack_by)
@@ -152,10 +159,13 @@
     * [bar.values](svg/bar.md#values)
     * [bar.px](svg/bar.md#px)
     * [bar.py](svg/bar.md#py)
+    * [bar.pcentered](svg/bar.md#pcentered)
     * [bar.pcolor](svg/bar.md#pcolor)
     * [bar.pkey](svg/bar.md#pkey)
     * [bar.getComputedGraphs](svg/bar.md#get_computed_graphs)
     * [bar.getVisiblePoints](svg/bar.md#get_visible_points)
+
+  * [d2b.svgBoxPlot](svg/box_plot.md)
 
   * [d2b.svgBubblePack](svg/bubble_pack.md)
 

@@ -1,0 +1,28 @@
+/*.d2b-box-graph {
+  .d2b-box-dash,
+  .d2b-box-center,
+  .d2b-box-rect,
+  .d2b-box-outlier {
+    stroke-width: 1.5px;
+  }
+
+  .d2b-box-rect {
+    fill: #fff;
+  }
+
+  .d2b-box-center {
+    stroke-dasharray: 3 3;
+  }
+
+  .d2b-box-label {
+    fill: #555;
+    font-size: 10pt;
+    dominant-baseline: middle;
+  }
+
+  .d2b-box-outlier {
+    fill: none;
+    stroke: #888;
+    opacity: 0.4;
+  }
+}*/

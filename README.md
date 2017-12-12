@@ -4,11 +4,9 @@
 
 A reusable d3-based chart library.
 
-d2b is currently at pre-release state 0.x.x. It will remain here while I finish testing the library and putting together the API references. The source code is currently stable and other then some logic cleaning won't change much before the the first major release 1.0.0. Stay tuned for more information about the official release.
-
 ## Installing
 
-If you use NPM, `npm install d2b`. Otherwise you can download the latest build [here](https://github.com/d2bjs/d2b). CDN coming soon.
+If you use NPM, `npm install d2b`. Otherwise, you can download the latest build [here](https://github.com/d2bjs/d2b) or install it via [CDN](https://unpkg.com/d2b/build/d2b.min.js).
 
 ## API Reference
 
@@ -16,4 +14,14 @@ You can see the d2b API references [here](http://docs.d2bjs.org).
 
 ## Examples
 
-You can try out many d2b examples [here](http://d2bjs.org).
+You can try out many d2b live code examples [here](http://d2bjs.org).
+
+![Local Image](./docs/gifs/chart-axis.gif)
+
+![Local Image](./docs/gifs/chart-sankey.gif)
+
+![Local Image](./docs/gifs/chart-sunburst.gif)
+
+![Local Image](./docs/gifs/chart-pie.gif)
+
+![Local Image](./docs/gifs/box-plot-svg-transition.gif)

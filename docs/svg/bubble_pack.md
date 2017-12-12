@@ -19,62 +19,60 @@ Before applying the d2b-bubblePack generator, you should join the data to the se
 ```javascript
 var bubblePack = d2b.svgBubblePack();
 
-var datum = {
-  graphs: [
-    {
-      label: 'Bubble Pack Graph 1',
-      values: [
-        {
-          label: 'Parent 1',
-          // By setting expanded to true, this bubble will initially be expanded
-          // expanded: true,
-          children: [
-            {
-              label: 'Parent 1 Child 1',
-              children: [
-                {
-                  label: 'Parent 1 Child 1 Child 1',
-                  size: 20,
-                  x: 15,
-                  y: 25
-                },
-                {
-                  label: 'Parent 1 Child 1 Child 2',
-                  size: 4,
-                  x: 34,
-                  y: 14
-                }
-              ]
-            },
-            {
-              label: 'Parent 1 Child 2',
-              size: 10,
-              x: 25,
-              y: 14
-            }
-          ],
-        },
-        {
-          label: 'Parent 2',
-          size: 10,
-          x: 31,
-          y: 45
-        }
-      ]
-    },
-    {
-      label: 'Bubble Pack Graph 2',
-      values: [
-        {
-          label: 'Parent 1',
-          size: 22,
-          x: 4,
-          y: 50
-        }
-      ]
-    }
-  ]
-};
+var datum = [
+  {
+    label: 'Bubble Pack Graph 1',
+    values: [
+      {
+        label: 'Parent 1',
+        // By setting expanded to true, this bubble will initially be expanded
+        // expanded: true,
+        children: [
+          {
+            label: 'Parent 1 Child 1',
+            children: [
+              {
+                label: 'Parent 1 Child 1 Child 1',
+                size: 20,
+                x: 15,
+                y: 25
+              },
+              {
+                label: 'Parent 1 Child 1 Child 2',
+                size: 4,
+                x: 34,
+                y: 14
+              }
+            ]
+          },
+          {
+            label: 'Parent 1 Child 2',
+            size: 10,
+            x: 25,
+            y: 14
+          }
+        ],
+      },
+      {
+        label: 'Parent 2',
+        size: 10,
+        x: 31,
+        y: 45
+      }
+    ]
+  },
+  {
+    label: 'Bubble Pack Graph 2',
+    values: [
+      {
+        label: 'Parent 1',
+        size: 22,
+        x: 4,
+        y: 50
+      }
+    ]
+  }
+];
 
 d3.select('.chart')
     .datum(datum)
@@ -128,13 +126,7 @@ When the d2b bubblePack generator is applied to a selection, the following prope
 # {#graphs}
 [#](#graphs) bubblePack.**graphs**([*graphs*])
 
-If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the bubblePack generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to:
-
-```javascript
-function (d) {
-  return d.graphs;
-}
-```
+If *graphs* is specified, sets the *graphs* array to the specified accessor function or array and returns the bubblePack generator. If *graphs* is not specified, returns the current *graphs* accessor, which defaults to `d => d`.
 
 # {#duration}
 [#](#duration) bubblePack.**duration**([*duration*])

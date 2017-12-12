@@ -49,6 +49,14 @@
     * [pie.key](charts/pie.md#key)
     * [pie.label](charts/pie.md#label)
 
+  * [d2b.chartSankey](charts/sankey.md)
+
+    * [sankey](charts/sankey.md#apply)
+    * [sankey.chartFrame](charts/sankey.md#chart_frame)
+    * [sankey.sankey](charts/sankey.md#sankey)
+    * [sankey.nodeTooltip](charts/sankey.md#node_tooltip)
+    * [sankey.linkTooltip](charts/sankey.md#link_tooltip)
+
   * [d2b.chartSunburst](charts/sunburst.md)
 
     * [sunburst](charts/sunburst.md#apply)
@@ -77,6 +85,8 @@
 * [SVG](svg/svg.md)
 
   * [Graphs](svg/graphs.md)
+
+  * [d2b.box](svg/box.md)
 
   * [d2b.plane](svg/plane.md)
 
@@ -135,7 +145,12 @@
     * [bar.type](svg/bar.md#type)
     * [bar.x](svg/bar.md#x)
     * [bar.y](svg/bar.md#y)
+    * [bar.padding](svg/bar.md#padding)
+    * [bar.groupPadding](svg/bar.md#group_padding)
+    * [bar.bandwidth](svg/bar.md#bandwidth)
+    * [bar.baseline](svg/bar.md#baseline)
     * [bar.graphs](svg/bar.md#graphs)
+    * [bar.orient](svg/bar.md#orient)
     * [bar.tooltipGraph](svg/bar.md#tooltip_graph)
     * [bar.shift](svg/bar.md#shift)
     * [bar.stackBy](svg/bar.md#stack_by)
@@ -144,10 +159,13 @@
     * [bar.values](svg/bar.md#values)
     * [bar.px](svg/bar.md#px)
     * [bar.py](svg/bar.md#py)
+    * [bar.pcentered](svg/bar.md#pcentered)
     * [bar.pcolor](svg/bar.md#pcolor)
     * [bar.pkey](svg/bar.md#pkey)
     * [bar.getComputedGraphs](svg/bar.md#get_computed_graphs)
     * [bar.getVisiblePoints](svg/bar.md#get_visible_points)
+
+  * [d2b.svgBoxPlot](svg/box_plot.md)
 
   * [d2b.svgBubblePack](svg/bubble_pack.md)
 
@@ -226,6 +244,27 @@
     * [scatter.pkey](svg/scatter.md#pkey)
     * [scatter.getComputedGraphs](svg/scatter.md#get_computed_graphs)
     * [scatter.getVisiblePoints](svg/scatter.md#get_visible_points)
+
+  * [d2b.svgSankey](svg/sankey.md)
+
+    * [sankey](svg/sankey.md#apply)
+    * [sankey.sankey](svg/sankey.md#sankey)
+    * [sankey.size](svg/sankey.md#size)
+    * [sankey.links](svg/sankey.md#links)
+    * [sankey.nodes](svg/sankey.md#nodes)
+    * [sankey.nodeKey](svg/sankey.md#node_key)
+    * [sankey.nodeLabel](svg/sankey.md#node_label)
+    * [sankey.nodeLabelWrapLength](svg/sankey.md#node_label_wrap_length)
+    * [sankey.nodeDraggableX](svg/sankey.md#node_draggable_x)
+    * [sankey.nodeDraggableY](svg/sankey.md#node_draggable_y)
+    * [sankey.nodePreserveDragging](svg/sankey.md#node_preserve_dragging)
+    * [sankey.nodeColor](svg/sankey.md#node_color)
+    * [sankey.linkSource](svg/sankey.md#link_source)
+    * [sankey.linkSourceColor](svg/sankey.md#link_source_olor)
+    * [sankey.linkTarget](svg/sankey.md#link_target)
+    * [sankey.linkTargetColor](svg/sankey.md#link_target_olor)
+    * [sankey.linkKey](svg/sankey.md#link_key)
+    * [sankey.linkValue](svg/sankey.md#link_value)
 
   * [d2b.svgSunburst](svg/sunburst.md)
 

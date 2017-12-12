@@ -1,6 +1,6 @@
 {
   "name": "d2b",
-  "version": "0.0.34",
+  "version": "0.0.38",
   "description": "A d3-based reusable chart library.",
   "keywords": [
     "d3",
@@ -58,7 +58,7 @@
     "rollup-plugin-postcss": "^0.2.0",
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-watch": "^3.2.2",
-    "uglify-js": "2"
+    "uglify-js": "^3.2.2"
   },
   "watch": {
     "build:dev": {

@@ -32,7 +32,6 @@ You can try out many d2b examples [here](http://d2bjs.org).
 
 Here is a list of components that I plan to add in the future.
 
-* **d2b.chartSankey** - A sankey chart component that uses the d3.sankey plugin.
 * **d2b.chartBubble** - A bubble pack chart component with grouping and plotting for change over time.
 * **d2b.chartRadar** - A radar chart component. Might also require a d2b.svgRadar component.
 * **d2b.chartGauge** - A convenience gauge chart component. This is currently achievable through the pie chart.

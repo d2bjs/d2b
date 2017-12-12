@@ -151,14 +151,14 @@ function (d) {
 # {#key}
 [#](#key) sunburst.**key**([*key*])
 
-If *key* is specified, sets the arc-key-accessor to the specified function. If *key* is not specified, returns the current arc-key-accessor, which defaults to `() => $$.label(d)`. The arcs are entered in hierarchical order, so that arcs with the same keys do not conflict with one another unless they are direct siblings.
+If *key* is specified, sets the arc-key-accessor to the specified function. If *key* is not specified, returns the current arc-key-accessor, which defaults to `d => $$.label(d)`. The arcs are entered in hierarchical order, so that arcs with the same keys do not conflict with one another unless they are direct siblings.
 
 Note: By default, the key will be retrieved by invoking the current sunburst label accessor. This means that as the label accessor is changed the key will automatically reflect this change. Unless a different key accessor is provided.
 
 # {#label}
 [#](#label) sunburst.**label**([*label*])
 
-If *label* is specified, sets the label-accessor to the specified function. If *label* is not specified, returns the current arc-label-accessor, which defaults to `() => d.label`.
+If *label* is specified, sets the label-accessor to the specified function. If *label* is not specified, returns the current arc-label-accessor, which defaults to `d => d.label`.
 
 # {#color}
 [#](#color) sunburst.**color**([*color*])
@@ -179,9 +179,9 @@ Note: By default, the color will be retrieved by invoking the current sunburst l
 # {#children}
 [#](#children) sunburst.**children**([*children*])
 
-If *children* is specified, sets the children-accessor to the specified function. If *children* is not specified, returns the current children-accessor, which defaults to `() => d.children`.
+If *children* is specified, sets the children-accessor to the specified function. If *children* is not specified, returns the current children-accessor, which defaults to `d => d.children`.
 
 # {#size}
 [#](#size) sunburst.**size**([*size*])
 
-If *size* is specified, sets the size-accessor to the specified function. If *size* is not specified, returns the current size-accessor, which defaults to `() => d.size`. Only the leaf nodes of the hierarchy need to have a size.
+If *size* is specified, sets the size-accessor to the specified function. If *size* is not specified, returns the current size-accessor, which defaults to `d => d.size`. Only the leaf nodes of the hierarchy need to have a size.

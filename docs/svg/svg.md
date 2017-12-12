@@ -13,3 +13,5 @@ Here is the current list of SVG generators:
 * [line](line.md) - basic line graphs
 * [point](point.md) - an interactive symbol
 * [scatter](scatter.md) - basic scatter graphs
+* [sankey](sankey.md) - basic sankey generator
+* [sunburst](sunburst.md) - basic sunburst generator

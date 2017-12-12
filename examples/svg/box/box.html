@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 400px;
+    height: 400px;
+  }
+
+</style>
+
+<body>
+  <svg class = 'vertical'>
+  </svg>
+
+  <svg class = 'horizontal'>
+  </svg>
+
+  <script>
+
+    renderBoxes('vertical');
+    renderBoxes('horizontal');
+
+    function renderBoxes(orient) {
+      // vertical boxes
+      var box = d2b.box(),
+          scale = d3.scaleLinear().domain([0, 14]).range([400, 0]);
+
+      // define the scale that the box generator should use
+      box.scale(scale).orient(orient);
+
+      // use d3 to select the svg, set the datum, and apply the box generator
+      var boxSvg = d3.select('svg.' + orient).selectAll('g')
+        .data([
+          {maximum: 10,   minimum: 1,   upperQuartile: 7.5,   lowerQuartile: 2.8, median: 5.4, outliers: [0.5, 12, 13.3]},
+          {maximum: 12.8, minimum: 4.2, upperQuartile: 11,    lowerQuartile: 4.8, median: 6.4},
+          {maximum: 12,   minimum: 3,   upperQuartile: 9,     lowerQuartile: 5.8, median: 7}
+        ]);
+
+      boxSvg.enter().append('g')
+        .attr('transform', function (d, i) {
+          return orient === 'vertical' ? 'translate('+ 100 * (i + 1) +', 0)' : 'translate(0, '+ 100 * (i + 1) +')';
+        })
+        .call(box);
+    }
+  </script>
+</body>
+</html>

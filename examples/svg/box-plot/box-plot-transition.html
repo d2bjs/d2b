@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 100%;
+    height: 300px;
+  }
+
+</style>
+
+<body>
+  <svg>
+    <g></g>
+  </svg>
+
+  <script>
+
+    var boxPlot = d2b.svgBoxPlot(),
+        x = d3.scaleLinear().domain([0, 7]).range([0, document.documentElement.clientWidth]),
+        y = d3.scaleLinear().domain([-1, 16]).range([300, 0]);
+
+    // define the scales that the box-plot generator should use
+    boxPlot.x(x).y(y);
+
+    // use d3 to select the svg, set the datum, and apply the box generator
+    var svg = d3.select('svg g')
+      .datum([
+        {
+          label: 'Box Graph 1',
+          values: [
+            {x: 1, maximum: 10,   minimum: 1,   upperQuartile: 7.5,   lowerQuartile: 2.8, median: 5.4, outliers: [0.5, 12, 13.3]},
+            {x: 2, maximum: 12,   minimum: 3,   upperQuartile: 9,     lowerQuartile: 5.8, median: 7},
+            {x: 3, maximum: 15,   minimum: 4.5, upperQuartile: 12.8,  lowerQuartile: 6.2, median: 7.3}
+          ]
+        },
+        {
+          label: 'Box Graph 2',
+          values: [
+            {x: 4, maximum: 6,    minimum: 0,   upperQuartile: 5,     lowerQuartile: 1.4, median: 3.8},
+            {x: 5, maximum: 8.2,  minimum: 1.2, upperQuartile: 7,     lowerQuartile: 2.8, median: 5.5, outliers: [1, 11.1, 14.5]},
+            {x: 6, maximum: 12.8, minimum: 4.2, upperQuartile: 11,    lowerQuartile: 4.8, median: 6.4}
+          ]
+        }
+      ])
+      .call(boxPlot);
+
+    setTimeout(function () {
+      y.domain([-1, 28])
+      // x.domain([0, 15])
+
+      svg
+        .datum([
+          {
+            label: 'Box Graph 1',
+            values: [
+              {x: 1, maximum: 18,   minimum: 4,   upperQuartile: 7.5,   lowerQuartile: 5,   median: 6.2, outliers: [3, 25]},
+              {x: 2, maximum: 10,   minimum: 3,   upperQuartile: 9,     lowerQuartile: 5.8, median: 7},
+              {x: 3, maximum: 18,    minimum: 4.5, upperQuartile: 12.8,  lowerQuartile: 6.2, median: 7.3}
+            ]
+          },
+          {
+            label: 'Box Graph 2',
+            values: [
+              {x: 4, maximum: 6,    minimum: 0,   upperQuartile: 5,     lowerQuartile: 1.4, median: 3.8},
+              {x: 5, maximum: 15,   minimum: 4,   upperQuartile: 13,    lowerQuartile: 8,   median: 10.5, outliers: [1.5]},
+              {x: 6, maximum: 12.8, minimum: 4.2, upperQuartile: 11,    lowerQuartile: 4.8, median: 6.4}
+            ]
+          }
+        ])
+        .transition()
+        .duration(1000)
+        .call(boxPlot);
+    }, 2000);
+
+  setTimeout(function () {
+    y.domain([-1, 16])
+
+    svg
+      .datum([
+        {
+          label: 'Box Graph 1',
+          values: [
+            {x: 1, maximum: 10,   minimum: 1,   upperQuartile: 7.5,   lowerQuartile: 2.8, median: 5.4, outliers: [0.5, 12, 13.3]},
+            {x: 2, maximum: 12,   minimum: 3,   upperQuartile: 9,     lowerQuartile: 5.8, median: 7},
+            {x: 3, maximum: 15,   minimum: 4.5, upperQuartile: 12.8,  lowerQuartile: 6.2, median: 7.3}
+          ]
+        },
+        {
+          label: 'Box Graph 2',
+          values: [
+            {x: 4, maximum: 6,    minimum: 0,   upperQuartile: 5,     lowerQuartile: 1.4, median: 3.8},
+            {x: 5, maximum: 8.2,  minimum: 1.2, upperQuartile: 7,     lowerQuartile: 2.8, median: 5.5, outliers: [1, 11.1, 14.5]},
+            {x: 6, maximum: 12.8, minimum: 4.2, upperQuartile: 11,    lowerQuartile: 4.8, median: 6.4}
+          ]
+        }
+      ])
+      .transition()
+      .duration(1000)
+      .call(boxPlot);
+  }, 4000);
+
+
+    // on window resize, update the x scale range and reapply the line generator
+    window.addEventListener('resize', function(){
+      x.range([0, document.documentElement.clientWidth]);
+      svg.call(boxPlot);
+    });
+  </script>
+</body>
+</html>

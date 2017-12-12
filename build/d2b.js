@@ -9,17 +9,18 @@
     var head = document.head || document.getElementsByTagName('head')[0];
     var style = document.createElement('style');
     style.type = 'text/css';
+    head.appendChild(style);
+    
     if (style.styleSheet){
       style.styleSheet.cssText = css;
     } else {
       style.appendChild(document.createTextNode(css));
     }
-    head.appendChild(style);
     return returnValue;
   }
-  __$styleInject("@import \"//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css\";.d2b-draggable{cursor:move}.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{-webkit-transition:opacity 0.2s,stroke-width 0.2s;transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;alignment-baseline:central;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
+  __$styleInject(".d2b-draggable{cursor:move}.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
 
-  var version = "0.0.34";
+  var version = "0.0.38";
 
   function functor(v) {
     return typeof v === 'function' ? v : function () {
@@ -47,10 +48,12 @@
     var getText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (d) {
       return d.label;
     };
-    var count = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Infinity;
-    var anchor = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'start';
+    var getCount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Infinity;
+    var getAnchor = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'start';
 
     getText = functor(getText);
+    getCount = functor(getCount);
+    getAnchor = functor(getAnchor);
 
     text.each(function (d, i) {
       var text = d3.select(this),
@@ -59,6 +62,8 @@
           lines = [],
           line = [words.pop()],
           lineHeight = 1.1,
+          count = getCount.call(this, d, i),
+          anchor = getAnchor.call(this, d, i),
           x = +text.attr('x'),
           y = +text.attr('y'),
           dy = parseFloat(text.attr('dy')) || 0;
@@ -1064,12 +1069,14 @@
 
         svgIcon = svgIcon.merge(svgIconEnter);
 
-        var svgFa = svgIcon.selectAll('text').data(fa);
+        var svgFa = svgIcon.selectAll('text').data(fa),
+            svgFaEnter = svgFa.enter().append('text');
         svgFa.exit().remove();
-        svgFa = svgFa.merge(svgFa.enter().append('text'));
-        svgFa.text(function (d) {
+        svgFaEnter.append('tspan');
+        svgFa = svgFa.merge(svgFaEnter);
+        svgFa.style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', 'translate(' + center.x + ',' + center.y * 1.65 + ')').select('tspan').text(function (d) {
           return d;
-        }).style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', 'translate(' + center.x + ',' + center.y + ')');
+        });
 
         var svgShape = svgIcon.selectAll('path').data(shape);
         svgShape.exit().remove();
@@ -2769,6 +2776,447 @@
   //   });
   // });
 
+  // creates a box and whisker set for box plots
+
+  // box svg generator
+  function box () {
+    var $$ = {};
+
+    /* Update Function */
+    var box = function box(context) {
+      var selection = context.selection ? context.selection() : context,
+          scale = $$.scale,
+          enterScale = $$.enterScale || scale,
+          valueFormat = $$.valueFormat,
+          vertical = $$.orient === 'vertical',
+          orient = vertical ? { x: 'x', y: 'y', x1: 'x1', x2: 'x2', y1: 'y1', y2: 'y2', width: 'width', height: 'height', cx: 'cx', cy: 'cy' } : { x: 'y', y: 'x', x1: 'y1', x2: 'y2', y1: 'x1', y2: 'x2', width: 'height', height: 'width', cx: 'cy', cy: 'cx' };
+
+      // setup box-group and extract all necessary properties
+      var group = selection.selectAll('.d2b-box').data(function (d, i) {
+        d = $$.data(d, i);
+
+        var outliers = $$.outliers(d, i) || [],
+            minimum = $$.minimum(d, i),
+            maximum = $$.maximum(d, i);
+
+        return [{
+          data: d,
+          index: i,
+          median: $$.median(d, i),
+          upperQuartile: $$.upperQuartile(d, i),
+          lowerQuartile: $$.lowerQuartile(d, i),
+          minimum: minimum,
+          maximum: maximum,
+          outliers: outliers,
+          maxOutliers: outliers.filter(function (d) {
+            return d > maximum;
+          }),
+          minOutliers: outliers.filter(function (d) {
+            return d < minimum;
+          }),
+          color: $$.color(d, i),
+          width: $$.width(d, i)
+        }];
+      });
+      var groupEnter = group.enter().append('g').attr('class', 'd2b-box');
+      var groupUpdate = group.merge(groupEnter).order();
+
+      // setup box-center
+      var center = groupUpdate.selectAll('.d2b-box-center').data(function (d) {
+        return [d];
+      });
+      var centerEnter = center.enter().append('line').attr(orient.x1, 0).attr(orient.x2, 0).attr(orient.y1, function (d) {
+        return enterScale(d.minimum);
+      }).attr(orient.y2, function (d) {
+        return enterScale(d.maximum);
+      }).attr('class', 'd2b-box-center');
+      var centerUpdate = center.merge(centerEnter);
+
+      // setup box-rect
+      var rect = groupUpdate.selectAll('.d2b-box-rect').data(function (d) {
+        return [d];
+      });
+      var rectEnter = rect.enter().append('rect').attr('class', 'd2b-box-rect').attr(orient.width, function (d) {
+        return d.width;
+      }).attr(orient.height, function (d) {
+        return Math.abs(enterScale(d.upperQuartile) - enterScale(d.lowerQuartile));
+      }).attr(orient.x, function (d) {
+        return -d.width / 2;
+      }).attr(orient.y, function (d) {
+        return Math.min(enterScale(d.upperQuartile), enterScale(d.lowerQuartile));
+      });
+      var rectUpdate = rect.merge(rectEnter);
+
+      // enter, update, exit all outliers
+      ['max', 'min'].forEach(function (outlierType) {
+        var outlier = groupUpdate.selectAll('.d2b-box-' + outlierType + '-outlier').data(function (d) {
+          return d[outlierType + 'Outliers'].map(function (o) {
+            return {
+              outlier: o,
+              box: d
+            };
+          });
+        });
+        var outlierEnter = outlier.enter().append('circle').style('opacity', 0).attr('r', function (d) {
+          return d.box.width / 5;
+        }).attr(orient.cx, 0).attr(orient.cy, function (d) {
+          return enterScale(d.outlier);
+        }).attr('class', 'd2b-box-outlier d2b-box-' + outlierType + '-outlier');
+        var outlierUpdate = outlier.merge(outlierEnter),
+            outlierExit = outlier.exit();
+
+        if (context !== selection) {
+          outlierUpdate = outlierUpdate.transition(context);
+          outlierExit = outlierExit.transition(context);
+        }
+
+        outlierUpdate.style('opacity', 1).attr('stroke', function (d) {
+          return d.box.color;
+        }).attr('r', function (d) {
+          return d.box.width / 5;
+        }).attr(orient.cx, 0).attr(orient.cy, function (d) {
+          return scale(d.outlier);
+        });
+
+        outlierExit.attr(orient.cx, 0).attr(orient.cy, function (d) {
+          return scale(d.outlier);
+        }).style('opacity', 0).remove();
+      });
+
+      // enter, update all dashes
+      ['maximum', 'median', 'minimum'].forEach(function (dashType) {
+        var dash = groupUpdate.selectAll('.d2b-box-dash-' + dashType).data(function (d) {
+          return [d];
+        });
+        var dashEnter = dash.enter().append('line').attr('class', 'd2b-box-dash d2b-box-dash-' + dashType).attr(orient.x1, function (d) {
+          return -d.width / 2;
+        }).attr(orient.x2, function (d) {
+          return d.width / 2;
+        }).attr(orient.y1, function (d) {
+          return enterScale(d[dashType]);
+        }).attr(orient.y2, function (d) {
+          return enterScale(d[dashType]);
+        });
+        var dashUpdate = dash.merge(dashEnter);
+
+        if (context !== selection) dashUpdate = dashUpdate.transition(context);
+
+        dashUpdate.attr('stroke', function (d) {
+          return d.color;
+        }).attr(orient.x1, function (d) {
+          return -d.width / 2;
+        }).attr(orient.x2, function (d) {
+          return d.width / 2;
+        }).attr(orient.y1, function (d) {
+          return scale(d[dashType]);
+        }).attr(orient.y2, function (d) {
+          return scale(d[dashType]);
+        });
+      });
+
+      // enter, update all labels
+      ['maximum', 'upperQuartile', 'median', 'lowerQuartile', 'minimum'].forEach(function (textType, i) {
+        var label = groupUpdate.selectAll('.d2b-box-label-' + textType).data(function (d) {
+          return [d];
+        });
+        var labelEnter = label.enter().append('text').attr('class', 'd2b-box-label d2b-box-label-' + textType).attr(orient.x, function (d) {
+          return (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1);
+        }).attr(orient.y, function (d) {
+          return enterScale(d[textType]);
+        }).style('text-anchor', i % 2 === 0 ? 'start' : 'end');
+        var labelUpdate = label.merge(labelEnter);
+
+        if (context !== selection) labelUpdate = labelUpdate.transition(context);
+
+        labelUpdate.attr(orient.y, function (d) {
+          return scale(d[textType]);
+        }).text(function (d) {
+          return valueFormat(d[textType]);
+        });
+
+        if (vertical) {
+          labelUpdate.style('text-anchor', i % 2 === 0 ? 'start' : 'end').style('dominant-baseline', 'middle').attr(orient.x, function (d) {
+            return (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1);
+          });
+        } else {
+          labelUpdate.style('text-anchor', 'middle').style('dominant-baseline', i % 2 === 0 ? 'baseline' : 'hanging').attr(orient.x, function (d) {
+            return (3 + d.width / 2) * (i % 2 === 0 ? -1 : 1);
+          });
+        }
+      });
+
+      if (context !== selection) {
+        rectUpdate = rectUpdate.transition(context);
+        centerUpdate = centerUpdate.transition(context);
+      }
+
+      rectUpdate.attr(orient.x, function (d) {
+        return -d.width / 2;
+      }).attr(orient.y, function (d) {
+        return Math.min(scale(d.upperQuartile), scale(d.lowerQuartile));
+      }).attr(orient.width, function (d) {
+        return d.width;
+      }).attr(orient.height, function (d) {
+        return Math.abs(scale(d.upperQuartile) - scale(d.lowerQuartile));
+      }).attr('stroke', function (d) {
+        return d.color;
+      });
+
+      centerUpdate.attr(orient.x1, 0).attr(orient.x2, 0).attr(orient.y1, function (d) {
+        return scale(d.minimum);
+      }).attr(orient.y2, function (d) {
+        return scale(d.maximum);
+      }).attr('stroke', function (d) {
+        return d.color;
+      });
+
+      selection.dispatch('box-updated', { bubbles: true });
+
+      return box;
+    };
+
+    /* Inherit from base model */
+    base(box, $$).addProp('scale', d3.scaleLinear()).addProp('enterScale', null).addProp('valueFormat', d3.format(',')).addProp('orient', 'vertical').addPropFunctor('data', function (d) {
+      return d;
+    }).addPropFunctor('median', function (d) {
+      return d.median;
+    }).addPropFunctor('upperQuartile', function (d) {
+      return d.upperQuartile;
+    }).addPropFunctor('lowerQuartile', function (d) {
+      return d.lowerQuartile;
+    }).addPropFunctor('minimum', function (d) {
+      return d.minimum;
+    }).addPropFunctor('maximum', function (d) {
+      return d.maximum;
+    }).addPropFunctor('outliers', function (d) {
+      return d.outliers;
+    }).addPropFunctor('width', 20).addPropFunctor('color', 'steelblue');
+
+    return box;
+  }
+
+  // import id from '../util/id';
+
+  // box-plot svg generator
+  function boxPlot () {
+    var $$ = {};
+
+    function getGraphs(d, i) {
+      var graphs = $$.graphs(d, i).map(function (graph, i) {
+        var newGraph = {
+          data: graph,
+          index: i,
+          tooltipGraph: $$.tooltipGraph(graph, i),
+          shift: $$.shift(graph, i),
+          key: $$.key(graph, i),
+          color: $$.color(graph, i),
+          orient: $$.orient(graph, i)
+        };
+
+        newGraph.values = $$.values(graph, i).map(function (point, i) {
+          return {
+            data: point,
+            index: i,
+            graph: newGraph,
+            x: $$.px(point, i),
+            y: $$.py(point, i),
+            median: $$.box.median()(point, i)
+          };
+        });
+        return newGraph;
+      });
+
+      return graphs;
+    }
+
+    /* Update Function */
+    var boxPlot = function boxPlot(context) {
+      var selection = context.selection ? context.selection() : context;
+
+      var graphs = selection.selectAll('.d2b-box-plot-graphs').data(function (d) {
+        return [d];
+      });
+
+      graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-box-plot-graphs'));
+
+      var graph = graphs.selectAll('.d2b-box-plot-graph').data(function (d, i) {
+        return getGraphs(d, i);
+      }, function (d) {
+        return d.key;
+      });
+
+      var graphEnter = graph.enter().append('g').attr('class', 'd2b-box-plot-graph d2b-graph').style('opacity', 0);
+
+      var graphUpdate = graph.merge(graphEnter).order(),
+          graphExit = graph.exit();
+
+      if (context !== selection) {
+        graphUpdate = graphUpdate.transition(context);
+        graphExit = graphExit.transition(context);
+
+        graphExit.style('opacity', 0)
+        // boxes needs to be transitioned to where their new locations
+        // "would be" if the graphs had been included
+        .each(function (d) {
+          var el = d3.select(this),
+              vertical = d.orient === 'vertical',
+              orient = vertical ? { x: 'x', y: 'y' } : { x: 'y', y: 'x' },
+              x = $$[orient.x],
+              y = $$[orient.y];
+
+          $$.box.scale(y).orient(d.orient).data(function (p) {
+            return p.data;
+          }).color(function (p, i) {
+            return $$.pcolor(p, i) || d.color;
+          });
+
+          var boxSvgExit = el.selectAll('.d2b-box-plot-box');
+
+          if (context !== selection) boxSvgExit = boxSvgExit.transition(context);
+
+          var shift = d.shift;
+          if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
+
+          boxSvgExit.style('opacity', 0).attr('transform', function (p) {
+            return translateBox(x(p[orient.x]) + shift, vertical);
+          }).call($$.box).remove();
+        });
+      }
+
+      graphUpdate.style('opacity', 1);
+
+      graphExit.remove();
+
+      graphUpdate.each(function (d) {
+        var el = d3.select(this),
+            vertical = d.orient === 'vertical',
+            orient = vertical ? { x: 'x', y: 'y' } : { x: 'y', y: 'x' },
+            x = $$[orient.x],
+            y = $$[orient.y],
+            graphsNode = this.parentNode,
+            preScales = { x: graphsNode.__scaleX || x, y: graphsNode.__scaleY || y },
+            preX = preScales[orient.x],
+            preY = preScales[orient.y];
+
+        var shift = d.shift;
+        if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
+
+        var preShift = shift;
+        if (preShift === null) shift = preX.bandwidth ? preX.bandwidth() / 2 : 0;
+
+        if (d.tooltipGraph) d.tooltipGraph.data(d.values)[orient.x](function (p) {
+          return x(p[orient.x]) + shift;
+        })[orient.y](function (p) {
+          return y(p.median);
+        }).color(function (p, i) {
+          return $$.pcolor(p.data, i) || d.color;
+        });
+
+        $$.box.scale(y).enterScale(preY).orient(d.orient).data(function (p) {
+          return p.data;
+        }).color(function (p, i) {
+          return $$.pcolor(p, i) || d.color;
+        });
+
+        var boxSvg = el.selectAll('.d2b-box-plot-box').data(d.values, $$.pkey);
+        var boxSvgEnter = boxSvg.enter().append('g').attr('class', 'd2b-box-plot-box');
+
+        var boxSvgUpdate = boxSvg.merge(boxSvgEnter).order(),
+            boxSvgExit = boxSvg.exit();
+
+        if (context !== selection) {
+          boxSvgUpdate = boxSvgUpdate.transition(context);
+          boxSvgExit = boxSvgExit.transition(context);
+        }
+
+        // if band scale is used enter boxes at their new location
+        if (preX.bandwidth || preY.bandwidth || x.bandwidth || y.bandwidth) {
+          $$.box.enterScale(y);
+          boxSvgEnter.attr('transform', function (p) {
+            return translateBox(x(p[orient.x]) + shift, vertical);
+          });
+        } else {
+          $$.box.enterScale(preY);
+          boxSvgEnter.attr('transform', function (p) {
+            return translateBox(preX(p[orient.x]) + shift, vertical);
+          });
+        }
+
+        boxSvgEnter.style('opacity', 0);
+
+        boxSvgUpdate.attr('transform', function (p) {
+          return translateBox(x(p[orient.x]) + shift, vertical);
+        }).style('opacity', 1).call($$.box);
+
+        boxSvgExit.attr('transform', function (p) {
+          return translateBox(x(p[orient.x]) + shift, vertical);
+        }).style('opacity', 0).call($$.box).remove();
+      });
+
+      graphs.each(function () {
+        this.__scaleX = $$.x.copy();
+        this.__scaleY = $$.y.copy();
+      });
+
+      selection.dispatch('svg-box-updated', { bubbles: true });
+
+      return boxPlot;
+    };
+
+    function translateBox(position, vertical) {
+      return 'translate(' + (vertical ? [position, 0] : [0, position]) + ')';
+    }
+
+    /* Inherit from base model */
+    base(boxPlot, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('box', box()).addPropGet('type', 'boxPlot').addPropFunctor('graphs', function (d) {
+      return d;
+    })
+    // graph props
+    .addPropFunctor('tooltipGraph', function (d) {
+      return d.tooltipGraph;
+    }).addPropFunctor('shift', null).addPropFunctor('key', function (d) {
+      return d.label;
+    }).addPropFunctor('values', function (d) {
+      return d.values;
+    }).addPropFunctor('color', function (d) {
+      return color(d.label);
+    }).addPropFunctor('orient', 'vertical')
+    // points props
+    .addPropFunctor('px', function (d) {
+      return d.x;
+    }).addPropFunctor('py', function (d) {
+      return d.y;
+    }).addPropFunctor('pcolor', null).addPropFunctor('pkey', function (d, i) {
+      return i;
+    })
+    // methods
+    .addMethod('getComputedGraphs', function (context) {
+      return (context.selection ? context.selection() : context).data().map(function (d, i) {
+        return getGraphs(d, i);
+      });
+    }).addMethod('getVisiblePoints', function (context) {
+      var data = boxPlot.getComputedGraphs(context),
+          points = [];
+      data.forEach(function (graphs) {
+        graphs.forEach(function (graph) {
+          graph.values.forEach(function (v, i) {
+            ['maximum', 'minimum', 'upperQuartile', 'lowerQuartile', 'median'].forEach(function (metric) {
+              points.push({ x: v.x, y: $$.box[metric]()(v.data, i), graph: graph });
+            });
+
+            ($$.box.outliers()(v.data, i) || []).forEach(function (outlier) {
+              points.push({ x: v.x, y: outlier, graph: graph });
+            });
+          });
+        });
+      });
+
+      return points;
+    });
+
+    return boxPlot;
+  }
+
   // bubble pack svg generator
   function bubblePack () {
     var $$ = {};
@@ -3665,15 +4113,16 @@
 
         // map node data wrapper
         var nodesData = $$.nodes(datum).map(function (d, i) {
-          var key = $$.nodeKey(d);
+          var key = $$.nodeKey(d, i);
 
           return {
             key: key,
-            label: $$.nodeLabel(d, key),
-            color: $$.nodeColor(d, key),
-            draggableX: $$.nodeDraggableX(d),
-            draggableY: $$.nodeDraggableY(d),
-            preserveDragging: $$.nodePreserveDragging(d),
+            label: $$.nodeLabel(d, i, key),
+            color: $$.nodeColor(d, i, key),
+            draggableX: $$.nodeDraggableX(d, i),
+            draggableY: $$.nodeDraggableY(d, i),
+            preserveDragging: $$.nodePreserveDragging(d, i),
+            wrapLength: $$.nodeLabelWrapLength(d, i),
             data: d,
             index: i
           };
@@ -3880,11 +4329,13 @@
         function updater() {
           var transition = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-          nodeStatic.select('text').text(function (d) {
-            return d.label;
-          }).classed('d2b-text-anchor-end', function (d) {
+          nodeStatic.select('text').classed('d2b-text-anchor-end', function (d) {
             return !labelLeft(d);
-          });
+          }).call(textWrap, function (d) {
+            return d.label;
+          }, function (d) {
+            return d.wrapLength;
+          }, 'middle');
 
           var l = transition ? link : linkStatic,
               n = transition ? node : nodeStatic;
@@ -3942,9 +4393,9 @@
       return d.nodes;
     }).addPropFunctor('nodeKey', function (d) {
       return d.name;
-    }).addPropFunctor('nodeLabel', function (d, key) {
+    }).addPropFunctor('nodeLabel', function (d, i, key) {
       return key;
-    }).addPropFunctor('nodeDraggableX', false).addPropFunctor('nodeDraggableY', false).addPropFunctor('nodePreserveDragging', true).addPropFunctor('nodeColor', function (d, key) {
+    }).addPropFunctor('nodeLabelWrapLength', Infinity).addPropFunctor('nodeDraggableX', false).addPropFunctor('nodeDraggableY', false).addPropFunctor('nodePreserveDragging', true).addPropFunctor('nodeColor', function (d, i, key) {
       return color(key);
     }).addPropFunctor('links', function (d) {
       return d.links;
@@ -4802,7 +5253,7 @@
       // configure tooltip
       tooltip.row(function (point) {
         var graphLabel = matchGraph(point.graph.data, allGraphs).label;
-        return graphLabel + ': ' + oreq(point.y, point.y1);
+        return graphLabel + ': ' + oreq(point.y, point.y1, point.median);
       });
 
       $$.tooltipConfig(tooltip);
@@ -4896,7 +5347,7 @@
           label: $$.graphLabel(graph) || '',
           color: $$.graphColor(graph),
           group: $$.graphGroup(graph),
-          tooltipConfig: $$.graphTooltipConfig || function () {}
+          tooltipConfig: $$.graphTooltipConfig(graph) || function () {}
         };
       });
     }
@@ -5175,9 +5626,7 @@
       d3.select(window).on('resize.' + this.id, null);
     },
     mounted: function mounted() {
-      // whenReady(() => {
       this.updateDefer();
-      // });
 
       d3.select(window).on('resize.' + this.id, this.updateDefer);
 
@@ -5300,10 +5749,12 @@
   exports.svgArea = area;
   exports.svgScatter = scatter;
   exports.svgBar = bar;
+  exports.svgBoxPlot = boxPlot;
   exports.svgBubblePack = bubblePack;
   exports.svgSunburst = svgSunburst;
   exports.svgSankey = sankey$1;
   exports.plane = plane;
+  exports.box = box;
   exports.chartPie = chartPie;
   exports.chartAxis = chartAxis;
   exports.chartSunburst = chartSunburst;

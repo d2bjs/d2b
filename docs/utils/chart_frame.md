@@ -25,7 +25,7 @@ After the chartFrame has been applied to a context, then a `g.d2b-chart-containe
 
   chartFrame
     .breadcrumbsEnabled(true)
-    .breadcrumbsEnabled(true);
+    .legendEnabled(false);
 
   var chart = d3.select('div.chart');
 
@@ -140,12 +140,6 @@ The *padding* can be specified in the following formats:
   chartFrame.chartPadding({ top: 10, bottom: 50, left: 50, right: 10 });
 ```
 
-```
-  // If null is given then the padding will be computed dynamically. this
-  // is the default setting.
-  chartFrame.chartPadding(null);
-```
-
 # {#padding}
 [#](#padding) chartFrame.**padding**([*padding*])
 
@@ -162,10 +156,4 @@ The *padding* can be specified in the following formats:
 ```
   // If an object is given then the padding for each side should be specified.
   chartFrame.padding({ top: 10, bottom: 50, left: 50, right: 10 });
-```
-
-```
-  // If null is given then the padding will be computed dynamically. this
-  // is the default setting.
-  chartFrame.padding(null);
 ```

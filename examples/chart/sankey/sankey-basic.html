@@ -16,14 +16,14 @@
 </style>
 
 <body>
-  <div class = 'sankey-chart'></div>
+  <div id = 'sankey-chart'></div>
 
   <script>
     var sankey = d2b.chartSankey();
 
     sankey.chartFrame().size({height: 500});
 
-    var chart = d3.select('.sankey-chart');
+    var chart = d3.select('#sankey-chart');
 
     chart
         .datum({

@@ -5,6 +5,7 @@ import color from '../util/color';
 import stack from '../util/stack';
 import id from '../util/id';
 import isFinitePath from '../util/isFinitePath';
+import { interpolatePath } from 'd3-interpolate-path';
 
 // line svg generator
 export default function () {
@@ -80,19 +81,34 @@ export default function () {
       graphExit = graphExit.transition(context);
       areaUpdate = areaUpdate.transition(context);
 
-      graphExit
-          .style('opacity', 0)
-        .select('.d2b-area')
-          .attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y); });
+      const areaExit = graphExit.style('opacity', 0).select('.d2b-area');
+      const tweenD = function (d, setupTooltip = false) {
+        const maxX = d3.max(d.values, dd => dd.x);
+        const minX = d3.min(d.values, dd => dd.x);
+        return interpolatePath(
+          this.getAttribute('d'),
+          getPath.call(this, d, $$.x, $$.y, setupTooltip),
+          function (a) { return a.x == maxX || a.x == minX; }
+        );
+      };
+
+      // use d3-interpolate-path if available
+      if (typeof interpolatePath == "undefined") {
+        areaExit.attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y); });
+        areaUpdate.attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y, true); });
+      } else {
+        areaExit.attrTween('d', function (d) { return tweenD.call(this, d); });
+        areaUpdate.attrTween('d', function (d) { return tweenD.call(this, d, true); });
+      }
+    } else {
+      areaUpdate.attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y, true); });
     }
 
     graphUpdate.style('opacity', 1);
 
     graphExit.remove();
 
-    areaUpdate
-        .style('fill', d => d.color)
-        .attr('d', function (d) { return getPath.call(this, d, $$.x, $$.y, true); });
+    areaUpdate.style('fill', d => d.color);
 
     // Make a copy of the scales sticky on the 'graphs' node
     const xCopy = $$.x.copy(), yCopy = $$.y.copy();

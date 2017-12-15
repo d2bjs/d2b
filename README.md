@@ -12,18 +12,40 @@ If you use NPM, `npm install d2b`. Otherwise, you can download the latest build 
 
 You can see the d2b API references [here](http://docs.d2bjs.org).
 
+## Optional Dependencies
+
+- [font awesome icons](http://fontawesome.io/get-started/): Many of the charts use this icon set.
+
+- [d3-sankey](https://github.com/d3/d3-sankey): Used by the d2b [sankey chart](./charts/sankey.md) and [sankey svg](./svg/sankey.md). If using NPM this dependency will automatically be included.
+
+- [d3-interpolate-path](https://github.com/pbeshai/d3-interpolate-path): Used by the d2b `v > 0.40` [line svg](./svg/line.md) and [area svg](./svg/area.md) for smoother interpolation. This dependency is optional, by default d3's path interpolation will be used. If installing with NPM this dependency will automatically be included.
+
 ## Examples
 
 You can try out many d2b live code examples [here](http://d2bjs.org).
 
 If you are using Vue.js there is a [vue-d2b](https://github.com/d2bjs/vue-d2b) plugin that makes using d2b even easier.
 
-![Local Image](./docs/gifs/chart-axis.gif)
+<figure><figcaption style = 'text-align:center;'>d2b.chartAxis()</figcaption><img src="./docs/gifs/chart-axis.gif" alt="Axis Chart"/></figure><br>
 
-![Local Image](./docs/gifs/chart-sankey.gif)
+<figure><figcaption style = 'text-align:center;'>d2b.chartSunburst()</figcaption><img src="./docs/gifs/chart-sunburst.gif" alt="Sunburst Chart" style="width: 100%;"/></figure><br>
 
-![Local Image](./docs/gifs/chart-sunburst.gif)
+<figure><figcaption style = 'text-align:center;'>d2b.chartSankey()</figcaption><img src="./docs/gifs/chart-sankey.gif" alt="Sankey Chart" style="width: 100%;"/></figure><br>
 
-![Local Image](./docs/gifs/chart-pie.gif)
+<figure><figcaption style = 'text-align:center;'>d2b.chartPie()</figcaption><img src="./docs/gifs/chart-pie.gif" alt="Pie Chart" style="width: 100%;"/></figure><br>
 
-![Local Image](./docs/gifs/box-plot-svg-transition.gif)
+### Some examples of mix and match d2b.chartAxis() generators.
+
+<br />
+
+<figure><figcaption style = 'text-align:center;'>d2b.svgBoxPlot()</figcaption><img src="./docs/gifs/box-plot-svg-transition.gif" alt="Svg Box Plot" style="width: 100%;"/></figure><br>
+
+<figure><figcaption style = 'text-align:center;'>d2b.svgBubblePack()</figcaption><img src="./docs/gifs/bubble-pack-svg-transition.gif" alt="Svg Bubble Pack" style="width: 100%;"/></figure><br>
+
+<figure><figcaption style = 'text-align:center;'>d2b.svgArea()</figcaption><img src="./docs/gifs/area-svg-transition.gif" alt="Svg Area" style="width: 100%;"/></figure><br>
+
+<figure><figcaption style = 'text-align:center;'>d2b.svgLine()</figcaption><img src="./docs/gifs/line-svg-transition.gif" alt="Svg Line" style="width: 100%;"/></figure><br>
+
+<figure><figcaption style = 'text-align:center;'>d2b.svgScatter()</figcaption><img src="./docs/gifs/scatter-svg-transition.gif" alt="Svg Scatter" style="width: 100%;"/></figure><br>
+
+<figure><figcaption style = 'text-align:center;'>d2b.svgBar()</figcaption><img src="./docs/gifs/bar-svg-transition.gif" alt="Svg Bar" style="width: 100%;"/></figure><br>

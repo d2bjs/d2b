@@ -24,8 +24,8 @@
     "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
-    "build:dev": "npm run build:package && rollup -c -g d3:d3,d3-sankey:d3 && npm run test",
-    "build:prod": "npm run build:package && NODE_ENV=production rollup -c -g d3:d3,d3-sankey:d3",
+    "build:dev": "npm run build:package && rollup -c -g d3:d3,d3-sankey:d3,d3-interpolate-path:d3 && npm run test",
+    "build:prod": "npm run build:package && NODE_ENV=production rollup -c -g d3:d3,d3-sankey:d3,d3-interpolate-path:d3",
     "build:server": "http-server -a 0.0.0.0 -p 8000",
     "build:watcher": "npm-watch",
     "build:package": "json2module package.json > build/package.js",
@@ -39,7 +39,8 @@
   },
   "dependencies": {
     "d3": "^4.5.0",
-    "d3-sankey": "^0.7.1"
+    "d3-sankey": "^0.7.1",
+    "flubber": "^0.4.0"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",

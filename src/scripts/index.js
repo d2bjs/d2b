@@ -8,4 +8,3 @@ export * from './shape/shape';
 export * from './util/util';
 export * from './svg/svg';
 export * from './chart/chart';
-export * from './vue/vue';

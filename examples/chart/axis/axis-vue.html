@@ -3,6 +3,7 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-d2b"></script>
 
 <script src="../../../node_modules/d3/build/d3.min.js"></script>
 <script src="../../../build/d2b.js"></script>
@@ -30,7 +31,7 @@
     var app = new Vue({
       el: '#app',
       components: {
-        'axis-chart': d2b.vueChartAxis
+        'axis-chart': vued2b.ChartAxis
       },
       data: {
         axisChartData: {

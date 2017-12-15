@@ -5,10 +5,13 @@
   "description": "Agave reference documentation.",
   "author": "Damour Team",
 
-  "plugins": ["-sharing", "custom-favicon", "toggle-chapters"],
+  "plugins": ["-sharing", "custom-favicon", "toggle-chapters", "ga"],
 
   "pluginsConfig" : {
-    "favicon": "docs/images/favicon.ico"
+    "favicon": "docs/images/favicon.ico",
+    "ga": {
+        "token": "UA-111208921-2"
+    }
   },
 
   "styles": {

@@ -26,26 +26,26 @@ You can try out many d2b live code examples [here](http://d2bjs.org).
 
 If you are using Vue.js there is a [vue-d2b](https://github.com/d2bjs/vue-d2b) plugin that makes using d2b even easier.
 
-<figure><figcaption style = 'text-align:center;'>d2b.chartAxis()</figcaption><img src="./docs/gifs/chart-axis.gif" alt="Axis Chart"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.chartAxis()</figcaption><img src="./docs/gifs/chart-axis.gif" alt="Axis Chart" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.chartSunburst()</figcaption><img src="./docs/gifs/chart-sunburst.gif" alt="Sunburst Chart" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.chartSunburst()</figcaption><img src="./docs/gifs/chart-sunburst.gif" alt="Sunburst Chart" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.chartSankey()</figcaption><img src="./docs/gifs/chart-sankey.gif" alt="Sankey Chart" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.chartSankey()</figcaption><img src="./docs/gifs/chart-sankey.gif" alt="Sankey Chart" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.chartPie()</figcaption><img src="./docs/gifs/chart-pie.gif" alt="Pie Chart" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.chartPie()</figcaption><img src="./docs/gifs/chart-pie.gif" alt="Pie Chart" width = '100%'/></figure><br>
 
 ### Some examples of mix and match d2b.chartAxis() generators.
 
 <br />
 
-<figure><figcaption style = 'text-align:center;'>d2b.svgBoxPlot()</figcaption><img src="./docs/gifs/box-plot-svg-transition.gif" alt="Svg Box Plot" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.svgBoxPlot()</figcaption><img src="./docs/gifs/box-plot-svg-transition.gif" alt="Svg Box Plot" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.svgBubblePack()</figcaption><img src="./docs/gifs/bubble-pack-svg-transition.gif" alt="Svg Bubble Pack" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.svgBubblePack()</figcaption><img src="./docs/gifs/bubble-pack-svg-transition.gif" alt="Svg Bubble Pack" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.svgArea()</figcaption><img src="./docs/gifs/area-svg-transition.gif" alt="Svg Area" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.svgArea()</figcaption><img src="./docs/gifs/area-svg-transition.gif" alt="Svg Area" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.svgLine()</figcaption><img src="./docs/gifs/line-svg-transition.gif" alt="Svg Line" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.svgLine()</figcaption><img src="./docs/gifs/line-svg-transition.gif" alt="Svg Line" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.svgScatter()</figcaption><img src="./docs/gifs/scatter-svg-transition.gif" alt="Svg Scatter" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.svgScatter()</figcaption><img src="./docs/gifs/scatter-svg-transition.gif" alt="Svg Scatter" width = '100%'/></figure><br>
 
-<figure><figcaption style = 'text-align:center;'>d2b.svgBar()</figcaption><img src="./docs/gifs/bar-svg-transition.gif" alt="Svg Bar" style="width: 100%;"/></figure><br>
+<figure><figcaption style = 'text-align:center;'>d2b.svgBar()</figcaption><img src="./docs/gifs/bar-svg-transition.gif" alt="Svg Bar" width = '100%'/></figure><br>

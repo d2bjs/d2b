@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select, nest, scaleLinear, symbolCircle } from 'd3';
+// import { annotation } from 'd3-svg-annotation';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -74,7 +75,7 @@ export default function () {
           // points needs to be transitioned to where there new locations "would be"
           // if the graphs had been included
           .each(function (d) {
-            const el = d3.select(this),
+            const el = select(this),
                   x = $$.x,
                   y = $$.y;
 
@@ -97,7 +98,7 @@ export default function () {
     graphExit.remove();
 
     graphUpdate.each( function (d) {
-      const el = d3.select(this),
+      const el = select(this),
             x = $$.x,
             y = $$.y,
             graphsNode = this.parentNode,
@@ -179,7 +180,7 @@ export default function () {
     .y(d => d.y)
     .x(d => d.x);
 
-  const stackNest = d3.nest().key(d => {
+  const stackNest = nest().key(d => {
     const key = d.stackBy;
     return (key !== false && key !== null)? key : id();
   });
@@ -188,8 +189,8 @@ export default function () {
   base(scatter, $$)
     .addProp('point', point().active(true))
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
-    .addProp('x', d3.scaleLinear())
-    .addProp('y', d3.scaleLinear())
+    .addProp('x', scaleLinear())
+    .addProp('y', scaleLinear())
     .addPropGet('type', 'scatter')
     .addPropFunctor('graphs', d => d)
     // graph props
@@ -200,7 +201,7 @@ export default function () {
     .addPropFunctor('key', d => d.label)
     .addPropFunctor('values', d => d.values)
     .addPropFunctor('color', d => color(d.label))
-    .addPropFunctor('symbol', () => d3.symbolCircle)
+    .addPropFunctor('symbol', () => symbolCircle)
     // points props
     .addPropFunctor('px', d => d.x)
     .addPropFunctor('py', d => d.y)

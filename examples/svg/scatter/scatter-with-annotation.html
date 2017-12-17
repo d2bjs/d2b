@@ -25,28 +25,39 @@
 
   <script>
 
-    var bar = d2b.svgBar(),
+    var scatter = d2b.svgScatter(),
         x = d3.scaleLinear().domain([1, 5]).range([0, document.documentElement.clientWidth]),
         y = d3.scaleLinear().domain([100, 0]).range([0, 300]);
 
     // define the scales that the line generator should use
-    bar.x(x).y(y);
+    scatter.x(x).y(y);
 
     // use d3 to select the svg, set the datum, and apply the line generator
     var svg = d3.select('svg')
       .datum([
         {
-          label: 'Bar Graph 1',
+          label: 'Scatter Graph 1',
           values: [
             { x: 1, y: 22 },
-            { x: 2, y: 41 },
+            {
+              x: 2,
+              y: 41,
+              annotation: {
+                dy: 100,
+                dx: 100,
+                note: {
+                  title: 'Important Point',
+                  label: 'This point represents something important that happened.'
+                }
+              }
+            },
             { x: 3, y: 36 },
             { x: 4, y: 51 },
             { x: 5, y: 10 }
           ]
         },
         {
-          label: 'Bar Graph 2',
+          label: 'Scatter Graph 2',
           values: [
             { x: 1, y: 12 },
             { x: 2, y: 15 },
@@ -56,12 +67,12 @@
           ]
         }
       ])
-      .call(bar);
+      .call(scatter);
 
     // on window resize, update the x scale range and reapply the line generator
     window.addEventListener('resize', function(){
       x.range([0, document.documentElement.clientWidth]);
-      svg.call(bar);
+      svg.call(scatter);
     });
 
   </script>

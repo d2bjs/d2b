@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select, sum, scaleLinear, symbolCircle, symbol } from 'd3';
+import { annotation } from 'd3-svg-annotation';
 
 import functor from '../util/functor';
 import base from '../model/base';
@@ -6,26 +7,28 @@ import color from '../util/color';
 import point from '../svg/point';
 import mean from '../math/mean';
 import oreq from '../util/oreq';
+import updateAnnotations from '../util/annotation';
 
 // bubble pack svg generator
 export default function () {
   const $$ = {};
 
-  const indicatorSymbol = d3.symbol().size(80);
+  const indicatorSymbol = symbol().size(80);
 
   function getPoint (point, i, graph) {
     return {
-      data:      point,
-      index:     i,
-      graph:     graph,
-      x:         $$.px(point, i),
-      y:         $$.py(point, i),
-      color:     $$.pcolor(point, i) || graph.color,
-      symbol:    $$.psymbol(point, i) || graph.symbol,
-      key:       $$.pkey(point, i),
-      size:      $$.psize(point, i),
-      indicator: $$.pindicator(point, i),
-      children:  ($$.pchildren(point, i) || []).map((point, i) => getPoint(point, i, graph))
+      data:       point,
+      index:      i,
+      graph:      graph,
+      x:          $$.px(point, i),
+      y:          $$.py(point, i),
+      color:      $$.pcolor(point, i) || graph.color,
+      symbol:     $$.psymbol(point, i) || graph.symbol,
+      key:        $$.pkey(point, i),
+      size:       $$.psize(point, i),
+      indicator:  $$.pindicator(point, i),
+      annotation: $$.pannotation(point, i),
+      children:   ($$.pchildren(point, i) || []).map((point, i) => getPoint(point, i, graph))
     };
   }
 
@@ -90,7 +93,7 @@ export default function () {
 
     // iterate through each context element
     context.each(function (d, i) {
-      const selection = d3.select(this),
+      const selection = select(this),
             duration = $$.duration(d, i),
             graph = selection.selectAll('.d2b-bubble-pack-graph'),
             graphsNode = selection.selectAll('.d2b-bubble-pack-graphs').node(),
@@ -105,7 +108,7 @@ export default function () {
 
       // render the bubble packs for each graph
       graph.each( function (graph) {
-        const el = d3.select(this), xRange = $$.x.range();
+        const el = select(this), xRange = $$.x.range();
 
         maxWidth = Math.max(maxWidth, Math.abs(xRange[0] - xRange[1]));
 
@@ -188,7 +191,7 @@ export default function () {
    */
   function renderPoint(el, trans, x, y, shift) {
     el.each(function (d) {
-      let el = d3.select(this);
+      let el = select(this);
 
       const transform = el.attr('transform');
 
@@ -202,7 +205,7 @@ export default function () {
         el
             .attr('cursor', 'pointer')
             .on('click', function () {
-              d3.select(this).dispatch('change', {bubbles: true, cancelable: true});
+              select(this).dispatch('change', {bubbles: true, cancelable: true});
             })
             .on('change', d => d.data.expanded = !d.data.expanded);
       } else el.attr('cursor', '').on('click', null);
@@ -214,6 +217,8 @@ export default function () {
 
       el.attr('transform', `translate(${x(d.x) + shift}, ${y(d.y)})`);
 
+      // update annotations
+      updateAnnotations(el, $$.annotation, 'd2b-bubble-annotation');
     });
   }
 
@@ -227,7 +232,7 @@ export default function () {
    */
   function renderIndicator(el) {
     el.each(function (d) {
-      let el = d3.select(this).classed('d2b-active', d.data.expanded);
+      let el = select(this).classed('d2b-active', d.data.expanded);
 
       if (!d.data.expanded) return el.selectAll('rect, text, path').remove();
 
@@ -243,7 +248,7 @@ export default function () {
       text.attr('y', textBox.height / 1.35);
       rect
         .on('click', function () {
-          d3.select(this).dispatch('change', {bubbles: true, cancelable: true});
+          select(this).dispatch('change', {bubbles: true, cancelable: true});
         })
         .on('change', d => {
           d.data.expanded = !d.data.expanded;
@@ -253,6 +258,7 @@ export default function () {
         .attr('height', textBox.height)
         .style('fill', $$.point.fill())
         .style('stroke', $$.point.stroke());
+
       path
         .attr('d', d => indicatorSymbol.type(d.symbol)())
         .attr('transform', 'translate(10, 9.5)')
@@ -289,7 +295,7 @@ export default function () {
 
     // update children bubbles if expanded
     packUpdate.each(function (point) {
-      const el = d3.select(this);
+      const el = select(this);
       let subPacks = el.selectAll('.d2b-bubble-pack');
       subPacks = trans? subPacks.transition(trans) : subPacks;
 
@@ -323,7 +329,7 @@ export default function () {
       });
     }
 
-    d.size = oreq(d.size, d3.sum(d.leaves, d => d.size));
+    d.size = oreq(d.size, sum(d.leaves, d => d.size));
 
     d.x = oreq(d.x, (tendancy.x || tendancy)(d.leaves, d => d.x, d => d.size));
     d.y = oreq(d.y, (tendancy.y || tendancy)(d.leaves, d => d.y, d => d.size));
@@ -332,8 +338,9 @@ export default function () {
   /* Inherit from base model */
   base(bubblePack, $$)
     .addProp('point', point().size(d => d.size * 100))
-    .addProp('x', d3.scaleLinear())
-    .addProp('y', d3.scaleLinear())
+    .addProp('x', scaleLinear())
+    .addProp('y', scaleLinear())
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropGet('type', 'bubblePack')
     .addPropFunctor('duration', 250)
     .addPropFunctor('graphs', d => d)
@@ -350,7 +357,7 @@ export default function () {
     .addPropFunctor('key', d => d.label)
     .addPropFunctor('values', d => d.values)
     .addPropFunctor('color', d => color(d.label))
-    .addPropFunctor('symbol', () => d3.symbolCircle)
+    .addPropFunctor('symbol', () => symbolCircle)
     // point props
     .addPropFunctor('px', d => d.x)
     .addPropFunctor('py', d => d.y)
@@ -360,6 +367,7 @@ export default function () {
     .addPropFunctor('psymbol', null)
     .addPropFunctor('pindicator', d => d.label)
     .addPropFunctor('pkey', (d, i) => i)
+    .addPropFunctor('pannotation', d => d.annotation)
     // methods
     .addMethod('getComputedGraphs', context => {
       return (context.selection? context.selection() : context).data().map((d, i) => getGraphs(d, i));

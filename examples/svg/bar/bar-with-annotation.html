@@ -26,18 +26,18 @@
 
   <script>
 
-    var scatter = d2b.svgScatter(),
+    var bar = d2b.svgBar(),
         x = d3.scaleLinear().domain([1, 5]).range([0, document.documentElement.clientWidth]),
         y = d3.scaleLinear().domain([100, 0]).range([0, 300]);
 
-    // define the scales that the scatter generator should use
-    scatter.x(x).y(y);
+    // define the scales that the bar generator should use
+    bar.x(x).y(y);
 
-    // use d3 to select the svg, set the datum, and apply the scatter generator
+    // use d3 to select the svg, set the datum, and apply the bar generator
     var svg = d3.select('svg')
       .datum([
         {
-          label: 'Scatter Graph 1',
+          label: 'Bar Graph 1',
           values: [
             { x: 1, y: 22 },
             {
@@ -67,7 +67,7 @@
           ]
         },
         {
-          label: 'Scatter Graph 2',
+          label: 'Bar Graph 2',
           values: [
             { x: 1, y: 12 },
             { x: 2, y: 15 },
@@ -77,7 +77,7 @@
           ]
         }
       ])
-      .call(scatter);
+      .call(bar);
 
     setTimeout(function () {
       x.domain([1, 4]);
@@ -87,7 +87,7 @@
       d3.select('svg')
           .datum([
             {
-              label: 'Scatter Graph 1',
+              label: 'Bar Graph 1',
               values: [
                 { x: 1, y: 12 },
                 { x: 2, y: 31 },
@@ -96,7 +96,7 @@
               ]
             },
             {
-              label: 'Scatter Graph 2',
+              label: 'Bar Graph 2',
               values: [
                 { x: 1, y: 12 },
                 {
@@ -113,7 +113,7 @@
                   x: 3,
                   y: 50,
                   annotation: {
-                    dy: 50,
+                    dy: -10,
                     dx: 70,
                     type: d3.annotationCalloutCircle,
                     note: {
@@ -136,13 +136,13 @@
           ])
         .transition()
           .duration(1000)
-          .call(scatter);
+          .call(bar);
     }, 2000);
 
-    // on window resize, update the x scale range and reapply the scatter generator
+    // on window resize, update the x scale range and reapply the bar generator
     window.addEventListener('resize', function(){
       x.range([0, document.documentElement.clientWidth]);
-      svg.call(scatter);
+      svg.call(bar);
     });
 
   </script>

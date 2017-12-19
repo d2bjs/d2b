@@ -33,7 +33,7 @@ You can try out many d2b examples [here](http://d2bjs.org).
 
 - [d3-sankey](https://github.com/d3/d3-sankey): Used by the d2b [sankey chart](./charts/sankey.md) and [sankey svg](./svg/sankey.md). If using NPM this dependency will automatically be included.
 
-- [d3-interpolate-path](https://github.com/pbeshai/d3-interpolate-path): Used by the d2b `v > 0.40` [line svg](./svg/line.md) and [area svg](./svg/area.md) for smoother interpolation. This dependency is optional, by default d3's path interpolation will be used. If installing with NPM this dependency will automatically be included.
+- [d3-interpolate-path](https://github.com/pbeshai/d3-interpolate-path): Used by the d2b `v > 0.0.41` [line svg](./svg/line.md) and [area svg](./svg/area.md) for smoother interpolation. This dependency is optional, by default d3's path interpolation will be used. If installing with NPM this dependency will automatically be included.
 
 ## Future Components
 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://unpkg.com/d3-svg-annotation@2.1.0/d3-annotation.min.js"></script>
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 100%;
+    height: 300px;
+  }
+
+</style>
+
+<body>
+  <svg></svg>
+
+  <script>
+
+    var bubblePack = d2b.svgBubblePack(),
+        x = d3.scaleLinear().domain([1, 10]).range([0, document.documentElement.clientWidth]),
+        y = d3.scaleLinear().domain([40, 0]).range([0, 300]);
+
+    // define the scales that the bubble-pack generator should use
+    bubblePack.x(x).y(y);
+
+    // use d3 to select the svg, set the datum, and apply the bubble-pack generator
+    var svg = d3.select('svg')
+      .datum([
+        {
+          hidden: true,
+          label: 'bubble pack 1',
+          values: [
+            {
+              label: 'one',
+              children: [
+                {
+                  label: 'one-one',
+                  size: 5,
+                  x: 7,
+                  y: 25
+                }
+              ]
+            },
+            {
+              expanded: true,
+              label: 'two',
+              annotation: {
+                dy: -50,
+                dx: 70,
+                type: d3.annotationCalloutCircle,
+                note: {
+                  title: 'Important Point',
+                  label: 'This point represents something important that happened.',
+                  wrap: 150
+                },
+                subject: {
+                  radius: 20,
+                  radiusPadding: 5
+                },
+                connector: {
+                  end : "arrow"
+                }
+              },
+              children: [
+                {
+                  label: 'two-one',
+                  size: 5,
+                  x: 3,
+                  y: 15,
+                },
+                {
+                  label: 'two-two',
+                  annotation: {
+                    dy: 40,
+                    dx: -50,
+                    type: d3.annotationCalloutCircle,
+                    note: {
+                      title: 'Important Point',
+                      label: 'This point represents something important that happened.',
+                      wrap: 150
+                    },
+                    subject: {
+                      radius: 20,
+                      radiusPadding: 5
+                    },
+                    connector: {
+                      end : "arrow"
+                    }
+                  },
+                  children: [
+                    {
+                      label: 'two-two-one',
+                      annotation: {
+                        type: d3.annotationBadge,
+                        subject: {
+                          text: 'A'
+                        }
+                      },
+                      size: 2,
+                      x: 6,
+                      y: 8
+                    },
+                    {
+                      label: 'two-two-two',
+                      size: 17,
+                      x: 8,
+                      y: 21
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ])
+      .call(bubblePack);
+
+    // on window resize, update the x scale range and reapply the bubble-pack generator
+    window.addEventListener('resize', function(){
+      x.range([0, document.documentElement.clientWidth]);
+      svg.call(bubblePack);
+    });
+
+  </script>
+</body>
+</html>

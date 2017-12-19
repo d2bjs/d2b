@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<script src="https://unpkg.com/d3-svg-annotation@2.1.0/d3-annotation.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="../../../node_modules/d3/build/d3.min.js"></script>
 <script src="../../../build/d2b.js"></script>
@@ -82,7 +83,13 @@
               label: 'area 1',
               hidden: true,
               values: [
-                {x: 1, y: 25},
+                {x: 1, y: 25,
+                annotation: {
+                  type: d3.annotationBadge,
+                  subject: {
+                    text: 'A'
+                  }
+                }},
                 {x: 2, y: 38},
                 {x: 3, y: 24},
                 {x: 4, y: 60},

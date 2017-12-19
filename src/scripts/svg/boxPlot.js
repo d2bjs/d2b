@@ -1,4 +1,5 @@
 import { select, scaleLinear } from 'd3';
+import { annotation } from 'd3-svg-annotation';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -54,6 +55,10 @@ export default function () {
     let graphUpdate = graph.merge(graphEnter).order(),
         graphExit = graph.exit();
 
+    $$.box
+      .data(p => p.data)
+      .annotation($$.annotation);
+
     if (context !== selection) {
       graphUpdate = graphUpdate.transition(context);
       graphExit = graphExit.transition(context);
@@ -72,7 +77,6 @@ export default function () {
             $$.box
               .scale(y)
               .orient(d.orient)
-              .data(p => p.data)
               .color((p, i) => $$.pcolor(p, i) || d.color);
 
             let boxSvgExit = el.selectAll('.d2b-box-plot-box');
@@ -117,7 +121,6 @@ export default function () {
         .scale(y)
         .enterScale(preY)
         .orient(d.orient)
-        .data(p => p.data)
         .color((p, i) => $$.pcolor(p, i) || d.color);
 
       const boxSvg = el.selectAll('.d2b-box-plot-box')
@@ -176,6 +179,7 @@ export default function () {
     .addProp('x', scaleLinear())
     .addProp('y', scaleLinear())
     .addProp('box', box())
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropGet('type', 'boxPlot')
     .addPropFunctor('graphs', d => d)
     // graph props

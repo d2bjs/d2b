@@ -135,7 +135,7 @@ export default function () {
       const el = d3.select(this);
 
       this.genUpdate = el.selectAll('.d2b-graph-generator')
-        .data(s.generators, d => d.key);
+        .data(s.generators.slice().reverse(), d => d.key);
 
       this.genEnter = this.genUpdate.enter().append('g')
         .attr('class', 'd2b-graph-generator')
@@ -145,11 +145,13 @@ export default function () {
 
       this.gen = this.genUpdate.merge(this.genEnter).order();
 
+      const size = this.gen.size();
+
       this.gen.each(function (d, i) {
         const gen = d3.select(this),
               visiblePoints = d.generator
                 .tooltipGraph(graph => {
-                  if (i) return null;
+                  if (i < size - 1) return null;
                   let tooltipGraph = tooltip.graph(d2bid());
 
                   matchGraph(graph, allGraphs).tooltipConfig(tooltipGraph);
@@ -213,7 +215,7 @@ export default function () {
       this.gen.each(function (d) {
         let el = d3.select(this);
         if (transition) el = el.transition(transition);
-        
+
         d.generator
           .x(xAxis.scale())
           .y(yAxis.scale());
@@ -314,8 +316,14 @@ export default function () {
         data: set,
         xType: $$.setXType(set) || 'x',
         yType: $$.setYType(set) || 'y',
-        generators: $$.setGenerators(set).map(generator => {
+        generators: $$.setGenerators(set).map((generator, i) => {
           const type = generator.type();
+
+          // only annotate first generator
+          if (i !== 0) {
+            (generator.pannotation || generator.pannotations || function () {})(null);
+          }
+
           generatorTypes[type] = generatorTypes[type] || 0;
           return {
             data: generator,

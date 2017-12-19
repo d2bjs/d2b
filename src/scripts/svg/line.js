@@ -1,11 +1,13 @@
-import * as d3 from 'd3';
+import { select, max, min, nest, scaleLinear, line as d3Line } from 'd3';
+import { annotation } from 'd3-svg-annotation';
+import { interpolatePath } from 'd3-interpolate-path';
 
 import base from '../model/base';
 import color from '../util/color';
 import stack from '../util/stack';
 import id from '../util/id';
 import isFinitePath from '../util/isFinitePath';
-import { interpolatePath } from 'd3-interpolate-path';
+import updateAnnotations from '../util/annotation';
 
 // line svg generator
 export default function () {
@@ -25,11 +27,14 @@ export default function () {
       };
       newGraph.values = $$.values(graph, i).map((point, i) => {
         const newPoint = {
-          data:   point,
-          index:  i,
-          graph:  newGraph,
-          x:      $$.px(point, i),
-          y:      $$.py(point, i)
+          data:       point,
+          index:      i,
+          graph:      newGraph,
+          key:        $$.pkey(point, i),
+          x:          $$.px(point, i),
+          y:          $$.py(point, i),
+          color:      $$.pcolor(point, i) || newGraph.color,
+          annotation: $$.pannotation(point, i)
         };
         // initialize y values (these will be overwritten by the stack if stacking applies)
         newPoint.y1 = newPoint.y;
@@ -84,8 +89,8 @@ export default function () {
 
       const lineExit = graphExit.style('opacity', 0).select('.d2b-line');
       const tweenD = function (d, setupTooltip = false) {
-        const maxX = d3.max(d.values, dd => dd.x);
-        const minX = d3.min(d.values, dd => dd.x);
+        const maxX = max(d.values, dd => dd.x);
+        const minX = min(d.values, dd => dd.x);
         return interpolatePath(
           this.getAttribute('d'),
           getPath.call(this, d, $$.x, $$.y, setupTooltip),
@@ -107,7 +112,50 @@ export default function () {
 
     graphUpdate.style('opacity', 1);
 
-    graphExit.remove();
+    // update graph annotations
+    graphUpdate
+      .each(function (d) {
+        const graphsNode = this.parentNode,
+              graph = select(this),
+              align = d.align,
+              x = graphsNode.__scaleX || $$.x,
+              y = graphsNode.__scaleY || $$.y,
+              annotationValues = d.values.filter(v => v.annotation);
+
+        const a = graph.selectAll('.d2b-line-annotation-group').data(annotationValues, v => v.key),
+              aEnter = a.enter().append('g');
+
+        aEnter
+            .attr('class', 'd2b-line-annotation-group')
+            .attr('transform', v => `translate(${x(v.x) + d.shift}, ${y(v[align])})`);
+
+        let aUpdate = a.merge(aEnter),
+            aExit = a.exit();
+
+        if (context !== selection) {
+          aUpdate = aUpdate.transition(context);
+          aExit = aExit.transition(context);
+        }
+
+        aUpdate
+            .style('opacity', 1)
+            .attr('transform', v => `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`)
+            .call(updateAnnotations, $$.annotation, 'd2b-line-annotation');
+
+        aExit
+            .attr('transform', v => {
+              // join the exiting annotation with the value if it still exists
+              v = d.values.find(ov => v.key === ov.key) || v;
+              return `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`;
+            })
+            .style('opacity', 0)
+            .remove();
+      });
+
+    graphExit
+        .remove()
+      .selectAll('.d2b-line-annotation-group')
+        .attr('transform', v => `translate(${$$.x(v.x) + v.graph.shift}, ${$$.y(v[v.graph.align])})`);
 
     lineUpdate.style('stroke', d => d.color);
 
@@ -149,17 +197,18 @@ export default function () {
     .y(d => d.y)
     .x(d => d.x);
 
-  const stackNest = d3.nest().key(d => {
+  const stackNest = nest().key(d => {
     const key = d.stackBy;
     return (key !== false && key !== null)? key : id();
   });
 
   /* Inherit from base model */
   base(line, $$)
-    .addProp('line', d3.line())
+    .addProp('line', d3Line())
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
-    .addProp('x', d3.scaleLinear())
-    .addProp('y', d3.scaleLinear())
+    .addProp('x', scaleLinear())
+    .addProp('y', scaleLinear())
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropGet('type', 'line')
     .addPropFunctor('graphs', d => d)
     // graph props
@@ -173,6 +222,9 @@ export default function () {
     // points props
     .addPropFunctor('px', d => d.x)
     .addPropFunctor('py', d => d.y)
+    .addPropFunctor('pcolor', null)
+    .addPropFunctor('pkey', (d, i) => i)
+    .addPropFunctor('pannotation', d => d.annotation)
     // methods
     .addMethod('getComputedGraphs', context => {
       return (context.selection? context.selection() : context).data().map((d, i) => getGraphs(d, i));

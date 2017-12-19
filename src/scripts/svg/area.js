@@ -1,11 +1,13 @@
-import * as d3 from 'd3';
+import { select, max, min, nest, scaleLinear, area as d3Area } from 'd3';
+import { annotation } from 'd3-svg-annotation';
+import { interpolatePath } from 'd3-interpolate-path';
 
 import base from '../model/base';
 import color from '../util/color';
 import stack from '../util/stack';
 import id from '../util/id';
 import isFinitePath from '../util/isFinitePath';
-import { interpolatePath } from 'd3-interpolate-path';
+import updateAnnotations from '../util/annotation';
 
 // line svg generator
 export default function () {
@@ -27,8 +29,11 @@ export default function () {
           data:   point,
           index:  i,
           graph:  newGraph,
+          key:        $$.pkey(point, i),
           x:      $$.px(point, i),
-          y:      $$.py(point, i)
+          y:      $$.py(point, i),
+          color:      $$.pcolor(point, i) || newGraph.color,
+          annotations: $$.pannotations(point, i)
         };
         // initialize y1 and y0 (these will be overwritten by the stack if stacking applies)
         newPoint.y1 = newPoint.y;
@@ -83,8 +88,8 @@ export default function () {
 
       const areaExit = graphExit.style('opacity', 0).select('.d2b-area');
       const tweenD = function (d, setupTooltip = false) {
-        const maxX = d3.max(d.values, dd => dd.x);
-        const minX = d3.min(d.values, dd => dd.x);
+        const maxX = max(d.values, dd => dd.x);
+        const minX = min(d.values, dd => dd.x);
         return interpolatePath(
           this.getAttribute('d'),
           getPath.call(this, d, $$.x, $$.y, setupTooltip),
@@ -106,7 +111,59 @@ export default function () {
 
     graphUpdate.style('opacity', 1);
 
+    // update graph annotations
+    graphUpdate
+      .each(function (d) {
+        const graphsNode = this.parentNode,
+              graph = select(this),
+              x = graphsNode.__scaleX || $$.x,
+              y = graphsNode.__scaleY || $$.y;
+
+        ['y0', 'y1'].forEach(function (align) {
+          const annotationValues = d.values.filter(v => (v.annotations || []).filter(a => a.location === align).length);
+
+          const a = graph.selectAll('.d2b-area-annotation-group-' + align).data(annotationValues, v => v.key),
+                aEnter = a.enter().append('g');
+
+          aEnter
+              .attr('class', 'd2b-area-annotation-group-' + align)
+              .attr('transform', v => `translate(${x(v.x) + d.shift}, ${y(v[align])})`);
+
+          let aUpdate = a.merge(aEnter),
+              aExit = a.exit();
+
+          if (context !== selection) {
+            aUpdate = aUpdate.transition(context);
+            aExit = aExit.transition(context);
+          }
+
+          aUpdate
+              .style('opacity', 1)
+              .attr('transform', v => `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`)
+              .call(updateAnnotations, $$.annotation, 'd2b-area-annotation', v => {
+                return v.annotations.filter(a => a.location === align);
+              });
+
+          aExit
+              .attr('transform', v => {
+                // join the exiting annotation with the value if it still exists
+                v = d.values.find(ov => v.key === ov.key) || v;
+                return `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`;
+              })
+              .style('opacity', 0)
+              .remove();
+        });
+      });
+
     graphExit.remove();
+
+    graphExit
+      .selectAll('.d2b-area-annotation-group-y0')
+        .attr('transform', v => `translate(${$$.x(v.x) + v.graph.shift}, ${$$.y(v.y0)})`);
+
+    graphExit
+      .selectAll('.d2b-area-annotation-group-y1')
+        .attr('transform', v => `translate(${$$.x(v.x) + v.graph.shift}, ${$$.y(v.y1)})`);
 
     areaUpdate.style('fill', d => d.color);
 
@@ -150,17 +207,18 @@ export default function () {
     .y(d => d.y)
     .x(d => d.x);
 
-  const stackNest = d3.nest().key(d => {
+  const stackNest = nest().key(d => {
     const key = d.stackBy;
     return (key !== false && key !== null)? key : id();
   });
 
   /* Inherit from base model */
   base(area, $$)
-    .addProp('area', d3.area())
+    .addProp('area', d3Area())
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
-    .addProp('x', d3.scaleLinear())
-    .addProp('y', d3.scaleLinear())
+    .addProp('x', scaleLinear())
+    .addProp('y', scaleLinear())
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropGet('type', 'area')
     .addPropFunctor('graphs', d => d)
     // graph props
@@ -173,6 +231,9 @@ export default function () {
     // points props
     .addPropFunctor('px', d => d.x)
     .addPropFunctor('py', d => d.y)
+    .addPropFunctor('pcolor', null)
+    .addPropFunctor('pkey', (d, i) => i)
+    .addPropFunctor('pannotations', d => d.annotations)
     // methods
     .addMethod('getComputedGraphs', context => {
       return (context.selection? context.selection() : context).data().map((d, i) => getGraphs(d, i));

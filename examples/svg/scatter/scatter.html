@@ -29,10 +29,10 @@
         x = d3.scaleLinear().domain([1, 5]).range([0, document.documentElement.clientWidth]),
         y = d3.scaleLinear().domain([100, 0]).range([0, 300]);
 
-    // define the scales that the line generator should use
+    // define the scales that the scatter generator should use
     scatter.x(x).y(y);
 
-    // use d3 to select the svg, set the datum, and apply the line generator
+    // use d3 to select the svg, set the datum, and apply the scatter generator
     var svg = d3.select('svg')
       .datum([
         {
@@ -58,7 +58,7 @@
       ])
       .call(scatter);
 
-    // on window resize, update the x scale range and reapply the line generator
+    // on window resize, update the x scale range and reapply the scatter generator
     window.addEventListener('resize', function(){
       x.range([0, document.documentElement.clientWidth]);
       svg.call(scatter);

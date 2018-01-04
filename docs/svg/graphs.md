@@ -8,6 +8,7 @@ Here is the current list of d2b graph generators:
 
 * [area](area.md) - basic area graphs
 * [bar](bar.md) - basic bar graphs
+* [boxPlot](box_plot.md) - box plots
 * [bubblePack](bubble_pack.md) - expandable bubble hierarchies
 * [line](line.md) - basic line graphs
 * [scatter](scatter.md) - basic scatter graphs

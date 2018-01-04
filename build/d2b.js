@@ -1,4 +1,4 @@
-(function (exports,d3,d3InterpolatePath,d3Sankey) {
+(function (exports,d3,d3SvgAnnotation,d3InterpolatePath,d3Sankey) {
   'use strict';
 
   function __$styleInject(css, returnValue) {
@@ -20,7 +20,7 @@
   }
   __$styleInject(".d2b-draggable{cursor:move}.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
 
-  var version = "0.0.40";
+  var version = "0.0.41";
 
   function functor(v) {
     return typeof v === 'function' ? v : function () {
@@ -28,7 +28,7 @@
     };
   }
 
-  // Work around for JavaScripts ||= operator. Only null, undefined, and false will be construed as falsy. 
+  // Work around for JavaScripts ||= operator. Only null, undefined, NaN, and false will be construed as falsy.
 
   function oreq () {
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
@@ -1723,11 +1723,330 @@
   }
 
   function isFinitePath (path) {
-    return !(path.includes('NaN') || path.includes('Inifnity'));
+    return !(path.indexOf('NaN') > -1 || path.indexOf('Inifnity') > -1);
   }
 
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
+
+  var asyncGenerator = function () {
+    function AwaitValue(value) {
+      this.value = value;
+    }
+
+    function AsyncGenerator(gen) {
+      var front, back;
+
+      function send(key, arg) {
+        return new Promise(function (resolve, reject) {
+          var request = {
+            key: key,
+            arg: arg,
+            resolve: resolve,
+            reject: reject,
+            next: null
+          };
+
+          if (back) {
+            back = back.next = request;
+          } else {
+            front = back = request;
+            resume(key, arg);
+          }
+        });
+      }
+
+      function resume(key, arg) {
+        try {
+          var result = gen[key](arg);
+          var value = result.value;
+
+          if (value instanceof AwaitValue) {
+            Promise.resolve(value.value).then(function (arg) {
+              resume("next", arg);
+            }, function (arg) {
+              resume("throw", arg);
+            });
+          } else {
+            settle(result.done ? "return" : "normal", result.value);
+          }
+        } catch (err) {
+          settle("throw", err);
+        }
+      }
+
+      function settle(type, value) {
+        switch (type) {
+          case "return":
+            front.resolve({
+              value: value,
+              done: true
+            });
+            break;
+
+          case "throw":
+            front.reject(value);
+            break;
+
+          default:
+            front.resolve({
+              value: value,
+              done: false
+            });
+            break;
+        }
+
+        front = front.next;
+
+        if (front) {
+          resume(front.key, front.arg);
+        } else {
+          back = null;
+        }
+      }
+
+      this._invoke = send;
+
+      if (typeof gen.return !== "function") {
+        this.return = undefined;
+      }
+    }
+
+    if (typeof Symbol === "function" && Symbol.asyncIterator) {
+      AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+        return this;
+      };
+    }
+
+    AsyncGenerator.prototype.next = function (arg) {
+      return this._invoke("next", arg);
+    };
+
+    AsyncGenerator.prototype.throw = function (arg) {
+      return this._invoke("throw", arg);
+    };
+
+    AsyncGenerator.prototype.return = function (arg) {
+      return this._invoke("return", arg);
+    };
+
+    return {
+      wrap: function (fn) {
+        return function () {
+          return new AsyncGenerator(fn.apply(this, arguments));
+        };
+      },
+      await: function (value) {
+        return new AwaitValue(value);
+      }
+    };
+  }();
+
+  // copy d3.annotation instance for single use cases
+
+  var copy = function copy(_annotation) {
+    return d3SvgAnnotation.annotation().disable(_annotation.disable()).textWrap(_annotation.textWrap()).notePadding(_annotation.notePadding()).type(_annotation.type()).accessors(_annotation.accessors()).accessorsInverse(_annotation.accessorsInverse()).ids(_annotation.ids()).editMode(_annotation.editMode()).collection(_annotation.collection());
+  };
+
+  // Update a set of annotations, should only be used for point oriented annotations. (e.g. not rectangles / thresholds)
+  /**
+   * @param {d3 transition or selection}    context             annotation container context
+   * @param {d3 annotation}                 annotation          annotation generator
+   * @param {string}                        selectorClass       class by which to select the annotations
+   * @param {accessor}                      getData             get annotation data array from context datum
+   * @param {accessor (d, a) => {}}         getColor            get annotation color from from context datum and annotation datum
+   * @param {accessor (d, a) => {}}         getTransform        get annotation transform from context datum and annotation datum
+   * @param {accessor (d, a) => {}}         getTransformEnter   get annotation entrance transform from context datum and annotation datum
+   */
+
+  var update = function update(context, annotation, selectorClass) {
+    var getData = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function (d) {
+      return d.annotation ? [d.annotation] : [];
+    };
+    var getColor = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : function (d) {
+      return d.color;
+    };
+    var getTransform = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 'translate(0, 0)';
+    var getTransformEnter = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'translate(0, 0)';
+
+
+    var selection = context.selection ? context.selection() : context;
+
+    context.each(function (d) {
+      var el = d3.select(this),
+          data = functor(getData)(d),
+          annotationSvg = el.selectAll('g.' + selectorClass).data(data),
+          annotationEnter = annotationSvg.enter().append('g');
+
+      var annotationUpdate = annotationSvg.merge(annotationEnter),
+          annotationExit = annotationSvg.exit();
+
+      annotationEnter.attr('class', selectorClass).attr('transform', function (a) {
+        return functor(getTransformEnter)(d, a);
+      }).style('opacity', 0);
+
+      data.forEach(function (a) {
+        a.x = 0;
+        a.y = 0;
+        a.color = functor(getColor)(d, a);
+      });
+
+      if (data.length && annotation) {
+        annotationUpdate.selectAll('*').remove();
+        annotationUpdate.call(copy(annotation).annotations(data));
+      }
+
+      // handle annotation transitions and exiting
+      if (context !== selection) {
+        annotationUpdate = annotationUpdate.transition(context);
+        annotationExit = annotationExit.transition(context);
+      }
+
+      annotationUpdate.attr('transform', function (a) {
+        return functor(getTransform)(d, a);
+      }).style('opacity', 1);
+
+      annotationExit.attr('transform', function (a) {
+        return functor(getTransform)(d, a);
+      }).style('opacity', 0).remove();
+    });
+  };
+
+  // quick implementation of shallow object clone
+
+  function clone(obj) {
+    if (null == obj || "object" != (typeof obj === 'undefined' ? 'undefined' : _typeof(obj))) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+      if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+    }
+    return copy;
+  }
+
+  // Transform x, y, x2, y2 into d3.annotation pixel attributes and update axis annotations accordingly
+  /**
+   * @param {d3 transition or selection}    context             annotation container context
+   * @param {d3 annotation}                 annotation          annotation generator
+   * @param {accessor}                      data                annotation data array
+   * @param {object}                        scales              annotation scales { x, y, x2, y2 }
+   */
+
+  var updateAnnotations = function updateAxis(context, annotation, data, scales) {
+
+    var selection = context.selection ? context.selection() : context,
+        node = selection.node(),
+        preScales = node.__scales || scales;
+
+    var getTransform = function getTransform(a, scales) {
+      var x = scales[a.xType],
+          y = scales[a.yType],
+          xVal = a.x === Infinity ? x.range()[0] : x(a.x),
+          yVal = a.y === Infinity ? y.range()[0] : y(a.y),
+          x2Val = a.x2 === Infinity ? x.range()[1] : x(a.x2),
+          y2Val = a.y2 === Infinity ? y.range()[1] : y(a.y2);
+
+      return 'translate(' + [isNaN(x2Val) ? xVal : Math.min(xVal, x2Val), isNaN(y2Val) ? yVal : Math.min(yVal, y2Val)] + ')';
+    };
+
+    var getSubject = function getSubject(a, scales) {
+      var subjectCopy = clone(a.data.subject) || {},
+          x = scales[a.xType],
+          y = scales[a.yType],
+          xVal = a.x === Infinity ? x.range()[0] : x(a.x),
+          yVal = a.y === Infinity ? y.range()[0] : y(a.y),
+          x2Val = a.x2 === Infinity ? x.range()[1] : x(a.x2),
+          y2Val = a.y2 === Infinity ? y.range()[1] : y(a.y2),
+          width = a.x2 ? Math.abs(xVal - x2Val) : 0,
+          height = a.y2 ? Math.abs(yVal - y2Val) : 0;
+
+      if (a.x2 && a.y2) {
+        subjectCopy.width = width;
+        subjectCopy.height = height;
+      } else if (a.x2) {
+        subjectCopy.x1 = 0;
+        subjectCopy.x2 = width;
+      } else if (a.y2) {
+        subjectCopy.y1 = 0;
+        subjectCopy.y2 = height;
+      }
+
+      subjectCopy.dx = subjectCopy.dx * width;
+      subjectCopy.dy = subjectCopy.dy * height;
+
+      return subjectCopy;
+    };
+
+    node.__scales = {
+      x: scales.x.copy(),
+      y: scales.y.copy(),
+      x2: scales.x2.copy(),
+      y2: scales.y2.copy()
+    };
+
+    var aSvg = selection.selectAll('.d2b-axis-annotation').data(data, function (d) {
+      return d.key;
+    }),
+        aEnter = aSvg.enter().append('g'),
+        aExit = aSvg.exit();
+
+    // clear out the annotaiton before updating in case of a change in annotation type
+    aSvg.selectAll('*').remove();
+
+    aSvg = aSvg.merge(aEnter);
+
+    aEnter.attr('class', 'd2b-axis-annotation').attr('transform', function (a) {
+      return getTransform(a, preScales);
+    }).style('opacity', 0);
+
+    if (context !== selection) {
+      aSvg = aSvg.transition(context);
+      aExit = aExit.transition(context);
+    }
+
+    aSvg.attr('transform', function (a) {
+      return getTransform(a, scales);
+    }).style('opacity', 1);
+
+    aExit.attr('transform', function (a) {
+      return getTransform(a, scales);
+    }).style('opacity', 0).remove();
+
+    aSvg.each(function (a) {
+      var aCopy = clone(a.data),
+          aSvg = d3.select(this),
+          annotationCopy = copy(annotation);
+
+      aCopy.x = 0;
+      aCopy.y = 0;
+      aCopy.color = a.color;
+      aCopy.subject = getSubject(a, scales);
+      aCopy.dx = (aCopy.subject.dx || 0) + (a.data.dx || 0);
+      aCopy.dy = (aCopy.subject.dy || 0) + (a.data.dy || 0);
+
+      // if transitioning, custom tween the subject contents
+      if (context !== selection) {
+        aSvg.transition(context).tween('annotation-tween', function () {
+          var _this = this;
+
+          var i = d3.interpolateObject(this.__subject || getSubject(a, scales), aCopy.subject);
+          return function (t) {
+            _this.__subject = aCopy.subject = i(t);
+            aCopy.dx = (aCopy.subject.dx || 0) + (a.data.dx || 0);
+            aCopy.dy = (aCopy.subject.dy || 0) + (a.data.dy || 0);
+            aSvg.call(annotationCopy.annotations([aCopy]));
+          };
+        });
+      } else {
+        aSvg.call(annotationCopy.annotations([aCopy]));
+      }
+    });
+  };
+
   // line svg generator
-  function line () {
+  function line$1 () {
     var $$ = {};
 
     function getGraphs(d, i) {
@@ -1747,8 +2066,11 @@
             data: point,
             index: i,
             graph: newGraph,
+            key: $$.pkey(point, i),
             x: $$.px(point, i),
-            y: $$.py(point, i)
+            y: $$.py(point, i),
+            color: $$.pcolor(point, i) || newGraph.color,
+            annotation: $$.pannotation(point, i)
           };
           // initialize y values (these will be overwritten by the stack if stacking applies)
           newPoint.y1 = newPoint.y;
@@ -1759,7 +2081,7 @@
       });
 
       stackNest.entries(graphs).forEach(function (sg) {
-        return stacker(sg.values);
+        if (sg.values.length > 1) stacker(sg.values);
       });
 
       return graphs;
@@ -1844,7 +2166,50 @@
 
       graphUpdate.style('opacity', 1);
 
-      graphExit.remove();
+      // update graph annotations
+      graphUpdate.each(function (d) {
+        var graphsNode = this.parentNode,
+            graph = d3.select(this),
+            align = d.align,
+            x = graphsNode.__scaleX || $$.x,
+            y = graphsNode.__scaleY || $$.y,
+            annotationValues = d.values.filter(function (v) {
+          return v.annotation;
+        });
+
+        var a = graph.selectAll('.d2b-line-annotation-group').data(annotationValues, function (v) {
+          return v.key;
+        }),
+            aEnter = a.enter().append('g');
+
+        aEnter.attr('class', 'd2b-line-annotation-group').attr('transform', function (v) {
+          return 'translate(' + (x(v.x) + d.shift) + ', ' + y(v[align]) + ')';
+        });
+
+        var aUpdate = a.merge(aEnter),
+            aExit = a.exit();
+
+        if (context !== selection) {
+          aUpdate = aUpdate.transition(context);
+          aExit = aExit.transition(context);
+        }
+
+        aUpdate.style('opacity', 1).attr('transform', function (v) {
+          return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+        }).call(update, $$.annotation, 'd2b-line-annotation');
+
+        aExit.attr('transform', function (v) {
+          // join the exiting annotation with the value if it still exists
+          v = d.values.filter(function (ov) {
+            return v.key === ov.key;
+          })[0] || v;
+          return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+        }).style('opacity', 0).remove();
+      });
+
+      graphExit.remove().selectAll('.d2b-line-annotation-group').attr('transform', function (v) {
+        return 'translate(' + ($$.x(v.x) + v.graph.shift) + ', ' + $$.y(v[v.graph.align]) + ')';
+      });
 
       lineUpdate.style('stroke', function (d) {
         return d.color;
@@ -1874,7 +2239,9 @@
         return x(dd.x) + shift;
       }).y(function (dd) {
         return y(dd[d.align]);
-      }).color(d.color);
+      }).color(function (dd) {
+        return dd.color;
+      });
 
       $$.line.x(function (dd) {
         return x(dd.x) + shift;
@@ -1903,7 +2270,7 @@
     /* Inherit from base model */
     base(line, $$).addProp('line', d3.line()).addProp('stack', stacker.stack(), null, function (d) {
       return stacker.stack(d);
-    }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addPropGet('type', 'line').addPropFunctor('graphs', function (d) {
+    }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'line').addPropFunctor('graphs', function (d) {
       return d;
     })
     // graph props
@@ -1921,6 +2288,10 @@
       return d.x;
     }).addPropFunctor('py', function (d) {
       return d.y;
+    }).addPropFunctor('pcolor', null).addPropFunctor('pkey', function (d, i) {
+      return i;
+    }).addPropFunctor('pannotation', function (d) {
+      return d.annotation;
     })
     // methods
     .addMethod('getComputedGraphs', function (context) {
@@ -1942,7 +2313,7 @@
   }
 
   // line svg generator
-  function area () {
+  function area$1 () {
     var $$ = {};
 
     function getGraphs(d, i) {
@@ -1961,19 +2332,24 @@
             data: point,
             index: i,
             graph: newGraph,
+            key: $$.pkey(point, i),
             x: $$.px(point, i),
-            y: $$.py(point, i)
+            y: $$.py(point, i),
+            y0: $$.py0(point, i),
+            color: $$.pcolor(point, i) || newGraph.color,
+            annotations: $$.pannotations(point, i)
           };
           // initialize y1 and y0 (these will be overwritten by the stack if stacking applies)
           newPoint.y1 = newPoint.y;
-          newPoint.y0 = 0;
+          newPoint.y0 = oreq(newPoint.y0, 0);
+
           return newPoint;
         });
         return newGraph;
       });
 
       stackNest.entries(graphs).forEach(function (sg) {
-        return stacker(sg.values);
+        if (sg.values.length > 1) stacker(sg.values);
       });
 
       return graphs;
@@ -2058,7 +2434,64 @@
 
       graphUpdate.style('opacity', 1);
 
+      // update graph annotations
+      graphUpdate.each(function (d) {
+        var graphsNode = this.parentNode,
+            graph = d3.select(this),
+            x = graphsNode.__scaleX || $$.x,
+            y = graphsNode.__scaleY || $$.y;
+
+        ['y0', 'y1'].forEach(function (align) {
+          var annotationValues = d.values.filter(function (v) {
+            return (v.annotations || []).filter(function (a) {
+              return a.location === align;
+            }).length;
+          });
+
+          var a = graph.selectAll('.d2b-area-annotation-group-' + align).data(annotationValues, function (v) {
+            return v.key;
+          }),
+              aEnter = a.enter().append('g');
+
+          aEnter.attr('class', 'd2b-area-annotation-group-' + align).attr('transform', function (v) {
+            return 'translate(' + (x(v.x) + d.shift) + ', ' + y(v[align]) + ')';
+          });
+
+          var aUpdate = a.merge(aEnter),
+              aExit = a.exit();
+
+          if (context !== selection) {
+            aUpdate = aUpdate.transition(context);
+            aExit = aExit.transition(context);
+          }
+
+          aUpdate.style('opacity', 1).attr('transform', function (v) {
+            return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+          }).call(update, $$.annotation, 'd2b-area-annotation', function (v) {
+            return v.annotations.filter(function (a) {
+              return a.location === align;
+            });
+          });
+
+          aExit.attr('transform', function (v) {
+            // join the exiting annotation with the value if it still exists
+            v = d.values.filter(function (ov) {
+              return v.key === ov.key;
+            })[0] || v;
+            return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+          }).style('opacity', 0).remove();
+        });
+      });
+
       graphExit.remove();
+
+      graphExit.selectAll('.d2b-area-annotation-group-y0').attr('transform', function (v) {
+        return 'translate(' + ($$.x(v.x) + v.graph.shift) + ', ' + $$.y(v.y0) + ')';
+      });
+
+      graphExit.selectAll('.d2b-area-annotation-group-y1').attr('transform', function (v) {
+        return 'translate(' + ($$.x(v.x) + v.graph.shift) + ', ' + $$.y(v.y1) + ')';
+      });
 
       areaUpdate.style('fill', function (d) {
         return d.color;
@@ -2085,18 +2518,20 @@
       var shift = d.shift;
       if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
 
-      if (d.tooltipGraph && setupTooltip) d.tooltipGraph.data(d.values).x(function (d) {
-        return x(d.x) + shift;
-      }).y(function (d) {
-        return y(d.y1);
-      }).color(d.color);
+      if (d.tooltipGraph && setupTooltip) d.tooltipGraph.data(d.values).x(function (p) {
+        return x(p.x) + shift;
+      }).y(function (p) {
+        return y(p.y1);
+      }).color(function (p) {
+        return p.color;
+      });
 
-      $$.area.x(function (d) {
-        return x(d.x) + shift;
-      }).y0(function (d) {
-        return y(d.y0);
-      }).y1(function (d) {
-        return y(d.y1);
+      $$.area.x(function (p) {
+        return x(p.x) + shift;
+      }).y0(function (p) {
+        return y(p.y0);
+      }).y1(function (p) {
+        return y(p.y1);
       });
 
       var path = $$.area(d.values);
@@ -2120,7 +2555,7 @@
     /* Inherit from base model */
     base(area, $$).addProp('area', d3.area()).addProp('stack', stacker.stack(), null, function (d) {
       return stacker.stack(d);
-    }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addPropGet('type', 'area').addPropFunctor('graphs', function (d) {
+    }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'area').addPropFunctor('graphs', function (d) {
       return d;
     })
     // graph props
@@ -2138,6 +2573,12 @@
       return d.x;
     }).addPropFunctor('py', function (d) {
       return d.y;
+    }).addPropFunctor('py0', function (d) {
+      return d.y0;
+    }).addPropFunctor('pcolor', null).addPropFunctor('pkey', function (d, i) {
+      return i;
+    }).addPropFunctor('pannotations', function (d) {
+      return d.annotations;
     })
     // methods
     .addMethod('getComputedGraphs', function (context) {
@@ -2188,10 +2629,11 @@
             graph: newGraph,
             x: $$.px(point, i),
             y: $$.py(point, i),
-            color: $$.pcolor(point, i),
-            symbol: $$.psymbol(point, i),
+            color: $$.pcolor(point, i) || newGraph.color,
+            symbol: $$.psymbol(point, i) || newGraph.symbol,
             key: $$.pkey(point, i),
-            size: $$.psize(point, i)
+            size: $$.psize(point, i),
+            annotation: $$.pannotation(point, i)
           };
           // initialize y values (these will be overwritten by the stack if stacking applies)
           newPoint.y1 = newPoint.y;
@@ -2202,7 +2644,7 @@
       });
 
       stackNest.entries(graphs).forEach(function (sg) {
-        return stacker(sg.values);
+        if (sg.values.length > 1) stacker(sg.values);
       });
 
       return graphs;
@@ -2275,13 +2717,13 @@
         }).y(function (p) {
           return y(p.y);
         }).color(function (p) {
-          return p.color || d.color;
+          return p.color;
         });
 
         $$.point.fill(function (p) {
-          return p.color || d.color;
+          return p.color;
         }).type(function (p) {
-          return p.symbol || d.symbol;
+          return p.symbol;
         }).size(function (p) {
           return p.size;
         });
@@ -2294,6 +2736,7 @@
         var pointUpdate = point.merge(pointEnter).order(),
             pointExit = point.exit();
 
+        // define transitions if the parent context was a transition
         if (context !== selection) {
           pointUpdate = pointUpdate.transition(context);
           pointExit = pointExit.transition(context);
@@ -2306,11 +2749,15 @@
           pointEnter.call(pointTransform, preX, preY, preShift, d.align);
         }
 
+        // enter update exit point configuration
         pointEnter.style('opacity', 0);
 
         pointUpdate.style('opacity', 1).call($$.point).call(pointTransform, x, y, shift, d.align);
 
         pointExit.style('opacity', 0).call(pointTransform, x, y, shift, d.align).remove();
+
+        // update annotations
+        update(pointUpdate, $$.annotation, 'd2b-scatter-annotation');
       });
 
       // Make a copy of the scales sticky on the 'graphs' node
@@ -2348,7 +2795,7 @@
     /* Inherit from base model */
     base(scatter, $$).addProp('point', point().active(true)).addProp('stack', stacker.stack(), null, function (d) {
       return stacker.stack(d);
-    }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addPropGet('type', 'scatter').addPropFunctor('graphs', function (d) {
+    }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'scatter').addPropFunctor('graphs', function (d) {
       return d;
     })
     // graph props
@@ -2370,7 +2817,9 @@
       return d.y;
     }).addPropFunctor('pcolor', null).addPropFunctor('psymbol', null).addPropFunctor('pkey', function (d, i) {
       return i;
-    }).addPropFunctor('psize', 25)
+    }).addPropFunctor('psize', 25).addPropFunctor('pannotation', function (d) {
+      return d.annotation;
+    })
     // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
@@ -2422,7 +2871,8 @@
             x: $$.px(point, i),
             y: $$.py(point, i),
             centered: $$.pcentered(point, i),
-            color: $$.pcolor(point, i)
+            color: $$.pcolor(point, i) || newGraph.color,
+            annotation: $$.pannotation(point, i)
           };
         });
         return newGraph;
@@ -2485,7 +2935,7 @@
             preX = graphsNode.__scaleX || x,
             preBarWidth = graphsNode.__barWidth || barWidth;
 
-        var graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs, function (d) {
+        var graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs.slice().reverse(), function (d) {
           return d.key;
         });
 
@@ -2518,7 +2968,9 @@
                   return _y(0);
                 },
                 width: barWidth,
-                height: 0,
+                height: function height() {
+                  return 0;
+                },
                 graph: d,
                 orientMap: orientMap
               });
@@ -2541,6 +2993,7 @@
           });
           var barEnter = bar.enter().append('g').attr('class', 'd2b-bar-group');
           barEnter.append('rect');
+          barEnter.append('g').attr('class', 'd2b-bar-annotation-group');
           var barUpdate = bar.merge(barEnter).order(),
               barExit = bar.exit();
 
@@ -2549,7 +3002,7 @@
           })[orientMap.y](function (point) {
             return extent(point)[1];
           }).color(function (point) {
-            return point.color || d.color;
+            return point.color;
           });
 
           if (context !== selection) {
@@ -2573,7 +3026,9 @@
                 return _y(0);
               },
               width: preBarWidth,
-              height: 0,
+              height: function height() {
+                return 0;
+              },
               graph: d,
               orientMap: orientMap
             });
@@ -2592,7 +3047,9 @@
                 return preY(0);
               },
               width: preBarWidth,
-              height: 0,
+              height: function height() {
+                return 0;
+              },
               graph: d,
               orientMap: orientMap
             });
@@ -2607,7 +3064,9 @@
                 return _y(0);
               },
               width: barWidth,
-              height: 0,
+              height: function height() {
+                return 0;
+              },
               graph: d,
               orientMap: orientMap
             });
@@ -2665,17 +3124,27 @@
     }
 
     function updateBars(bars, options) {
-      bars.style('opacity', options.opacity).call(transformBar, options, options.orientMap).select('rect').attr('fill', function (point) {
-        return point.color || options.graph.color;
+      bars.style('opacity', options.opacity).call(transformBar, options).select('rect').attr('fill', function (point) {
+        return point.color;
       }).attr(options.orientMap.w, options.width).attr(options.orientMap.h, options.height);
+
+      bars.select('.d2b-bar-annotation-group').call(transformAnnotationGroup, options).call(update, $$.annotation, 'd2b-bar-annotation');
     }
 
     // transform bar position
-    function transformBar(transition, pos, orientMap) {
+    function transformBar(transition, options) {
       transition.attr('transform', function (d) {
-        var xPos = pos[orientMap.x](d),
-            yPos = pos[orientMap.y](d);
+        var xPos = options[options.orientMap.x](d),
+            yPos = options[options.orientMap.y](d);
         return 'translate(' + [xPos, yPos] + ')';
+      });
+    }
+
+    // transform annotation group position
+    function transformAnnotationGroup(transition, options) {
+      transition.attr('transform', function (d) {
+        var pos = { x: options.width / 2, y: d.extent[0] < d.extent[1] ? 0 : options.height(d) };
+        return 'translate(' + [pos[options.orientMap.x], pos[options.orientMap.y]] + ')';
       });
     }
 
@@ -2746,7 +3215,7 @@
     }
 
     /* Inherit from base model */
-    base(bar, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addPropGet('type', 'bar').addPropFunctor('graphs', function (d) {
+    base(bar, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bar').addPropFunctor('graphs', function (d) {
       return d;
     }).addPropFunctor('padding', 0.5).addPropFunctor('groupPadding', 0).addPropFunctor('bandwidth', null).addPropFunctor('baseline', 0)
     // graph props
@@ -2768,6 +3237,8 @@
       return d.y;
     }).addPropFunctor('pcentered', false).addPropFunctor('pcolor', null).addPropFunctor('pkey', function (d, i) {
       return i;
+    }).addPropFunctor('pannotation', function (d) {
+      return d.annotation;
     })
     // methods
     .addMethod('getComputedGraphs', function (context) {
@@ -2849,7 +3320,11 @@
           enterScale = $$.enterScale || scale,
           valueFormat = $$.valueFormat,
           vertical = $$.orient === 'vertical',
-          orient = vertical ? { x: 'x', y: 'y', x1: 'x1', x2: 'x2', y1: 'y1', y2: 'y2', width: 'width', height: 'height', cx: 'cx', cy: 'cy' } : { x: 'y', y: 'x', x1: 'y1', x2: 'y2', y1: 'x1', y2: 'x2', width: 'height', height: 'width', cx: 'cy', cy: 'cx' };
+          orient = vertical ? { x: 'x', y: 'y', x1: 'x1', x2: 'x2', y1: 'y1', y2: 'y2', width: 'width', height: 'height', cx: 'cx', cy: 'cy', translate: function translate(x, y) {
+          return 'translate(' + x + ', ' + y + ')';
+        } } : { x: 'y', y: 'x', x1: 'y1', x2: 'y2', y1: 'x1', y2: 'x2', width: 'height', height: 'width', cx: 'cy', cy: 'cx', translate: function translate(x, y) {
+          return 'translate(' + y + ', ' + x + ')';
+        } };
 
       // setup box-group and extract all necessary properties
       var group = selection.selectAll('.d2b-box').data(function (d, i) {
@@ -2875,7 +3350,8 @@
             return d < minimum;
           }),
           color: $$.color(d, i),
-          width: $$.width(d, i)
+          width: $$.width(d, i),
+          annotations: $$.annotations(d, i)
         }];
       });
       var groupEnter = group.enter().append('g').attr('class', 'd2b-box');
@@ -2974,32 +3450,41 @@
         });
       });
 
-      // enter, update all labels
+      // enter, update all labels and annotations
       ['maximum', 'upperQuartile', 'median', 'lowerQuartile', 'minimum'].forEach(function (textType, i) {
-        var label = groupUpdate.selectAll('.d2b-box-label-' + textType).data(function (d) {
+        var label = groupUpdate.selectAll('.d2b-box-label-group-' + textType).data(function (d) {
           return [d];
         });
-        var labelEnter = label.enter().append('text').attr('class', 'd2b-box-label d2b-box-label-' + textType).attr(orient.x, function (d) {
+        var labelEnter = label.enter().append('g').attr('class', 'd2b-box-label-group d2b-box-label-group-' + textType).attr('transform', function (d) {
+          return orient.translate(0, enterScale(d[textType]));
+        });
+
+        labelEnter.append('text').attr('class', 'd2b-box-label').attr(orient.x, function (d) {
           return (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1);
-        }).attr(orient.y, function (d) {
-          return enterScale(d[textType]);
         }).style('text-anchor', i % 2 === 0 ? 'start' : 'end');
+
         var labelUpdate = label.merge(labelEnter);
 
         if (context !== selection) labelUpdate = labelUpdate.transition(context);
 
-        labelUpdate.attr(orient.y, function (d) {
-          return scale(d[textType]);
-        }).text(function (d) {
+        labelUpdate.attr('transform', function (d) {
+          return orient.translate(0, scale(d[textType]));
+        }).call(update, $$.annotation, 'd2b-box-annotation', function (d) {
+          return (d.annotations || []).filter(function (a) {
+            return a.location === textType;
+          });
+        });
+
+        var labelText = labelUpdate.select('.d2b-box-label').text(function (d) {
           return valueFormat(d[textType]);
         });
 
         if (vertical) {
-          labelUpdate.style('text-anchor', i % 2 === 0 ? 'start' : 'end').style('dominant-baseline', 'middle').attr(orient.x, function (d) {
+          labelText.select().style('text-anchor', i % 2 === 0 ? 'start' : 'end').style('dominant-baseline', 'middle').attr(orient.x, function (d) {
             return (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1);
           });
         } else {
-          labelUpdate.style('text-anchor', 'middle').style('dominant-baseline', i % 2 === 0 ? 'baseline' : 'hanging').attr(orient.x, function (d) {
+          labelText.style('text-anchor', 'middle').style('dominant-baseline', i % 2 === 0 ? 'baseline' : 'hanging').attr(orient.x, function (d) {
             return (3 + d.width / 2) * (i % 2 === 0 ? -1 : 1);
           });
         }
@@ -3036,7 +3521,7 @@
     };
 
     /* Inherit from base model */
-    base(box, $$).addProp('scale', d3.scaleLinear()).addProp('enterScale', null).addProp('valueFormat', d3.format(',')).addProp('orient', 'vertical').addPropFunctor('data', function (d) {
+    base(box, $$).addProp('scale', d3.scaleLinear()).addProp('enterScale', null).addProp('valueFormat', d3.format(',')).addProp('orient', 'vertical').addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropFunctor('data', function (d) {
       return d;
     }).addPropFunctor('median', function (d) {
       return d.median;
@@ -3050,7 +3535,9 @@
       return d.maximum;
     }).addPropFunctor('outliers', function (d) {
       return d.outliers;
-    }).addPropFunctor('width', 20).addPropFunctor('color', 'steelblue');
+    }).addPropFunctor('width', 20).addPropFunctor('color', 'steelblue').addPropFunctor('annotations', function (d) {
+      return d.annotations;
+    });
 
     return box;
   }
@@ -3080,6 +3567,7 @@
             graph: newGraph,
             x: $$.px(point, i),
             y: $$.py(point, i),
+            annotations: $$.pannotations(point, i),
             median: $$.box.median()(point, i)
           };
         });
@@ -3110,6 +3598,10 @@
       var graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
 
+      $$.box.data(function (p) {
+        return p.data;
+      }).annotation($$.annotation).annotations($$.pannotations);
+
       if (context !== selection) {
         graphUpdate = graphUpdate.transition(context);
         graphExit = graphExit.transition(context);
@@ -3124,9 +3616,7 @@
               x = $$[orient.x],
               y = $$[orient.y];
 
-          $$.box.scale(y).orient(d.orient).data(function (p) {
-            return p.data;
-          }).color(function (p, i) {
+          $$.box.scale(y).orient(d.orient).color(function (p, i) {
             return $$.pcolor(p, i) || d.color;
           });
 
@@ -3172,9 +3662,7 @@
           return $$.pcolor(p.data, i) || d.color;
         });
 
-        $$.box.scale(y).enterScale(preY).orient(d.orient).data(function (p) {
-          return p.data;
-        }).color(function (p, i) {
+        $$.box.scale(y).enterScale(preY).orient(d.orient).color(function (p, i) {
           return $$.pcolor(p, i) || d.color;
         });
 
@@ -3228,7 +3716,7 @@
     }
 
     /* Inherit from base model */
-    base(boxPlot, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('box', box()).addPropGet('type', 'boxPlot').addPropFunctor('graphs', function (d) {
+    base(boxPlot, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('box', box()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'boxPlot').addPropFunctor('graphs', function (d) {
       return d;
     })
     // graph props
@@ -3248,6 +3736,8 @@
       return d.y;
     }).addPropFunctor('pcolor', null).addPropFunctor('pkey', function (d, i) {
       return i;
+    }).addPropFunctor('pannotations', function (d) {
+      return d.annotations;
     })
     // methods
     .addMethod('getComputedGraphs', function (context) {
@@ -3295,6 +3785,7 @@
         key: $$.pkey(point, i),
         size: $$.psize(point, i),
         indicator: $$.pindicator(point, i),
+        annotation: $$.pannotation(point, i),
         children: ($$.pchildren(point, i) || []).map(function (point, i) {
           return getPoint(point, i, graph);
         })
@@ -3487,6 +3978,9 @@
         if (d.data.expanded) el.style('opacity', 0).selectAll('*').remove();else el.style('opacity', null).call($$.point);
 
         el.attr('transform', 'translate(' + (x(d.x) + shift) + ', ' + y(d.y) + ')');
+
+        // update annotations
+        update(el, $$.annotation, 'd2b-bubble-annotation');
       });
     }
 
@@ -3522,6 +4016,7 @@
           d.data.expanded = !d.data.expanded;
           if (!d.data.expanded) propagateExpanded(d, false);
         }).attr('width', textBox.width + 25).attr('height', textBox.height).style('fill', $$.point.fill()).style('stroke', $$.point.stroke());
+
         path.attr('d', function (d) {
           return indicatorSymbol.type(d.symbol)();
         }).attr('transform', 'translate(10, 9.5)').style('fill', $$.point.stroke());
@@ -3535,9 +4030,12 @@
      * @param {d3.transition or null} trans - transition if present
      * @param {d3.scale} x - x scale
      * @param {d3.scale} y - y scale
+     * @param {d3.scale} preX - pervious x scale
+     * @param {d3.scale} preY - pervious y scale
      * @param {Number} shift - horizontal pixel shift
      * @param {d3.selection} chart - master chart container
      * @param {function} addTooltipPoint - function to append a point to the tooltip component
+     * @param {Boolean} autoEnter - enter point at its own location rather than its parents
      * @param {Number} depth - depth tracker
      */
     function renderPacks(el, data, trans, x, y, preX, preY, shift, chart, addTooltipPoint, autoEnter) {
@@ -3610,7 +4108,7 @@
     /* Inherit from base model */
     base(bubblePack, $$).addProp('point', point().size(function (d) {
       return d.size * 100;
-    })).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addPropGet('type', 'bubblePack').addPropFunctor('duration', 250).addPropFunctor('graphs', function (d) {
+    })).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bubblePack').addPropFunctor('duration', 250).addPropFunctor('graphs', function (d) {
       return d;
     })
     // graph props
@@ -3645,6 +4143,8 @@
       return d.label;
     }).addPropFunctor('pkey', function (d, i) {
       return i;
+    }).addPropFunctor('pannotation', function (d) {
+      return d.annotation;
     })
     // methods
     .addMethod('getComputedGraphs', function (context) {
@@ -4035,125 +4535,6 @@
 
     return sunburst;
   }
-
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  };
-
-  var asyncGenerator = function () {
-    function AwaitValue(value) {
-      this.value = value;
-    }
-
-    function AsyncGenerator(gen) {
-      var front, back;
-
-      function send(key, arg) {
-        return new Promise(function (resolve, reject) {
-          var request = {
-            key: key,
-            arg: arg,
-            resolve: resolve,
-            reject: reject,
-            next: null
-          };
-
-          if (back) {
-            back = back.next = request;
-          } else {
-            front = back = request;
-            resume(key, arg);
-          }
-        });
-      }
-
-      function resume(key, arg) {
-        try {
-          var result = gen[key](arg);
-          var value = result.value;
-
-          if (value instanceof AwaitValue) {
-            Promise.resolve(value.value).then(function (arg) {
-              resume("next", arg);
-            }, function (arg) {
-              resume("throw", arg);
-            });
-          } else {
-            settle(result.done ? "return" : "normal", result.value);
-          }
-        } catch (err) {
-          settle("throw", err);
-        }
-      }
-
-      function settle(type, value) {
-        switch (type) {
-          case "return":
-            front.resolve({
-              value: value,
-              done: true
-            });
-            break;
-
-          case "throw":
-            front.reject(value);
-            break;
-
-          default:
-            front.resolve({
-              value: value,
-              done: false
-            });
-            break;
-        }
-
-        front = front.next;
-
-        if (front) {
-          resume(front.key, front.arg);
-        } else {
-          back = null;
-        }
-      }
-
-      this._invoke = send;
-
-      if (typeof gen.return !== "function") {
-        this.return = undefined;
-      }
-    }
-
-    if (typeof Symbol === "function" && Symbol.asyncIterator) {
-      AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-        return this;
-      };
-    }
-
-    AsyncGenerator.prototype.next = function (arg) {
-      return this._invoke("next", arg);
-    };
-
-    AsyncGenerator.prototype.throw = function (arg) {
-      return this._invoke("throw", arg);
-    };
-
-    AsyncGenerator.prototype.return = function (arg) {
-      return this._invoke("return", arg);
-    };
-
-    return {
-      wrap: function (fn) {
-        return function () {
-          return new AsyncGenerator(fn.apply(this, arguments));
-        };
-      },
-      await: function (value) {
-        return new AwaitValue(value);
-      }
-    };
-  }();
 
   // sankey svg generator
   function sankey$1 () {
@@ -5109,9 +5490,11 @@
       return chart;
     };
 
-    base(chart, $$).addProp('plane', plane()).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addPropFunctor('tooltipConfig', function (d) {
+    base(chart, $$).addProp('plane', plane()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addPropFunctor('tooltipConfig', function (d) {
       return d.tooltipConfig;
-    }).addPropFunctor('duration', 250).addPropFunctor('x', {}).addPropFunctor('y', {}).addPropFunctor('x2', {}).addPropFunctor('y2', {}).addPropFunctor('groups', function (d) {
+    }).addPropFunctor('duration', 250).addPropFunctor('x', {}).addPropFunctor('y', {}).addPropFunctor('x2', {}).addPropFunctor('y2', {}).addPropFunctor('clipPlane', true).addPropFunctor('annotations', function (d) {
+      return d.annotations;
+    }).addPropFunctor('groups', function (d) {
       return d.groups;
     }).addPropFunctor('sets', function (d) {
       return d.sets;
@@ -5123,7 +5506,9 @@
       return color($$.groupLabel(d));
     })
     // set functors
-    .addPropFunctor('setGenerators', function (d) {
+    .addPropFunctor('setKey', function (d, i) {
+      return i;
+    }).addPropFunctor('setGenerators', function (d) {
       return d.generators;
     }).addPropFunctor('setXType', function (d) {
       return d.xType;
@@ -5133,7 +5518,9 @@
       return d.graphs;
     })
     // graph functors
-    .addPropFunctor('graphLabel', function (d) {
+    .addPropFunctor('graphKey', function (d) {
+      return d.label;
+    }).addPropFunctor('graphLabel', function (d) {
       return d.label;
     }).addPropFunctor('graphGroup', function (d) {
       return d.group;
@@ -5141,6 +5528,28 @@
       return color($$.graphLabel(d));
     }).addPropFunctor('graphTooltipConfig', function (d) {
       return d.tooltipConfig;
+    }).addPropFunctor('graphAnnotations', function (d) {
+      return d.annotations;
+    })
+    // annotation functors
+    .addPropFunctor('annotationKey', function (d, i) {
+      return i;
+    }).addPropFunctor('annotationXType', function (d) {
+      return d.xType;
+    }).addPropFunctor('annotationYType', function (d) {
+      return d.yType;
+    }).addPropFunctor('annotationZ', function (d) {
+      return d.z;
+    }).addPropFunctor('annotationX', function (d) {
+      return d.x;
+    }).addPropFunctor('annotationY', function (d) {
+      return d.y;
+    }).addPropFunctor('annotationX2', function (d) {
+      return d.x2;
+    }).addPropFunctor('annotationY2', function (d) {
+      return d.y2;
+    }).addPropFunctor('annotationColor', function (d) {
+      return d.color;
     });
 
     function update(datum, transition) {
@@ -5152,7 +5561,24 @@
           sets = getSets(datum),
           allGraphs = getAllGraphs(sets),
           duration = $$.duration(datum),
-          groups = getGroups(datum, sets);
+          groups = getGroups(datum, sets),
+          clipPlane = $$.clipPlane(datum);
+
+      // define chart level annotations
+      var annotations = ($$.annotations(datum) || []).slice().map(function (a, i) {
+        return {
+          key: $$.annotationKey(a, i),
+          xType: $$.annotationXType(a) || 'x',
+          yType: $$.annotationYType(a) || 'y',
+          z: $$.annotationZ(a) || 'front',
+          x: $$.annotationX(a),
+          y: $$.annotationY(a),
+          x2: $$.annotationX2(a),
+          y2: $$.annotationY2(a),
+          color: $$.annotationColor(a) || 'steelblue',
+          data: a
+        };
+      });
 
       propagateHidden(groups);
 
@@ -5161,7 +5587,7 @@
       var tooltip = chartNode.tooltip = chartNode.tooltip || tooltipAxis().trackX(true).trackY(false).threshold(50);
 
       tooltip.title(function (points) {
-        return '' + oreq(points[0].x, points[0].x1);
+        return '' + oreq(points[0].x, points[0].x1, points[0].median);
       }).clear();
 
       // update functionality
@@ -5181,7 +5607,7 @@
           planeUpdate = plane,
           planeEnter = plane.enter().append('g').attr('class', 'd2b-axis-plane');
 
-      plane = plane.merge(planeEnter);
+      planeUpdate = plane = plane.merge(planeEnter);
 
       // enter axis-set wrapper
       var wrapper = chartContainer.selectAll('.d2b-axis-wrapper').data([datum]),
@@ -5189,11 +5615,19 @@
           wrapperEnter = wrapper.enter().append('g').attr('class', 'd2b-axis-wrapper');
 
       wrapperEnter.append('rect').attr('class', 'd2b-axis-background');
+      wrapperEnter.append('g').attr('class', 'd2b-axis-back-annotations');
+      wrapperEnter.append('g').attr('class', 'd2b-axis-sets');
+      wrapperEnter.append('g').attr('class', 'd2b-axis-front-annotations');
 
-      wrapper = wrapper.merge(wrapperEnter);
+      wrapperUpdate = wrapper = wrapper.merge(wrapperEnter);
+
+      var backAnnotationsUpdate = wrapper.select('.d2b-axis-back-annotations'),
+          frontAnnotationsUpdate = wrapper.select('.d2b-axis-front-annotations');
 
       // enter axis-sets
-      var set = wrapper.selectAll('.d2b-axis-set').data(sets),
+      var set = wrapper.select('.d2b-axis-sets').selectAll('.d2b-axis-set').data(sets, function (d) {
+        return d.key;
+      }),
           setEnter = set.enter().append('g').attr('class', 'd2b-axis-set'),
           setExit = set.exit();
 
@@ -5204,6 +5638,8 @@
         setExit = setExit.transition(transition);
         wrapperUpdate = wrapperUpdate.transition(transition);
         planeUpdate = planeUpdate.transition(transition);
+        backAnnotationsUpdate = backAnnotationsUpdate.transition(transition);
+        frontAnnotationsUpdate = frontAnnotationsUpdate.transition(transition);
       }
 
       // initialze generator and visible point sets
@@ -5215,9 +5651,34 @@
       };
 
       set.each(function (s) {
-        var el = d3.select(this);
+        var el = d3.select(this),
+            graphs = s.graphs.filter(function (g) {
+          return !g.data.hidden;
+        }),
+            graphsRaw = graphs.map(function (g) {
+          return g.data;
+        });
 
-        this.genUpdate = el.selectAll('.d2b-graph-generator').data(s.generators, function (d) {
+        // add graph annotations to chart annotations
+        graphs.forEach(function (g) {
+          annotations = annotations.concat(g.annotations.map(function (a, i) {
+            return {
+              key: s.key + '-' + g.key + '-' + $$.annotationKey(a, i),
+              xType: s.xType,
+              yType: s.yType,
+              z: $$.annotationZ(a) || 'front',
+              x: $$.annotationX(a),
+              y: $$.annotationY(a),
+              x2: $$.annotationX2(a),
+              y2: $$.annotationY2(a),
+              color: $$.annotationColor(a) || g.color,
+              data: a,
+              graph: g.data
+            };
+          }));
+        });
+
+        this.genUpdate = el.selectAll('.d2b-graph-generator').data(s.generators.slice().reverse(), function (d) {
           return d.key;
         });
 
@@ -5227,21 +5688,19 @@
 
         this.gen = this.genUpdate.merge(this.genEnter).order();
 
+        var size = this.gen.size();
+
         this.gen.each(function (d, i) {
           var gen = d3.select(this),
               visiblePoints = d.generator.tooltipGraph(function (graph) {
-            if (i) return null;
+            if (i < size - 1) return null;
             var tooltipGraph = tooltip.graph(d2bid());
 
             matchGraph(graph, allGraphs).tooltipConfig(tooltipGraph);
             return tooltipGraph;
           }).color(function (graph) {
             return matchGraph(graph, allGraphs).color;
-          }).graphs(s.graphs.map(function (g) {
-            return g.data;
-          }).filter(function (g) {
-            return !g.hidden;
-          })).getVisiblePoints(gen);
+          }).graphs(graphsRaw).getVisiblePoints(gen);
 
           if (d.generator.duration) d.generator.duration(duration);
 
@@ -5264,7 +5723,7 @@
 
       $$.plane.axis(function (d) {
         return d.__axis__;
-      }).x(xData.__axis__ ? xData : null).y(yData.__axis__ ? yData : null).x2(x2Data.__axis__ ? x2Data : null).y2(y2Data.__axis__ ? y2Data : null);
+      }).x(xData.__axis__ && visible.x.length ? xData : null).y(yData.__axis__ && visible.y.length ? yData : null).x2(x2Data.__axis__ && visible.x2.length ? x2Data : null).y2(y2Data.__axis__ && visible.y2.length ? y2Data : null);
 
       // update plane
       planeEnter.call($$.plane);
@@ -5274,7 +5733,8 @@
       var planeBox = $$.plane.box(plane);
 
       // add clip path from plane
-      set.attr('clip-path', 'url(#' + plane.select('.d2b-clip-plane').attr('id') + ')');
+      var planeClip = 'url(#' + plane.select('.d2b-clip-plane').attr('id') + ')';
+      wrapper.attr('clip-path', clipPlane ? planeClip : '');
 
       // update the graphs with their generators
       set.each(function (s) {
@@ -5309,6 +5769,25 @@
       wrapperEnter.attr('transform', 'translate(' + planeBox.left + ', ' + planeBox.top + ')').select('rect.d2b-axis-background').attr('height', Math.max(0, planeBox.height)).attr('width', Math.max(0, planeBox.width));
 
       wrapperUpdate.attr('transform', 'translate(' + planeBox.left + ', ' + planeBox.top + ')').select('rect.d2b-axis-background').attr('height', Math.max(0, planeBox.height)).attr('width', Math.max(0, planeBox.width));
+
+      // update annotations
+
+      if ($$.annotation) {
+        var annotationScales = {
+          x: xData.__scale__,
+          y: yData.__scale__,
+          x2: x2Data.__scale__,
+          y2: y2Data.__scale__
+        };
+
+        backAnnotationsUpdate.call(updateAnnotations, $$.annotation, annotations.filter(function (a) {
+          return a.z === 'back';
+        }), annotationScales);
+
+        frontAnnotationsUpdate.call(updateAnnotations, $$.annotation, annotations.filter(function (a) {
+          return a.z === 'front';
+        }), annotationScales);
+      }
 
       // configure tooltip
       tooltip.row(function (point) {
@@ -5380,14 +5859,21 @@
     }
 
     function getSets(d) {
-      return $$.sets(d).map(function (set) {
+      return $$.sets(d).map(function (set, i) {
         var generatorTypes = {};
         return {
           data: set,
+          key: $$.setKey(set, i),
           xType: $$.setXType(set) || 'x',
           yType: $$.setYType(set) || 'y',
-          generators: $$.setGenerators(set).map(function (generator) {
+          generators: $$.setGenerators(set).map(function (generator, i) {
             var type = generator.type();
+
+            // only annotate first generator
+            if (i !== 0) (generator.pannotation || generator.pannotations || function () {})(null);
+
+            generator.annotation($$.annotation).key($$.graphKey);
+
             generatorTypes[type] = generatorTypes[type] || 0;
             return {
               data: generator,
@@ -5401,12 +5887,14 @@
     }
 
     function getSetGraphs(d) {
-      return $$.setGraphs(d).map(function (graph) {
+      return $$.setGraphs(d).map(function (graph, i) {
         return {
           data: graph,
           label: $$.graphLabel(graph) || '',
+          key: $$.graphKey(graph, i),
           color: $$.graphColor(graph),
           group: $$.graphGroup(graph),
+          annotations: $$.graphAnnotations(graph) || [],
           tooltipConfig: $$.graphTooltipConfig(graph) || function () {}
         };
       });
@@ -5427,7 +5915,8 @@
     }
 
     function legendMouseover(d, selection) {
-      var graphs = selection.selectAll('.d2b-graph');
+      var graphs = selection.selectAll('.d2b-graph'),
+          annotations = selection.selectAll('.d2b-axis-annotation');
       if (!d.groupGraphs.some(function (graph) {
         return !graph.data.hidden;
       })) return;
@@ -5436,10 +5925,17 @@
           return d.data;
         }) || []).indexOf(graph.data) > -1;
       }).style('opacity', '');
+
+      annotations.style('opacity', 0.2).filter(function (annotation) {
+        return d.data === annotation.graph || (d.groupGraphs.map(function (d) {
+          return d.data;
+        }) || []).indexOf(annotation.graph) > -1;
+      }).style('opacity', '');
     }
 
     function legendMouseout(d, selection) {
       selection.selectAll('.d2b-graph').style('opacity', 1);
+      selection.selectAll('.d2b-axis-annotation').style('opacity', 1);
     }
 
     function matchGraph(graph, allGraphs) {
@@ -5464,6 +5960,7 @@
 
       scale.domain(domain);
       data.__axis__ = axis.scale(scale);
+      data.__scale__ = scale;
     }
 
     function getScale(points, defaults) {
@@ -5685,8 +6182,8 @@
   exports.symbolVenus = venus;
   exports.point = point;
   exports.svgPie = svgPie;
-  exports.svgLine = line;
-  exports.svgArea = area;
+  exports.svgLine = line$1;
+  exports.svgArea = area$1;
   exports.svgScatter = scatter;
   exports.svgBar = bar;
   exports.svgBoxPlot = boxPlot;
@@ -5700,4 +6197,4 @@
   exports.chartSunburst = sunburst;
   exports.chartSankey = sankey$2;
 
-}((this.d2b = this.d2b || {}),d3,d3,d3));
+}((this.d2b = this.d2b || {}),d3,d3,d3,d3));

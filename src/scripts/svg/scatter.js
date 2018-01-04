@@ -1,11 +1,12 @@
 import { select, nest, scaleLinear, symbolCircle } from 'd3';
-// import { annotation } from 'd3-svg-annotation';
+import { annotation } from 'd3-svg-annotation';
 
 import base from '../model/base';
 import color from '../util/color';
 import point from '../svg/point';
 import stack from '../util/stack';
 import id from '../util/id';
+import updateAnnotations from '../util/annotation';
 
 // scatter svg generator
 export default function () {
@@ -26,15 +27,16 @@ export default function () {
       };
       newGraph.values = $$.values(graph, i).map((point, i) => {
         const newPoint = {
-          data:   point,
-          index:  i,
-          graph:  newGraph,
-          x:      $$.px(point, i),
-          y:      $$.py(point, i),
-          color:  $$.pcolor(point, i),
-          symbol: $$.psymbol(point, i),
-          key:    $$.pkey(point, i),
-          size:   $$.psize(point, i)
+          data:       point,
+          index:      i,
+          graph:      newGraph,
+          x:          $$.px(point, i),
+          y:          $$.py(point, i),
+          color:      $$.pcolor(point, i) || newGraph.color,
+          symbol:     $$.psymbol(point, i) || newGraph.symbol,
+          key:        $$.pkey(point, i),
+          size:       $$.psize(point, i),
+          annotation: $$.pannotation(point, i)
         };
         // initialize y values (these will be overwritten by the stack if stacking applies)
         newPoint.y1 = newPoint.y;
@@ -44,7 +46,9 @@ export default function () {
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
+    stackNest.entries(graphs).forEach(sg => {
+      if (sg.values.length > 1) stacker(sg.values);
+    });
 
     return graphs;
   }
@@ -115,11 +119,11 @@ export default function () {
         .data(d.values)
         .x(p => x(p.x) + shift)
         .y(p => y(p.y))
-        .color(p => p.color || d.color);
+        .color(p => p.color);
 
       $$.point
-        .fill(p => p.color || d.color)
-        .type(p => p.symbol || d.symbol)
+        .fill(p => p.color)
+        .type(p => p.symbol)
         .size(p => p.size);
 
       const point = el.selectAll('.d2b-scatter-point')
@@ -130,6 +134,7 @@ export default function () {
       let pointUpdate = point.merge(pointEnter).order(),
           pointExit = point.exit();
 
+      // define transitions if the parent context was a transition
       if (context !== selection) {
         pointUpdate = pointUpdate.transition(context);
         pointExit = pointExit.transition(context);
@@ -142,6 +147,7 @@ export default function () {
         pointEnter.call(pointTransform, preX, preY, preShift, d.align);
       }
 
+      // enter update exit point configuration
       pointEnter
           .style('opacity', 0);
 
@@ -155,6 +161,8 @@ export default function () {
           .call(pointTransform, x, y, shift, d.align)
           .remove();
 
+      // update annotations
+      updateAnnotations(pointUpdate, $$.annotation, 'd2b-scatter-annotation');
     });
 
     // Make a copy of the scales sticky on the 'graphs' node
@@ -191,6 +199,7 @@ export default function () {
     .addProp('stack', stacker.stack(), null, d => stacker.stack(d))
     .addProp('x', scaleLinear())
     .addProp('y', scaleLinear())
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropGet('type', 'scatter')
     .addPropFunctor('graphs', d => d)
     // graph props
@@ -209,6 +218,7 @@ export default function () {
     .addPropFunctor('psymbol', null)
     .addPropFunctor('pkey', (d, i) => i)
     .addPropFunctor('psize', 25)
+    .addPropFunctor('pannotation', d => d.annotation)
     // methods
     .addMethod('getComputedGraphs', context => {
       return (context.selection? context.selection() : context).data().map((d, i) => getGraphs(d, i));

@@ -66,6 +66,11 @@ If *d3-stack* is specified, sets the *d3-stack* generator to the specified [d3-s
 
 The *d3-stack* can be configured at will, except for the [keys](https://github.com/d3/d3-shape/blob/master/README.md#stack_keys) and [values](https://github.com/d3/d3-shape/blob/master/README.md#stack_value) properties which will be set automatically by the area generator.
 
+# {#annotation}
+[#](#annotation) area.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the area generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
 # {#x}
 [#](#x) area.**x**([*x*])
 
@@ -225,13 +230,92 @@ function (d) {
 ```
 
 # {#py}
-[#](#py) area.**px**([*py*])
+[#](#py) area.**py**([*py*])
 
 If *py* is specified, sets the *py* accessor to the specified accessor function and returns the area generator. If *py* is not specified, returns the current *py* accessor, which defaults to:
 
 ```javascript
 function (d) {
   return d.y;
+}
+```
+
+# {#py0}
+[#](#py0) area.**py0**([*py0*])
+
+If *py0* is specified, sets the *py0* accessor to the specified accessor function and returns the area generator. If *py0* is not specified, returns the current *py0* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return null;
+}
+```
+
+Note: When a `null` y0 is used it will default to `0`. Also, when stacking is applied y0 is ignored.
+
+# {#pannotations}
+[#](#pannotations) area.**pannotations**([*annotations*])
+
+If *annotations* is specified, sets the *annotations* accessor to the specified accessor function and returns the area generator. If *annotations* is not specified, returns the current *annotations* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotations;
+}
+```
+
+# {#pkey}
+[#](#pkey) area.**pkey**([*key*])
+
+If *key* is specified, sets the *key* accessor to the specified accessor function and returns the area generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
+
+Because the area generator does not render discrete points, this will only be used in rendering [annotations](#annotations).
+
+# {#pcolor}
+[#](#pcolor) area.**pcolor**([*color*])
+
+If *color* is specified, sets the *color* accessor to the specified accessor function and returns the area generator. If *color* is not specified, returns the current *color* accessor, which defaults to `() => null`.
+
+If *color* is `null` then the corresponding graph [color](#color) will be used. Because the area generator does not render discrete points, this will only be used in rendering [annotations](#annotations).
+
+## Annotations {#annotations}
+
+The area graph generator has built in hooks for annotations using the [d3.annotation plugin](d3-annotation.susielu.com). Each value in an area graph may contain an annotation at its `y0` and `y1` locations. For example, an area value with two annotations:
+
+```javascript
+{
+  x: 2,
+  y: 41,
+  annotations: [
+    {
+      // area value location y0 or y1
+      location: 'y0',
+      // dx/dy pixel offset that the annotation has from the value
+      dy: -150,
+      dx: -150,
+      // use a custom annotation type from d3.annotation
+      type: d3.annotationCalloutCircle,
+      note: {
+        title: 'Important Point at Y0'
+      },
+      subject: {
+        radius: 20,
+        radiusPadding: 5
+      },
+      connector: {
+        end : "arrow"
+      }
+    },
+    {
+      // these are the minimum attributes that can be given for an annotation
+      location: 'y1',
+      dy: -60,
+      dx: 0,
+      note: {
+        title: 'Important Point at Y1'
+      },
+    }
+  ]
 }
 ```
 

@@ -1,11 +1,13 @@
-// TODO: Clean up bar graph code flow it's a bit messy
+// TODO: Clean up bar graph code flow a bit
 
-import * as d3 from 'd3';
+import { select, scaleLinear, ascending, extent, nest } from 'd3';
+import { annotation } from 'd3-svg-annotation';
 
 import base from '../model/base';
 import color from '../util/color';
 import stack from '../util/stack';
 import oreq from '../util/oreq';
+import updateAnnotations from '../util/annotation';
 
 // bar svg generator
 export default function () {
@@ -32,14 +34,15 @@ export default function () {
       };
       newGraph.values = $$.values(graph, i).map((point, i) => {
         return {
-          data:     point,
-          index:    i,
-          graph:    newGraph,
-          key:      $$.pkey(point, i),
-          x:        $$.px(point, i),
-          y:        $$.py(point, i),
-          centered: $$.pcentered(point, i),
-          color:    $$.pcolor(point, i)
+          data:       point,
+          index:      i,
+          graph:      newGraph,
+          key:        $$.pkey(point, i),
+          x:          $$.px(point, i),
+          y:          $$.py(point, i),
+          centered:   $$.pcentered(point, i),
+          color:      $$.pcolor(point, i) || newGraph.color,
+          annotation: $$.pannotation(point, i)
         };
       });
       return newGraph;
@@ -89,7 +92,7 @@ export default function () {
 
       barWidth -= groupPadding * 2;
 
-      let graphsSVG = d3.select(this).selectAll('.d2b-bar-graphs').data(d => [d]);
+      let graphsSVG = select(this).selectAll('.d2b-bar-graphs').data(d => [d]);
 
       graphsSVG = graphsSVG.merge(graphsSVG.enter().append('g').attr('class', 'd2b-bar-graphs'));
 
@@ -99,7 +102,7 @@ export default function () {
             preX = graphsNode.__scaleX || x,
             preBarWidth = graphsNode.__barWidth || barWidth;
 
-      const graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs, d => d.key);
+      const graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs.slice().reverse(), d => d.key);
 
       const graphEnter = graph.enter().append('g')
           .attr('class', 'd2b-bar-graph d2b-graph');
@@ -116,7 +119,7 @@ export default function () {
               let shift = d.shift;
               if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
 
-              const barExit = d3.select(this)
+              const barExit = select(this)
                 .selectAll('.d2b-bar-group')
                 .transition(context);
 
@@ -130,7 +133,7 @@ export default function () {
                   x: point => base(point, shift),
                   y: () => y(0),
                   width: barWidth,
-                  height: 0,
+                  height: () => 0,
                   graph: d,
                   orientMap: orientMap
                 });
@@ -144,7 +147,7 @@ export default function () {
 
       // iterate through graph containers
       graphUpdate.each(function (d) {
-        const graph = d3.select(this);
+        const graph = select(this);
 
         let shift = d.shift;
         if (shift === null) shift = (x.bandwidth)? x.bandwidth() / 2 : 0;
@@ -153,12 +156,13 @@ export default function () {
         const bar = graph.selectAll('.d2b-bar-group').data(d.values, v => v.key);
         const barEnter = bar.enter().append('g').attr('class', 'd2b-bar-group');
         barEnter.append('rect');
+        barEnter.append('g').attr('class', 'd2b-bar-annotation-group');
         let barUpdate = bar.merge(barEnter).order(),
             barExit = bar.exit();
 
         if (d.tooltipGraph) d.tooltipGraph
           .data(d.values)[orientMap.x](point => x(point.base) + shift)[orientMap.y](point => extent(point)[1])
-          .color(point => point.color || d.color);
+          .color(point => point.color);
 
         if (context !== selection) {
           barUpdate = barUpdate.transition(context);
@@ -177,7 +181,7 @@ export default function () {
             x: point => base(point, shift),
             y: () => y(0),
             width: preBarWidth,
-            height: 0,
+            height: () => 0,
             graph: d,
             orientMap: orientMap
           });
@@ -193,7 +197,7 @@ export default function () {
             x: point => preBase(point, shift),
             y: () => preY(0),
             width: preBarWidth,
-            height: 0,
+            height: () => 0,
             graph: d,
             orientMap: orientMap
           });
@@ -204,7 +208,7 @@ export default function () {
             x: point => base(point, shift),
             y: () => y(0),
             width: barWidth,
-            height: 0,
+            height: () => 0,
             graph: d,
             orientMap: orientMap
           });
@@ -240,7 +244,7 @@ export default function () {
 
   const stacker = stack().values(d => d.values);
 
-  const stackNest = d3.nest().key(d => d.stackBy);
+  const stackNest = nest().key(d => d.stackBy);
 
   // custom stacker build out that separates the negative and possitive bars
   function buildOut(stackIndex) {
@@ -259,18 +263,31 @@ export default function () {
   function updateBars (bars, options) {
     bars
         .style('opacity', options.opacity)
-        .call(transformBar, options, options.orientMap)
+        .call(transformBar, options)
       .select('rect')
-        .attr('fill', point => point.color || options.graph.color)
+        .attr('fill', point => point.color)
         .attr(options.orientMap.w, options.width)
         .attr(options.orientMap.h, options.height);
+
+    bars
+      .select('.d2b-bar-annotation-group')
+        .call(transformAnnotationGroup, options)
+        .call(updateAnnotations, $$.annotation, 'd2b-bar-annotation');
   }
 
   // transform bar position
-  function transformBar (transition, pos, orientMap) {
+  function transformBar (transition, options) {
     transition.attr('transform', function (d) {
-      var xPos = pos[orientMap.x](d), yPos = pos[orientMap.y](d);
+      const xPos = options[options.orientMap.x](d), yPos = options[options.orientMap.y](d);
       return `translate(${[xPos, yPos]})`;
+    });
+  }
+
+  // transform annotation group position
+  function transformAnnotationGroup (transition, options) {
+    transition.attr('transform', function (d) {
+      const pos = {x: options.width / 2, y: d.extent[0] < d.extent[1] ? 0 : options.height(d)};
+      return `translate(${[pos[options.orientMap.x], pos[options.orientMap.y]]})`;
     });
   }
 
@@ -287,7 +304,7 @@ export default function () {
     };
 
     scale.sorted = function (point) {
-      return scale(point).slice().sort(d3.ascending);
+      return scale(point).slice().sort(ascending);
     };
 
     return scale;
@@ -307,7 +324,7 @@ export default function () {
       });
     });
 
-    xVals.sort(d3.ascending);
+    xVals.sort(ascending);
 
     for (let i = 0; i < xVals.length-1; i++) {
       if (xVals[i+1] === xVals[i]) continue;
@@ -321,7 +338,7 @@ export default function () {
     // if baseline is null find it dynamically
     if (baseline === null) {
       const values = [].concat.apply([], graphs.map(d => d.values));
-      const range = d3.extent(values.map(d => d.extent[1]));
+      const range = extent(values.map(d => d.extent[1]));
 
       if (range[1] < 0)       baseline = range[1];
       else if (range[0] > 0)  baseline = range[0];
@@ -339,8 +356,9 @@ export default function () {
 
   /* Inherit from base model */
   base(bar, $$)
-    .addProp('x', d3.scaleLinear())
-    .addProp('y', d3.scaleLinear())
+    .addProp('x', scaleLinear())
+    .addProp('y', scaleLinear())
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropGet('type', 'bar')
     .addPropFunctor('graphs', d => d)
     .addPropFunctor('padding', 0.5)
@@ -361,6 +379,7 @@ export default function () {
     .addPropFunctor('pcentered', false)
     .addPropFunctor('pcolor', null)
     .addPropFunctor('pkey', (d, i) => i)
+    .addPropFunctor('pannotation', d => d.annotation)
     // methods
     .addMethod('getComputedGraphs', context => {
       return (context.selection? context.selection() : context).data().map((d, i) => getGraphs(d, i));

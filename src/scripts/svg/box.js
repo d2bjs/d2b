@@ -1,6 +1,8 @@
 import { scaleLinear, format } from 'd3';
+import { annotation } from 'd3-svg-annotation';
 
 import base from '../model/base';
+import updateAnnotations from '../util/annotation';
 
 // creates a box and whisker set for box plots
 
@@ -16,8 +18,8 @@ export default function () {
           valueFormat = $$.valueFormat,
           vertical = $$.orient === 'vertical',
           orient = vertical ?
-            {x: 'x', y: 'y', x1: 'x1', x2: 'x2', y1: 'y1', y2: 'y2', width: 'width', height: 'height', cx: 'cx', cy: 'cy'} :
-            {x: 'y', y: 'x', x1: 'y1', x2: 'y2', y1: 'x1', y2: 'x2', width: 'height', height: 'width', cx: 'cy', cy: 'cx'};
+            {x: 'x', y: 'y', x1: 'x1', x2: 'x2', y1: 'y1', y2: 'y2', width: 'width', height: 'height', cx: 'cx', cy: 'cy', translate: (x, y) => `translate(${x}, ${y})`} :
+            {x: 'y', y: 'x', x1: 'y1', x2: 'y2', y1: 'x1', y2: 'x2', width: 'height', height: 'width', cx: 'cy', cy: 'cx', translate: (x, y) => `translate(${y}, ${x})`};
 
     // setup box-group and extract all necessary properties
     const group = selection.selectAll('.d2b-box').data((d, i) => {
@@ -39,7 +41,8 @@ export default function () {
         maxOutliers:    outliers.filter(d => d > maximum),
         minOutliers:    outliers.filter(d => d < minimum),
         color:          $$.color(d, i),
-        width:          $$.width(d, i)
+        width:          $$.width(d, i),
+        annotations:    $$.annotations(d, i)
       }];
     });
     const groupEnter = group.enter().append('g')
@@ -129,34 +132,44 @@ export default function () {
           .attr(orient.y2, d => scale(d[dashType]));
       });
 
-    // enter, update all labels
+    // enter, update all labels and annotations
     ['maximum', 'upperQuartile', 'median', 'lowerQuartile', 'minimum']
       .forEach((textType, i) => {
-        const label = groupUpdate.selectAll(`.d2b-box-label-${textType}`)
+        const label = groupUpdate.selectAll(`.d2b-box-label-group-${textType}`)
             .data(d => [d]);
-        const labelEnter = label.enter().append('text')
-            .attr('class', `d2b-box-label d2b-box-label-${textType}`)
+        const labelEnter = label.enter().append('g')
+            .attr('class', `d2b-box-label-group d2b-box-label-group-${textType}`)
+            .attr('transform', d => orient.translate(0, enterScale(d[textType])));
+
+        labelEnter.append('text')
+            .attr('class', 'd2b-box-label')
             .attr(orient.x, d => (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1))
-            .attr(orient.y, d => enterScale(d[textType]))
             .style('text-anchor', i % 2 === 0 ? 'start' : 'end');
+
         let labelUpdate = label.merge(labelEnter);
 
         if (context !== selection) labelUpdate = labelUpdate.transition(context);
 
         labelUpdate
-          .attr(orient.y, d => scale(d[textType]))
-          .text(d => valueFormat(d[textType]));
+            .attr('transform', d => orient.translate(0, scale(d[textType])))
+            .call(updateAnnotations, $$.annotation, 'd2b-box-annotation', d => {
+              return (d.annotations || []).filter(a => a.location === textType);
+            });
+
+        const labelText = labelUpdate
+          .select('.d2b-box-label')
+            .text(d => valueFormat(d[textType]));
 
         if (vertical) {
-          labelUpdate
-            .style('text-anchor', i % 2 === 0 ? 'start' : 'end')
-            .style('dominant-baseline', 'middle')
-            .attr(orient.x, d => (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1));
+          labelText.select()
+              .style('text-anchor', i % 2 === 0 ? 'start' : 'end')
+              .style('dominant-baseline', 'middle')
+              .attr(orient.x, d => (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1));
         } else {
-          labelUpdate
-            .style('text-anchor', 'middle')
-            .style('dominant-baseline', i % 2 === 0 ? 'baseline' : 'hanging')
-            .attr(orient.x, d => (3 + d.width / 2) * (i % 2 === 0 ? -1 : 1));
+          labelText
+              .style('text-anchor', 'middle')
+              .style('dominant-baseline', i % 2 === 0 ? 'baseline' : 'hanging')
+              .attr(orient.x, d => (3 + d.width / 2) * (i % 2 === 0 ? -1 : 1));
         }
       });
 
@@ -190,6 +203,7 @@ export default function () {
     .addProp('enterScale', null)
     .addProp('valueFormat', format(','))
     .addProp('orient', 'vertical')
+    .addProp('annotation', annotation ? annotation() : null)
     .addPropFunctor('data', d => d)
     .addPropFunctor('median', d => d.median)
     .addPropFunctor('upperQuartile', d => d.upperQuartile)
@@ -198,7 +212,8 @@ export default function () {
     .addPropFunctor('maximum', d => d.maximum)
     .addPropFunctor('outliers', d => d.outliers)
     .addPropFunctor('width', 20)
-    .addPropFunctor('color', 'steelblue');
+    .addPropFunctor('color', 'steelblue')
+    .addPropFunctor('annotations', d => d.annotations);
 
   return box;
 }

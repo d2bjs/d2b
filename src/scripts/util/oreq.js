@@ -1,4 +1,4 @@
-// Work around for JavaScripts ||= operator. Only null, undefined, and false will be construed as falsy. 
+// Work around for JavaScripts ||= operator. Only null, undefined, NaN, and false will be construed as falsy.
 
 export default function (...args) {
   let val = args[0];

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://unpkg.com/d3-svg-annotation@2.1.0/d3-annotation.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="../../../node_modules/d3/build/d3.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .d2b-axis-set {
+    opacity: 0.6;
+  }
+</style>
+
+<body>
+  <div class = 'axis-chart'></div>
+
+  <script>
+
+    var axis = d2b.chartAxis()
+      .y({
+        label: 'Y-Axis',
+      })
+      .y2({
+        label: 'Another Y-Axis',
+      })
+      .x(function (d, points) {
+        return {
+          scale: d3.scaleLinear()
+            .domain([(d3.min(points) || 1) - 1, (d3.max(points) || -1) + 1]),
+          label: 'X-Axis',
+        };
+      });
+
+    axis.chartFrame().size({height: 400});
+
+    var chart = d3.selectAll('.axis-chart');
+
+    var data = {
+
+      // these are chart level annotations
+      annotations: [
+        {
+          yType: 'y2',
+          z: 'back',
+          x: 3.5,
+          y: 60,
+          x2: 6,
+          y2: 20,
+          // dy: 0,
+          // dx: 60,
+          disable: ['connector'],
+          type: d3.annotationCalloutRect,
+          note: {
+            title: 'A General Annotation',
+            align: 'middle'
+          },
+          subject: {
+            dx: 0.5,
+            dy: 0.4
+          },
+          connector: {
+            end : "dot"
+          }
+        }
+      ],
+
+      sets: [
+        {
+          // stacked bar graphs
+          yType: 'y2',
+          generators: [d2b.svgBar().padding(0.5).stackBy(true)],
+
+          graphs: [
+            {
+              label: 'bar 1',
+              values: [
+                {x: 1, y: 25},
+                {x: 2, y: 38},
+                {x: 3, y: 24},
+                {x: 4, y: 60},
+                {x: 5, y: 22}
+              ],
+
+              // graph level annotations
+              annotations: [
+                {
+                  z: 'front',
+                  x: 2,
+                  y: 30,
+                  x2: 4,
+                  y2: 40,
+                  // dy: 0,
+                  // dx: 60,
+                  note: {
+                    title: 'A Bar Chart Annotation'
+                  },
+                  connector: {
+                    end : "dot"
+                  }
+                }
+              ]
+            },
+            {
+              label: 'bar 2',
+              values: [
+                {x: 3, y: 45},
+                {x: 5, y: 31},
+              ]
+            },
+            {
+              label: 'bar 3',
+              values: [
+                {x: 2, y: 25},
+                {x: 3, y: 15},
+                {x: 4, y: 35},
+                {x: 5, y: 25},
+                {x: 6, y: 18},
+              ]
+            }
+          ]
+        },
+        {
+          // area graphs
+          generators: [d2b.svgArea(), d2b.svgLine(), d2b.svgScatter()],
+          graphs: [
+            {
+              label: 'area 1',
+              values: [
+                {x: 1, y: 25},
+                {x: 2, y: 38,
+                  annotations: [
+                    {
+                      type: d3.annotationBadge,
+                      location: 'y1',
+                      subject: {
+                        text: 'A'
+                      }
+                    }
+                  ]
+                },
+                {x: 3, y: 24},
+                {x: 4, y: 60},
+                {x: 5, y: 22}
+              ]
+            },
+            {
+              label: 'area 2',
+              values: [
+                {x: 3, y: 45},
+                {x: 5, y: 31},
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    chart
+        .data([data])
+      .transition()
+        .call(axis);
+
+    window.onresize = function () { chart.call(axis); };
+  </script>
+</body>
+</html>

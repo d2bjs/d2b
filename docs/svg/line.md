@@ -66,6 +66,11 @@ If *d3-stack* is specified, sets the *d3-stack* generator to the specified [d3-s
 
 The *d3-stack* can be configured at will, except for the [keys](https://github.com/d3/d3-shape/blob/master/README.md#stack_keys) and [values](https://github.com/d3/d3-shape/blob/master/README.md#stack_value) properties which will be set automatically by the line generator.
 
+# {#annotation}
+[#](#annotation) line.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the line generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
 # {#x}
 [#](#x) line.**x**([*x*])
 
@@ -232,13 +237,66 @@ function (d) {
 ```
 
 # {#py}
-[#](#py) line.**px**([*py*])
+[#](#py) line.**py**([*py*])
 
 If *py* is specified, sets the *py* accessor to the specified accessor function and returns the line generator. If *py* is not specified, returns the current *py* accessor, which defaults to:
 
 ```javascript
 function (d) {
   return d.y;
+}
+```
+
+# {#pannotation}
+[#](#pannotation) area.**pannotation**([*annotation*])
+
+If *annotation* is specified, sets the *annotation* accessor to the specified accessor function and returns the line generator. If *annotation* is not specified, returns the current *annotation* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotation;
+}
+```
+
+# {#pkey}
+[#](#pkey) line.**pkey**([*key*])
+
+If *key* is specified, sets the *key* accessor to the specified accessor function and returns the line generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
+
+Because the line generator does not render discrete points, this will only be used in rendering [annotations](#annotations).
+
+# {#pcolor}
+[#](#pcolor) line.**pcolor**([*color*])
+
+If *color* is specified, sets the *color* accessor to the specified accessor function and returns the line generator. If *color* is not specified, returns the current *color* accessor, which defaults to `() => null`.
+
+If *color* is `null` then the corresponding graph [color](#color) will be used. Because the line generator does not render discrete points, this will only be used in rendering [annotations](#annotations).
+
+## Annotations {#annotations}
+
+The line graph generator has built in hooks for annotations using the [d3.annotation plugin](d3-annotation.susielu.com). Each value in a line graph may contain an annotation at its `(x, y)` location. For example, a line value with an annotation:
+
+```javascript
+{
+  x: 2,
+  y: 41,
+  annotation: {
+    // dx/dy pixel offset that the annotation has from the value
+    dy: -150,
+    dx: -150,
+    // use a custom annotation type from d3.annotation
+    type: d3.annotationCalloutCircle,
+    note: {
+      title: 'Important Point'
+    },
+    subject: {
+      radius: 20,
+      radiusPadding: 5
+    },
+    connector: {
+      end : "arrow"
+    }
+  }
 }
 ```
 

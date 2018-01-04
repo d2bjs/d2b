@@ -12,7 +12,7 @@ describe("d2b.median()", function() {
     expect(d2b.median([2, 3, 4])).toBe(3);
   });
 
-  it("computes a complex mean.", function () {
+  it("computes a complex median.", function () {
     expect(d2b.median([5, 16, -2, -100, 0])).toBe(0);
   });
 

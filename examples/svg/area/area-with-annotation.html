@@ -2,6 +2,7 @@
 <html>
 
 <script src="https://unpkg.com/d3-svg-annotation@2.1.0/d3-annotation.min.js"></script>
+<script src="https://unpkg.com/d3-interpolate-path@2.0.1/build/d3-interpolate-path.min.js"></script>
 <script src="../../../node_modules/d3/build/d3.min.js"></script>
 <script src="../../../build/d2b.js"></script>
 
@@ -26,40 +27,57 @@
 
   <script>
 
-    var scatter = d2b.svgScatter(),
+    var area = d2b.svgArea(),
         x = d3.scaleLinear().domain([1, 5]).range([0, document.documentElement.clientWidth]),
         y = d3.scaleLinear().domain([100, 0]).range([0, 300]);
 
-    // define the scales that the scatter generator should use
-    scatter.x(x).y(y);
+    // define the scales that the area generator should use
+    area.x(x).y(y);
 
-    // use d3 to select the svg, set the datum, and apply the scatter generator
+    // use d3 to select the svg, set the datum, and apply the area generator
     var svg = d3.select('svg')
       .datum([
         {
-          label: 'Scatter Graph 1',
+          label: 'Area Graph 1',
           values: [
             { x: 1, y: 22 },
             {
               x: 2,
               y: 41,
-              annotation: {
-                dy: -50,
-                dx: 70,
-                type: d3.annotationCalloutCircle,
-                note: {
-                  title: 'Important Point',
-                  label: 'This point represents something important that happened.',
-                  wrap: 150
+              annotations: [
+                {
+                  location: 'y0',
+                  dy: -150,
+                  dx: -150,
+                  type: d3.annotationCalloutCircle,
+                  note: {
+                    title: 'Important Point at Y0'
+                  },
+                  subject: {
+                    radius: 20,
+                    radiusPadding: 5
+                  },
+                  connector: {
+                    end : "arrow"
+                  }
                 },
-                subject: {
-                  radius: 20,
-                  radiusPadding: 5
-                },
-                connector: {
-                  end : "arrow"
+                {
+                  location: 'y1',
+                  dy: -60,
+                  dx: 0,
+                  type: d3.annotationCalloutCircle,
+                  note: {
+                    title: 'Important Point at Y1'
+                  },
+                  subject: {
+                    radius: 20,
+                    radiusPadding: 5
+                  },
+                  connector: {
+                    end : "arrow"
+                  }
                 }
-              }
+              ]
             },
             { x: 3, y: 36 },
             { x: 4, y: 51 },
@@ -67,7 +85,7 @@
           ]
         },
         {
-          label: 'Scatter Graph 2',
+          label: 'Area Graph 2',
           values: [
             { x: 1, y: 12 },
             { x: 2, y: 15 },
@@ -77,7 +95,7 @@
           ]
         }
       ])
-      .call(scatter);
+      .call(area);
 
     setTimeout(function () {
       x.domain([1, 4]);
@@ -87,7 +105,7 @@
       d3.select('svg')
           .datum([
             {
-              label: 'Scatter Graph 1',
+              label: 'Area Graph 1',
               values: [
                 { x: 1, y: 12 },
                 { x: 2, y: 31 },
@@ -96,29 +114,31 @@
               ]
             },
             {
-              label: 'Scatter Graph 2',
+              label: 'Area Graph 2',
               values: [
                 { x: 1, y: 12 },
                 {
                   x: 2,
                   y: 15,
-                  annotation: {
+                  annotations: [{
+                    location: 'y1',
                     type: d3.annotationBadge,
                     subject: {
                       text: 'A'
                     }
-                  }
+                  }]
                 },
                 {
                   x: 3,
                   y: 50,
-                  annotation: {
-                    dy: 50,
-                    dx: 70,
+                  annotations: [{
+                    location: 'y0',
+                    dy: -190,
+                    dx: 100,
                     type: d3.annotationCalloutCircle,
                     note: {
                       title: 'Different Important Point',
-                      label: 'This point represents something else important that happened.',
+                      label: 'This point represents something else important that happened at y0.',
                       wrap: 200
                     },
                     subject: {
@@ -128,7 +148,7 @@
                     connector: {
                       end : "arrow"
                     }
-                  }
+                  }]
                 },
                 { x: 4, y: 31 }
               ]
@@ -136,13 +156,13 @@
           ])
         .transition()
           .duration(1000)
-          .call(scatter);
+          .call(area);
     }, 2000);
 
-    // on window resize, update the x scale range and reapply the scatter generator
+    // on window resize, update the x scale range and reapply the area generator
     window.addEventListener('resize', function(){
       x.range([0, document.documentElement.clientWidth]);
-      svg.call(scatter);
+      svg.call(area);
     });
 
   </script>

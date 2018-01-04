@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import { annotation } from 'd3-svg-annotation';
 
 import base from '../model/base';
 import chartFrame from '../util/chartFrame';
@@ -8,6 +9,7 @@ import color from '../util/color';
 import tooltipAxis from '../util/tooltipAxis';
 import d2bid from '../util/id';
 import oreq from '../util/oreq';
+import { updateAxis as updateAnnotations } from '../util/annotation';
 
 export default function () {
 
@@ -36,6 +38,7 @@ export default function () {
 
   base(chart, $$)
     .addProp('plane', plane())
+    .addProp('annotation', annotation ? annotation() : null)
     .addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))
     .addProp('legend', legend().clickable(true).dblclickable(true))
     .addPropFunctor('tooltipConfig', d => d.tooltipConfig)
@@ -44,21 +47,36 @@ export default function () {
     .addPropFunctor('y', {})
     .addPropFunctor('x2', {})
     .addPropFunctor('y2', {})
+    .addPropFunctor('clipPlane', true)
+    .addPropFunctor('annotations', d => d.annotations)
     .addPropFunctor('groups', d => d.groups)
     .addPropFunctor('sets', d => d.sets)
     // group functors
     .addPropFunctor('groupLabel', d => d.label)
     .addPropFunctor('groupColor', d => color($$.groupLabel(d)))
     // set functors
+    .addPropFunctor('setKey', (d, i) => i)
     .addPropFunctor('setGenerators', d => d.generators)
     .addPropFunctor('setXType', d => d.xType)
     .addPropFunctor('setYType', d => d.yType)
     .addPropFunctor('setGraphs', d => d.graphs)
     // graph functors
+    .addPropFunctor('graphKey', d => d.label)
     .addPropFunctor('graphLabel', d => d.label)
     .addPropFunctor('graphGroup', d => d.group)
     .addPropFunctor('graphColor', d => color($$.graphLabel(d)))
-    .addPropFunctor('graphTooltipConfig', d => d.tooltipConfig);
+    .addPropFunctor('graphTooltipConfig', d => d.tooltipConfig)
+    .addPropFunctor('graphAnnotations', d => d.annotations)
+    // annotation functors
+    .addPropFunctor('annotationKey', (d, i) => i)
+    .addPropFunctor('annotationXType', d => d.xType)
+    .addPropFunctor('annotationYType', d => d.yType)
+    .addPropFunctor('annotationZ', d => d.z)
+    .addPropFunctor('annotationX', d => d.x)
+    .addPropFunctor('annotationY', d => d.y)
+    .addPropFunctor('annotationX2', d => d.x2)
+    .addPropFunctor('annotationY2', d => d.y2)
+    .addPropFunctor('annotationColor', d => d.color);
 
   function update (datum, transition) {
     const container = d3.select(this),
@@ -69,7 +87,24 @@ export default function () {
           sets = getSets(datum),
           allGraphs = getAllGraphs(sets),
           duration = $$.duration(datum),
-          groups = getGroups(datum, sets);
+          groups = getGroups(datum, sets),
+          clipPlane = $$.clipPlane(datum);
+
+    // define chart level annotations
+    let annotations = ($$.annotations(datum) || []).slice().map((a, i) => {
+      return {
+        key: $$.annotationKey(a, i),
+        xType: $$.annotationXType(a) || 'x',
+        yType: $$.annotationYType(a) || 'y',
+        z: $$.annotationZ(a) || 'front',
+        x: $$.annotationX(a),
+        y: $$.annotationY(a),
+        x2: $$.annotationX2(a),
+        y2: $$.annotationY2(a),
+        color: $$.annotationColor(a) || 'steelblue',
+        data: a
+      };
+    });
 
     propagateHidden(groups);
 
@@ -78,7 +113,7 @@ export default function () {
     let tooltip = chartNode.tooltip = chartNode.tooltip || tooltipAxis().trackX(true).trackY(false).threshold(50);
 
     tooltip
-      .title(points => `${oreq(points[0].x, points[0].x1)}`)
+      .title(points => `${oreq(points[0].x, points[0].x1, points[0].median)}`)
       .clear();
 
     // update functionality
@@ -98,7 +133,7 @@ export default function () {
         planeUpdate = plane,
         planeEnter = plane.enter().append('g').attr('class', 'd2b-axis-plane');
 
-    plane = plane.merge(planeEnter);
+    planeUpdate = plane = plane.merge(planeEnter);
 
     // enter axis-set wrapper
     let wrapper = chartContainer.selectAll('.d2b-axis-wrapper').data([datum]),
@@ -106,11 +141,17 @@ export default function () {
         wrapperEnter = wrapper.enter().append('g').attr('class', 'd2b-axis-wrapper');
 
     wrapperEnter.append('rect').attr('class', 'd2b-axis-background');
+    wrapperEnter.append('g').attr('class', 'd2b-axis-back-annotations');
+    wrapperEnter.append('g').attr('class', 'd2b-axis-sets');
+    wrapperEnter.append('g').attr('class', 'd2b-axis-front-annotations');
 
-    wrapper = wrapper.merge(wrapperEnter);
+    wrapperUpdate = wrapper = wrapper.merge(wrapperEnter);
+
+    let backAnnotationsUpdate = wrapper.select('.d2b-axis-back-annotations'),
+        frontAnnotationsUpdate = wrapper.select('.d2b-axis-front-annotations');
 
     // enter axis-sets
-    let set = wrapper.selectAll('.d2b-axis-set').data(sets),
+    let set = wrapper.select('.d2b-axis-sets').selectAll('.d2b-axis-set').data(sets, d => d.key),
         setEnter = set.enter().append('g').attr('class', 'd2b-axis-set'),
         setExit = set.exit();
 
@@ -121,6 +162,8 @@ export default function () {
       setExit = setExit.transition(transition);
       wrapperUpdate = wrapperUpdate.transition(transition);
       planeUpdate = planeUpdate.transition(transition);
+      backAnnotationsUpdate = backAnnotationsUpdate.transition(transition);
+      frontAnnotationsUpdate = frontAnnotationsUpdate.transition(transition);
     }
 
     // initialze generator and visible point sets
@@ -132,7 +175,28 @@ export default function () {
     };
 
     set.each(function (s) {
-      const el = d3.select(this);
+      const el = d3.select(this),
+            graphs = s.graphs.filter(g => !g.data.hidden),
+            graphsRaw = graphs.map(g => g.data);
+
+      // add graph annotations to chart annotations
+      graphs.forEach(g => {
+        annotations = annotations.concat(g.annotations.map((a, i) => {
+          return {
+            key: `${s.key}-${g.key}-${$$.annotationKey(a, i)}`,
+            xType: s.xType,
+            yType: s.yType,
+            z: $$.annotationZ(a) || 'front',
+            x: $$.annotationX(a),
+            y: $$.annotationY(a),
+            x2: $$.annotationX2(a),
+            y2: $$.annotationY2(a),
+            color: $$.annotationColor(a) || g.color,
+            data: a,
+            graph: g.data
+          };
+        }));
+      });
 
       this.genUpdate = el.selectAll('.d2b-graph-generator')
         .data(s.generators.slice().reverse(), d => d.key);
@@ -158,7 +222,7 @@ export default function () {
                   return tooltipGraph;
                 })
                 .color(graph => matchGraph(graph, allGraphs).color)
-                .graphs(s.graphs.map(g => g.data).filter(g => !g.hidden))
+                .graphs(graphsRaw)
                 .getVisiblePoints(gen);
 
         if (d.generator.duration) d.generator.duration(duration);
@@ -177,7 +241,6 @@ export default function () {
           x2Data = $$.x2(datum, visible.x2),
           y2Data = $$.y2(datum, visible.y2);
 
-
     setupAxis(xData, visible.x, axisDefaults.x);
     setupAxis(yData, visible.y, axisDefaults.y);
     setupAxis(x2Data, visible.x2, axisDefaults.x2);
@@ -185,10 +248,10 @@ export default function () {
 
     $$.plane
       .axis(d => d.__axis__)
-      .x(xData.__axis__ ? xData : null)
-      .y(yData.__axis__ ? yData : null)
-      .x2(x2Data.__axis__ ? x2Data : null)
-      .y2(y2Data.__axis__ ? y2Data : null);
+      .x(xData.__axis__ && visible.x.length ? xData : null)
+      .y(yData.__axis__ && visible.y.length ? yData : null)
+      .x2(x2Data.__axis__ && visible.x2.length ? x2Data : null)
+      .y2(y2Data.__axis__ && visible.y2.length ? y2Data : null);
 
     // update plane
     planeEnter.call($$.plane);
@@ -198,7 +261,8 @@ export default function () {
     const planeBox = $$.plane.box(plane);
 
     // add clip path from plane
-    set.attr('clip-path', `url(#${plane.select('.d2b-clip-plane').attr('id')})`);
+    const planeClip = `url(#${plane.select('.d2b-clip-plane').attr('id')})`;
+    wrapper.attr('clip-path', clipPlane ? planeClip : '');
 
     // update the graphs with their generators
     set.each(function (s) {
@@ -242,6 +306,33 @@ export default function () {
         .attr('height', Math.max(0, planeBox.height))
         .attr('width', Math.max(0, planeBox.width));
 
+    // update annotations
+
+    if ($$.annotation) {
+      const annotationScales = {
+        x: xData.__scale__,
+        y: yData.__scale__,
+        x2: x2Data.__scale__,
+        y2: y2Data.__scale__
+      };
+
+      backAnnotationsUpdate
+        .call(
+          updateAnnotations,
+          $$.annotation,
+          annotations.filter(a => a.z === 'back'),
+          annotationScales
+        );
+
+      frontAnnotationsUpdate
+        .call(
+          updateAnnotations,
+          $$.annotation,
+          annotations.filter(a => a.z === 'front'),
+          annotationScales
+        );
+    }
+
     // configure tooltip
     tooltip.row(point => {
       const graphLabel = matchGraph(point.graph.data, allGraphs).label;
@@ -253,7 +344,6 @@ export default function () {
       .svgContainer(wrapper)
       .tracker(wrapper)
       .size(planeBox);
-
   }
 
   // defaultz axis components
@@ -310,19 +400,22 @@ export default function () {
   }
 
   function getSets (d) {
-    return $$.sets(d).map(set => {
+    return $$.sets(d).map((set, i) => {
       const generatorTypes = {};
       return {
         data: set,
+        key: $$.setKey(set, i),
         xType: $$.setXType(set) || 'x',
         yType: $$.setYType(set) || 'y',
         generators: $$.setGenerators(set).map((generator, i) => {
           const type = generator.type();
 
           // only annotate first generator
-          if (i !== 0) {
-            (generator.pannotation || generator.pannotations || function () {})(null);
-          }
+          if (i !== 0) (generator.pannotation || generator.pannotations || function () {})(null);
+
+          generator
+            .annotation($$.annotation)
+            .key($$.graphKey);
 
           generatorTypes[type] = generatorTypes[type] || 0;
           return {
@@ -337,12 +430,14 @@ export default function () {
   }
 
   function getSetGraphs (d) {
-    return $$.setGraphs(d).map(graph => {
+    return $$.setGraphs(d).map((graph, i) => {
       return {
         data: graph,
         label: $$.graphLabel(graph) || '',
+        key: $$.graphKey(graph, i),
         color: $$.graphColor(graph),
         group: $$.graphGroup(graph),
+        annotations: $$.graphAnnotations(graph) || [],
         tooltipConfig: $$.graphTooltipConfig(graph) || function () {}
       };
     });
@@ -359,7 +454,8 @@ export default function () {
   }
 
   function legendMouseover(d, selection) {
-    const graphs = selection.selectAll('.d2b-graph');
+    const graphs = selection.selectAll('.d2b-graph'),
+          annotations = selection.selectAll('.d2b-axis-annotation');
     if (!d.groupGraphs.some(graph => !graph.data.hidden)) return;
     graphs
         .style('opacity', 0.2)
@@ -368,10 +464,19 @@ export default function () {
                (d.groupGraphs.map(d => d.data) || []).indexOf(graph.data) > -1;
       })
         .style('opacity', '');
+
+    annotations
+        .style('opacity', 0.2)
+      .filter(annotation => {
+        return d.data === annotation.graph ||
+               (d.groupGraphs.map(d => d.data) || []).indexOf(annotation.graph) > -1;
+      })
+        .style('opacity', '');
   }
 
   function legendMouseout(d, selection) {
     selection.selectAll('.d2b-graph').style('opacity', 1);
+    selection.selectAll('.d2b-axis-annotation').style('opacity', 1);
   }
 
   function matchGraph(graph, allGraphs) {
@@ -394,6 +499,7 @@ export default function () {
 
     scale.domain(domain);
     data.__axis__ = axis.scale(scale);
+    data.__scale__ = scale;
   }
 
   function getScale(points, defaults) {

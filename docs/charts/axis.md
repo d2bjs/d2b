@@ -134,6 +134,22 @@ The tooltip-config function that is returned will be supplied with the [d2b.tool
 
 If *duration* is specified, sets the duration of the internal chart transitions to the specified accessor function or value and returns the axis-chart generator. If *duration* is not specified, returns the current *duration* accessor, which defaults to `() => 250`.
 
+# {#annotation}
+[#](#annotation) axis.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the axis-chart generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
+# {#annotations}
+[#](#annotations) area.**annotations**([*annotations*])
+
+If *annotations* is specified, sets the *annotations* accessor to the specified accessor function and returns the axis-chart generator. If *annotations* is not specified, returns the current *annotations* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotations;
+}
+```
+
 # {#axes}
 [#](#axes) axis\[**axisType**\]([*config*])
 
@@ -231,6 +247,19 @@ function (d) {
 
 When the d2b axis-chart generator is applied to a selection, the following properties will be invoked for each set in the [sets](#sets) array. The function will be passed the group data `d`.
 
+# {#set_key}
+[#](#set_key) axis.**setKey**([*key*])
+
+If *key* is specified, sets the set-key accessor and returns the axis chart generator. If *key* is not specified, returns the current set-key accessor, which defaults to:
+
+```javascript
+function (d, i) {
+  return i;
+}
+```
+
+Note: In addition to the set datum `d`, the set-key accessor is also passed the set index in the [sets](#sets) array.
+
 # {#set_generators}
 [#](#set_generators) axis.**setGenerators**([*setGenerators*])
 
@@ -256,7 +285,7 @@ function (d) {
 The set's x-type should be either `'x'` or `'x2'`. If the accessor returns `falsy` then an x-type of `'x'` will be used.
 
 # {#set_y_type}
-[#](#set_y_type) ayis.**setYType**([*type*])
+[#](#set_y_type) axis.**setYType**([*type*])
 
 If *type* is specified, sets the *type* accessor to the specified accessor function and returns the axis chart generator. If *type* is not specified, returns the current *type* accessor, which defaults to:
 
@@ -269,7 +298,7 @@ function (d) {
 The set's y-type should be either `'y'` or `'y2'`. If the accessor returns `falsy` then an y-type of `'y'` will be used.
 
 # {#set_graphs}
-[#](#set_graphs) ayis.**setGraphs**([*setGraphs*])
+[#](#set_graphs) axis.**setGraphs**([*setGraphs*])
 
 If *setGraphs* is specified, sets the *setGraphs* accessor to the specified accessor function and returns the axis chart generator. If *setGraphs* is not specified, returns the current *setGraphs* accessor, which defaults to:
 
@@ -282,6 +311,19 @@ function (d) {
 ### Graph Level Accessors
 
 When the d2b axis-chart generator is applied to a selection, the following properties will be invoked for each graph in the [graphs](#set_graphs) array. The function will be passed the graph data `d`.
+
+# {#graph_key}
+[#](#graph_key) axis.**graphKey**([*key*])
+
+If *key* is specified, sets the graph-key accessor and returns the axis chart generator. If *key* is not specified, returns the current graph-key accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.label;
+}
+```
+
+Note: In addition to the set datum `d`, the graph-key accessor is also passed the set index in the [graphs](#set_graphs) array. Also, this key accessor will propagate down to the generators in the graph set.
 
 # {#graph_color}
 [#](#graph_color) axis.**graphColor**([*graphColor*])
@@ -321,6 +363,17 @@ function (d) {
 
 If a `falsy` graph is not associated with any group it will be considered to be in it's own group. The graph-group should correspond to one of the [groups'](#groups) [label](#group_label).
 
+# {#graph_annotations}
+[#](#graph_annotations) axis.**graphAnnotations**([*annotations*])
+
+If *annotations* is specified, sets the graph-annotations accessor to the specified accessor function and returns the axis-chart generator. If *annotations* is not specified, returns the current graph-annotations accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotations;
+}
+```
+
 # {#graph_tooltip_config}
 [#](#graph_tooltip_config) axis.**graphTooltipConfig**([*graphTooltipConfig*])
 
@@ -335,3 +388,124 @@ function (d) {
 The tooltip-config function that is returned will be supplied with the [d2b.tooltipAxis](../utils/tooltip_axis.md) that is being used to render the axis chart.
 
 If a *graphTooltipConfig* is specified, it will override the [tooltipConfig](#tooltip_config) that may be specified for the entire chart.
+
+### Annotation Level Accessors
+
+When the d2b axis-chart generator is applied to a selection, the following properties will be invoked for each annotation in the [annotations](#annotations) array as well as the annotations in each [graphAnnotations](#graph_annotations) array. The function will be passed the annotation data `d`.
+
+# {#annotation_key}
+[#](#annotationKey) axis.**annotationKey**([*key*])
+
+If *key* is specified, sets the annotation-key accessor and returns the axis chart generator. If *key* is not specified, returns the current annotation-key accessor, which defaults to:
+
+```javascript
+function (d, i) {
+  return i;
+}
+```
+
+Note: In addition to the set datum `d`, the annotation-key accessor is also passed the annotation index. If an annotation is a [graph annotation](#graph_annotations) its key will be scoped by its graph and set parent keys.
+
+# {#annotation_x_type}
+[#](#annotation_x_type) axis.**annotationXType**([*type*])
+
+If *type* is specified, sets the annotation-x-type accessor to the specified accessor function and returns the axis chart generator. If *type* is not specified, returns the current annotation-x-type accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.xType;
+}
+```
+
+The annotation's x-type should be either `'x'` or `'x2'`. If the accessor returns `falsy` then an x-type of `'x'` will be used.
+
+# {#annotation_y_type}
+[#](#annotation_y_type) axis.**annotationYType**([*type*])
+
+If *type* is specified, sets the annotation-y-type accessor to the specified accessor function and returns the axis chart generator. If *type* is not specified, returns the current annotation-y-type accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.yType;
+}
+```
+
+The annotation's y-type should be either `'y'` or `'y2'`. If the accessor returns `falsy` then an y-type of `'y'` will be used.
+
+# {#annotation_z}
+[#](#annotation_z) axis.**annotationZ**([*z*])
+
+If *z* is specified, sets the the annotation-z accessor function and returns the axis chart generator. If *z* is not specified, returns the current annotation-z accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.z;
+}
+```
+
+The annotation's z value should be either `'front'` or `'back'`. If the accessor returns `falsy` then it will default to `'front'`.
+
+# {#annotation_x}
+[#](#annotation_x) axis.**annotationX**([*x*])
+
+If *x* is specified, sets the the annotation-x accessor function and returns the axis chart generator. If *x* is not specified, returns the current annotation-x accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.x;
+}
+```
+
+The `x` value should be represented in the data space. This is different from using d3.annotation directly where you would indicate `x` as a visual pixel value.
+
+# {#annotation_y}
+[#](#annotation_y) axis.**annotationY**([*y*])
+
+If *y* is specified, sets the the annotation-y accessor function and returns the axis chart generator. If *y* is not specified, returns the current annotation-y accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.y;
+}
+```
+
+The `y` value should be represented in the data space. This is different from using d3.annotation directly where you would indicate `y` as a visual pixel value.
+
+# {#annotation_x2}
+[#](#annotation_x2) axis.**annotationX2**([*x2*])
+
+If *x2* is specified, sets the the annotation-x2 accessor function and returns the axis chart generator. If *x2* is not specified, returns the current annotation-x2 accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.x2;
+}
+```
+
+The `x2` value is only used when rendering a horizontal d3.annotationXYThreshold or d3.annotationCallourRect. This value will be used to automatically generate the threshold endpoints or rectangle width.
+
+# {#annotation_y2}
+[#](#annotation_y2) axis.**annotationY2**([*y2*])
+
+If *y2* is specified, sets the the annotation-y2 accessor function and returns the axis chart generator. If *y2* is not specified, returns the current annotation-y2 accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.y2;
+}
+```
+
+The `y2` value is only used when rendering a vertical d3.annotationXYThreshold or d3.annotationCallourRect. This value will be used to automatically generate the threshold endpoints or rectangle height.
+
+# {#annotation_color}
+[#](#annotation_color) axis.**annotationColor**([*color*])
+
+If *color* is specified, sets the the annotation-color accessor function and returns the axis chart generator. If *color* is not specified, returns the current annotation-color accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.color;
+}
+```
+
+In the case of a [axis chart annotation](#annotations) the default color will be `'steelblue'`. In the case of a [graph annotation](#graphAnnotations) the color will default to the graph's color.

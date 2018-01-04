@@ -44,7 +44,9 @@ export default function () {
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
+    stackNest.entries(graphs).forEach(sg => {
+      if (sg.values.length > 1) stacker(sg.values);
+    });
 
     return graphs;
   }
@@ -145,7 +147,7 @@ export default function () {
         aExit
             .attr('transform', v => {
               // join the exiting annotation with the value if it still exists
-              v = d.values.find(ov => v.key === ov.key) || v;
+              v = d.values.filter(ov => v.key === ov.key)[0] || v;
               return `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`;
             })
             .style('opacity', 0)
@@ -180,7 +182,7 @@ export default function () {
       .data(d.values)
       .x(dd => x(dd.x) + shift)
       .y(dd => y(dd[d.align]))
-      .color(d.color);
+      .color(dd => dd.color);
 
     $$.line
       .x(dd => x(dd.x) + shift)

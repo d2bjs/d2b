@@ -109,6 +109,11 @@ If *box* is specified, sets the *box* scale to the specified d2b-box and returns
 
 Box can be configured at will except for the [scale](./box.md#scale), [enterScale](./box.md#enter_scale), [orient](./box.md#orient), [data](./box.md#data), and [color](./box.md#color) props, which will be set automatically by the box-plot generator.
 
+# {#annotation}
+[#](#annotation) boxPlot.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the boxPlot generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
 ### Datum Level Accessors
 
 When the d2b box-plot generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
@@ -268,6 +273,56 @@ If *color* is `null` then the corresponding graph [color](#color) will be used.
 If *key* is specified, sets the *key* accessor to the specified accessor function and returns the box-plot generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
 
 If transitioning between data sets, the [key](#pkey) may be used to be sure that the matching box-plot points transition properly.
+
+# {#pannotations}
+[#](#pannotations) boxPlot.**pannotations**([*annotations*])
+
+If *annotations* is specified, sets the *annotations* accessor to the specified accessor function and returns the boxPlot generator. If *annotations* is not specified, returns the current *annotations* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotations;
+}
+```
+
+## Annotations {#annotations}
+
+The box plot generator has built in hooks for annotations using the [d3.annotation plugin](d3-annotation.susielu.com). Each box in an box plot may contain an annotation at its `maximum`, `upperQuartile`, `median`, `lowerQuartile`, and `minimum` locations. For example, a box with annotations at the upper and lower quartiles:
+
+```javascript
+{
+  x: 2,
+  maximum: 15,
+  minimum: 2,
+  upperQuartile: 12,
+  lowerQuartile: 4.8,
+  median: 7,
+  annotations: [
+    {
+      location: 'upperQuartile',
+      dy: 0,
+      dx: 60,
+      note: {
+        title: 'Upper Quartile'
+      },
+      connector: {
+        end : "dot"
+      }
+    },
+    {
+      location: 'lowerQuartile',
+      dy: 0,
+      dx: 60,
+      note: {
+        title: 'Lower Quartile'
+      },
+      connector: {
+        end : "dot"
+      }
+    }
+  ]
+}
+```
 
 ### Other Methods
 

@@ -6,6 +6,7 @@ import base from '../model/base';
 import color from '../util/color';
 import stack from '../util/stack';
 import id from '../util/id';
+import oreq from '../util/oreq';
 import isFinitePath from '../util/isFinitePath';
 import updateAnnotations from '../util/annotation';
 
@@ -29,21 +30,25 @@ export default function () {
           data:   point,
           index:  i,
           graph:  newGraph,
-          key:        $$.pkey(point, i),
-          x:      $$.px(point, i),
-          y:      $$.py(point, i),
-          color:      $$.pcolor(point, i) || newGraph.color,
+          key:         $$.pkey(point, i),
+          x:           $$.px(point, i),
+          y:           $$.py(point, i),
+          y0:          $$.py0(point, i),
+          color:       $$.pcolor(point, i) || newGraph.color,
           annotations: $$.pannotations(point, i)
         };
         // initialize y1 and y0 (these will be overwritten by the stack if stacking applies)
         newPoint.y1 = newPoint.y;
-        newPoint.y0 = 0;
+        newPoint.y0 = oreq(newPoint.y0, 0);
+
         return newPoint;
       });
       return newGraph;
     });
 
-    stackNest.entries(graphs).forEach(sg => stacker(sg.values));
+    stackNest.entries(graphs).forEach(sg => {
+      if (sg.values.length > 1) stacker(sg.values);
+    });
 
     return graphs;
   }
@@ -147,7 +152,7 @@ export default function () {
           aExit
               .attr('transform', v => {
                 // join the exiting annotation with the value if it still exists
-                v = d.values.find(ov => v.key === ov.key) || v;
+                v = d.values.filter(ov => v.key === ov.key)[0] || v;
                 return `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`;
               })
               .style('opacity', 0)
@@ -187,14 +192,14 @@ export default function () {
 
     if (d.tooltipGraph && setupTooltip) d.tooltipGraph
       .data(d.values)
-      .x(d => x(d.x) + shift)
-      .y(d => y(d.y1))
-      .color(d.color);
+      .x(p => x(p.x) + shift)
+      .y(p => y(p.y1))
+      .color(p => p.color);
 
     $$.area
-      .x(d => x(d.x) + shift)
-      .y0(d => y(d.y0))
-      .y1(d => y(d.y1));
+      .x(p => x(p.x) + shift)
+      .y0(p => y(p.y0))
+      .y1(p => y(p.y1));
 
     const path = $$.area(d.values);
 
@@ -231,6 +236,7 @@ export default function () {
     // points props
     .addPropFunctor('px', d => d.x)
     .addPropFunctor('py', d => d.y)
+    .addPropFunctor('py0', d => d.y0)
     .addPropFunctor('pcolor', null)
     .addPropFunctor('pkey', (d, i) => i)
     .addPropFunctor('pannotations', d => d.annotations)

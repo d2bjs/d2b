@@ -119,6 +119,11 @@ If *y* is specified, sets the *y* scale to the specified [d3-scale](https://gith
 
 Currently, only [continuous](https://github.com/d3/d3-scale#continuous-scales) scales are supported for the bubble pack.
 
+# {#annotation}
+[#](#annotation) bubblePack.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the bubblePack generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
 ### Datum Level Accessors
 
 When the d2b bubblePack generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
@@ -308,6 +313,47 @@ The *size* is a numerical value corresponding to the pixel area of the defined s
 If *key* is specified, sets the *key* accessor to the specified accessor function and returns the bubblePack generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
 
 If transitioning between data sets, the [key](#pkey) may be used to be sure that the matching bubblePack points transition properly.
+
+# {#pannotation}
+[#](#pannotation) bubblePack.**pannotation**([*annotation*])
+
+If *annotation* is specified, sets the *annotation* accessor to the specified accessor function and returns the bubblePack generator. If *annotation* is not specified, returns the current *annotation* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotation;
+}
+```
+
+## Annotations {#annotations}
+
+The bubblePack graph generator has built in hooks for annotations using the [d3.annotation plugin](d3-annotation.susielu.com). Each value in a bubblePack graph may contain an annotation at its `(x, y)` location. For example, a bubble value with an annotation:
+
+```javascript
+{
+  label: 'A Leaf Bubble',
+  x: 2,
+  y: 41,
+  size: 5,
+  annotation: {
+    // dx/dy pixel offset that the annotation has from the value
+    dy: -150,
+    dx: -150,
+    // use a custom annotation type from d3.annotation
+    type: d3.annotationCalloutCircle,
+    note: {
+      title: 'Important Point'
+    },
+    subject: {
+      radius: 20,
+      radiusPadding: 5
+    },
+    connector: {
+      end : "arrow"
+    }
+  }
+}
+```
 
 ### Other Methods
 

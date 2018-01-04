@@ -61,6 +61,11 @@ The *d3-stack* can be configured at will, except for the [keys](https://github.c
 
 Usually scatter graphs are not stacked by themselves, but if they are used to overlay on a stacked area graph then stacking should be used to make sure they are aligned.
 
+# {#annotation}
+[#](#annotation) scatter.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the scatter generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
 # {#x}
 [#](#x) scatter.**x**([*x*])
 
@@ -262,6 +267,45 @@ If *size* is specified, sets the *size* accessor to the specified accessor funct
 If *key* is specified, sets the *key* accessor to the specified accessor function and returns the scatter generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
 
 If transitioning between data sets, the [key](#pkey) may be used to be sure that the matching scatter points transition properly.
+
+# {#pannotation}
+[#](#pannotation) scatter.**pannotation**([*annotation*])
+
+If *annotation* is specified, sets the *annotation* accessor to the specified accessor function and returns the scatter generator. If *annotation* is not specified, returns the current *annotation* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotation;
+}
+```
+
+## Annotations {#annotations}
+
+The scatter graph generator has built in hooks for annotations using the [d3.annotation plugin](d3-annotation.susielu.com). Each value in a scatter graph may contain an annotation at its `(x, y)` location. For example, a scatter value with an annotation:
+
+```javascript
+{
+  x: 2,
+  y: 41,
+  annotation: {
+    // dx/dy pixel offset that the annotation has from the value
+    dy: -150,
+    dx: -150,
+    // use a custom annotation type from d3.annotation
+    type: d3.annotationCalloutCircle,
+    note: {
+      title: 'Important Point'
+    },
+    subject: {
+      radius: 20,
+      radiusPadding: 5
+    },
+    connector: {
+      end : "arrow"
+    }
+  }
+}
+```
 
 ### Other Methods
 

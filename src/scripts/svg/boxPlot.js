@@ -29,6 +29,7 @@ export default function () {
           graph:          newGraph,
           x:              $$.px(point, i),
           y:              $$.py(point, i),
+          annotations:    $$.pannotations(point, i),
           median:         $$.box.median()(point, i)
         };
       });
@@ -57,7 +58,8 @@ export default function () {
 
     $$.box
       .data(p => p.data)
-      .annotation($$.annotation);
+      .annotation($$.annotation)
+      .annotations($$.pannotations);
 
     if (context !== selection) {
       graphUpdate = graphUpdate.transition(context);
@@ -194,6 +196,7 @@ export default function () {
     .addPropFunctor('py', d => d.y)
     .addPropFunctor('pcolor', null)
     .addPropFunctor('pkey', (d, i) => i)
+    .addPropFunctor('pannotations', d => d.annotations)
     // methods
     .addMethod('getComputedGraphs', context => {
       return (context.selection? context.selection() : context).data().map((d, i) => getGraphs(d, i));

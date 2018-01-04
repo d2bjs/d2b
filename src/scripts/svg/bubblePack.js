@@ -273,9 +273,12 @@ export default function () {
    * @param {d3.transition or null} trans - transition if present
    * @param {d3.scale} x - x scale
    * @param {d3.scale} y - y scale
+   * @param {d3.scale} preX - pervious x scale
+   * @param {d3.scale} preY - pervious y scale
    * @param {Number} shift - horizontal pixel shift
    * @param {d3.selection} chart - master chart container
    * @param {function} addTooltipPoint - function to append a point to the tooltip component
+   * @param {Boolean} autoEnter - enter point at its own location rather than its parents
    * @param {Number} depth - depth tracker
    */
   function renderPacks(el, data, trans, x, y, preX, preY, shift, chart, addTooltipPoint, autoEnter, depth = 0) {

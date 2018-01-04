@@ -62,6 +62,11 @@ If *x* is specified, sets the *x* scale to the specified [d3-scale](https://gith
 
 If *y* is specified, sets the *y* scale to the specified [d3-scale](https://github.com/d3/d3-scale) and returns the bar generator. If *y* is not specified, returns the current *y* scale, which defaults to a [d3.scaleLinear()](https://github.com/d3/d3-scale#scaleLinear).
 
+# {#annotation}
+[#](#annotation) bar.**annotation**([*d3-annotation*])
+
+If *d3-annotation* is specified, sets the annotation generator to the specified [d3-annotation](http://d3-annotation.susielu.com/) and returns the bar generator. If *d3-annotation* is not specified, returns the current annotation generator, which defaults to a [d3.annotation()](http://d3-annotation.susielu.com/).
+
 ### Datum Level Accessors
 
 When the d2b bar generator is applied to a selection, the following properties will be invoked. The function will be passed the element's bound [datum](https://github.com/d3/d3-selection#selection_datum) `d` and the corresponding element index `i`.
@@ -276,6 +281,45 @@ If *color* is null then the corresponding graph [color](#color) will be used.
 If *key* is specified, sets the *key* accessor to the specified accessor function and returns the bar generator. If *key* is not specified, returns the current *key* accessor, which defaults to `(d, i) => i`.
 
 If transitioning between data sets, the [key](#pkey) may be used to be sure that the matching bar points transition properly.
+
+# {#pannotation}
+[#](#pannotation) bar.**pannotation**([*annotation*])
+
+If *annotation* is specified, sets the *annotation* accessor to the specified accessor function and returns the bar generator. If *annotation* is not specified, returns the current *annotation* accessor, which defaults to:
+
+```javascript
+function (d) {
+  return d.annotation;
+}
+```
+
+## Annotations {#annotations}
+
+The bar graph generator has built in hooks for annotations using the [d3.annotation plugin](d3-annotation.susielu.com). Each value in a bar graph may contain an annotation at its `(x, y)` location. For example, a bar value with an annotation:
+
+```javascript
+{
+  x: 2,
+  y: 41,
+  annotation: {
+    // dx/dy pixel offset that the annotation has from the value
+    dy: -150,
+    dx: -150,
+    // use a custom annotation type from d3.annotation
+    type: d3.annotationCalloutCircle,
+    note: {
+      title: 'Important Point'
+    },
+    subject: {
+      radius: 20,
+      radiusPadding: 5
+    },
+    connector: {
+      end : "arrow"
+    }
+  }
+}
+```
 
 ### Other Methods
 

@@ -56,7 +56,7 @@ export default function () {
         return stacker.out(buildOut(si))(sg.values);
       });
 
-    modifyBaseline(graphs, $$.baseline(d, i));
+    modifyBaseline(graphs, $$.baseline(d, i, [].concat.apply([], graphs.map(g => g.values.map(v => v.extent[1])))));
 
     return graphs;
   }

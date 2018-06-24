@@ -130,7 +130,11 @@ export default function () {
     .addPropFunctor('size', d => d.size);
 
   function getHierarchy (d) {
-    return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));
+    // compute a hierarchy based on the root, only use sizes for leaf nodes.
+    return updateDescendants(d3.hierarchy(d, $$.children).sum(d => {
+      const children = $$.children(d);
+      if (!children || !children.length) return $$.size(d);
+    }));
   }
 
   function updateDescendants (node, i = 0) {

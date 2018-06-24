@@ -41,8 +41,7 @@
     "d3": "^4.5.0",
     "d3-interpolate-path": "^2.0.1",
     "d3-sankey": "^0.7.1",
-    "d3-svg-annotation": "^2.1.0",
-    "flubber": "^0.4.0"
+    "d3-svg-annotation": "^2.1.0"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",

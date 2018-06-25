@@ -28,7 +28,7 @@ export default function () {
             innerRadius = $$.innerRadius(d, i),
             showLabels  = $$.showLabels(d, i),
             root        = getHierarchy(d);
-
+            
       let selected = getSelected(root);
       setVisibility(selected, $$.descendantLevels(d, i) + selected.depth);
 
@@ -135,18 +135,27 @@ export default function () {
       const children = $$.children(d);
       if (!children || !children.length) return $$.size(d);
     }));
+    // return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));
   }
 
   function updateDescendants (node, i = 0) {
     node.key = $$.key(node.data, i);
     node.color = $$.color(node.data, i);
     node.label = $$.label(node.data, i);
+    node.size = $$.size(node.data, i);
+    node.value = node.size;
 
     if (!node.children) return;
 
     node.children.forEach(updateDescendants);
 
+    node.value = getValue(node);
+    
     return node;
+  }
+
+  function getValue (node) {
+    return oreq(node.size, node.children ? d3.sum(node.children, getValue) : 0);
   }
 
   function getSelected (root) {
@@ -237,7 +246,7 @@ export default function () {
     $$.pie
       .startAngle(startAngle)
       .endAngle(endAngle);
-
+      
     $$.pie(newData)
       .forEach(function (d) {
         const radii = tools.radii(d.data.depth);
@@ -356,7 +365,9 @@ export default function () {
     arcUpdate.select(`.d2b-sunburst-${type}-children.${levelClass}`)
         .each(function (d) {
           const children = d.children || [];
-          updateNodes.call(this, children, type, depth + 1, d.startAngle, d.endAngle, tools);
+          const childrenTotal = d3.sum(children, c => c.value);
+          const childrenEndAngle = d.startAngle + ((d.endAngle - d.startAngle) * childrenTotal) / d.value;
+          updateNodes.call(this, children, type, depth + 1, d.startAngle, childrenEndAngle, tools);
         });
 
   }

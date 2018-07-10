@@ -15,7 +15,6 @@ import color from '../util/color';
  * pie chart generator
  */
 export default function () {
-
   const $$ = {};
 
   const chart = function (context) {
@@ -67,6 +66,7 @@ export default function () {
     .addPropFunctor('radius', (d, w, h) => Math.min(w, h) / 2)
     .addPropFunctor('color', d => color(d.label))
     .addPropFunctor('value', d => d.value)
+    .addPropFunctor('arcLabel', null)
     .addPropFunctor('label', d => d.label);
 
   // update chart
@@ -87,7 +87,7 @@ export default function () {
     el
       .select('.d2b-legend-container')
         .call($$.legend)
-        .on('change', () => el.transition($$.duration(datum)).call(chart))
+        .on('change', () => el.transition().duration($$.duration(datum)).call(chart))
       .selectAll('.d2b-legend-item')
         .on('mouseover', function (d) { arcGrow.call(this, el, d); })
         .on('mouseout', function (d) { arcShrink.call(this, el, d); });
@@ -152,14 +152,28 @@ export default function () {
     }
 
 
-    arcGroup
+    const arcText = arcGroup
       .select('.d2b-pie-arc-percent')
         .call(tweenCentroid, $$.pie.arc())
-      .select('text')
-        .call(tweenNumber, d => $$.value(d.data) / total, percent)
-        .style('opacity', function (d) {
-          return $$.showPercent.call(this, d.data, total)? 1 : 0;
-        });
+      .select('text');
+
+    arcText.each(function (d) {
+      const arcLabel = $$.arcLabel(d.data);
+      let text = d3.select(this);
+
+      if (transition) text = text.transition(transition);
+      
+      // if arc label is non-null use percents
+      if (arcLabel) {
+        text.text(arcLabel);
+      } else {
+        text
+          .call(tweenNumber, $$.value(d.data) / total, percent)
+          .style('opacity', function (d) {
+            return $$.showPercent.call(this, d.data, total)? 1 : 0;
+          });
+      }
+    });
 
     const coords = chartCoords(datum, radius, size);
     chartGroupEnter.attr('transform', `translate(${coords.x}, ${coords.y})`);

@@ -1,6 +1,6 @@
 {
   "name": "d2b",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "A d3-based reusable chart library.",
   "keywords": [
     "d3",

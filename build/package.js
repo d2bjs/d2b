@@ -1,5 +1,5 @@
 export var name = "d2b";
-export var version = "0.5.4";
+export var version = "0.5.5";
 export var description = "A d3-based reusable chart library.";
 export var keywords = ["d3","d3-module","chart","charts","pie","axis","line","area","bar","stacked","tooltip"];
 export var license = "MIT";

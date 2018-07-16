@@ -89,8 +89,8 @@ export default function () {
         .call($$.legend)
         .on('change', () => el.transition().duration($$.duration(datum)).call(chart))
       .selectAll('.d2b-legend-item')
-        .on('mouseover', function (d) { arcGrow.call(this, el, d); })
-        .on('mouseout', function (d) { arcShrink.call(this, el, d); });
+        .on('mouseover', function (d) { arcGrow.call(this, el, d, 1.03); })
+        .on('mouseout', function (d) { arcGrow.call(this, el, d); });
 
     // get pie total
     const total = d3.sum(filtered, d => $$.value(d));
@@ -122,8 +122,8 @@ export default function () {
           // store percent for use with the tooltip
           d.__percent__ = d.value / total;
         })
-        .on('mouseover', function (d) { arcGrow.call(this, el, d.data); })
-        .on('mouseout', function (d) { arcShrink.call(this, el, d.data); })
+        .on('mouseover', function (d) { arcGrow.call(this, el, d.data, 1.03); })
+        .on('mouseout', function (d) { arcGrow.call(this, el, d.data); })
         .call($$.tooltip);
 
     let arcPercent = arcGroup.selectAll('.d2b-pie-arc-percent').data(d => [d]);
@@ -146,9 +146,9 @@ export default function () {
 
     if (transition) {
       arcGroup = arcGroup
-          .each(function () {this.transitioning = true;})
+          .each(function (d) {d.transitioning = true;})
         .transition(transition)
-          .on('end', function () {this.transitioning = false;});
+          .on('end', function (d) {d.transitioning = false;});
     }
 
 
@@ -176,6 +176,9 @@ export default function () {
     });
 
     const coords = chartCoords(datum, radius, size);
+
+    if (isNaN(coords.x) || isNaN(coords.y)) return;
+
     chartGroupEnter.attr('transform', `translate(${coords.x}, ${coords.y})`);
     chartGroup.attr('transform', `translate(${coords.x}, ${coords.y})`);
   }
@@ -220,38 +223,25 @@ export default function () {
     return coords;
   }
 
-  function arcGrow (el, d) {
+  function arcGrow (el, d, multiplier = 1) {
     const arc = $$.pie.arc();
+    let transitioning = false;
 
     arc
       .outerRadius(d => d.outerRadius)
       .innerRadius(d => d.innerRadius);
 
-    el.selectAll('.d2b-pie-arc')
+    const arcSvg = el.selectAll('.d2b-pie-arc')
       .filter(dd => dd.data === d)
         .each(function (d) {
-          d.outerRadius = d.__outerRadius__ * 1.03;
+          transitioning = transitioning || d.transitioning;
+          d.outerRadius = d.__outerRadius__ * multiplier;
           d.innerRadius = d.__innerRadius__;
-        })
-      .select('path')
-      .transition()
-        .duration(100)
-        .call(tweenArc, arc);
-  }
+        });
 
-  function arcShrink (el, d) {
-    const arc = $$.pie.arc();
+    if (transitioning) return;
 
-    arc
-      .outerRadius(d => d.outerRadius)
-      .innerRadius(d => d.innerRadius);
-
-    el.selectAll('.d2b-pie-arc')
-      .filter(dd => dd.data === d)
-        .each(function (d) {
-          d.outerRadius = d.__outerRadius__;
-          d.innerRadius = d.__innerRadius__;
-        })
+    arcSvg    
       .select('path')
       .transition()
         .duration(100)

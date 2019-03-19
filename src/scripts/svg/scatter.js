@@ -5,6 +5,7 @@ import base from '../model/base';
 import color from '../util/color';
 import point from '../svg/point';
 import stack from '../util/stack';
+import oreq from '../util/oreq';
 import id from '../util/id';
 import updateAnnotations from '../util/annotation';
 
@@ -20,7 +21,7 @@ export default function () {
         align:         $$.align(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
-        stackBy:       $$.stackBy(graph, i),
+        stackBy:       oreq($$.stackBy(graph, i), i),
         key:           $$.key(graph, i),
         color:         $$.color(graph, i),
         symbol:        $$.symbol(graph, i)

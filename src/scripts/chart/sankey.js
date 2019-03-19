@@ -4,6 +4,7 @@ import base from '../model/base';
 import chartFrame from '../util/chartFrame';
 import tooltip from '../util/tooltip';
 import sankey from '../svg/sankey';
+import chartSankeyAdvanced from '../chartAdvanced/sankey';
 
 export default function () {
 
@@ -19,6 +20,7 @@ export default function () {
     });
 
     selection.dispatch('chart-sankey-updated', {bubbles: true});
+    selection.dispatch('chart-updated', {bubbles: true});
 
     return chart;
   }
@@ -75,7 +77,8 @@ export default function () {
     .addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false))
     .addProp('sankey', sankey())
     .addProp('nodeTooltip', defaultNodeTooltip)
-    .addProp('linkTooltip', defaultLinkTooltip);
+    .addProp('linkTooltip', defaultLinkTooltip)
+    .addAdvancedConfig(chartSankeyAdvanced);
 
   return chart;
 }

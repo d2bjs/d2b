@@ -9,6 +9,7 @@ import tweenCentroid from '../util/tweenCentroid';
 import tweenNumber from '../util/tweenNumber';
 import svgPie from '../svg/pie';
 import color from '../util/color';
+import chartPieAdvanced from '../chartAdvanced/pie';
 
 /**
  * d2b.chartPie() returns a d2b
@@ -40,6 +41,7 @@ export default function () {
     });
 
     selection.dispatch('chart-pie-updated', {bubbles: true});
+    selection.dispatch('chart-updated', {bubbles: true});
 
     return chart;
   };
@@ -67,7 +69,25 @@ export default function () {
     .addPropFunctor('color', d => color(d.label))
     .addPropFunctor('value', d => d.value)
     .addPropFunctor('arcLabel', null)
-    .addPropFunctor('label', d => d.label);
+    .addPropFunctor('label', d => d.label)
+    .addAdvancedConfig(chartPieAdvanced);
+
+  // // The advanced method is an alternative to calling the chart base method directly.
+  // // The method will provide additional chart configuration before rendering through
+  // // the `chartPieAdvanced` function.
+  // chart.advanced = function (context) {
+  //   const selection = (context.selection)? context.selection() : context;
+  //   const transition = selection !== context;
+
+  //   selection.each(function (datum) {
+  //     if (datum.onChartUpdated) d3.select(this).on('chart-updated', datum.onChartUpdated);
+  //     let el = d3.select(this).selectAll('.d2b-chart-advanced').data([chartPieAdvanced(chart, datum)]);
+  //     const elEnter = el.enter().append('div').attr('class', 'd2b-chart-advanced');
+  //     el = elEnter.merge(el);
+  //     const elTransition = transition ? el.transition(context) : el;
+  //     elTransition.call(chart);
+  //   });
+  // };
 
   // update chart
   function update (datum, transition) {
@@ -227,10 +247,6 @@ export default function () {
     const arc = $$.pie.arc();
     let transitioning = false;
 
-    arc
-      .outerRadius(d => d.outerRadius)
-      .innerRadius(d => d.innerRadius);
-
     const arcSvg = el.selectAll('.d2b-pie-arc')
       .filter(dd => dd.data === d)
         .each(function (d) {
@@ -241,7 +257,7 @@ export default function () {
 
     if (transitioning) return;
 
-    arcSvg    
+    arcSvg
       .select('path')
       .transition()
         .duration(100)

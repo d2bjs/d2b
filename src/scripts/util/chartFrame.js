@@ -44,15 +44,6 @@ export default function () {
           chartPadding = cleanPadding($$.chartPadding(d)),
           size = cleanSize($$.size(d), this.getBoundingClientRect());
 
-      enterUpdate(frame, frameUpdate, d => {
-        d
-            .style('width', size.width + 'px')
-            .style('height', size.height + 'px');
-      });
-
-      size.width -= padding.left + padding.right;
-      size.height -= padding.top + padding.bottom;
-
       const legendDatum = $$.legendEnabled(d) ? [d] : [];
 
       let legend = frame.selectAll('.d2b-legend-frame').data(legendDatum),
@@ -102,6 +93,13 @@ export default function () {
         breadcrumbsUpdate = breadcrumbsUpdate.transition(context);
         chartUpdate = chartUpdate.transition(context);
       }
+
+      frameUpdate
+          .style('width', size.width + 'px')
+          .style('height', size.height + 'px');
+
+      size.width -= padding.left + padding.right;
+      size.height -= padding.top + padding.bottom;
 
       placeComponent(breadcrumbs, breadcrumbsEnter, breadcrumbsUpdate, $$.breadcrumbsOrient(d), padding, size);
       placeComponent(legend, legendEnter, legendUpdate, $$.legendOrient(d), padding, size);
@@ -165,7 +163,6 @@ export default function () {
       } else if (orient === 'top' || orient === 'bottom') {
         el.classed('d2b-vertical', false);
         box = node.getBoundingClientRect();
-
 
         enterUpdate(enter, update, d => {
           d

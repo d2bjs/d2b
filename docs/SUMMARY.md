@@ -287,6 +287,7 @@
 
     * [pie](svg/pie.md#apply)
     * [pie.arc](svg/pie.md#arc)
+    * [pie.pie](svg/pie.md#pie)
     * [pie.values](svg/pie.md#values)
     * [pie.color](svg/pie.md#color)
     * [pie.key](svg/pie.md#key)
@@ -344,7 +345,7 @@
     * [sunburst](svg/sunburst.md#apply)
     * [sunburst.pie](svg/sunburst.md#pie)
     * [sunburst.ancestorBanding](svg/sunburst.md#ancestor_banding)
-    * [sunburst.descendant_banding](svg/sunburst.md#descendant_banding)
+    * [sunburst.descendantBanding](svg/sunburst.md#descendant_banding)
     * [sunburst.duration](svg/sunburst.md#duration)
     * [sunburst.innerRadius](svg/sunburst.md#inner_radius)
     * [sunburst.outerRadius](svg/sunburst.md#outer_radius)

@@ -1,12 +1,28 @@
 import * as d3 from 'd3';
 
-export default function (context, arc) {
+export default function (context, arc, reform = true) {
+  // Reform the arc config methods so that they will first look at the arc datum
+  // for the config property and otherwise they will fallback to the arcs methods
+  // original callback
+  if (reform) {
+    ['cornerRadius', 'innerRadius', 'outerRadius', 'startAngle', 'endAngle', 'cornerRadius', 'padAngle'].forEach(method => {
+      const methodSave = arc[method]();
+      if (methodSave && !methodSave.reformed) {
+        const methodReformed = d => d[method] || methodSave(d);
+        methodReformed.reformed = true;
+        arc[method](methodReformed);
+      }
+    });
+  }
+
   function getProperties(d) {
     return {
       innerRadius: arc.innerRadius()(d),
       outerRadius: arc.outerRadius()(d),
       startAngle: arc.startAngle()(d),
       endAngle: arc.endAngle()(d),
+      cornerRadius: arc.cornerRadius()(d),
+      padAngle: arc.padAngle()(d),
     };
   }
 

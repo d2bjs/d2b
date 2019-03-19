@@ -206,13 +206,20 @@ export default function () {
             points = [];
       data.forEach(graphs => {
         graphs.forEach(graph => {
+          const orient = graph.orient === 'vertical' ? {x: 'x', y: 'y'} : {x: 'y', y: 'x'};
           graph.values.forEach((v, i) => {
             ['maximum', 'minimum', 'upperQuartile', 'lowerQuartile', 'median'].forEach(metric => {
-              points.push({x: v.x, y: $$.box[metric]()(v.data, i), graph: graph});
+              const point = { graph };
+              point[orient.x] = v[orient.x];
+              point[orient.y] = $$.box[metric]()(v.data, i);
+              points.push(point);
             });
 
             ($$.box.outliers()(v.data, i) || []).forEach(outlier => {
-              points.push({x: v.x, y: outlier, graph: graph});
+              const point = { graph };
+              point[orient.x] = v[orient.x];
+              point[orient.y] = outlier;
+              points.push(point);
             });
           });
         });

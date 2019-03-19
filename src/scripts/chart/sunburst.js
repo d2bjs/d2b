@@ -6,6 +6,7 @@ import tooltip from '../util/tooltip';
 import breadcrumbs from '../util/breadcrumbs';
 import svgSunburst from '../svg/sunburst';
 import color from '../util/color';
+import chartSunburstAdvanced from '../chartAdvanced/sunburst';
 
 /**
  * d2b.chartSunburst() returns a d2b
@@ -33,6 +34,7 @@ export default function () {
     });
 
     selection.dispatch('chart-sunburst-updated', {bubbles: true});
+    selection.dispatch('chart-updated', {bubbles: true});
 
     return chart;
   };
@@ -46,7 +48,8 @@ export default function () {
     .addPropFunctor('label', d => d.label)
     .addPropFunctor('color', d => color($$.label(d)))
     .addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
-    .addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
+    .addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4))
+    .addAdvancedConfig(chartSunburstAdvanced);
 
   // helpers
   const format = d3.format(',.0f'),

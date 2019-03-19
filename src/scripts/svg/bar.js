@@ -28,7 +28,7 @@ export default function () {
         index:          i,
         tooltipGraph:   $$.tooltipGraph(graph, i),
         shift:          $$.shift(graph, i),
-        stackBy:        $$.stackBy(graph, i),
+        stackBy:        oreq($$.stackBy(graph, i), i),
         key:            $$.key(graph, i),
         color:          $$.color(graph, i)
       };
@@ -369,7 +369,7 @@ export default function () {
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('orient', 'vertical')
     .addPropFunctor('shift', null)
-    .addPropFunctor('stackBy', (d, i) => i)
+    .addPropFunctor('stackBy', null)
     .addPropFunctor('key', d => d.label)
     .addPropFunctor('values', d => d.values, null)
     .addPropFunctor('color', d => color(d.label))

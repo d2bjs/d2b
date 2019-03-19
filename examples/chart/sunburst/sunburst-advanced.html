@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="../../../node_modules/d3/dist/d3.min.js"></script>
+<script src="../../../build/d2b.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div class = 'sunburst-chart'></div>
+
+  <script>
+      var sunburst = d2b.chartSunburst();
+
+      var chart = d3.select('.sunburst-chart');
+
+      chart
+          .datum({
+            // root: (required) {label: string, children: array, size: number}
+            root: {
+              /* This is the root node in the heirarchy. All nodes in the tree may have the following properties. */
+
+              // label: (required) string
+              // The sunburst arc label.
+              label: 'root',
+
+              // size: number
+              // Arc size, if the arc has children, then no size is needed.
+
+              // children: array
+              // The child arcs, if there are no child arcs then a size should be given.
+
+              // selected: (optional) boolean
+              // One arc in the tree may be selected at a time. This is the point where the sunburst will zoom to.
+              // default: The root node will default to selected if no others are set.
+
+              // color: (optional) color
+              // The arc color.
+              // default: color set dynamically based on the arc label. If set, this will override the arc color accessor.
+              color: 'steelblue',
+
+              // tooltip: (optional) tooltip
+              // The arc tooltip content. If set, this will override the tooltip accessor.
+              // tooltip: null, // null will disable the tooltip for this arc
+
+              // breadcrumb: (optional) breadcrumb
+              // The arc breadcrumb content. If set, this will override the breadcrumbs accessor.
+              // breadcrumb: null, // null will disable the breadcrumb for this arc
+
+              children: [
+                {
+                  label: 'child 1',
+                  children: [
+                    {
+                      label: 'child 1-1',
+                      size: 10
+                    },
+                    {
+                      label: 'child 1-2',
+                      children: [
+                        {
+                          label: 'child 1-2-1',
+                          size: 5
+                        },
+                        {
+                          label: 'child 1-3-1',
+                          size: 8
+                        }
+                      ]
+                    },
+                    {
+                      label: 'child 1-3',
+                      // selected: true,
+                      children: [
+                        {
+                          label: 'child 1-3-1',
+                          children: [
+                            {
+                              label: 'child 1-3-1-1',
+                              size: 2
+                            },
+                            {
+                              label: 'child 1-3-1-2',
+                              size: 16
+                            }
+                          ]
+                        },
+                        {
+                          label: 'child 1-3-2',
+                          size: 8
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  label: 'child 2',
+                  size: 25
+                }
+              ]
+            },
+
+            // Event hook for d2b charts. Will be fired whenever the chart is rendered either externally or internally.
+            // Note: Transitions may still occur after this lifecycle hook fires.
+            // updated (datum) {
+            //   console.log(datum) // event will be passed the chart datum
+            //   console.log(this) // context will be chart container DOM element
+            // },
+
+            // size: (optional) {height: number, width: number}
+            // The pixel size of the chart.
+            // default: width and height will size according to the container size if not provided
+            size: {
+              height: 400
+            },
+          
+            // duration: (optional) number
+            // The duration of internal chart transitions in miliseconds.
+            // default: 250
+            duration: 500,
+
+            // chartPadding: (optional) number or { top: number, left: number, right: number, bottom: number }
+            // The inner chart padding (excluding the legend)
+            // default: 10
+      
+            // padding: (optional) number or { top: number, left: number, right: number, bottom: number }
+            // The outer chart padding (including the legend)
+            // default: 10
+
+            // padAngle: (optional) number
+            // Sunburst chart angle padding in radians.
+            // default: 0
+
+            // cornerRadius: (optional) number
+            // Corner radius of the sunburst arcs.
+            // default: 0
+            // cornerRadius: 5,
+
+            // sort: (optional) function (a, b)
+            // Sort comparator for sunburst arcs.
+            // default: null
+
+            // ancestorPadding: (optional) number
+            // Defines the pixel distance between the ancestor (inner) and descendant (outer) bands.
+            // default: 10
+
+            // descendantLevels: (optional) number
+            // The maximum number of descendant (outer) bands to show at a time. Deeper bands will be drawn when zooming.
+            // default: Infinity
+          
+            // startAngle: (optional) number
+            // Sunburst chart start angle in radians.
+            // default: 0
+            
+            // endAngle: (optional) number
+            // Sunburst chart end angle in radians.
+            // default: 2 * Math.PI
+
+            // showLabels: (optional) boolean
+            // Enable or disable the sunburst labels.
+            // default: false
+
+            // zoomable: (optional) boolean
+            // Enable or disable the sunburst zooming on click.
+            // default: true
+
+            // highlight: (optional) boolean
+            // Enable or disable the sunburst highlight on mouseover.
+            // default: true
+
+            // ancestorBandingExponent: (optional) number
+            // Defines the sizing of the sunburst bands for the ancestor (inner) bands. An exponent of 1 will make the bands equal size.
+            // default: 1
+
+            // descendantBandingExponent: (optional) number
+            // Defines the sizing of the sunburst bands for the descendant (outer) bands. An exponent of 1 will make the bands equal size.
+            // default: 1
+
+            // color: (optional) function (d)
+            // Color accessor for arcs.
+            // default: color dynamically based on arc label
+            // color: function (d) {
+            //   return 'orange'
+            // },
+            
+            // innerRadius: (optional) function (width, height)
+            // The pixel inner radius of the sunburst chart. Usually relative to the width / height of the container.
+            // default: function (width, height) { return Math.min(width, height) / 2; },
+            
+            // outerRadius: (optional) function (width, height)
+            // The pixel outer radius of the sunburst chart. Usually relative to the width / height of the container.
+            // default: function (width, height) { return Math.min(width, height) / 2; },
+
+            // breadcrumbs: (optional)
+            // Breadcrumbs configuration options
+            breadcrumbs: {
+              // html: (optional) null, string, or function (d, value, percent)
+              // Html content to be displayed in the arc's breadcrumb.
+              // default: function (d, value, percent) {
+              //   return `
+              //     <div class = 'd2b-sunburst-breadcrumb'>
+              //       <div class = 'd2b-sunburst-label'>
+              //         ${d.label}
+              //       </div>
+              //       <div class = 'd2b-sunburst-value'>
+              //         ${value}
+              //         ${percent > 1 ? '' : `<div class = 'd2b-sunburst-percent'> ${d3.format('.0%')(percent)} </div>`}
+              //       </div>
+              //     </div>
+              //   `;
+              // }
+            },
+
+            // tooltip: (optional)
+            // Tooltip configuration options
+            tooltip: {
+              // followMouse: (optional) boolean
+              // Tooltip will follow mouse instead of being placed in a static position relative to the arc.
+              // default: true
+
+              // my: (optional) one of ('left', 'right', 'top', 'bottom')
+              // Orientation of the tooltip
+              // default: alternates between left and right depending on the position of the cursor relative to the viewport
+
+              // at: (optional) one of ('top left', 'top center', 'top right', 'center left', 'center center', 'center right', 'bottom center', 'bottom right'
+              // Orientation of the tooltip relative to the hovered item box.
+              // default: alternates between 'center left' and 'center right' depending on the position of the cursor relative to the viewport.
+
+              // html: (optional) null, string, or function (d, value, percent)
+              // Html content to be displayed in the arc's tooltip.
+              // default: function (d, value, percent) {
+              //   return `
+              //     <div class = 'd2b-sunburst-tooltip'>
+              //       <div class = 'd2b-sunburst-label'>
+              //         ${d.label}
+              //       </div>
+              //       <div class = 'd2b-sunburst-value'>
+              //         ${value}
+              //         ${percent > 1 ? '' : `<div class = 'd2b-sunburst-percent'> ${d3.format('.0%')(percent)} </div>`}
+              //       </div>
+              //     </div>
+              //   `;
+              // }
+            },
+          })
+          .call(sunburst.advanced);
+
+    window.onresize = function () { chart.call(sunburst.advanced); };
+  </script>
+</body>
+</html>

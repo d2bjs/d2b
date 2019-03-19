@@ -56,6 +56,8 @@ export default function () {
   };
 
   const mouseover = function (d, i) {
+    const html = $$.html.call(this, d, i);
+    if (!html) return;
     let tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(d => [d]);
 
     const newTooltip = tooltipUpdate.enter()
@@ -88,6 +90,7 @@ export default function () {
                     {x: d3.event.clientX, y: d3.event.clientY} :
                     getCoords.call(targetNode, d, i);
 
+    if (!html) return;
     // if (!$$.container.selectAll('.d2b-tooltip').size()) return mouseover(d, i);
 
     let tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(d => [d]);

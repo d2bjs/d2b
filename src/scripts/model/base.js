@@ -60,6 +60,35 @@ export default function (base = {}, $$ = {}, protect) {
     };
   };
 
+  // Conditionally call a prop with arguments
+  // If there are more than 2 arguments supplied, the prop will be called 
+  // with the arguments as long as the condition is truthy
+  // Else if only 2 arguments suplied, the prop will be called with the
+  // condition argument as long as the condition is defined
+  base.conditionally = (prop, cond, ...args) => {
+    if (args.length) {
+      if (cond) base[prop].apply(null, args);
+    } else {
+      if (cond !== undefined) base[prop](cond);
+    }
+
+    return base;
+  };
+
+  const methodAdded = function (method) {
+    // Adds the conditionally modifier to a newly created base method. Similar to base.conditionally,
+    // but is added to the method itself. e.g. `base.method.conditionally()`
+    method.conditionally = (cond, ...args) => {
+      if (args.length) {
+        if (cond) method.apply(null, args);
+      } else {
+        if (cond !== undefined) method(cond);
+      }
+  
+      return base;
+    };
+  };
+
   /* Base Model */
   const model = {
     base: () => { return base; },
@@ -99,6 +128,7 @@ export default function (base = {}, $$ = {}, protect) {
       fn(value);
 
       base[prop] = fn;
+      methodAdded(base[prop]);
 
       return model;
     },
@@ -118,6 +148,7 @@ export default function (base = {}, $$ = {}, protect) {
 
       $$[prop] = value;
       base[prop] = fn;
+      methodAdded(base[prop]);
 
       return model;
     },
@@ -134,6 +165,7 @@ export default function (base = {}, $$ = {}, protect) {
         return model;
       }
       base[method] = fn;
+      methodAdded(base[method]);
 
       return model;
     },
@@ -156,7 +188,22 @@ export default function (base = {}, $$ = {}, protect) {
 
       fn(value);
 
-      base[prop] = fn;
+      const newProp = base[prop] = fn;
+
+      methodAdded(base[prop]);
+
+      newProp.proxy = (proxy) => {
+        const current = newProp();
+        const original = current.original || current;
+        const proxied = function (...args) {
+          const value = proxy.apply(this, args);
+          return value === undefined ? original.apply(this, args) : value;
+        };
+        proxied.original = original;
+        newProp(proxied);
+
+        return base;
+      };
 
       return model;
     },
@@ -197,8 +244,34 @@ export default function (base = {}, $$ = {}, protect) {
 
         return base;
       };
+      methodAdded(base[prop]);
 
       $$[store] = d3.dispatch.apply(this, events);
+
+      return model;
+    },
+    /**
+      * model.addAdvancedConfig adds the base.advanced prop that will proxy through
+      * some config function before rendering the base on the selection.
+      * @param {Number} conf    - property key
+      * @return {Object} model  - returns model to allow for method chaining
+      */
+    addAdvancedConfig: (config) => {
+      base.advanced = function (context) {
+        const selection = (context.selection)? context.selection() : context;
+        const transition = selection !== context;
+
+        selection.each(function (datum) {
+          if (datum.updated !== undefined) d3.select(this).on('chart-updated.advanced', datum.updated);
+          let el = d3.select(this).selectAll('.d2b-chart-advanced').data([config(base, datum)]);
+          const elEnter = el.enter().append('div').attr('class', 'd2b-chart-advanced');
+          el = elEnter.merge(el);
+          const elTransition = transition ? el.transition(context) : el;
+          elTransition.call(base);
+        });
+
+        return base;
+      };
 
       return model;
     }

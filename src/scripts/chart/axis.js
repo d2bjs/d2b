@@ -9,6 +9,7 @@ import color from '../util/color';
 import tooltipAxis from '../util/tooltipAxis';
 import d2bid from '../util/id';
 import oreq from '../util/oreq';
+import chartAxisAdvanced from '../chartAdvanced/axis';
 import { updateAxis as updateAnnotations } from '../util/annotation';
 
 export default function () {
@@ -32,11 +33,13 @@ export default function () {
     });
 
     selection.dispatch('chart-axis-updated', {bubbles: true});
+    selection.dispatch('chart-updated', {bubbles: true});
 
     return chart;
   };
 
   base(chart, $$)
+    .addAdvancedConfig(chartAxisAdvanced)
     .addProp('plane', plane())
     .addProp('annotation', annotation ? annotation() : null)
     .addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false))

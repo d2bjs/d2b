@@ -1,9 +1,7 @@
 // Work around for JavaScripts ||= operator. Only null, undefined, NaN, and false will be construed as falsy.
 
 export default function (...args) {
-  let val = args[0];
-  args.forEach(function (a) {
-    if (val === null || val === undefined || val === false) val = a;
-  });
-  return val;
+  const truthy = v => v !== null && v !== undefined && v !== false;
+  const val = args.filter(truthy)[0];
+  return truthy(val) ? val : undefined;
 }

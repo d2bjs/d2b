@@ -148,7 +148,7 @@ export default function () {
     .addPropFunctor('key', (d, i) => i)
     .addPropFunctor('color', d => color(d.html))
     .addPropFunctor('html', d => d.html)
-    .addPropFunctor('icon', '\uf111')
+    .addPropFunctor('icon', d3.symbolCircle)
     .addPropFunctor('vertical', false)
     .addPropFunctor('allowEmptied', false)
     .addPropFunctor('clickable', false)

@@ -40,21 +40,21 @@ export default function () {
 
       // map link data wrapper
       const linksData = $$.links(datum).map((d, i) => {
-        const source = $$.linkSource(d, i),
-              target = $$.linkTarget(d, i);
+        let source = $$.linkSource(d, i),
+            target = $$.linkTarget(d, i);
 
-        const sourceKey = typeof source === 'object' ? $$.nodeKey(source) : source,
-              targetKey = typeof target === 'object' ? $$.nodeKey(target) : target;
+        if (typeof source !== 'object') source = nodesData.find(node => node.key === source);
+        if (typeof target !== 'object') target = nodesData.find(node => node.key === target);
 
-        const key = $$.linkKey(d, i, sourceKey, targetKey);
+        const key = $$.linkKey(d, i, source.key, target.key);
 
         return {
-          sourceKey: sourceKey,
-          targetKey: targetKey,
+          sourceKey: source.key,
+          targetKey: target.key,
           key: key,
           keyTrim: key.replace(/ /g, ''),
-          sourceColor: $$.linkSourceColor(d, i, sourceKey),
-          targetColor: $$.linkTargetColor(d, i, targetKey),
+          sourceColor: $$.linkSourceColor(d, i, source.color),
+          targetColor: $$.linkTargetColor(d, i, target.color),
           value: $$.linkValue(d, i),
           source: source,
           target: target,
@@ -233,6 +233,7 @@ export default function () {
         }
         $$.sankey.update(graph);
         updater();
+        selection.dispatch('chart-updated', {bubbles: true});
       }
 
       // set attributes on defined nodes and links
@@ -314,12 +315,12 @@ export default function () {
     .addPropFunctor('nodeColor', (d, i, key) => color(key))
     .addPropFunctor('links', d => d.links)
     .addPropFunctor('linkSource', d => d.source)
-    .addPropFunctor('linkSourceColor', (d, i, sourceKey) => {
-      return color(sourceKey);
+    .addPropFunctor('linkSourceColor', (d, i, sourceColor) => {
+      return sourceColor;
     })
     .addPropFunctor('linkTarget', d => d.target)
-    .addPropFunctor('linkTargetColor', (d, i, targetKey) => {
-      return color(targetKey);
+    .addPropFunctor('linkTargetColor', (d, i, targetColor) => {
+      return targetColor;
     })
     .addPropFunctor('linkKey', (d, i, sourceKey, targetKey) => {
       return `${sourceKey}-${targetKey}`;

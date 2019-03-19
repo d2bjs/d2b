@@ -1,4 +1,4 @@
-import '../styles/index.css';
+import '../styles/index.scss';
 
 export {version} from '../../build/package';
 export * from './util/util';

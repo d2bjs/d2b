@@ -18,9 +18,9 @@
     }
     return returnValue;
   }
-  __$styleInject(".d2b-draggable{cursor:move}.d2b-vue-container{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
+  __$styleInject(".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:0.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
 
-  var version = "0.5.5";
+  var version = "0.5.6";
 
   function functor(v) {
     return typeof v === 'function' ? v : function () {
@@ -31,15 +31,16 @@
   // Work around for JavaScripts ||= operator. Only null, undefined, NaN, and false will be construed as falsy.
 
   function oreq () {
+    var truthy = function truthy(v) {
+      return v !== null && v !== undefined && v !== false;
+    };
+
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    var val = args[0];
-    args.forEach(function (a) {
-      if (val === null || val === undefined || val === false) val = a;
-    });
-    return val;
+    var val = args.filter(truthy)[0];
+    return truthy(val) ? val : undefined;
   }
 
   // Wraps text based on character count and text accessor. This method uses
@@ -129,12 +130,32 @@
   }
 
   function tweenArc (context, arc) {
+    var reform = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+    // Reform the arc config methods so that they will first look at the arc datum
+    // for the config property and otherwise they will fallback to the arcs methods
+    // original callback
+    if (reform) {
+      ['cornerRadius', 'innerRadius', 'outerRadius', 'startAngle', 'endAngle', 'cornerRadius', 'padAngle'].forEach(function (method) {
+        var methodSave = arc[method]();
+        if (methodSave && !methodSave.reformed) {
+          var methodReformed = function methodReformed(d) {
+            return d[method] || methodSave(d);
+          };
+          methodReformed.reformed = true;
+          arc[method](methodReformed);
+        }
+      });
+    }
+
     function getProperties(d) {
       return {
         innerRadius: arc.innerRadius()(d),
         outerRadius: arc.outerRadius()(d),
         startAngle: arc.startAngle()(d),
-        endAngle: arc.endAngle()(d)
+        endAngle: arc.endAngle()(d),
+        cornerRadius: arc.cornerRadius()(d),
+        padAngle: arc.padAngle()(d)
       };
     }
 
@@ -304,6 +325,43 @@
       };
     };
 
+    // Conditionally call a prop with arguments
+    // If there are more than 2 arguments supplied, the prop will be called 
+    // with the arguments as long as the condition is truthy
+    // Else if only 2 arguments suplied, the prop will be called with the
+    // condition argument as long as the condition is defined
+    _base.conditionally = function (prop, cond) {
+      for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+        args[_key - 2] = arguments[_key];
+      }
+
+      if (args.length) {
+        if (cond) _base[prop].apply(null, args);
+      } else {
+        if (cond !== undefined) _base[prop](cond);
+      }
+
+      return _base;
+    };
+
+    var methodAdded = function methodAdded(method) {
+      // Adds the conditionally modifier to a newly created base method. Similar to base.conditionally,
+      // but is added to the method itself. e.g. `base.method.conditionally()`
+      method.conditionally = function (cond) {
+        for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          args[_key2 - 1] = arguments[_key2];
+        }
+
+        if (args.length) {
+          if (cond) method.apply(null, args);
+        } else {
+          if (cond !== undefined) method(cond);
+        }
+
+        return _base;
+      };
+    };
+
     /* Base Model */
     var model = {
       base: function base() {
@@ -351,6 +409,7 @@
         fn(value);
 
         _base[prop] = fn;
+        methodAdded(_base[prop]);
 
         return model;
       },
@@ -373,6 +432,7 @@
 
         $$[prop] = value;
         _base[prop] = fn;
+        methodAdded(_base[prop]);
 
         return model;
       },
@@ -389,6 +449,7 @@
           return model;
         }
         _base[method] = fn;
+        methodAdded(_base[method]);
 
         return model;
       },
@@ -415,7 +476,26 @@
 
         fn(value);
 
-        _base[prop] = fn;
+        var newProp = _base[prop] = fn;
+
+        methodAdded(_base[prop]);
+
+        newProp.proxy = function (proxy) {
+          var current = newProp();
+          var original = current.original || current;
+          var proxied = function proxied() {
+            for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+              args[_key3] = arguments[_key3];
+            }
+
+            var value = proxy.apply(this, args);
+            return value === undefined ? original.apply(this, args) : value;
+          };
+          proxied.original = original;
+          newProp(proxied);
+
+          return _base;
+        };
 
         return model;
       },
@@ -463,8 +543,34 @@
 
           return _base;
         };
+        methodAdded(_base[prop]);
 
         $$[store] = d3.dispatch.apply(_this, events);
+
+        return model;
+      },
+      /**
+        * model.addAdvancedConfig adds the base.advanced prop that will proxy through
+        * some config function before rendering the base on the selection.
+        * @param {Number} conf    - property key
+        * @return {Object} model  - returns model to allow for method chaining
+        */
+      addAdvancedConfig: function addAdvancedConfig(config) {
+        _base.advanced = function (context) {
+          var selection = context.selection ? context.selection() : context;
+          var transition = selection !== context;
+
+          selection.each(function (datum) {
+            if (datum.updated !== undefined) d3.select(this).on('chart-updated.advanced', datum.updated);
+            var el = d3.select(this).selectAll('.d2b-chart-advanced').data([config(_base, datum)]);
+            var elEnter = el.enter().append('div').attr('class', 'd2b-chart-advanced');
+            el = elEnter.merge(el);
+            var elTransition = transition ? el.transition(context) : el;
+            elTransition.call(_base);
+          });
+
+          return _base;
+        };
 
         return model;
       }
@@ -530,6 +636,8 @@
     };
 
     var mouseover = function mouseover(d, i) {
+      var html = $$.html.call(this, d, i);
+      if (!html) return;
       var tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(function (d) {
         return [d];
       });
@@ -554,6 +662,7 @@
           targetNode = target ? target.node() : this,
           coords = $$.followMouse.call(this, d, i) ? { x: d3.event.clientX, y: d3.event.clientY } : getCoords.call(targetNode, d, i);
 
+      if (!html) return;
       // if (!$$.container.selectAll('.d2b-tooltip').size()) return mouseover(d, i);
 
       var tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(function (d) {
@@ -968,7 +1077,10 @@
 
       bcs = bcs.merge(bcsEnter).classed('d2b-vertical', $$.vertical);
 
-      var bc = bcs.selectAll('.d2b-breadcrumb').data($$.values, $$.key),
+      // Set breadcrumb data from values accessor. And only show breadcrumbs that have html content.
+      var bc = bcs.selectAll('.d2b-breadcrumb').data(function (d) {
+        return $$.values(d).filter($$.html);
+      }, $$.key),
           bcExit = bc.exit();
 
       var bcEnter = bc.enter().append('div').attr('class', 'd2b-breadcrumb').style('opacity', 0);
@@ -1139,7 +1251,7 @@
       return color(d.html);
     }).addPropFunctor('html', function (d) {
       return d.html;
-    }).addPropFunctor('icon', '\uF111').addPropFunctor('vertical', false).addPropFunctor('allowEmptied', false).addPropFunctor('clickable', false).addPropFunctor('dblclickable', false).addPropFunctor('empty', function (d) {
+    }).addPropFunctor('icon', d3.symbolCircle).addPropFunctor('vertical', false).addPropFunctor('allowEmptied', false).addPropFunctor('clickable', false).addPropFunctor('dblclickable', false).addPropFunctor('empty', function (d) {
       return d.empty;
     }).addPropFunctor('setEmpty', function (d, i, state) {
       return d.empty = state;
@@ -1190,13 +1302,6 @@
             chartPadding = cleanPadding($$.chartPadding(d)),
             size = cleanSize($$.size(d), this.getBoundingClientRect());
 
-        enterUpdate(frame, frameUpdate, function (d) {
-          d.style('width', size.width + 'px').style('height', size.height + 'px');
-        });
-
-        size.width -= padding.left + padding.right;
-        size.height -= padding.top + padding.bottom;
-
         var legendDatum = $$.legendEnabled(d) ? [d] : [];
 
         var legend = frame.selectAll('.d2b-legend-frame').data(legendDatum),
@@ -1242,6 +1347,11 @@
           breadcrumbsUpdate = breadcrumbsUpdate.transition(context);
           chartUpdate = chartUpdate.transition(context);
         }
+
+        frameUpdate.style('width', size.width + 'px').style('height', size.height + 'px');
+
+        size.width -= padding.left + padding.right;
+        size.height -= padding.top + padding.bottom;
 
         placeComponent(breadcrumbs, breadcrumbsEnter, breadcrumbsUpdate, $$.breadcrumbsOrient(d), padding, size);
         placeComponent(legend, legendEnter, legendUpdate, $$.legendOrient(d), padding, size);
@@ -2046,7 +2156,7 @@
   };
 
   // line svg generator
-  function line$1 () {
+  function svgLine () {
     var $$ = {};
 
     function getGraphs(d, i) {
@@ -2057,7 +2167,7 @@
           align: $$.align(graph, i),
           tooltipGraph: $$.tooltipGraph(graph, i),
           shift: $$.shift(graph, i),
-          stackBy: $$.stackBy(graph, i),
+          stackBy: oreq($$.stackBy(graph, i), i),
           key: $$.key(graph, i),
           color: $$.color(graph, i)
         };
@@ -2313,7 +2423,7 @@
   }
 
   // line svg generator
-  function area$1 () {
+  function svgArea () {
     var $$ = {};
 
     function getGraphs(d, i) {
@@ -2323,7 +2433,7 @@
           index: i,
           tooltipGraph: $$.tooltipGraph(graph, i),
           shift: $$.shift(graph, i),
-          stackBy: $$.stackBy(graph, i),
+          stackBy: oreq($$.stackBy(graph, i), i),
           key: $$.key(graph, i),
           color: $$.color(graph, i)
         };
@@ -2444,7 +2554,7 @@
         ['y0', 'y1'].forEach(function (align) {
           var annotationValues = d.values.filter(function (v) {
             return (v.annotations || []).filter(function (a) {
-              return a.location === align;
+              return (a.location || 'y1') === align;
             }).length;
           });
 
@@ -2469,7 +2579,7 @@
             return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
           }).call(update, $$.annotation, 'd2b-area-annotation', function (v) {
             return v.annotations.filter(function (a) {
-              return a.location === align;
+              return (a.location || 'y1') === align;
             });
           });
 
@@ -2606,7 +2716,7 @@
   }
 
   // scatter svg generator
-  function scatter () {
+  function svgScatter () {
     var $$ = {};
 
     function getGraphs(d, i) {
@@ -2617,7 +2727,7 @@
           align: $$.align(graph, i),
           tooltipGraph: $$.tooltipGraph(graph, i),
           shift: $$.shift(graph, i),
-          stackBy: $$.stackBy(graph, i),
+          stackBy: oreq($$.stackBy(graph, i), i),
           key: $$.key(graph, i),
           color: $$.color(graph, i),
           symbol: $$.symbol(graph, i)
@@ -2840,7 +2950,7 @@
   }
 
   // bar svg generator
-  function bar () {
+  function svgBar () {
     var $$ = {};
 
     function getOrientMap(orient) {
@@ -2858,7 +2968,7 @@
           index: i,
           tooltipGraph: $$.tooltipGraph(graph, i),
           shift: $$.shift(graph, i),
-          stackBy: $$.stackBy(graph, i),
+          stackBy: oreq($$.stackBy(graph, i), i),
           key: $$.key(graph, i),
           color: $$.color(graph, i)
         };
@@ -3225,9 +3335,7 @@
     // graph props
     .addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
-    }).addPropFunctor('orient', 'vertical').addPropFunctor('shift', null).addPropFunctor('stackBy', function (d, i) {
-      return i;
-    }).addPropFunctor('key', function (d) {
+    }).addPropFunctor('orient', 'vertical').addPropFunctor('shift', null).addPropFunctor('stackBy', null).addPropFunctor('key', function (d) {
       return d.label;
     }).addPropFunctor('values', function (d) {
       return d.values;
@@ -3475,7 +3583,7 @@
           return orient.translate(0, scale(d[textType]));
         }).call(update, $$.annotation, 'd2b-box-annotation', function (d) {
           return (d.annotations || []).filter(function (a) {
-            return a.location === textType;
+            return (a.location || 'median') === textType;
           });
         });
 
@@ -3549,7 +3657,7 @@
   // import id from '../util/id';
 
   // box-plot svg generator
-  function boxPlot () {
+  function svgBoxPlot () {
     var $$ = {};
 
     function getGraphs(d, i) {
@@ -3753,13 +3861,20 @@
           points = [];
       data.forEach(function (graphs) {
         graphs.forEach(function (graph) {
+          var orient = graph.orient === 'vertical' ? { x: 'x', y: 'y' } : { x: 'y', y: 'x' };
           graph.values.forEach(function (v, i) {
             ['maximum', 'minimum', 'upperQuartile', 'lowerQuartile', 'median'].forEach(function (metric) {
-              points.push({ x: v.x, y: $$.box[metric]()(v.data, i), graph: graph });
+              var point = { graph: graph };
+              point[orient.x] = v[orient.x];
+              point[orient.y] = $$.box[metric]()(v.data, i);
+              points.push(point);
             });
 
             ($$.box.outliers()(v.data, i) || []).forEach(function (outlier) {
-              points.push({ x: v.x, y: outlier, graph: graph });
+              var point = { graph: graph };
+              point[orient.x] = v[orient.x];
+              point[orient.y] = outlier;
+              points.push(point);
             });
           });
         });
@@ -3772,7 +3887,7 @@
   }
 
   // bubble pack svg generator
-  function bubblePack () {
+  function svgBubblePack () {
     var $$ = {};
 
     var indicatorSymbol = d3.symbol().size(80);
@@ -4187,7 +4302,7 @@
 
     var $$ = {};
 
-    var arc = d3.arc();
+    // const arc = d3.arc().cornerRadius(5);
 
     /* Update Function */
     var sunburst = function sunburst(context) {
@@ -4203,7 +4318,7 @@
             highlight = $$.highlight(d, i),
             innerRadius = $$.innerRadius(d, i),
             showLabels = $$.showLabels(d, i),
-            root = getHierarchy(d);
+            root = getHierarchy($$.root(d, i));
 
         var selected = getSelected(root);
         setVisibility(selected, $$.descendantLevels(d, i) + selected.depth);
@@ -4236,6 +4351,7 @@
           d.data.selected = false;
           d.parent.data.selected = true;
           el.transition().duration($$.duration(d, i)).call(sunburst);
+          selection.dispatch('chart-updated', { bubbles: true });
         });
 
         this.__radii = radii;
@@ -4246,6 +4362,7 @@
           });
           node.data.selected = true;
           el.transition().duration($$.duration(d, i)).call(sunburst);
+          selection.dispatch('chart-updated', { bubbles: true });
         } : null).on('mouseover', highlight ? function (node) {
           var ancestors = node.ancestors();
 
@@ -4268,9 +4385,11 @@
     };
 
     /* Inherit from base model */
-    base(sunburst, $$).addProp('pie', d3.pie().sort(null)).addProp('ancestorBanding', d3.scaleLinear()).addProp('descendantBanding', d3.scalePow().exponent(0.85))
+    base(sunburst, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addProp('ancestorBanding', d3.scaleLinear()).addProp('descendantBanding', d3.scalePow().exponent(0.85))
     // Datum Level Accessors
-    .addPropFunctor('duration', 250).addPropFunctor('innerRadius', 30).addPropFunctor('outerRadius', 200).addPropFunctor('ancestorPadding', 10).addPropFunctor('ancestorRatio', 0.2).addPropFunctor('descendantLevels', Infinity).addPropFunctor('startAngle', 0).addPropFunctor('endAngle', 2 * Math.PI).addPropFunctor('showLabels', false).addPropFunctor('zoomable', true).addPropFunctor('highlight', true)
+    .addPropFunctor('duration', 250).addPropFunctor('innerRadius', 30).addPropFunctor('outerRadius', 200).addPropFunctor('ancestorPadding', 10).addPropFunctor('ancestorRatio', 0.2).addPropFunctor('descendantLevels', Infinity).addPropFunctor('startAngle', 0).addPropFunctor('endAngle', 2 * Math.PI).addPropFunctor('showLabels', false).addPropFunctor('zoomable', true).addPropFunctor('highlight', true).addPropFunctor('root', function (d) {
+      return d;
+    })
     // Node Level Accessors
     .addPropFunctor('key', function (d) {
       return $$.label(d);
@@ -4478,7 +4597,7 @@
             d.labelOffset = getLabelOffset(d.centerAngle, radii);
 
             return d;
-          }).transition(tools.transition).call(tween, arc);
+          }).transition(tools.transition).call(tween, $$.arc);
 
           if (type === 'label') {
             pathExit.style('opacity', 0).attr('x', function (d) {
@@ -4494,7 +4613,7 @@
 
       arcExit.remove();
 
-      var pathUpdate = arcUpdate.select('.d2b-sunburst-' + type + '.' + levelClass).call(tween, arc);
+      var pathUpdate = arcUpdate.select('.d2b-sunburst-' + type + '.' + levelClass).call(tween, $$.arc);
 
       if (type === 'arc') {
         pathUpdate.style('fill', function (d) {
@@ -4595,18 +4714,22 @@
           var source = $$.linkSource(d, i),
               target = $$.linkTarget(d, i);
 
-          var sourceKey = (typeof source === 'undefined' ? 'undefined' : _typeof(source)) === 'object' ? $$.nodeKey(source) : source,
-              targetKey = (typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object' ? $$.nodeKey(target) : target;
+          if ((typeof source === 'undefined' ? 'undefined' : _typeof(source)) !== 'object') source = nodesData.find(function (node) {
+            return node.key === source;
+          });
+          if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) !== 'object') target = nodesData.find(function (node) {
+            return node.key === target;
+          });
 
-          var key = $$.linkKey(d, i, sourceKey, targetKey);
+          var key = $$.linkKey(d, i, source.key, target.key);
 
           return {
-            sourceKey: sourceKey,
-            targetKey: targetKey,
+            sourceKey: source.key,
+            targetKey: target.key,
             key: key,
             keyTrim: key.replace(/ /g, ''),
-            sourceColor: $$.linkSourceColor(d, i, sourceKey),
-            targetColor: $$.linkTargetColor(d, i, targetKey),
+            sourceColor: $$.linkSourceColor(d, i, source.color),
+            targetColor: $$.linkTargetColor(d, i, target.color),
             value: $$.linkValue(d, i),
             source: source,
             target: target,
@@ -4785,6 +4908,7 @@
           }
           $$.sankey.update(graph);
           updater();
+          selection.dispatch('chart-updated', { bubbles: true });
         }
 
         // set attributes on defined nodes and links
@@ -4863,12 +4987,12 @@
       return d.links;
     }).addPropFunctor('linkSource', function (d) {
       return d.source;
-    }).addPropFunctor('linkSourceColor', function (d, i, sourceKey) {
-      return color(sourceKey);
+    }).addPropFunctor('linkSourceColor', function (d, i, sourceColor) {
+      return sourceColor;
     }).addPropFunctor('linkTarget', function (d) {
       return d.target;
-    }).addPropFunctor('linkTargetColor', function (d, i, targetKey) {
-      return color(targetKey);
+    }).addPropFunctor('linkTargetColor', function (d, i, targetColor) {
+      return targetColor;
     }).addPropFunctor('linkKey', function (d, i, sourceKey, targetKey) {
       return sourceKey + '-' + targetKey;
     }).addPropFunctor('linkValue', function (d) {
@@ -5262,6 +5386,65 @@
   }
 
   /**
+   * d2b.chartPieAdvanced(chart, datum) configures the input chart and formats a returned datum set
+   */
+  function chartPieAdvanced (chart, datum) {
+    var legendConfig = datum.legend || {};
+    var tooltipConfig = datum.tooltip || {};
+
+    // Chart Config
+    chart.label(function (d) {
+      return d.label;
+    }).value(function (d) {
+      return d.value;
+    }).values(function (d) {
+      return d.values;
+    }).duration.conditionally(datum.duration).donutRatio.conditionally(datum.donutRatio).radius.conditionally(datum.radius, function (d, w, h) {
+      return datum.radius(w, h);
+    }).at.conditionally(datum.at, function (d, w, h, r) {
+      return functor(datum.at)(w, h, r);
+    }).color.proxy(function (d) {
+      return d.color || (datum.color ? datum.color(d) : undefined);
+    });
+
+    // Chart Frame Config
+    chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient);
+
+    // Legend Config
+    chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.conditionally(legendConfig.icon);
+
+    // Tooltip Config
+    // const percentFormat = format('.0%');
+    chart.tooltip().followMouse.conditionally(tooltipConfig.followMouse).my.conditionally(tooltipConfig.my).at.conditionally(tooltipConfig.at).html.proxy(function (d) {
+      var data = d.data;
+      var percent = d.__percent__;
+      if (data.tooltip !== undefined) {
+        return data.tooltip;
+      } else if (tooltipConfig.html !== undefined) {
+        return functor(tooltipConfig.html)(data, percent);
+      }
+    });
+
+    // Pie Config
+    var pie = chart.pie();
+
+    // D3 Arc Config
+    var d3Arc = pie.arc();
+    if (datum.cornerRadius !== undefined) d3Arc.cornerRadius(datum.cornerRadius, 0);
+
+    // D3 Pie Config
+    var d3Pie = pie.pie();
+    if (datum.startAngle !== undefined) d3Pie.startAngle(datum.startAngle);
+    if (datum.endAngle !== undefined) d3Pie.endAngle(datum.endAngle);
+    if (datum.padAngle !== undefined) d3Pie.padAngle(datum.padAngle);
+    if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : function (a, b) {
+      return datum.sort(a.data, b.data);
+    });
+
+    return datum;
+  }
+
+  /**
    * d2b.chartPie() returns a d2b
    * pie chart generator
    */
@@ -5287,6 +5470,7 @@
       });
 
       selection.dispatch('chart-pie-updated', { bubbles: true });
+      selection.dispatch('chart-updated', { bubbles: true });
 
       return chart;
     };
@@ -5311,7 +5495,24 @@
       return d.value;
     }).addPropFunctor('arcLabel', null).addPropFunctor('label', function (d) {
       return d.label;
-    });
+    }).addAdvancedConfig(chartPieAdvanced);
+
+    // // The advanced method is an alternative to calling the chart base method directly.
+    // // The method will provide additional chart configuration before rendering through
+    // // the `chartPieAdvanced` function.
+    // chart.advanced = function (context) {
+    //   const selection = (context.selection)? context.selection() : context;
+    //   const transition = selection !== context;
+
+    //   selection.each(function (datum) {
+    //     if (datum.onChartUpdated) d3.select(this).on('chart-updated', datum.onChartUpdated);
+    //     let el = d3.select(this).selectAll('.d2b-chart-advanced').data([chartPieAdvanced(chart, datum)]);
+    //     const elEnter = el.enter().append('div').attr('class', 'd2b-chart-advanced');
+    //     el = elEnter.merge(el);
+    //     const elTransition = transition ? el.transition(context) : el;
+    //     elTransition.call(chart);
+    //   });
+    // };
 
     // update chart
     function update(datum, transition) {
@@ -5464,12 +5665,6 @@
       var arc = $$.pie.arc();
       var transitioning = false;
 
-      arc.outerRadius(function (d) {
-        return d.outerRadius;
-      }).innerRadius(function (d) {
-        return d.innerRadius;
-      });
-
       var arcSvg = el.selectAll('.d2b-pie-arc').filter(function (dd) {
         return dd.data === d;
       }).each(function (d) {
@@ -5484,6 +5679,275 @@
     }
 
     return chart;
+  }
+
+  // Work around for JavaScripts ||= operator. Only undefined will be construed as falsy.
+
+  function oreqUndefined () {
+    var truthy = function truthy(v) {
+      return v !== undefined;
+    };
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var val = args.filter(truthy)[0];
+    return truthy(val) ? val : undefined;
+  }
+
+  /**
+   * d2b.chartPieAdvanced(chart, datum) configures the input chart and formats a returned datum set
+   */
+  function chartAxisAdvanced (chart, datum) {
+    var legendConfig = datum.legend || {};
+    var tooltipConfig = datum.tooltip || {};
+
+    // Chart Config
+    chart.duration.conditionally(datum.duration).graphColor.proxy(function (graph) {
+      return graph.color || functor(datum.graphColor)(graph) || undefined;
+    }).groupColor.proxy(function (group) {
+      return group.color || functor(datum.groupColor)(group) || undefined;
+    });
+
+    // Chart Frame Config
+    chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient);
+
+    // Plane Config
+    chart.plane().margin.conditionally(datum.planeMargin).padding.conditionally(datum.planePadding);
+
+    // Legend Config
+    chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.conditionally(legendConfig.icon);
+
+    // Tooltip Config
+    chart.tooltipConfig(function (tooltipAxis) {
+      tooltipAxis.trackX.conditionally(tooltipConfig.trackX).trackY.conditionally(tooltipConfig.trackY).title.conditionally(tooltipConfig.title, function (rows) {
+        return tooltipConfig.title(rows.map(function (row) {
+          return { value: row.data, graph: row.graph.data };
+        }));
+      });
+    });
+
+    // Tooltip Row Config
+    chart.graphTooltipConfig(function (graph) {
+      return function (tooltipGraph) {
+        tooltipGraph.row.proxy(function (row) {
+          var value = row.data;
+          var tooltip = value.tooltip || graph.tooltip || tooltipConfig.row || undefined;
+          return functor(tooltip)(value, graph);
+        });
+      };
+    });
+
+    // Generators Config
+    chart.setGenerators(function (set) {
+      var generators = [];
+
+      set.generators.forEach(function (gen) {
+        // If generator is a function it is probably a d2b generator and is ready to go
+        if (typeof gen === 'function') {
+          generators.push(gen);
+          // Otherwise if multiple types are provided, setup the described generators
+        } else if (gen.types) {
+          gen.types.forEach(function (type) {
+            generators.push(buildGenerator(type, gen));
+          });
+          // Otherwise setup the described type generator
+        } else {
+          generators.push(buildGenerator(gen.type, gen));
+        }
+
+        generators.forEach(function (newGen) {
+          if (newGen.pcolor) newGen.pcolor.proxy(function (point) {
+            return point.color;
+          });
+          if (newGen.pcentered) newGen.pcentered.proxy(function (point) {
+            return oreqUndefined(point.centered, gen.centered);
+          });
+          if (newGen.box) newGen.box().width.proxy(function (point) {
+            return oreq(point.width, gen.width);
+          });
+          if (newGen.symbol) newGen.symbol.proxy(function (graph) {
+            return oreq(graph.symbol, typeof gen === 'function' ? undefined : gen.symbol);
+          });
+          if (newGen.psymbol) newGen.psymbol.proxy(function (point) {
+            return point.symbol;
+          });
+          if (newGen.psize) newGen.psize.proxy(function (point) {
+            return point.size;
+          });
+          if (newGen.stackBy) newGen.stackBy.proxy(function (graph) {
+            return oreqUndefined(graph.stack, typeof gen === 'function' ? undefined : gen.stack);
+          });
+        });
+      });
+
+      return generators;
+    });
+
+    // Axis Config
+    ['x', 'x2', 'y', 'y2'].forEach(function (axis) {
+      var axisConfig = datum[axis];
+
+      chart[axis].conditionally(axisConfig, function (d, points) {
+        var scaleConfig = axisConfig.scale || {};
+        var config = {};
+        var values = points.filter(function (value, index, self) {
+          return self.indexOf(value) === index;
+        }).sort(d3.ascending);
+        config.orient = axisConfig.orient || 'outer';
+        if (axisConfig.wrapLength !== undefined) config.wrapLength = axisConfig.wrapLength;
+        if (axisConfig.tickSize !== undefined) config.tickSize = axisConfig.tickSize;
+        if (axisConfig.showGrid !== undefined) config.showGrid = axisConfig.showGrid;
+        if (axisConfig.label !== undefined) config.label = axisConfig.label;
+        if (axisConfig.labelOrient !== undefined) config.labelOrient = axisConfig.labelOrient;
+        if (axisConfig.linearPadding !== undefined) config.linearPadding = axisConfig.linearPadding;
+        // D3 Axis Config:
+
+        // If axis is given as a function it is probably a d3.axis and is ready to go
+        if (typeof axisConfig.axis === 'function') {
+          config.axis = axisConfig.axis;
+          // Otherwise we can dynamically setup the axis
+        } else {
+          switch (axis + '-' + config.orient) {
+            case 'x-outer':
+              config.axis = d3.axisBottom();
+              break;
+            case 'y-outer':
+              config.axis = d3.axisLeft();
+              break;
+            case 'x2-outer':
+              config.axis = d3.axisTop();
+              break;
+            case 'y2-outer':
+              config.axis = d3.axisRight();
+              break;
+            case 'x-inner':
+              config.axis = d3.axisTop();
+              break;
+            case 'y-inner':
+              config.axis = d3.axisRight();
+              break;
+            case 'x2-inner':
+              config.axis = d3.axisBottom();
+              break;
+            case 'y2-inner':
+              config.axis = d3.axisLeft();
+              break;
+          }
+        }
+
+        if (axisConfig.tickPadding !== undefined) config.axis.tickPadding(axisConfig.tickPadding);
+        if (axisConfig.ticks !== undefined) config.axis.ticks(axisConfig.ticks);
+        if (axisConfig.tickFormat !== undefined) config.axis.tickFormat(axisConfig.tickFormat);
+        if (axisConfig.tickValues !== undefined) config.axis.tickValues(axisConfig.tickValues);
+
+        // D3 Scale Config
+
+        // If scale is given as a function it is probably a d3.scale and is ready to go
+        var domain = [0, 1];
+        if (typeof scaleConfig === 'function') {
+          config.scale = scaleConfig;
+          // Otherwise we can dynamically setup the scale
+        } else if (scaleConfig.type) {
+          var type = scaleConfig.type.toLowerCase();
+          var scaleGenerator = d3['scale' + (type.charAt(0).toUpperCase() + type.slice(1))];
+          config.scale = scaleGenerator();
+
+          switch (type) {
+            case 'band':
+            case 'point':
+              domain = values;
+              break;
+            default:
+              domain = d3.extent(values.map(Number));
+          }
+        }
+
+        if (config.scale) {
+          if (scaleConfig.domain) domain = functor(scaleConfig.domain)(values);
+          if (scaleConfig.clamp !== undefined) config.scale.clamp(scaleConfig.clamp);
+          if (scaleConfig.nice !== undefined) config.scale.nice(scaleConfig.nice);
+          if (scaleConfig.exponent !== undefined) config.scale.exponent(scaleConfig.exponent);
+          if (scaleConfig.base !== undefined) config.scale.base(scaleConfig.base);
+          if (scaleConfig.constant !== undefined) config.scale.constant(scaleConfig.constant);
+          if (scaleConfig.forceBounds) {
+            if (scaleConfig.forceBounds.min) domain[0] = scaleConfig.forceBounds.min;
+            if (scaleConfig.forceBounds.max) domain[1] = scaleConfig.forceBounds.max;
+          }
+
+          config.scale.domain(domain);
+        }
+
+        return config;
+      });
+    });
+
+    return datum;
+  }
+
+  function buildGenerator(type, gen) {
+    var newGen = null;
+    var stackOffset = gen.stackOffset;
+    var stackOrder = gen.stackOrder;
+    var curve = gen.curve;
+    var orient = gen.orient;
+    var align = gen.align;
+    var configureStack = function configureStack(svgGen) {
+      var stack = svgGen.stack();
+      if (stackOffset !== undefined) stack.offset(stackOffset);
+      if (stackOrder !== undefined) stack.order(stackOrder);
+    };
+    var configureCurve = function configureCurve(shape) {
+      if (curve !== undefined) shape.curve(curve);
+    };
+    var configureOrient = function configureOrient(svgGen) {
+      svgGen.orient.conditionally(orient);
+    };
+    var configureAlign = function configureAlign(svgGen) {
+      svgGen.align.conditionally(align);
+    };
+    switch (type) {
+      case 'bar':
+        newGen = svgBar().padding.conditionally(gen.padding).groupPadding.conditionally(gen.groupPadding);
+        configureOrient(newGen);
+        break;
+
+      case 'line':
+        newGen = svgLine();
+        configureStack(newGen);
+        configureAlign(newGen);
+        configureCurve(newGen.line());
+        break;
+
+      case 'area':
+        newGen = svgArea();
+        configureStack(newGen);
+        configureCurve(newGen.area());
+        break;
+
+      case 'scatter':
+        newGen = svgScatter().psize.conditionally(gen.size);
+        configureStack(newGen);
+        configureAlign(newGen);
+        break;
+
+      case 'bubblePack':
+        newGen = svgBubblePack().tendancy.conditionally(gen.tendancy);
+        newGen.point().size.conditionally(gen.size, function (d) {
+          return gen.size * d.size;
+        });
+        break;
+
+      case 'boxPlot':
+        newGen = svgBoxPlot();
+
+        newGen.box().valueFormat.conditionally(gen.valueFormat);
+        configureOrient(newGen);
+        break;
+    }
+
+    return newGen;
   }
 
   function axis () {
@@ -5512,11 +5976,12 @@
       });
 
       selection.dispatch('chart-axis-updated', { bubbles: true });
+      selection.dispatch('chart-updated', { bubbles: true });
 
       return chart;
     };
 
-    base(chart, $$).addProp('plane', plane()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addPropFunctor('tooltipConfig', function (d) {
+    base(chart, $$).addAdvancedConfig(chartAxisAdvanced).addProp('plane', plane()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addPropFunctor('tooltipConfig', function (d) {
       return d.tooltipConfig;
     }).addPropFunctor('duration', 250).addPropFunctor('x', {}).addPropFunctor('y', {}).addPropFunctor('x2', {}).addPropFunctor('y2', {}).addPropFunctor('clipPlane', true).addPropFunctor('annotations', function (d) {
       return d.annotations;
@@ -6005,6 +6470,72 @@
   }
 
   /**
+   * d2b.chartSankeyAdvanced(chart, datum) configures the input chart and formats a returned datum set
+   */
+  function chartSunburstAdvanced (chart, datum) {
+    var breadcrumbsConfig = datum.breadcrumbs || {};
+    var tooltipConfig = datum.tooltip || {};
+
+    // Chart Config
+    chart.label(function (d) {
+      return d.label;
+    }).outerRadius.conditionally(datum.outerRadius, function (d, w, h) {
+      return datum.outerRadius(w, h);
+    }).innerRadius.conditionally(datum.innerRadius, function (d, w, h) {
+      return datum.innerRadius(w, h);
+    }).color.proxy(function (d) {
+      return d.color || (datum.color ? datum.color(d) : undefined);
+    });
+
+    // Chart Frame Config
+    chart.chartFrame().size.conditionally(datum.size).padding.conditionally(datum.padding).chartPadding.conditionally(datum.chartPadding).breadcrumbsEnabled.conditionally(breadcrumbsConfig.enabled).breadcrumbsOrient.conditionally(breadcrumbsConfig.orient);
+
+    // Breadcrumbs Config
+    chart.breadcrumbs().html.proxy(function (d) {
+      var data = d.data;
+      var value = d.value;
+      var percent = d.value / d.selected.value;
+      if (data.breadcrumb !== undefined) {
+        return data.breadcrumb;
+      } else if (breadcrumbsConfig.html !== undefined) {
+        return functor(breadcrumbsConfig.html)(data, value, percent);
+      }
+    });
+
+    // Tooltip Config
+    chart.tooltip().followMouse.conditionally(tooltipConfig.followMouse).my.conditionally(tooltipConfig.my).at.conditionally(tooltipConfig.at).html.proxy(function (d) {
+      var data = d.data;
+      var value = d.value;
+      var percent = d.value / d.selected.value;
+      if (data.breadcrumb !== undefined) {
+        return data.breadcrumb;
+      } else if (breadcrumbsConfig.html !== undefined) {
+        return functor(breadcrumbsConfig.html)(data, value, percent);
+      }
+    });
+
+    // Sunburst Config
+    var sunburst = chart.sunburst().root(function (d) {
+      return d.root;
+    }).size(function (d) {
+      return d.size;
+    }).duration.conditionally(datum.duration).ancestorPadding.conditionally(datum.ancestorPadding).ancestorRatio.conditionally(datum.ancestorRatio).descendantLevels.conditionally(datum.descendantLevels).startAngle.conditionally(datum.startAngle).endAngle.conditionally(datum.endAngle).showLabels.conditionally(datum.showLabels).zoomable.conditionally(datum.zoomable).highlight.conditionally(datum.highlight).ancestorBanding.conditionally(datum.ancestorBandingExponent, d3.scalePow().exponent(datum.ancestorBandingExponent)).descendantBanding.conditionally(datum.descendantBandingExponent, d3.scalePow().exponent(datum.descendantBandingExponent));
+
+    // D3 Pie Config
+    var d3Pie = sunburst.pie();
+    if (datum.padAngle !== undefined) d3Pie.padAngle(datum.padAngle);
+    if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : function (a, b) {
+      return datum.sort(a.data, b.data);
+    });
+
+    // D3 Arc Config
+    var d3Arc = sunburst.arc();
+    if (datum.cornerRadius !== undefined) d3Arc.cornerRadius(datum.cornerRadius, 0);
+
+    return datum;
+  }
+
+  /**
    * d2b.chartSunburst() returns a d2b
    * sunburst chart generator
    */
@@ -6036,6 +6567,7 @@
       });
 
       selection.dispatch('chart-sunburst-updated', { bubbles: true });
+      selection.dispatch('chart-updated', { bubbles: true });
 
       return chart;
     };
@@ -6053,7 +6585,7 @@
       return Math.min(w, h) / 2;
     }).addPropFunctor('innerRadius', function (d, w, h) {
       return Math.min(50, Math.min(w, h) / 4);
-    });
+    }).addAdvancedConfig(chartSunburstAdvanced);
 
     // helpers
     var format = d3.format(',.0f'),
@@ -6121,6 +6653,80 @@
     return chart;
   }
 
+  /**
+   * d2b.chartSankeyAdvanced(chart, datum) configures the input chart and formats a returned datum set
+   */
+  function chartSankeyAdvanced (chart, datum) {
+    var nodeConfig = datum.node || {};
+    var linkConfig = datum.link || {};
+    var nodeTooltipConfig = nodeConfig.tooltip || {};
+    var linkTooltipConfig = linkConfig.tooltip || {};
+
+    // Chart Frame Config
+    chart.chartFrame().chartPadding(0).size.conditionally(datum.size).padding.conditionally(datum.padding);
+
+    // Node Tooltip Config
+    chart.nodeTooltip().followMouse.conditionally(nodeTooltipConfig.followMouse).my.conditionally(nodeTooltipConfig.my).at.conditionally(nodeTooltipConfig.at).html.proxy(function (d) {
+      var data = d.data;
+      var value = d.value;
+      if (data.tooltip !== undefined) {
+        return data.tooltip;
+      } else if (nodeTooltipConfig.html !== undefined) {
+        return functor(nodeTooltipConfig.html)(data, value);
+      }
+    });
+
+    // Link Tooltip Config
+    chart.linkTooltip().followMouse.conditionally(linkTooltipConfig.followMouse).my.conditionally(linkTooltipConfig.my).at.conditionally(linkTooltipConfig.at).html.proxy(function (d) {
+      var data = d.data;
+      var source = d.source.data;
+      var target = d.target.data;
+      if (data.tooltip !== undefined) {
+        return data.tooltip;
+      } else if (linkTooltipConfig.html !== undefined) {
+        return functor(linkTooltipConfig.html)(data, source, target);
+      }
+    });
+
+    // Sankey Config
+    var sankey = chart.sankey().nodeLabel(function (d) {
+      return d.name;
+    }).linkValue(function (d) {
+      return d.value;
+    }).nodeLabelWrapLength.conditionally(nodeConfig.labelWrapLength).nodeDraggableX.conditionally(nodeConfig.draggableX).nodeDraggableY.conditionally(nodeConfig.draggableY).nodeColor.proxy(function (d, i, k) {
+      return d.color || (nodeConfig.color ? nodeConfig.color(d, k) : undefined);
+    }).linkSourceColor.proxy(function (d, i, s) {
+      return d.sourceColor || (linkConfig.sourceColor ? linkConfig.sourceColor(d, s) : undefined);
+    }).linkTargetColor.proxy(function (d, i, t) {
+      return d.targetColor || (linkConfig.targetColor ? linkConfig.targetColor(d, t) : undefined);
+    });
+
+    // D3 Sankey Config
+    var d3Sankey$$ = sankey.sankey();
+    if (nodeConfig.align !== undefined) {
+      var nodeAlign = typeof nodeConfig.align === 'function' ? nodeConfig.align : d3Sankey.sankeyJustify;
+      switch (nodeConfig.align) {
+        case 'left':
+          nodeAlign = d3Sankey.sankeyLeft;
+          break;
+        case 'right':
+          nodeAlign = d3Sankey.sankeyRight;
+          break;
+        case 'center':
+          nodeAlign = d3Sankey.sankeyCenter;
+          break;
+      }
+      d3Sankey$$.nodeAlign(nodeAlign);
+    }
+    if (datum.iterations !== undefined) d3Sankey$$.iterations(datum.iterations);
+    if (nodeConfig.padding !== undefined) d3Sankey$$.nodePadding(nodeConfig.padding);
+    if (nodeConfig.sort !== undefined) d3Sankey$$.nodeSort(nodeConfig.sort === null ? null : function (a, b) {
+      return nodeConfig.sort(a.data, b.data);
+    });
+
+    return datum;
+  }
+
   function sankey$2 () {
 
     var $$ = {};
@@ -6135,6 +6741,7 @@
       });
 
       selection.dispatch('chart-sankey-updated', { bubbles: true });
+      selection.dispatch('chart-updated', { bubbles: true });
 
       return chart;
     }
@@ -6175,7 +6782,7 @@
     }).color('#444').followMouse(true);
 
     // configure the model
-    base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey$1()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip);
+    base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey$1()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip).addAdvancedConfig(chartSankeyAdvanced);
 
     return chart;
   }
@@ -6208,12 +6815,12 @@
   exports.symbolVenus = venus;
   exports.point = point;
   exports.svgPie = svgPie;
-  exports.svgLine = line$1;
-  exports.svgArea = area$1;
-  exports.svgScatter = scatter;
-  exports.svgBar = bar;
-  exports.svgBoxPlot = boxPlot;
-  exports.svgBubblePack = bubblePack;
+  exports.svgLine = svgLine;
+  exports.svgArea = svgArea;
+  exports.svgScatter = svgScatter;
+  exports.svgBar = svgBar;
+  exports.svgBoxPlot = svgBoxPlot;
+  exports.svgBubblePack = svgBubblePack;
   exports.svgSunburst = svgSunburst;
   exports.svgSankey = sankey$1;
   exports.plane = plane;

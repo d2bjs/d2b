@@ -13,7 +13,7 @@ export default function () {
 
   const $$ = {};
 
-  const arc = d3.arc();
+  // const arc = d3.arc().cornerRadius(5);
 
   /* Update Function */
   const sunburst = function (context) {
@@ -27,7 +27,7 @@ export default function () {
             highlight   = $$.highlight(d, i),
             innerRadius = $$.innerRadius(d, i),
             showLabels  = $$.showLabels(d, i),
-            root        = getHierarchy(d);
+            root        = getHierarchy($$.root(d, i));
             
       let selected = getSelected(root);
       setVisibility(selected, $$.descendantLevels(d, i) + selected.depth);
@@ -64,6 +64,7 @@ export default function () {
             d.data.selected = false;
             d.parent.data.selected = true;
             el.transition().duration($$.duration(d, i)).call(sunburst);
+            selection.dispatch('chart-updated', {bubbles: true});
           });
 
       this.__radii = radii;
@@ -75,6 +76,7 @@ export default function () {
               root.each(d => d.data.selected = false);
               node.data.selected = true;
               el.transition().duration($$.duration(d, i)).call(sunburst);
+              selection.dispatch('chart-updated', {bubbles: true});
             } : null
           )
           .on('mouseover',
@@ -107,6 +109,7 @@ export default function () {
 
   /* Inherit from base model */
   base(sunburst, $$)
+    .addProp('arc', d3.arc())
     .addProp('pie', d3.pie().sort(null))
     .addProp('ancestorBanding', d3.scaleLinear())
     .addProp('descendantBanding', d3.scalePow().exponent(0.85))
@@ -122,6 +125,7 @@ export default function () {
     .addPropFunctor('showLabels', false)
     .addPropFunctor('zoomable', true)
     .addPropFunctor('highlight', true)
+    .addPropFunctor('root', d => d)
     // Node Level Accessors
     .addPropFunctor('key', d => $$.label(d))
     .addPropFunctor('label', d => d.label)
@@ -331,7 +335,7 @@ export default function () {
                   return d;
                 })
               .transition(tools.transition)
-                .call(tween, arc);
+                .call(tween, $$.arc);
 
             if (type === 'label') {
               pathExit
@@ -350,7 +354,7 @@ export default function () {
     arcExit.remove();
 
     const pathUpdate = arcUpdate.select(`.d2b-sunburst-${type}.${levelClass}`)
-        .call(tween, arc);
+        .call(tween, $$.arc);
 
     if (type === 'arc') {
       pathUpdate.style('fill', d => d.color);

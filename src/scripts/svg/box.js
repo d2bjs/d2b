@@ -153,7 +153,7 @@ export default function () {
         labelUpdate
             .attr('transform', d => orient.translate(0, scale(d[textType])))
             .call(updateAnnotations, $$.annotation, 'd2b-box-annotation', d => {
-              return (d.annotations || []).filter(a => a.location === textType);
+              return (d.annotations || []).filter(a => (a.location || 'median') === textType);
             });
 
         const labelText = labelUpdate

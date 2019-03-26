@@ -67,7 +67,7 @@ export default function (base = {}, $$ = {}, protect) {
   // condition argument as long as the condition is defined
   base.conditionally = (prop, cond, ...args) => {
     if (args.length) {
-      if (cond) base[prop].apply(null, args);
+      if (cond || cond === 0) base[prop].apply(null, args);
     } else {
       if (cond !== undefined) base[prop](cond);
     }
@@ -80,7 +80,7 @@ export default function (base = {}, $$ = {}, protect) {
     // but is added to the method itself. e.g. `base.method.conditionally()`
     method.conditionally = (cond, ...args) => {
       if (args.length) {
-        if (cond) method.apply(null, args);
+        if (cond || cond === 0) method.apply(null, args);
       } else {
         if (cond !== undefined) method(cond);
       }

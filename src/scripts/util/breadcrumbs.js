@@ -1,4 +1,3 @@
-import { select } from 'd3';
 import base from '../model/base';
 
 export default function () {

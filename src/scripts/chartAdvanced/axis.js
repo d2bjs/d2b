@@ -14,8 +14,8 @@ export default function (chart, datum) {
   // Chart Config
   chart
     .duration.conditionally(datum.duration)
-    .graphColor.proxy(graph => graph.color || functor(datum.graphColor)(graph) || undefined)
-    .groupColor.proxy(group => group.color || functor(datum.groupColor)(group) || undefined);
+    .graphColor.proxy(graph => graph.color || functor(datum.graphColor)(graph))
+    .groupColor.proxy(group => group.color || functor(datum.groupColor)(group));
 
   // Chart Frame Config
   chart.chartFrame()
@@ -35,14 +35,14 @@ export default function (chart, datum) {
     .clickable.conditionally(legendConfig.clickable)
     .dblclickable.conditionally(legendConfig.dblclickable)
     .allowEmptied.conditionally(legendConfig.allowEmptied)
-    .icon.conditionally(legendConfig.icon);
-
+    .icon.proxy(d => d.data.legendIcon || functor(legendConfig.icon)(d.data));
 
   // Tooltip Config
   chart.tooltipConfig(tooltipAxis => {
     tooltipAxis
       .trackX.conditionally(tooltipConfig.trackX)
       .trackY.conditionally(tooltipConfig.trackY)
+      .threshold.conditionally(tooltipConfig.threshold)
       .title.conditionally(tooltipConfig.title, rows => {
         return tooltipConfig.title(rows.map(row => {
           return { value: row.data, graph: row.graph.data };
@@ -56,7 +56,7 @@ export default function (chart, datum) {
       tooltipGraph
         .row.proxy(row => {
           const value = row.data;
-          const tooltip = value.tooltip || graph.tooltip || tooltipConfig.row || undefined;
+          const tooltip = oreqUndefined(value.tooltip, graph.tooltip, tooltipConfig.row);
           return functor(tooltip)(value, graph);
         });
     };
@@ -96,11 +96,13 @@ export default function (chart, datum) {
 
   // Axis Config
   ['x', 'x2', 'y', 'y2'].forEach(axis => {
-    const axisConfig = datum[axis];
+    const axisConfig = datum[axis] || {};
     
-    chart[axis].conditionally(axisConfig, (d, points) => {
+    chart[axis]((d, points) => {
+      if (!points.length) return {};
       const scaleConfig = axisConfig.scale || {};
       const config = {};
+      // Unique set of values.
       const values = points.filter((value, index, self) => self.indexOf(value) === index).sort(d3.ascending);
       config.orient = axisConfig.orient || 'outer';
       if (axisConfig.wrapLength !== undefined) config.wrapLength = axisConfig.wrapLength;
@@ -156,8 +158,17 @@ export default function (chart, datum) {
       if (typeof scaleConfig === 'function') {
         config.scale = scaleConfig;
       // Otherwise we can dynamically setup the scale
-      } else if (scaleConfig.type) {
-        const type = scaleConfig.type.toLowerCase();
+      } else {
+        let type = scaleConfig.type;
+
+        if (!type) {
+          const firstValue = values[0];
+          if (firstValue.constructor.name === 'String') type = 'band';
+          else if (firstValue.constructor.name === 'Date') type = 'time';
+          else type = 'linear';
+        }
+
+        type = type.toLowerCase();
         const scaleGenerator = d3[`scale${type.charAt(0).toUpperCase() + type.slice(1)}`];
         config.scale = scaleGenerator();
 
@@ -171,20 +182,18 @@ export default function (chart, datum) {
         }
       }
 
-      if (config.scale) {
-        if (scaleConfig.domain) domain = functor(scaleConfig.domain)(values);
-        if (scaleConfig.clamp !== undefined) config.scale.clamp(scaleConfig.clamp);
-        if (scaleConfig.nice !== undefined) config.scale.nice(scaleConfig.nice);
-        if (scaleConfig.exponent !== undefined) config.scale.exponent(scaleConfig.exponent);
-        if (scaleConfig.base !== undefined) config.scale.base(scaleConfig.base);
-        if (scaleConfig.constant !== undefined) config.scale.constant(scaleConfig.constant);
-        if (scaleConfig.forceBounds) {
-          if (scaleConfig.forceBounds.min) domain[0] = scaleConfig.forceBounds.min;
-          if (scaleConfig.forceBounds.max) domain[1] = scaleConfig.forceBounds.max;
-        }
-
-        config.scale.domain(domain);
+      if (scaleConfig.domain) domain = functor(scaleConfig.domain)(values);
+      if (scaleConfig.clamp !== undefined) config.scale.clamp(scaleConfig.clamp);
+      if (scaleConfig.nice !== undefined) config.scale.nice(scaleConfig.nice);
+      if (scaleConfig.exponent !== undefined) config.scale.exponent(scaleConfig.exponent);
+      if (scaleConfig.base !== undefined) config.scale.base(scaleConfig.base);
+      if (scaleConfig.constant !== undefined) config.scale.constant(scaleConfig.constant);
+      if (scaleConfig.forceBounds) {
+        if (scaleConfig.forceBounds.min !== undefined) domain[0] = scaleConfig.forceBounds.min;
+        if (scaleConfig.forceBounds.max !== undefined) domain[1] = scaleConfig.forceBounds.max;
       }
+
+      config.scale.domain(domain);
 
       return config;
     });

@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 
 import base from '../model/base';
 import oreq from '../util/oreq';
+import oreqUndefined from './oreqUndefined';
 
 export default function () {
   const $$ = {};
@@ -104,7 +105,7 @@ export default function () {
             x: oreq(graph.config.x(d, i), $$.x(d, i)),
             y: oreq(graph.config.y(d, i), $$.y(d, i)),
             color: oreq(graph.config.color(d, i), $$.color(d, i)),
-            row: oreq(graph.config.row(d, i), $$.row(d, i))
+            row: oreqUndefined(graph.config.row(d, i), $$.row(d, i))
           };
 
           if ($$.trackX && $$.trackY) {
@@ -301,7 +302,7 @@ export default function () {
         .addPropFunctor('x', null)
         .addPropFunctor('y', null)
         .addPropFunctor('color', null)
-        .addPropFunctor('row', null);
+        .addPropFunctor('row', () => undefined);
     }
 
     return graph.interface;

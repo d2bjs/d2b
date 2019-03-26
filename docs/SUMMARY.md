@@ -4,6 +4,15 @@
 
 ---
 
+* [Advanced Charts](chartsAdvanced/charts.md)
+
+  * [d2b.chartAxis](chartsAdvanced/axis.md)
+  * [d2b.chartPie](chartsAdvanced/pie.md)
+  * [d2b.chartSankey](chartsAdvanced/sankey.md)
+  * [d2b.chartSunburst](chartsAdvanced/sunburst.md)
+
+---
+<!-- 
 * [Charts](charts/charts.md)
 
   * [d2b.chartAxis](charts/axis.md)
@@ -457,4 +466,4 @@
 
   * [d2b.tweenNumber](utils/tween_number.md)
 
----
+--- -->

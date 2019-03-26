@@ -23,3 +23,24 @@
 .book .book-summary .exc-trigger:before {
   content: '\f0da' !important;
 }*/
+
+.page-inner {
+  max-width: 1600px;
+}
+
+.navigation-next,
+.navigation-prev {
+  display: none;
+}
+
+img {
+  /* text-align: center; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr th {
+  background: rgb(61, 84, 103);
+  color: white;
+}

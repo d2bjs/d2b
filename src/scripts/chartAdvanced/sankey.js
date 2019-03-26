@@ -55,9 +55,9 @@ export default function (chart, datum) {
     .nodeLabelWrapLength.conditionally(nodeConfig.labelWrapLength)
     .nodeDraggableX.conditionally(nodeConfig.draggableX)
     .nodeDraggableY.conditionally(nodeConfig.draggableY)
-    .nodeColor.proxy((d, i, k) => d.color || (nodeConfig.color ? nodeConfig.color(d, k) : undefined))
-    .linkSourceColor.proxy((d, i, s) => d.sourceColor || (linkConfig.sourceColor ? linkConfig.sourceColor(d, s) : undefined))
-    .linkTargetColor.proxy((d, i, t) => d.targetColor || (linkConfig.targetColor ? linkConfig.targetColor(d, t) : undefined));
+    .nodeColor.proxy((d, i, k) => d.color || (functor(nodeConfig.color)(d, k)))
+    .linkSourceColor.proxy((d, i, s) => d.sourceColor || (functor(linkConfig.sourceColor)(d, s)))
+    .linkTargetColor.proxy((d, i, t) => d.targetColor || (functor(linkConfig.targetColor)(d, t)));
 
   // D3 Sankey Config
   const d3Sankey = sankey.sankey();

@@ -16,7 +16,7 @@ export default function (chart, datum) {
     .donutRatio.conditionally(datum.donutRatio)
     .radius.conditionally(datum.radius, (d, w, h) => datum.radius(w, h))
     .at.conditionally(datum.at, (d, w, h, r) => functor(datum.at)(w, h, r))
-    .color.proxy(d => d.color || (datum.color ? datum.color(d) : undefined));
+    .color.proxy(d => d.color || functor(datum.color)(d));
 
   // Chart Frame Config
   chart.chartFrame()
@@ -31,7 +31,7 @@ export default function (chart, datum) {
     .clickable.conditionally(legendConfig.clickable)
     .dblclickable.conditionally(legendConfig.dblclickable)
     .allowEmptied.conditionally(legendConfig.allowEmptied)
-    .icon.conditionally(legendConfig.icon);
+    .icon.proxy(d => d.legendIcon || functor(legendConfig.icon)(d));
 
   // Tooltip Config
   // const percentFormat = format('.0%');

@@ -18,7 +18,7 @@
     }
     return returnValue;
   }
-  __$styleInject(".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:0.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}", undefined);
+  __$styleInject(".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:0.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}",undefined);
 
   var version = "0.5.6";
 
@@ -29,13 +29,12 @@
   }
 
   // Work around for JavaScripts ||= operator. Only null, undefined, NaN, and false will be construed as falsy.
-
   function oreq () {
     var truthy = function truthy(v) {
       return v !== null && v !== undefined && v !== false;
     };
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
@@ -45,21 +44,20 @@
 
   // Wraps text based on character count and text accessor. This method uses
   // d3's enter/update/exit strategy as to be less destructive on the text content.
+
   function textWrap (text) {
     var getText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function (d) {
       return d.label;
     };
     var getCount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : Infinity;
     var getAnchor = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'start';
-
     getText = functor(getText);
     getCount = functor(getCount);
     getAnchor = functor(getAnchor);
-
     text.each(function (d, i) {
       var text = d3.select(this),
-          words = ('' + getText.call(this, d, i)).split(/\s+/).reverse(),
-          word = void 0,
+          words = "".concat(getText.call(this, d, i)).split(/\s+/).reverse(),
+          word,
           lines = [],
           line = [words.pop()],
           lineHeight = 1.1,
@@ -67,12 +65,11 @@
           anchor = getAnchor.call(this, d, i),
           x = +text.attr('x'),
           y = +text.attr('y'),
-          dy = parseFloat(text.attr('dy')) || 0;
+          dy = parseFloat(text.attr('dy')) || 0; // clear text if the wrapper is being run for the first time
 
-      // clear text if the wrapper is being run for the first time
       if (oreq(text.html(), '').indexOf('tspan') === -1) text.text('');
-
       word = words.pop();
+
       while (word) {
         if (line.join(' ').length + word.length > count) {
           lines.push(line);
@@ -82,16 +79,15 @@
         line.push(word);
         word = words.pop();
       }
-      lines.push(line);
 
+      lines.push(line);
       var tspan = text.selectAll('tspan').data(lines),
           height = (lines.length - 1) * lineHeight,
           offset = anchor === 'end' ? height : anchor === 'middle' ? height / 2 : 0;
-
       tspan.merge(tspan.enter().append('tspan')).text(function (d) {
         return d.join(' ');
       }).attr('x', x).attr('y', y).attr('dy', function (d, i) {
-        return dy + i * lineHeight - offset + 'em';
+        return "".concat(dy + i * lineHeight - offset, "em");
       });
     });
   }
@@ -99,13 +95,13 @@
   // Wrap text based on pixel length.
   // This isn't used very frequently because it causes problems with event
   // rebinding namely double click events.
+
   function textWrapPX (text) {
     var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Infinity;
-
     text.each(function () {
       var text = d3.select(this),
           words = text.text().split(/\s+/).reverse(),
-          word = void 0,
+          word,
           line = [],
           lineNumber = 0,
           lineHeight = 1.1,
@@ -113,17 +109,19 @@
       y = parseFloat(text.attr('y')) || 0,
           dy = parseFloat(text.attr('dy')) || 0,
           tspan = text.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', dy + 'em');
-
       word = words.pop();
+
       while (word) {
         line.push(word);
         tspan.text(line.join(' '));
+
         if (tspan.node().getComputedTextLength() > width) {
           line.pop();
           tspan.text(line.join(' '));
           line = [word];
           tspan = text.append('tspan').attr('x', 0).attr('y', y).attr('dy', ++lineNumber * lineHeight + dy + 'em').text(word);
         }
+
         word = words.pop();
       }
     });
@@ -138,10 +136,12 @@
     if (reform) {
       ['cornerRadius', 'innerRadius', 'outerRadius', 'startAngle', 'endAngle', 'cornerRadius', 'padAngle'].forEach(function (method) {
         var methodSave = arc[method]();
+
         if (methodSave && !methodSave.reformed) {
           var methodReformed = function methodReformed(d) {
             return d[method] || methodSave(d);
           };
+
           methodReformed.reformed = true;
           arc[method](methodReformed);
         }
@@ -157,17 +157,17 @@
         cornerRadius: arc.cornerRadius()(d),
         padAngle: arc.padAngle()(d)
       };
-    }
+    } // if context is not a transition just render the arc and update current
 
-    // if context is not a transition just render the arc and update current
+
     if (!context.selection) {
       return context.attr('d', function (d) {
         this.current = getProperties(d);
         return arc(d);
       });
-    }
+    } // if context is a transition tween the 'd' attribute
 
-    // if context is a transition tween the 'd' attribute
+
     context.attrTween('d', function (d) {
       var _this = this;
 
@@ -184,7 +184,6 @@
 
   function numberize (x) {
     var def = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
     if (isNaN(x) || x === null) return def;
     return x;
   }
@@ -196,10 +195,8 @@
     var format = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function (d) {
       return d;
     };
+    number = functor(number); // if context is not a transition just render the text and update current
 
-    number = functor(number);
-
-    // if context is not a transition just render the text and update current
     if (!context.selection) {
       return context.text(function (d, i) {
         this.current = numberize(number.call(this, d, i));
@@ -223,10 +220,8 @@
     var rotate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function (d) {
       return d.rotate;
     };
+    rotate = functor(rotate); // get specific set of properties in case of recursive
 
-    rotate = functor(rotate);
-
-    // get specific set of properties in case of recursive
     function getProperties(d) {
       return {
         innerRadius: arc.innerRadius()(d),
@@ -235,13 +230,13 @@
         endAngle: arc.endAngle()(d),
         rotate: rotate(d) || 0
       };
-    }
+    } // if context is not a transition just render the centroid and update current
 
-    // if context is not a transition just render the centroid and update current
+
     if (!context.selection) {
       return context.attr('transform', function (d) {
         this.current = getProperties(d);
-        return 'translate(' + arc.centroid(this.current) + ')' + ('rotate(' + this.current.rotate + ')');
+        return "translate(".concat(arc.centroid(this.current), ")") + "rotate(".concat(this.current.rotate, ")");
       });
     }
 
@@ -253,7 +248,7 @@
       var i = d3.interpolate(this.current, d);
       return function (t) {
         _this.current = i(t);
-        return 'translate(' + arc.centroid(_this.current) + ') ' + ('rotate(' + (_this.current.rotate || 0) + ')');
+        return "translate(".concat(arc.centroid(_this.current), ") ") + "rotate(".concat(_this.current.rotate || 0, ")");
       };
     });
   }
@@ -269,14 +264,13 @@
     * @return {Object} model - object with properties and methods
     */
 
-  function base() {
-    var _base = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
+  function base () {
     var _this = this;
 
-    var $$ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var protect = arguments[2];
+    var _base = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
+    var $$ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var protect = arguments.length > 2 ? arguments[2] : undefined;
 
     // Define an emitter updater that will fire events around the base updater
     // if (typeof base === 'function') {
@@ -286,7 +280,6 @@
     //     if (context.dispatch) context.dispatch('applied', {bubbles: true});
     //   };
     // }
-
     var propFn = function propFn(prop, cb) {
       return function (_) {
         if (!arguments.length) return $$[prop];
@@ -323,20 +316,20 @@
         if (cb) cb($$[prop], old);
         return _base;
       };
-    };
-
-    // Conditionally call a prop with arguments
+    }; // Conditionally call a prop with arguments
     // If there are more than 2 arguments supplied, the prop will be called 
     // with the arguments as long as the condition is truthy
     // Else if only 2 arguments suplied, the prop will be called with the
     // condition argument as long as the condition is defined
+
+
     _base.conditionally = function (prop, cond) {
-      for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
         args[_key - 2] = arguments[_key];
       }
 
       if (args.length) {
-        if (cond) _base[prop].apply(null, args);
+        if (cond || cond === 0) _base[prop].apply(null, args);
       } else {
         if (cond !== undefined) _base[prop](cond);
       }
@@ -348,12 +341,12 @@
       // Adds the conditionally modifier to a newly created base method. Similar to base.conditionally,
       // but is added to the method itself. e.g. `base.method.conditionally()`
       method.conditionally = function (cond) {
-        for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
           args[_key2 - 1] = arguments[_key2];
         }
 
         if (args.length) {
-          if (cond) method.apply(null, args);
+          if (cond || cond === 0) method.apply(null, args);
         } else {
           if (cond !== undefined) method(cond);
         }
@@ -361,8 +354,9 @@
         return _base;
       };
     };
-
     /* Base Model */
+
+
     var model = {
       base: function base() {
         return _base;
@@ -370,6 +364,7 @@
       values: function values() {
         return $$;
       },
+
       /**
         * model.removeProp removes the specified property
         * @param {Number} prop    - property key
@@ -385,6 +380,7 @@
         _base[prop] = null;
         return model;
       },
+
       /**
         * model.addProp allows new properties to be added to the model and base
         * interface. If the property is already defined an error will be raised.
@@ -397,22 +393,21 @@
       addProp: function addProp(prop) {
         var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         var fn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : propFn(prop);
-        var cb = arguments[3];
+        var cb = arguments.length > 3 ? arguments[3] : undefined;
 
         if ($$[prop] || _base[prop]) {
           // console.error(`${prop} property is already defined.`);
           return model;
-        }
-        // allow for null:default 'fn' in order to access callback
+        } // allow for null:default 'fn' in order to access callback
+
+
         fn = fn || propFn(prop, cb);
-
         fn(value);
-
         _base[prop] = fn;
         methodAdded(_base[prop]);
-
         return model;
       },
+
       /**
         * model.addPropGet is similar to addProp except it doesn't allow for the
         * property to be reset through the API.
@@ -433,9 +428,9 @@
         $$[prop] = value;
         _base[prop] = fn;
         methodAdded(_base[prop]);
-
         return model;
       },
+
       /**
         * model.addMethod allows new methods to be added to the model and base
         * interface. If the method is already defined an error will be raised.
@@ -448,11 +443,12 @@
           // console.error(`${method} method is already defined.`);
           return model;
         }
+
         _base[method] = fn;
         methodAdded(_base[method]);
-
         return model;
       },
+
       /**
         * model.addPropFunctor allows new functor properties to be added to the
         * model and base interface. If the property is already defined an error
@@ -465,40 +461,40 @@
       addPropFunctor: function addPropFunctor(prop) {
         var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         var fn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : propFnFunctor(prop);
-        var cb = arguments[3];
+        var cb = arguments.length > 3 ? arguments[3] : undefined;
 
         if ($$[prop] || _base[prop]) {
           // console.error(`${prop} property is already defined.`);
           return model;
-        }
-        // allow for null:default 'fn' in order to access callback
+        } // allow for null:default 'fn' in order to access callback
+
+
         fn = fn || propFnFunctor(prop, cb);
-
         fn(value);
-
         var newProp = _base[prop] = fn;
-
         methodAdded(_base[prop]);
 
         newProp.proxy = function (proxy) {
           var current = newProp();
           var original = current.original || current;
+
           var proxied = function proxied() {
-            for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+            for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
               args[_key3] = arguments[_key3];
             }
 
             var value = proxy.apply(this, args);
             return value === undefined ? original.apply(this, args) : value;
           };
+
           proxied.original = original;
           newProp(proxied);
-
           return _base;
         };
 
         return model;
       },
+
       /**
         * model.addScaleFunctor allows new scale functor properties to be added
         * to the model and base interface. If the property is already defined
@@ -511,10 +507,10 @@
       addScaleFunctor: function addScaleFunctor(prop) {
         var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         var fn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : scaleFnFunctor(prop);
-        var cb = arguments[3];
-
+        var cb = arguments.length > 3 ? arguments[3] : undefined;
         return model.addProp(prop, value, fn, cb);
       },
+
       /**
         * model.addDispatch allows dispatcher to be added to the model and base
         * interface.
@@ -531,6 +527,7 @@
           // console.error(`${prop} property is already defined.`);
           return model;
         }
+
         if ($$[store]) {
           // console.error(`${store} value is already defined.`);
           return model;
@@ -540,15 +537,14 @@
           if (arguments.length === 0) return $$[store];
           if (arguments.length === 1) return $$[store].on(key);
           $$[store].on(key, fn);
-
           return _base;
         };
+
         methodAdded(_base[prop]);
-
         $$[store] = d3.dispatch.apply(_this, events);
-
         return model;
       },
+
       /**
         * model.addAdvancedConfig adds the base.advanced prop that will proxy through
         * some config function before rendering the base on the selection.
@@ -559,7 +555,6 @@
         _base.advanced = function (context) {
           var selection = context.selection ? context.selection() : context;
           var transition = selection !== context;
-
           selection.each(function (datum) {
             if (datum.updated !== undefined) d3.select(this).on('chart-updated.advanced', datum.updated);
             var el = d3.select(this).selectAll('.d2b-chart-advanced').data([config(_base, datum)]);
@@ -568,14 +563,12 @@
             var elTransition = transition ? el.transition(context) : el;
             elTransition.call(_base);
           });
-
           return _base;
         };
 
         return model;
       }
     };
-
     return model;
   }
 
@@ -601,37 +594,43 @@
 
     var getCoords = function getCoords(d, i) {
       var box = this.getBoundingClientRect();
-      var coords = {};
+      var coords = {}; // construct at object, if null automatically set it based on cursor event position
 
-      // construct at object, if null automatically set it based on cursor event position
       var at = ($$.at.call(this, d, i) || (d3.event.clientX > window.innerWidth / 2 ? 'center left' : 'center right')).split(' ');
-      at = { x: at[1], y: at[0] };
+      at = {
+        x: at[1],
+        y: at[0]
+      }; // switch for horizontal coordinate
 
-      // switch for horizontal coordinate
       switch (at.x) {
         case 'left':
           coords.x = box.left;
           break;
+
         case 'center':
           coords.x = box.left + box.width / 2;
           break;
+
         default:
           // right
           coords.x = box.left + box.width;
-      }
+      } // switch for vertical coordinate
 
-      // switch for vertical coordinate
+
       switch (at.y) {
         case 'bottom':
           coords.y = box.top + box.height;
           break;
+
         case 'center':
           coords.y = box.top + box.height / 2;
           break;
+
         default:
           // top
           coords.y = box.top;
       }
+
       return coords;
     };
 
@@ -641,17 +640,11 @@
       var tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(function (d) {
         return [d];
       });
-
       var newTooltip = tooltipUpdate.enter().append('div').style('opacity', 0).attr('class', 'd2b-tooltip');
-
       newTooltip.append('div').attr('class', 'd2b-tooltip-content');
-
       tooltipUpdate = tooltipUpdate.merge(newTooltip);
-
       tooltipUpdate.transition().duration(100).style('opacity', 1);
-
       $$.dispatch.call('insert', tooltipUpdate, this, d, i);
-
       mousemove.call(this, d, i);
     };
 
@@ -660,19 +653,17 @@
           target = $$.target.call(this, d, i),
           color = $$.color.call(this, d, i),
           targetNode = target ? target.node() : this,
-          coords = $$.followMouse.call(this, d, i) ? { x: d3.event.clientX, y: d3.event.clientY } : getCoords.call(targetNode, d, i);
-
-      if (!html) return;
-      // if (!$$.container.selectAll('.d2b-tooltip').size()) return mouseover(d, i);
+          coords = $$.followMouse.call(this, d, i) ? {
+        x: d3.event.clientX,
+        y: d3.event.clientY
+      } : getCoords.call(targetNode, d, i);
+      if (!html) return; // if (!$$.container.selectAll('.d2b-tooltip').size()) return mouseover(d, i);
 
       var tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(function (d) {
         return [d];
       });
-
       var my = $$.my.call(this, d, i) || (d3.event.clientX > window.innerWidth / 2 ? 'left' : 'right');
-
-      tooltipUpdate.attr('class', 'd2b-tooltip d2b-tooltip-' + my).style('top', coords.y + 'px').style('left', coords.x + 'px').style('border-color', color).select('.d2b-tooltip-content').html(html);
-
+      tooltipUpdate.attr('class', "d2b-tooltip d2b-tooltip-".concat(my)).style('top', coords.y + 'px').style('left', coords.x + 'px').style('border-color', color).select('.d2b-tooltip-content').html(html);
       $$.dispatch.call('move', tooltipUpdate, this, d, i);
     };
 
@@ -680,44 +671,53 @@
       var tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(function (d) {
         return [d];
       });
-
       tooltipUpdate.transition().duration(100).style('opacity', 0).remove();
-
       $$.dispatch.call('remove', tooltipUpdate, this, d, i);
     };
 
     var event = function event(listener) {
-      return listener + '.d2b-tooltip';
+      return "".concat(listener, ".d2b-tooltip");
     };
-
     /* Inherit from base model */
+
+
     base(tooltip, $$).addProp('container', d3.select('body')) //, null, updateContainer)
     .addMethod('clear', function (context) {
       (context.selection ? context.selection() : context).on(event('mouseover'), null).on(event('mouseout'), null).on(event('mousemove'), null);
-
       return tooltip;
     }).addPropFunctor('followMouse', false).addPropFunctor('color', null).addPropFunctor('my', null).addPropFunctor('at', null).addPropFunctor('target', null).addPropFunctor('html', null).addDispatcher(['insert', 'move', 'remove']);
-
     return tooltip;
+  }
+
+  // Work around for JavaScripts ||= operator. Only undefined will be construed as falsy.
+  function oreqUndefined () {
+    var truthy = function truthy(v) {
+      return v !== undefined;
+    };
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var val = args.filter(truthy)[0];
+    return truthy(val) ? val : undefined;
   }
 
   function tooltipAxis () {
     var $$ = {};
+    var tooltip = {}; // Position markers relative to selected points and axes
 
-    var tooltip = {};
-
-    // Position markers relative to selected points and axes
     var positionMarker = function positionMarker(marker, info, type) {
       if (type === 'y') {
         if (info.y === Infinity) return marker.style('opacity', 0);
-        marker.style('opacity', 1).attr('transform', 'translate(0, ' + info.y + ')').attr('y1', 0).attr('y2', 0).attr('x1', 0).attr('x2', $$.size.width);
+        marker.style('opacity', 1).attr('transform', "translate(0, ".concat(info.y, ")")).attr('y1', 0).attr('y2', 0).attr('x1', 0).attr('x2', $$.size.width);
       } else {
         if (info.x === Infinity) return marker.style('opacity', 0);
-        marker.style('opacity', 1).attr('transform', 'translate(' + info.x + ', 0)').attr('x1', 0).attr('x2', 0).attr('y1', 0).attr('y2', $$.size.height);
+        marker.style('opacity', 1).attr('transform', "translate(".concat(info.x, ", 0)")).attr('x1', 0).attr('x2', 0).attr('y1', 0).attr('y2', $$.size.height);
       }
-    };
+    }; // Position tooltip relative to selected points and axes
 
-    // Position tooltip relative to selected points and axes
+
     var positionTooltip = function positionTooltip(tooltip, info, base) {
       var node = tooltip.node();
       if (!node) return;
@@ -756,45 +756,43 @@
 
       x += window.pageXOffset;
       y += window.pageYOffset;
-
       tooltip.style('left', x + 'px').style('top', y + 'px');
-    };
+    }; // Populate tooltip with point rows
 
-    // Populate tooltip with point rows
+
     var populateTooltip = function populateTooltip(tooltip, info) {
       var title = $$.title(info.points.map(function (d) {
         return d.data;
       }));
-
       tooltip.select('.d2b-tooltip-title').style('display', title ? 'block' : 'none').html(title);
-
       var content = tooltip.select('.d2b-tooltip-content');
-
       var row = content.selectAll('.d2b-tooltip-row').data(info.points);
       var rowEnter = row.enter().append('div').attr('class', 'd2b-tooltip-row');
-
       row.exit().remove();
-
       row = row.merge(rowEnter).html(function (d) {
         return d.row;
       }).style('border-left-color', function (d) {
         return d.color || 'transparent';
       });
-    };
-
-    // Finds the x, y coordinates associated with the points 'closest' to the cursor.
+    }; // Finds the x, y coordinates associated with the points 'closest' to the cursor.
     // Also returns the set of points that meet the 'closest' configuration.
+
+
     var findPointInfo = function findPointInfo(base) {
-      var cursor = { x: d3.event.clientX - base.x, y: d3.event.clientY - base.y };
+      var cursor = {
+        x: d3.event.clientX - base.x,
+        y: d3.event.clientY - base.y
+      };
       var x = Infinity,
           y = Infinity,
           points = [];
+
       for (var groupName in groups) {
         if (!groups.hasOwnProperty(groupName)) continue;
         var group = groups[groupName];
 
         var _loop = function _loop(graphName) {
-          if (!group.hasOwnProperty(graphName)) return 'continue';
+          if (!group.hasOwnProperty(graphName)) return "continue";
           var graph = group[graphName];
           var newPoints = [];
           graph.config.data.forEach(function (d, i) {
@@ -803,12 +801,11 @@
               x: oreq(graph.config.x(d, i), $$.x(d, i)),
               y: oreq(graph.config.y(d, i), $$.y(d, i)),
               color: oreq(graph.config.color(d, i), $$.color(d, i)),
-              row: oreq(graph.config.row(d, i), $$.row(d, i))
+              row: oreqUndefined(graph.config.row(d, i), $$.row(d, i))
             };
 
             if ($$.trackX && $$.trackY) {
               if (item.x === x && item.y === y) return newPoints.push(item);
-
               var od = Math.sqrt(Math.pow(x - cursor.x, 2) + Math.pow(y - cursor.y, 2));
               var nd = Math.sqrt(Math.pow(item.x - cursor.x, 2) + Math.pow(item.y - cursor.y, 2));
 
@@ -822,6 +819,7 @@
               if (item.x === x) return newPoints.push(item);
 
               var _od = Math.abs(x - cursor.x);
+
               var _nd = Math.abs(item.x - cursor.x);
 
               if (_nd < _od && _nd < $$.threshold) {
@@ -833,6 +831,7 @@
               if (item.y === y) return newPoints.push(item);
 
               var _od2 = Math.abs(y - cursor.y);
+
               var _nd2 = Math.abs(item.y - cursor.y);
 
               if (_nd2 < _od2 && _nd2 < $$.threshold) {
@@ -842,136 +841,134 @@
               }
             }
           });
-
           points = points.concat(newPoints);
         };
 
         for (var graphName in group) {
           var _ret = _loop(graphName);
 
-          if (_ret === 'continue') continue;
+          if (_ret === "continue") continue;
         }
       }
 
       points = points.sort(function (a, b) {
         return d3.ascending(a.x, b.x) || d3.ascending(a.y, b.y);
       });
+      return {
+        x: x,
+        y: y,
+        points: points
+      };
+    }; // Exit tooltip element.
 
-      return { x: x, y: y, points: points };
-    };
 
-    // Exit tooltip element.
     var exitElement = function exitElement(el) {
       el.transition().duration(50).style('opacity', 0).remove();
-    };
+    }; // Enter tooltip element.
 
-    // Enter tooltip element.
+
     var enterElement = function enterElement(el) {
       el.transition().duration(50).style('opacity', 1);
-    };
+    }; // Enter tooltip components.
 
-    // Enter tooltip components.
+
     var enter = function enter(d, i) {
       var markerX = $$.svgContainer.selectAll('.d2b-tooltip-marker-x').data($$.trackX ? [tooltip] : []);
       var markerXEnter = markerX.enter().append('line').attr('class', 'd2b-tooltip-marker-x d2b-tooltip-marker');
-
       var markerY = $$.svgContainer.selectAll('.d2b-tooltip-marker-y').data($$.trackY ? [tooltip] : []);
       var markerYEnter = markerY.enter().append('line').attr('class', 'd2b-tooltip-marker-y d2b-tooltip-marker');
-
       var tooltipEl = $$.htmlContainer.selectAll('.d2b-tooltip').data([tooltip]);
-
       var tooltipEnter = tooltipEl.enter().append('div').attr('class', 'd2b-tooltip d2b-tooltip-axis');
-
       tooltipEnter.merge(tooltipEl).call(enterElement);
       markerY.merge(markerYEnter).call(enterElement);
       markerX.merge(markerXEnter).call(enterElement);
-
       tooltipEnter.append('div').attr('class', 'd2b-tooltip-title');
       tooltipEnter.append('div').attr('class', 'd2b-tooltip-content');
-
       $$.dispatch.call('insert', $$.tooltip, d, i);
-    };
+    }; // Exit tooltip components.
 
-    // Exit tooltip components.
+
     var exit = function exit() {
       $$.svgContainer.selectAll('.d2b-tooltip-marker-x').data([]).exit().call(exitElement);
       $$.svgContainer.selectAll('.d2b-tooltip-marker-y').data([]).exit().call(exitElement);
       $$.htmlContainer.selectAll('.d2b-tooltip').data([]).exit().call(exitElement);
-    };
+    }; // Tracker mousemove event.
 
-    // Tracker mousemove event.
+
     var mousemove = function mousemove(d, i) {
       var base = $$.svgContainer.selectAll('.d2b-tooltip-base').data([d]);
       base = base.merge(base.enter().append('rect').attr('class', 'd2b-tooltip-base'));
       var baseBox = base.node().getBoundingClientRect();
-      baseBox = { x: baseBox.left, y: baseBox.top };
-
+      baseBox = {
+        x: baseBox.left,
+        y: baseBox.top
+      };
       var pointInfo = findPointInfo(baseBox);
-
       if (pointInfo.points.length) enter();else return exit();
-
       $$.svgContainer.select('.d2b-tooltip-marker-x').call(positionMarker, pointInfo, 'x');
-
       $$.svgContainer.select('.d2b-tooltip-marker-y').call(positionMarker, pointInfo, 'y');
-
       $$.htmlContainer.select('.d2b-tooltip').call(populateTooltip, pointInfo).call(positionTooltip, pointInfo, baseBox);
-
       $$.dispatch.call('move', $$.tooltip, d, i);
-    };
+    }; // Tracker mouseout event.
 
-    // Tracker mouseout event.
+
     var mouseout = function mouseout(d, i) {
       exit();
-
       $$.dispatch.call('remove', $$.tooltip, d, i);
-    };
+    }; // Event key builder.
 
-    // Event key builder.
+
     var event = function event(listener) {
-      return listener + '.d2b-tooltip-axis';
-    };
+      return "".concat(listener, ".d2b-tooltip-axis");
+    }; // update mouse event tracker
 
-    // update mouse event tracker
+
     var updateTracker = function updateTracker(n, o) {
       if (o) {
         o.on(event('mouseout'), null).on(event('mousemove'), null);
       }
+
       if (n) {
         n.on(event('mouseout'), mouseout).on(event('mousemove'), mousemove);
       }
-    };
+    }; // setup tooltip model
 
-    // setup tooltip model
-    base(tooltip, $$).addProp('htmlContainer', d3.select('body')).addProp('svgContainer', null).addProp('tracker', d3.select('body'), null, updateTracker).addProp('size', { height: 0, width: 0 }).addProp('trackX', true).addProp('trackY', false).addProp('threshold', Infinity).addMethod('clear', function (groupName, graphName) {
+
+    base(tooltip, $$).addProp('htmlContainer', d3.select('body')).addProp('svgContainer', null).addProp('tracker', d3.select('body'), null, updateTracker).addProp('size', {
+      height: 0,
+      width: 0
+    }).addProp('trackX', true).addProp('trackY', false).addProp('threshold', Infinity).addMethod('clear', function (groupName, graphName) {
       if (arguments.length === 0) groups = {};else if (arguments.length === 1) delete groups[groupName];else if (arguments.length >= 2) delete groups[groupName][graphName];
-
       return tooltip;
     }).addPropFunctor('title', null).addPropFunctor('x', function (d) {
       return d.x;
     }).addPropFunctor('y', function (d) {
       return d.y;
-    }).addPropFunctor('color', null).addPropFunctor('row', null).addDispatcher(['move', 'insert', 'remove']);
+    }).addPropFunctor('color', null).addPropFunctor('row', null).addDispatcher(['move', 'insert', 'remove']); // construct an interface for each graph that is initialized
 
-    // construct an interface for each graph that is initialized
     var groups = {};
+
     tooltip.graph = function () {
       var groupName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var graphName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
       var graphs = groups[groupName] = groups[groupName] || {};
       var graph = graphs[graphName];
 
       if (!graph) {
-        graph = graphs[graphName] = { interface: {}, config: {} };
+        graph = graphs[graphName] = {
+          interface: {},
+          config: {}
+        };
         var graphModel = base(graph.interface, graph.config);
-
         graphModel.addProp('data', []).addMethod('clear', function () {
           graph.config.data = [];
           return graph.interface;
         }).addMethod('addPoint', function (p) {
           graph.config.data.push(p);
           return graph.interface;
-        }).addPropFunctor('x', null).addPropFunctor('y', null).addPropFunctor('color', null).addPropFunctor('row', null);
+        }).addPropFunctor('x', null).addPropFunctor('y', null).addPropFunctor('color', null).addPropFunctor('row', function () {
+          return undefined;
+        });
       }
 
       return graph.interface;
@@ -982,25 +979,23 @@
 
   // d2b.stack will stack the x and y values in place for
   // some datum and d3.stack configuration.
+
   function stack () {
     var $$ = {};
 
     var stack = function stack(datum) {
       var _this = this;
 
-      var original = datum;
+      var original = datum; // for simplicity map datum to just array of values arrays
 
-      // for simplicity map datum to just array of values arrays
-      datum = datum.map($$.values);
-
-      // format values to be in the form
+      datum = datum.map($$.values); // format values to be in the form
       // [
       //   {x_1: y_1, x_2: y_2, .. },
       //   {x_1: y_1, x_2: y_2, .. },
       //   ..
       // ]
-      var xset = [];
 
+      var xset = [];
       var vals = datum.map(function (d) {
         var nodes = {};
         d.forEach(function (d, i) {
@@ -1009,34 +1004,28 @@
           nodes[x] = $$.y.call(_this, d, i);
         });
         return nodes;
-      });
+      }); // find unique set of x values
 
-      // find unique set of x values
-      xset = d3.set(xset).values();
+      xset = d3.set(xset).values(); // value => index mapping of x values
 
-      // value => index mapping of x values
       var xmap = xset.reduce(function (o, v, i) {
         o[v] = i;
         return o;
-      }, {});
+      }, {}); // graph keys (just use index)
 
-      // graph keys (just use index)
-      var keys = d3.range(0, datum.length);
+      var keys = d3.range(0, datum.length); // transpose values for d3.stack
 
-      // transpose values for d3.stack
       var tvals = xset.map(function (col) {
         return vals.map(function (row) {
           return row[col] || 0;
         });
-      });
+      }); // stack transposed values
 
-      // stack transposed values
       $$.stack.keys(keys).value(function (d, k) {
         return d[k] || 0;
       });
-      var stacking = $$.stack(tvals);
+      var stacking = $$.stack(tvals); // reassociate the stacked values with the original datum
 
-      // reassociate the stacked values with the original datum
       datum.forEach(function (d, i) {
         d.forEach(function (val, ind) {
           var x = $$.x.call(_this, val, ind);
@@ -1044,11 +1033,11 @@
           $$.out.call(_this, val, ys[0], ys[1], x);
         });
       });
-
       return original;
     };
-
     /* Inherit from base model */
+
+
     base(stack, $$).addProp('stack', d3.stack()).addPropFunctor('values', function (d) {
       return d;
     }).addPropFunctor('x', function (d) {
@@ -1059,7 +1048,6 @@
       d.y0 = y0;
       d.y1 = y1;
     });
-
     return stack;
   }
 
@@ -1068,28 +1056,20 @@
 
     var breadcrumbs = function breadcrumbs(context) {
       var selection = context.selection ? context.selection() : context;
-
       var bcs = selection.selectAll('.d2b-breadcrumbs').data(function (d) {
         return [d];
       });
-
       var bcsEnter = bcs.enter().append('div').attr('class', 'd2b-breadcrumbs');
+      bcs = bcs.merge(bcsEnter).classed('d2b-vertical', $$.vertical); // Set breadcrumb data from values accessor. And only show breadcrumbs that have html content.
 
-      bcs = bcs.merge(bcsEnter).classed('d2b-vertical', $$.vertical);
-
-      // Set breadcrumb data from values accessor. And only show breadcrumbs that have html content.
       var bc = bcs.selectAll('.d2b-breadcrumb').data(function (d) {
         return $$.values(d).filter($$.html);
       }, $$.key),
           bcExit = bc.exit();
-
       var bcEnter = bc.enter().append('div').attr('class', 'd2b-breadcrumb').style('opacity', 0);
-
       bcEnter.append('div').attr('class', 'd2b-breadcrumb-icon');
       bcEnter.append('div').attr('class', 'd2b-breadcrumb-content');
-
       bc = bc.merge(bcEnter).order();
-
       bc.select('.d2b-breadcrumb-content').html($$.html);
 
       if (context !== selection) {
@@ -1098,15 +1078,15 @@
       }
 
       bc.style('border-color', $$.color).style('opacity', 1).select('.d2b-breadcrumb-icon').style('background-color', $$.color);
-
       bcExit.remove();
-
-      selection.dispatch('breadcrumbs-updated', { bubbles: true });
-
+      selection.dispatch('breadcrumbs-updated', {
+        bubbles: true
+      });
       return breadcrumbs;
     };
-
     /* Inherit from base model */
+
+
     base(breadcrumbs, $$).addPropFunctor('values', function (d) {
       return d;
     }).addPropFunctor('key', function (d, i) {
@@ -1114,7 +1094,6 @@
     }).addPropFunctor('color', 'blue').addPropFunctor('html', function (d) {
       return d.html;
     }).addPropFunctor('vertical', true);
-
     return breadcrumbs;
   }
 
@@ -1122,30 +1101,21 @@
 
   function legend () {
     var $$ = {};
-
     var symbol = d3.symbol().size(80);
 
     var legend = function legend(context) {
       var selection = context.selection ? context.selection() : context;
-
       var leg = selection.selectAll('.d2b-legend').data(function (d) {
         return [d];
       });
-
       var legEnter = leg.enter().append('div').attr('class', 'd2b-legend');
-
       leg = leg.merge(legEnter).classed('d2b-vertical', $$.vertical);
-
       var legItem = leg.selectAll('.d2b-legend-item').data($$.values, $$.key),
           legItemExit = legItem.exit();
-
       var legItemEnter = legItem.enter().append('div').attr('class', 'd2b-legend-item').style('opacity', 0);
-
       legItemEnter.append('div').attr('class', 'd2b-legend-icon');
       legItemEnter.append('div').attr('class', 'd2b-legend-content');
-
       legItem = legItem.merge(legItemEnter).order();
-
       legItem.select('.d2b-legend-content').html($$.html);
 
       if (context !== selection) {
@@ -1158,47 +1128,44 @@
         var item = d3.select(this),
             color = $$.color(d, i),
             empty = $$.empty(d, i);
+        item.style('border-color', color); // legend icon customization
 
-        item.style('border-color', color);
-
-        // legend icon customization
         var icon = $$.icon(d, i),
             iconDiv = item.select('.d2b-legend-icon'),
             fa = [],
             shape = [],
             rect = iconDiv.node().getBoundingClientRect(),
-            size = { width: rect.width, height: rect.height },
-            center = { x: size.width / 2, y: size.height / 2 };
-
+            size = {
+          width: rect.width,
+          height: rect.height
+        },
+            center = {
+          x: size.width / 2,
+          y: size.height / 2
+        };
         if (typeof icon === 'string') fa.push(icon);else shape.push(icon);
-
         var svgIcon = iconDiv.selectAll('.d2b-legend-svg-icon').data(function (d) {
           return [d];
         });
-
         var svgIconEnter = svgIcon.enter().append('svg');
         svgIconEnter.attr('class', 'd2b-legend-svg-icon').attr('width', size.width).attr('height', size.height);
-
         svgIcon = svgIcon.merge(svgIconEnter);
-
         var svgFa = svgIcon.selectAll('text').data(fa),
             svgFaEnter = svgFa.enter().append('text');
         svgFa.exit().remove();
         svgFaEnter.append('tspan');
         svgFa = svgFa.merge(svgFaEnter);
-        svgFa.style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', 'translate(' + center.x + ',' + center.y * 1.65 + ')').select('tspan').text(function (d) {
+        svgFa.style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', "translate(".concat(center.x, ",").concat(center.y * 1.65, ")")).select('tspan').text(function (d) {
           return d;
         });
-
         var svgShape = svgIcon.selectAll('path').data(shape);
         svgShape.exit().remove();
         svgShape = svgShape.merge(svgShape.enter().append('path'));
         svgShape.style('stroke', color).style('fill', empty ? 'white' : color).attr('d', function (d) {
           return symbol.type(d)();
-        }).attr('transform', 'translate(' + center.x + ',' + center.y + ')');
-      });
+        }).attr('transform', "translate(".concat(center.x, ",").concat(center.y, ")"));
+      }); // bind events
 
-      // bind events
       leg.each(function (d, i) {
         var allowEmptied = $$.allowEmptied(d, i),
             items = d3.select(this).selectAll('.d2b-legend-item'),
@@ -1209,40 +1176,42 @@
         },
             allEmpty = function allEmpty() {
           var allEmpty = true;
-
           items.each(function (dd, ii) {
             if (!$$.empty(dd, ii)) allEmpty = false;
           });
-
           return allEmpty;
         },
             click = function click(d, i) {
           $$.setEmpty(d, i, !$$.empty(d, i));
           if (!allowEmptied && allEmpty()) setAllEmpty(false);
           selection.call(legend);
-          d3.select(this.parentNode).dispatch('change', { bubbles: true });
+          d3.select(this.parentNode).dispatch('change', {
+            bubbles: true
+          });
         },
             dblclick = function dblclick(d, i) {
           setAllEmpty(true);
           $$.setEmpty(d, i, false);
           selection.call(legend);
-          d3.select(this.parentNode).dispatch('change', { bubbles: true });
+          d3.select(this.parentNode).dispatch('change', {
+            bubbles: true
+          });
         };
 
         items.each(function (d, i) {
           var clickable = $$.clickable(d, i),
               dblclickable = $$.dblclickable(d, i);
-
           d3.select(this).on('click', clickable ? click : null).on('dblclick', dblclickable ? dblclick : null);
         });
       });
-
-      selection.dispatch('legend-updated', { bubbles: true });
-
+      selection.dispatch('legend-updated', {
+        bubbles: true
+      });
       legItemExit.remove();
     };
-
     /* Inherit from base model */
+
+
     base(legend, $$).addPropFunctor('values', function (d) {
       return d;
     }).addPropFunctor('key', function (d, i) {
@@ -1256,26 +1225,34 @@
     }).addPropFunctor('setEmpty', function (d, i, state) {
       return d.empty = state;
     });
-
     return legend;
   }
 
   function chartFrame () {
-
     // Padding can either be a constant or an object containing any of the
     // attributes (left, right, top, bottom). cleanPadding returns an object
     // with (left, right, top, bottom) attributes.
     function cleanPadding(pad) {
-      var padding = { top: 0, left: 0, right: 0, bottom: 0 };
-      if (typeof pad === 'number') return { top: pad, left: pad, right: pad, bottom: pad };
+      var padding = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+      };
+      if (typeof pad === 'number') return {
+        top: pad,
+        left: pad,
+        right: pad,
+        bottom: pad
+      };
       ['top', 'bottm', 'right', 'left'].forEach(function (d) {
         if (pad[d]) padding[d] == pad[d];
       });
       return padding;
-    }
-
-    // Size can contain width or height attibutes. If either are unset the
+    } // Size can contain width or height attibutes. If either are unset the
     // size is derived from the bounding client rectangle.
+
+
     function cleanSize(s, box) {
       return {
         width: s && s.width > 0 ? s.width : box.width,
@@ -1287,58 +1264,39 @@
 
     var chartFrame = function chartFrame(context) {
       var selection = context.selection ? context.selection() : context;
-
       var frame = selection.selectAll('.d2b-chart-frame').data(function (d) {
         return [d];
       }),
           frameEnter = frame.enter().append('div').attr('class', 'd2b-chart-frame');
-
       frame = frame.merge(frameEnter);
-
       selection.each(function (d) {
         var frame = d3.select(this).select('.d2b-chart-frame'),
             frameUpdate = frame,
             padding = cleanPadding($$.padding(d)),
             chartPadding = cleanPadding($$.chartPadding(d)),
             size = cleanSize($$.size(d), this.getBoundingClientRect());
-
         var legendDatum = $$.legendEnabled(d) ? [d] : [];
-
         var legend = frame.selectAll('.d2b-legend-frame').data(legendDatum),
             legendEnter = legend.enter().append('div').attr('class', 'd2b-legend-frame'),
             legendExit = legend.exit();
-
         legendExit.remove();
-
         legendEnter.append('div').attr('class', 'd2b-legend-container');
-
         legend = legend.merge(legendEnter);
-
         var legendUpdate = legend;
-
         var breadcrumbsDatum = $$.breadcrumbsEnabled(d) ? [d] : [];
-
         var breadcrumbs = frame.selectAll('.d2b-breadcrumbs-frame').data(breadcrumbsDatum),
             breadcrumbsEnter = breadcrumbs.enter().append('div').attr('class', 'd2b-breadcrumbs-frame'),
             breadcrumbsExit = breadcrumbs.exit();
-
         breadcrumbsExit.remove();
-
         breadcrumbsEnter.append('div').attr('class', 'd2b-breadcrumbs-container');
-
         breadcrumbs = breadcrumbs.merge(breadcrumbsEnter);
-
         var breadcrumbsUpdate = breadcrumbs;
-
         var chart = frame.selectAll('.d2b-chart').data(function (d) {
           return [d];
         }),
             chartEnter = chart.enter().append('svg').attr('class', 'd2b-chart');
-
         chartEnter.append('g').attr('class', 'd2b-chart-container');
-
         chart = chart.merge(chartEnter);
-
         var chartUpdate = chart;
 
         if (context !== selection) {
@@ -1349,29 +1307,23 @@
         }
 
         frameUpdate.style('width', size.width + 'px').style('height', size.height + 'px');
-
         size.width -= padding.left + padding.right;
         size.height -= padding.top + padding.bottom;
-
         placeComponent(breadcrumbs, breadcrumbsEnter, breadcrumbsUpdate, $$.breadcrumbsOrient(d), padding, size);
         placeComponent(legend, legendEnter, legendUpdate, $$.legendOrient(d), padding, size);
-
         enterUpdate(chartEnter, chartUpdate, function (d) {
           d.style('left', padding.left + 'px').style('top', padding.top + 'px').style('width', size.width + 'px').style('height', size.height + 'px');
-
           d.select('.d2b-chart-container').attr('transform', 'translate(' + [chartPadding.left, chartPadding.top] + ')');
         });
-
         size.width -= chartPadding.left + chartPadding.right;
-        size.height -= chartPadding.top + chartPadding.bottom;
-
-        // Store the chart size on the node so that the chart itself can get the
+        size.height -= chartPadding.top + chartPadding.bottom; // Store the chart size on the node so that the chart itself can get the
         // true size instead of the transitioning size.
+
         chart.select('.d2b-chart-container').node().__size__ = size;
       });
-
-      selection.dispatch('chart-frame-updated', { bubbles: true });
-
+      selection.dispatch('chart-frame-updated', {
+        bubbles: true
+      });
       return chartFrame;
     };
 
@@ -1382,29 +1334,25 @@
 
     function placeComponent(el, enter, update, orient, padding, size) {
       var node = el.node();
+
       if (node) {
         update.style('top', '').style('left', '').style('right', '').style('bottom', '').style('width', '').style('height', '');
-
-        var box = void 0;
+        var box;
 
         if (orient === 'right' || orient === 'left') {
           el.classed('d2b-vertical', true);
           box = node.getBoundingClientRect();
-
           enterUpdate(enter, update, function (d) {
             d.style(orient, padding[orient] + 'px').style('top', padding.top + 'px').style('height', size.height + 'px');
           });
-
           padding[orient] += box.width;
           size.width -= box.width;
         } else if (orient === 'top' || orient === 'bottom') {
           el.classed('d2b-vertical', false);
           box = node.getBoundingClientRect();
-
           enterUpdate(enter, update, function (d) {
             d.style(orient, padding[orient] + 'px').style('left', padding.left + 'px').style('width', size.width + 'px');
           });
-
           padding[orient] += box.height;
           size.height -= box.height;
         } else {
@@ -1412,10 +1360,10 @@
         }
       }
     }
-
     /* Inherit from base model */
-    base(chartFrame, $$).addPropFunctor('size', null).addPropFunctor('legendEnabled', true).addPropFunctor('legendOrient', 'bottom').addPropFunctor('breadcrumbsEnabled', false).addPropFunctor('breadcrumbsOrient', 'right').addPropFunctor('chartPadding', 10).addPropFunctor('padding', 10);
 
+
+    base(chartFrame, $$).addPropFunctor('size', null).addPropFunctor('legendEnabled', true).addPropFunctor('legendOrient', 'bottom').addPropFunctor('breadcrumbsEnabled', false).addPropFunctor('breadcrumbsOrient', 'right').addPropFunctor('chartPadding', 10).addPropFunctor('padding', 10);
     return chartFrame;
   }
 
@@ -1425,14 +1373,15 @@
 
   // Returns the specified object, omit the properties with keys matching
   // those in the specified keys array.
-
   function omit(obj, keys) {
     var newObj = {};
+
     for (var k in obj) {
       if (typeof obj[k] !== 'function') {
         if (keys.indexOf(k) < 0) newObj[k] = obj[k];
       }
     }
+
     return newObj;
   }
 
@@ -1465,23 +1414,18 @@
     value = functor(value || function (d) {
       return d;
     });
-
     var medians = [],
         midWeight;
-
     var newArray = arr.filter(function (a) {
       return weight(a) !== 0 && !isNaN(number(weight(a))) && !isNaN(number(value(a)));
     }).sort(function (a, b) {
       return d3.ascending(value(a), value(b));
     });
-
     midWeight = Math.round(d3.sum(newArray, function (item) {
       return weight(item);
     }) / 2 * 1e12) / 1e12;
-
     var currentPosition = 0;
     var getNext = false;
-
     newArray.forEach(function (item) {
       if (getNext) {
         medians.push(value(item));
@@ -1499,7 +1443,6 @@
         medians.push(value(item));
       }
     });
-
     if (arr.length) return mean(medians);
   }
 
@@ -1510,11 +1453,9 @@
     value = functor(value || function (d) {
       return d;
     });
-
     var modes = [],
         maxFrequency = 0,
         frequencies = {};
-
     arr.forEach(function (item) {
       var val = number(value(item));
       if (isNaN(value(item))) return;
@@ -1528,7 +1469,6 @@
         modes.push(value(item));
       }
     });
-
     if (maxFrequency <= 1 || !modes.length) return null;else if (modes.length === 1) return modes[0];else return modes;
   }
 
@@ -1573,7 +1513,6 @@
       var theta2 = (pi / 2 - theta) / 2;
       var circlex = r / sqrt8 - r * Math.cos(theta2);
       var circley = r * Math.sin(theta2);
-
       context.arc(circlex, circley, r, -theta2, 2 * pi - theta - theta2);
       context.lineTo(r * (5 / 4 - 1 / sqrt2), -r * (1 / sqrt8 + 5 / 4 - 1 / sqrt2));
       context.lineTo(r * (5 / 4 - 1 / sqrt2) - s, -r * (1 / sqrt8 + 5 / 4 - 1 / sqrt2));
@@ -1591,7 +1530,6 @@
       var r = Math.sqrt(size / (pi + 5 / 4));
       var theta = 2 * Math.asin(1 / 4);
       var circley = r / 4 - r * Math.cos(theta / 2);
-
       context.arc(0, circley, r, -pi * 3 / 2 + theta / 2, pi / 2 - theta / 2);
       context.lineTo(r / 4, 3 * r / 4);
       context.lineTo(r * 3 / 4, 3 * r / 4);
@@ -1608,53 +1546,49 @@
   };
 
   // point svg generator
+
   function point () {
     var $$ = {};
-
     /* Update Function */
-    var point = function point(context) {
-      var selection = context.selection ? context.selection() : context;
 
-      // point background
+    var point = function point(context) {
+      var selection = context.selection ? context.selection() : context; // point background
+
       var back = selection.selectAll('path.d2b-point-back').data(function (d) {
         return [d];
       });
-
       back.enter().append('path').attr('class', 'd2b-point-back').attr('d', symbolNormal).style('fill-opacity', 0).style('stroke', $$.stroke).style('stroke-width', $$.strokeWidth);
 
       if (context !== selection) {
         back = back.transition(context);
       }
 
-      back.attr('d', symbolNormal).style('stroke', $$.stroke).style('stroke-width', $$.strokeWidth);
+      back.attr('d', symbolNormal).style('stroke', $$.stroke).style('stroke-width', $$.strokeWidth); // point foreground
 
-      // point foreground
       var front = selection.selectAll('path.d2b-point-front').data(function (d) {
         return [d];
       });
-
       front.enter().append('path').attr('class', 'd2b-point-front').attr('d', symbolSmall).style('opacity', frontOpacity).style('fill', $$.fill).style('stroke', $$.stroke).style('stroke-width', $$.strokeWidth);
 
       if (context !== selection) {
         front = front.transition(context);
       }
 
-      front.attr('d', symbolSmall).style('opacity', frontOpacity).style('fill', $$.fill).style('stroke', $$.stroke).style('stroke-width', $$.strokeWidth);
+      front.attr('d', symbolSmall).style('opacity', frontOpacity).style('fill', $$.fill).style('stroke', $$.stroke).style('stroke-width', $$.strokeWidth); // set mouse events if active
 
-      // set mouse events if active
       selection.each(function (d, i) {
         var active = $$.active.call(this, d, i);
         d3.select(this).on('mouseover.d2b-point', active ? mouseover : null).on('mouseout.d2b-point', active ? mouseout : null);
       });
-
-      selection.dispatch('point-updated', { bubbles: true });
-
+      selection.dispatch('point-updated', {
+        bubbles: true
+      });
       return point;
     };
 
     var symbol = d3.symbol();
-
     /* Inherit from base model */
+
     base(point, $$).addPropFunctor('size', 150, null, function (d) {
       return symbol.size(d);
     }).addPropFunctor('type', d3.symbolCircle, null, function (d) {
@@ -1686,17 +1620,13 @@
 
     function mouseover(d, i) {
       var empty = $$.empty.call(this, d, i);
-
       d3.select(this).select('path.d2b-point-back').transition().duration(100).attr('d', symbolBig);
-
       d3.select(this).select('path.d2b-point-front').transition().duration(100).style('opacity', empty ? 0.5 : 1).attr('d', symbolSmall);
     }
 
     function mouseout(d, i) {
       var empty = $$.empty.call(this, d, i);
-
       d3.select(this).select('path.d2b-point-back').transition().duration(100).attr('d', symbolNormal);
-
       d3.select(this).select('path.d2b-point-front').transition().duration(100).style('opacity', empty ? 0 : 1).attr('d', symbolSmall);
     }
 
@@ -1704,16 +1634,14 @@
   }
 
   // pie svg generator
+
   function svgPie () {
-
     var $$ = {};
-
     /* Update Function */
+
     var pie = function pie(context) {
       var selection = context.selection ? context.selection() : context;
-
       $$.pie.value($$.value);
-
       $$.arc.startAngle(function (d) {
         return d.startAngle;
       }).endAngle(function (d) {
@@ -1721,70 +1649,59 @@
       }).padAngle(function (d) {
         return d.padAngle;
       });
-
       var pieSvg = selection.selectAll('.d2b-pie').data(function (d) {
         return [$$.pie($$.values(d))];
       }),
           pieSvgEnter = pieSvg.enter().append('g').attr('class', 'd2b-pie');
-
       pieSvg = pieSvg.merge(pieSvgEnter);
-
       pieSvg.each(function (values) {
-        var el = d3.select(this);
+        var el = d3.select(this); // select arc group and get their old data
 
-        // select arc group and get their old data
         var arc = el.selectAll('.d2b-pie-arc');
         var oldData = arc.data();
-
         arc = arc.data(values, function (d, i) {
           d.key = $$.key(d.data, i);
           return d.key;
         });
-
         var arcEnter = arc.enter().append('g').attr('class', 'd2b-pie-arc'),
             arcExit = arc.exit(),
             arcUpdate = arc.merge(arcEnter).order();
-
         arcEnter.append('path').attr('fill', function (d, i) {
           return $$.color.call(this, d.data, i);
-        });
+        }); // retrieve new data
 
-        // retrieve new data
-        var newData = arcUpdate.data();
+        var newData = arcUpdate.data(); // for new arcs, find and set the neighboring insertion point
 
-        // for new arcs, find and set the neighboring insertion point
         arcEnter.select('path').each(function (d, i) {
           this.current = findNeighborArc(i, oldData, newData);
         });
-
         arcExit.datum(function (d, i) {
           var data = findNeighborArc(i, newData, oldData);
           data.data = d.data;
           data.innerRadius = d.innerRadius;
           data.outerRadius = d.outerRadius;
           return data;
-        });
+        }); // start transition for exiting and updating arcs
 
-        // start transition for exiting and updating arcs
         if (context !== selection) {
           arcExit = arcExit.transition(context);
           arcUpdate = arcUpdate.transition(context);
-        }
+        } // transition arc path
 
-        // transition arc path
+
         arcUpdate.select('path').call(tweenArc, $$.arc).attr('fill', function (d, i) {
           return $$.color.call(this, d.data, i);
         });
-
         arcExit.remove().select('path').call(tweenArc, $$.arc);
       });
-
-      selection.dispatch('svg-pie-updated', { bubbles: true });
-
+      selection.dispatch('svg-pie-updated', {
+        bubbles: true
+      });
       return pie;
     };
-
     /* Inherit from base model */
+
+
     base(pie, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addPropFunctor('values', function (d) {
       return d;
     }).addPropFunctor('key', function (d) {
@@ -1798,31 +1715,46 @@
     function findNeighborArc(i, data0, data1) {
       var preceding = findPreceding(i, data0, data1),
           following = findFollowing(i, data0, data1);
-      if (preceding) {
-        return { startAngle: preceding.endAngle, endAngle: preceding.endAngle };
-      } else if (following) {
-        return { startAngle: following.startAngle, endAngle: following.startAngle };
-      }
-      return { startAngle: 0, endAngle: 0 };
-    }
 
-    // Find the element in data0 that joins the highest preceding element in data1.
+      if (preceding) {
+        return {
+          startAngle: preceding.endAngle,
+          endAngle: preceding.endAngle
+        };
+      } else if (following) {
+        return {
+          startAngle: following.startAngle,
+          endAngle: following.startAngle
+        };
+      }
+
+      return {
+        startAngle: 0,
+        endAngle: 0
+      };
+    } // Find the element in data0 that joins the highest preceding element in data1.
+
+
     function findPreceding(i, data0, data1) {
       var m = data0.length;
+
       while (--i >= 0) {
         var k = $$.key(data1[i].data, i);
+
         for (var j = 0; j < m; ++j) {
           if ($$.key(data0[j].data, j) === k) return data0[j];
         }
       }
-    }
+    } // Find the element in data0 that joins the lowest following element in data1.
 
-    // Find the element in data0 that joins the lowest following element in data1.
+
     function findFollowing(i, data0, data1) {
       var n = data1.length,
           m = data0.length;
+
       while (++i < n) {
         var k = $$.key(data1[i].data, i);
+
         for (var j = 0; j < m; ++j) {
           if ($$.key(data0[j].data, j) === k) return data0[j];
         }
@@ -1836,132 +1768,26 @@
     return !(path.indexOf('NaN') > -1 || path.indexOf('Inifnity') > -1);
   }
 
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  };
-
-  var asyncGenerator = function () {
-    function AwaitValue(value) {
-      this.value = value;
-    }
-
-    function AsyncGenerator(gen) {
-      var front, back;
-
-      function send(key, arg) {
-        return new Promise(function (resolve, reject) {
-          var request = {
-            key: key,
-            arg: arg,
-            resolve: resolve,
-            reject: reject,
-            next: null
-          };
-
-          if (back) {
-            back = back.next = request;
-          } else {
-            front = back = request;
-            resume(key, arg);
-          }
-        });
-      }
-
-      function resume(key, arg) {
-        try {
-          var result = gen[key](arg);
-          var value = result.value;
-
-          if (value instanceof AwaitValue) {
-            Promise.resolve(value.value).then(function (arg) {
-              resume("next", arg);
-            }, function (arg) {
-              resume("throw", arg);
-            });
-          } else {
-            settle(result.done ? "return" : "normal", result.value);
-          }
-        } catch (err) {
-          settle("throw", err);
-        }
-      }
-
-      function settle(type, value) {
-        switch (type) {
-          case "return":
-            front.resolve({
-              value: value,
-              done: true
-            });
-            break;
-
-          case "throw":
-            front.reject(value);
-            break;
-
-          default:
-            front.resolve({
-              value: value,
-              done: false
-            });
-            break;
-        }
-
-        front = front.next;
-
-        if (front) {
-          resume(front.key, front.arg);
-        } else {
-          back = null;
-        }
-      }
-
-      this._invoke = send;
-
-      if (typeof gen.return !== "function") {
-        this.return = undefined;
-      }
-    }
-
-    if (typeof Symbol === "function" && Symbol.asyncIterator) {
-      AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-        return this;
+  function _typeof(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function (obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof = function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
     }
 
-    AsyncGenerator.prototype.next = function (arg) {
-      return this._invoke("next", arg);
-    };
-
-    AsyncGenerator.prototype.throw = function (arg) {
-      return this._invoke("throw", arg);
-    };
-
-    AsyncGenerator.prototype.return = function (arg) {
-      return this._invoke("return", arg);
-    };
-
-    return {
-      wrap: function (fn) {
-        return function () {
-          return new AsyncGenerator(fn.apply(this, arguments));
-        };
-      },
-      await: function (value) {
-        return new AwaitValue(value);
-      }
-    };
-  }();
+    return _typeof(obj);
+  }
 
   // copy d3.annotation instance for single use cases
 
   var copy = function copy(_annotation) {
     return d3SvgAnnotation.annotation().disable(_annotation.disable()).textWrap(_annotation.textWrap()).notePadding(_annotation.notePadding()).type(_annotation.type()).accessors(_annotation.accessors()).accessorsInverse(_annotation.accessorsInverse()).ids(_annotation.ids()).editMode(_annotation.editMode()).collection(_annotation.collection());
-  };
+  }; // Update a set of annotations, should only be used for point oriented annotations. (e.g. not rectangles / thresholds)
 
-  // Update a set of annotations, should only be used for point oriented annotations. (e.g. not rectangles / thresholds)
   /**
    * @param {d3 transition or selection}    context             annotation container context
    * @param {d3 annotation}                 annotation          annotation generator
@@ -1981,23 +1807,17 @@
     };
     var getTransform = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 'translate(0, 0)';
     var getTransformEnter = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'translate(0, 0)';
-
-
     var selection = context.selection ? context.selection() : context;
-
     context.each(function (d) {
       var el = d3.select(this),
           data = functor(getData)(d),
           annotationSvg = el.selectAll('g.' + selectorClass).data(data),
           annotationEnter = annotationSvg.enter().append('g');
-
       var annotationUpdate = annotationSvg.merge(annotationEnter),
           annotationExit = annotationSvg.exit();
-
       annotationEnter.attr('class', selectorClass).attr('transform', function (a) {
         return functor(getTransformEnter)(d, a);
       }).style('opacity', 0);
-
       data.forEach(function (a) {
         a.x = 0;
         a.y = 0;
@@ -2007,9 +1827,9 @@
       if (data.length && annotation) {
         annotationUpdate.selectAll('*').remove();
         annotationUpdate.call(copy(annotation).annotations(data));
-      }
+      } // handle annotation transitions and exiting
 
-      // handle annotation transitions and exiting
+
       if (context !== selection) {
         annotationUpdate = annotationUpdate.transition(context);
         annotationExit = annotationExit.transition(context);
@@ -2018,25 +1838,23 @@
       annotationUpdate.attr('transform', function (a) {
         return functor(getTransform)(d, a);
       }).style('opacity', 1);
-
       annotationExit.attr('transform', function (a) {
         return functor(getTransform)(d, a);
       }).style('opacity', 0).remove();
     });
-  };
-
-  // quick implementation of shallow object clone
+  }; // quick implementation of shallow object clone
 
   function clone(obj) {
-    if (null == obj || "object" != (typeof obj === 'undefined' ? 'undefined' : _typeof(obj))) return obj;
+    if (null == obj || "object" != _typeof(obj)) return obj;
     var copy = obj.constructor();
+
     for (var attr in obj) {
       if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
     }
-    return copy;
-  }
 
-  // Transform x, y, x2, y2 into d3.annotation pixel attributes and update axis annotations accordingly
+    return copy;
+  } // Transform x, y, x2, y2 into d3.annotation pixel attributes and update axis annotations accordingly
+
   /**
    * @param {d3 transition or selection}    context             annotation container context
    * @param {d3 annotation}                 annotation          annotation generator
@@ -2044,8 +1862,8 @@
    * @param {object}                        scales              annotation scales { x, y, x2, y2 }
    */
 
-  var updateAnnotations = function updateAxis(context, annotation, data, scales) {
 
+  var updateAnnotations = function updateAxis(context, annotation, data, scales) {
     var selection = context.selection ? context.selection() : context,
         node = selection.node(),
         preScales = node.__scales || scales;
@@ -2057,8 +1875,7 @@
           yVal = a.y === Infinity ? y.range()[0] : y(a.y),
           x2Val = a.x2 === Infinity ? x.range()[1] : x(a.x2),
           y2Val = a.y2 === Infinity ? y.range()[1] : y(a.y2);
-
-      return 'translate(' + [isNaN(x2Val) ? xVal : Math.min(xVal, x2Val), isNaN(y2Val) ? yVal : Math.min(yVal, y2Val)] + ')';
+      return "translate(".concat([isNaN(x2Val) ? xVal : Math.min(xVal, x2Val), isNaN(y2Val) ? yVal : Math.min(yVal, y2Val)], ")");
     };
 
     var getSubject = function getSubject(a, scales) {
@@ -2085,7 +1902,6 @@
 
       subjectCopy.dx = subjectCopy.dx * width;
       subjectCopy.dy = subjectCopy.dy * height;
-
       return subjectCopy;
     };
 
@@ -2095,18 +1911,14 @@
       x2: scales.x2.copy(),
       y2: scales.y2.copy()
     };
-
     var aSvg = selection.selectAll('.d2b-axis-annotation').data(data, function (d) {
       return d.key;
     }),
         aEnter = aSvg.enter().append('g'),
-        aExit = aSvg.exit();
+        aExit = aSvg.exit(); // clear out the annotaiton before updating in case of a change in annotation type
 
-    // clear out the annotaiton before updating in case of a change in annotation type
     aSvg.selectAll('*').remove();
-
     aSvg = aSvg.merge(aEnter);
-
     aEnter.attr('class', 'd2b-axis-annotation').attr('transform', function (a) {
       return getTransform(a, preScales);
     }).style('opacity', 0);
@@ -2119,24 +1931,20 @@
     aSvg.attr('transform', function (a) {
       return getTransform(a, scales);
     }).style('opacity', 1);
-
     aExit.attr('transform', function (a) {
       return getTransform(a, scales);
     }).style('opacity', 0).remove();
-
     aSvg.each(function (a) {
       var aCopy = clone(a.data),
           aSvg = d3.select(this),
           annotationCopy = copy(annotation);
-
       aCopy.x = 0;
       aCopy.y = 0;
       aCopy.color = a.color;
       aCopy.subject = getSubject(a, scales);
       aCopy.dx = (aCopy.subject.dx || 0) + (a.data.dx || 0);
-      aCopy.dy = (aCopy.subject.dy || 0) + (a.data.dy || 0);
+      aCopy.dy = (aCopy.subject.dy || 0) + (a.data.dy || 0); // if transitioning, custom tween the subject contents
 
-      // if transitioning, custom tween the subject contents
       if (context !== selection) {
         aSvg.transition(context).tween('annotation-tween', function () {
           var _this = this;
@@ -2156,6 +1964,7 @@
   };
 
   // line svg generator
+
   function svgLine () {
     var $$ = {};
 
@@ -2181,40 +1990,34 @@
             y: $$.py(point, i),
             color: $$.pcolor(point, i) || newGraph.color,
             annotation: $$.pannotation(point, i)
-          };
-          // initialize y values (these will be overwritten by the stack if stacking applies)
+          }; // initialize y values (these will be overwritten by the stack if stacking applies)
+
           newPoint.y1 = newPoint.y;
           newPoint.y0 = 0;
           return newPoint;
         });
         return newGraph;
       });
-
       stackNest.entries(graphs).forEach(function (sg) {
         if (sg.values.length > 1) stacker(sg.values);
       });
-
       return graphs;
     }
-
     /* Update Function */
+
+
     var line = function line(context) {
       var selection = context.selection ? context.selection() : context;
-
       var graphs = selection.selectAll('.d2b-line-graphs').data(function (d) {
         return [d];
       });
-
       graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-line-graphs'));
-
       var graph = graphs.selectAll('.d2b-line-graph').data(function (d, i) {
         return getGraphs(d, i);
       }, function (d) {
         return d.key;
       });
-
       var graphEnter = graph.enter().append('g').attr('class', 'd2b-line-graph d2b-graph').style('opacity', 0);
-
       graphEnter.append('path').attr('class', 'd2b-line').style('stroke', function (d) {
         return d.color;
       }).attr('d', function (d) {
@@ -2223,24 +2026,20 @@
         var graphsNode = this.parentNode.parentNode,
             x = graphsNode.__scaleX,
             y = graphsNode.__scaleY;
-
         return getPath.call(this, d, x || $$.x, y || $$.y);
       });
-
       var graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
-
       var lineUpdate = graphUpdate.select('.d2b-line');
 
       if (context !== selection) {
         graphUpdate = graphUpdate.transition(context);
         graphExit = graphExit.transition(context);
         lineUpdate = lineUpdate.transition(context);
-
         var lineExit = graphExit.style('opacity', 0).select('.d2b-line');
+
         var tweenD = function tweenD(d) {
           var setupTooltip = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
           var maxX = d3.max(d.values, function (dd) {
             return dd.x;
           });
@@ -2250,9 +2049,9 @@
           return d3InterpolatePath.interpolatePath(this.getAttribute('d'), getPath.call(this, d, $$.x, $$.y, setupTooltip), function (a) {
             return a.x == maxX || a.x == minX;
           });
-        };
+        }; // use d3-interpolate-path if available
 
-        // use d3-interpolate-path if available
+
         if (typeof d3InterpolatePath.interpolatePath == "undefined") {
           lineExit.attr('d', function (d) {
             return getPath.call(this, d, $$.x, $$.y);
@@ -2274,9 +2073,8 @@
         });
       }
 
-      graphUpdate.style('opacity', 1);
+      graphUpdate.style('opacity', 1); // update graph annotations
 
-      // update graph annotations
       graphUpdate.each(function (d) {
         var graphsNode = this.parentNode,
             graph = d3.select(this),
@@ -2286,16 +2084,13 @@
             annotationValues = d.values.filter(function (v) {
           return v.annotation;
         });
-
         var a = graph.selectAll('.d2b-line-annotation-group').data(annotationValues, function (v) {
           return v.key;
         }),
             aEnter = a.enter().append('g');
-
         aEnter.attr('class', 'd2b-line-annotation-group').attr('transform', function (v) {
-          return 'translate(' + (x(v.x) + d.shift) + ', ' + y(v[align]) + ')';
+          return "translate(".concat(x(v.x) + d.shift, ", ").concat(y(v[align]), ")");
         });
-
         var aUpdate = a.merge(aEnter),
             aExit = a.exit();
 
@@ -2305,46 +2100,39 @@
         }
 
         aUpdate.style('opacity', 1).attr('transform', function (v) {
-          return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+          return "translate(".concat($$.x(v.x) + d.shift, ", ").concat($$.y(v[align]), ")");
         }).call(update, $$.annotation, 'd2b-line-annotation');
-
         aExit.attr('transform', function (v) {
           // join the exiting annotation with the value if it still exists
           v = d.values.filter(function (ov) {
             return v.key === ov.key;
           })[0] || v;
-          return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+          return "translate(".concat($$.x(v.x) + d.shift, ", ").concat($$.y(v[align]), ")");
         }).style('opacity', 0).remove();
       });
-
       graphExit.remove().selectAll('.d2b-line-annotation-group').attr('transform', function (v) {
-        return 'translate(' + ($$.x(v.x) + v.graph.shift) + ', ' + $$.y(v[v.graph.align]) + ')';
+        return "translate(".concat($$.x(v.x) + v.graph.shift, ", ").concat($$.y(v[v.graph.align]), ")");
       });
-
       lineUpdate.style('stroke', function (d) {
         return d.color;
-      });
+      }); // Make a copy of the scales sticky on the 'graphs' node
 
-      // Make a copy of the scales sticky on the 'graphs' node
       var xCopy = $$.x.copy(),
           yCopy = $$.y.copy();
-
       graphs.each(function () {
         this.__scaleX = xCopy;
         this.__scaleY = yCopy;
       });
-
-      selection.dispatch('svg-line-updated', { bubbles: true });
-
+      selection.dispatch('svg-line-updated', {
+        bubbles: true
+      });
       return line;
     };
 
     var getPath = function getPath(d, x, y) {
       var setupTooltip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
       var shift = d.shift;
       if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
       if (d.tooltipGraph && setupTooltip) d.tooltipGraph.data(d.values).x(function (dd) {
         return x(dd.x) + shift;
       }).y(function (dd) {
@@ -2352,15 +2140,12 @@
       }).color(function (dd) {
         return dd.color;
       });
-
       $$.line.x(function (dd) {
         return x(dd.x) + shift;
       }).y(function (dd) {
         return y(dd[d.align]);
       });
-
       var path = $$.line(d.values);
-
       return isFinitePath(path) ? path : this.getAttribute('d');
     };
 
@@ -2371,19 +2156,17 @@
     }).x(function (d) {
       return d.x;
     });
-
     var stackNest = d3.nest().key(function (d) {
       var key = d.stackBy;
       return key !== false && key !== null ? key : d2bid();
     });
-
     /* Inherit from base model */
+
     base(line, $$).addProp('line', d3.line()).addProp('stack', stacker.stack(), null, function (d) {
       return stacker.stack(d);
     }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'line').addPropFunctor('graphs', function (d) {
       return d;
-    })
-    // graph props
+    }) // graph props
     .addPropFunctor('align', 'y1').addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
     }).addPropFunctor('shift', null).addPropFunctor('stackBy', null).addPropFunctor('key', function (d) {
@@ -2392,8 +2175,7 @@
       return d.values;
     }).addPropFunctor('color', function (d) {
       return color(d.label);
-    })
-    // points props
+    }) // points props
     .addPropFunctor('px', function (d) {
       return d.x;
     }).addPropFunctor('py', function (d) {
@@ -2402,8 +2184,7 @@
       return i;
     }).addPropFunctor('pannotation', function (d) {
       return d.annotation;
-    })
-    // methods
+    }) // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
         return getGraphs(d, i);
@@ -2413,16 +2194,20 @@
       return data.map(function (graphs) {
         return [].concat.apply([], graphs.map(function (graph) {
           return graph.values.map(function (v) {
-            return { x: v.x, y: v[graph.align], graph: graph };
+            return {
+              x: v.x,
+              y: v[graph.align],
+              graph: graph
+            };
           });
         }));
       })[0];
     });
-
     return line;
   }
 
   // line svg generator
+
   function svgArea () {
     var $$ = {};
 
@@ -2448,41 +2233,34 @@
             y0: $$.py0(point, i),
             color: $$.pcolor(point, i) || newGraph.color,
             annotations: $$.pannotations(point, i)
-          };
-          // initialize y1 and y0 (these will be overwritten by the stack if stacking applies)
+          }; // initialize y1 and y0 (these will be overwritten by the stack if stacking applies)
+
           newPoint.y1 = newPoint.y;
           newPoint.y0 = oreq(newPoint.y0, 0);
-
           return newPoint;
         });
         return newGraph;
       });
-
       stackNest.entries(graphs).forEach(function (sg) {
         if (sg.values.length > 1) stacker(sg.values);
       });
-
       return graphs;
     }
-
     /* Update Function */
+
+
     var area = function area(context) {
       var selection = context.selection ? context.selection() : context;
-
       var graphs = selection.selectAll('.d2b-area-graphs').data(function (d) {
         return [d];
       });
-
       graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-area-graphs'));
-
       var graph = graphs.selectAll('.d2b-area-graph').data(function (d, i) {
         return getGraphs(d, i);
       }, function (d) {
         return d.key;
       });
-
       var graphEnter = graph.enter().append('g').attr('class', 'd2b-area-graph d2b-graph').style('opacity', 0);
-
       graphEnter.append('path').attr('class', 'd2b-area').style('fill', function (d) {
         return d.color;
       }).attr('d', function (d) {
@@ -2491,24 +2269,20 @@
         var graphsNode = this.parentNode.parentNode,
             x = graphsNode.__scaleX,
             y = graphsNode.__scaleY;
-
         return getPath.call(this, d, x || $$.x, y || $$.y);
       });
-
       var graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
-
       var areaUpdate = graphUpdate.select('.d2b-area');
 
       if (context !== selection) {
         graphUpdate = graphUpdate.transition(context);
         graphExit = graphExit.transition(context);
         areaUpdate = areaUpdate.transition(context);
-
         var areaExit = graphExit.style('opacity', 0).select('.d2b-area');
+
         var tweenD = function tweenD(d) {
           var setupTooltip = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
           var maxX = d3.max(d.values, function (dd) {
             return dd.x;
           });
@@ -2518,9 +2292,9 @@
           return d3InterpolatePath.interpolatePath(this.getAttribute('d'), getPath.call(this, d, $$.x, $$.y, setupTooltip), function (a) {
             return a.x == maxX || a.x == minX;
           });
-        };
+        }; // use d3-interpolate-path if available
 
-        // use d3-interpolate-path if available
+
         if (typeof d3InterpolatePath.interpolatePath == "undefined") {
           areaExit.attr('d', function (d) {
             return getPath.call(this, d, $$.x, $$.y);
@@ -2542,31 +2316,26 @@
         });
       }
 
-      graphUpdate.style('opacity', 1);
+      graphUpdate.style('opacity', 1); // update graph annotations
 
-      // update graph annotations
       graphUpdate.each(function (d) {
         var graphsNode = this.parentNode,
             graph = d3.select(this),
             x = graphsNode.__scaleX || $$.x,
             y = graphsNode.__scaleY || $$.y;
-
         ['y0', 'y1'].forEach(function (align) {
           var annotationValues = d.values.filter(function (v) {
             return (v.annotations || []).filter(function (a) {
               return (a.location || 'y1') === align;
             }).length;
           });
-
           var a = graph.selectAll('.d2b-area-annotation-group-' + align).data(annotationValues, function (v) {
             return v.key;
           }),
               aEnter = a.enter().append('g');
-
           aEnter.attr('class', 'd2b-area-annotation-group-' + align).attr('transform', function (v) {
-            return 'translate(' + (x(v.x) + d.shift) + ', ' + y(v[align]) + ')';
+            return "translate(".concat(x(v.x) + d.shift, ", ").concat(y(v[align]), ")");
           });
-
           var aUpdate = a.merge(aEnter),
               aExit = a.exit();
 
@@ -2576,58 +2345,48 @@
           }
 
           aUpdate.style('opacity', 1).attr('transform', function (v) {
-            return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+            return "translate(".concat($$.x(v.x) + d.shift, ", ").concat($$.y(v[align]), ")");
           }).call(update, $$.annotation, 'd2b-area-annotation', function (v) {
             return v.annotations.filter(function (a) {
               return (a.location || 'y1') === align;
             });
           });
-
           aExit.attr('transform', function (v) {
             // join the exiting annotation with the value if it still exists
             v = d.values.filter(function (ov) {
               return v.key === ov.key;
             })[0] || v;
-            return 'translate(' + ($$.x(v.x) + d.shift) + ', ' + $$.y(v[align]) + ')';
+            return "translate(".concat($$.x(v.x) + d.shift, ", ").concat($$.y(v[align]), ")");
           }).style('opacity', 0).remove();
         });
       });
-
       graphExit.remove();
-
       graphExit.selectAll('.d2b-area-annotation-group-y0').attr('transform', function (v) {
-        return 'translate(' + ($$.x(v.x) + v.graph.shift) + ', ' + $$.y(v.y0) + ')';
+        return "translate(".concat($$.x(v.x) + v.graph.shift, ", ").concat($$.y(v.y0), ")");
       });
-
       graphExit.selectAll('.d2b-area-annotation-group-y1').attr('transform', function (v) {
-        return 'translate(' + ($$.x(v.x) + v.graph.shift) + ', ' + $$.y(v.y1) + ')';
+        return "translate(".concat($$.x(v.x) + v.graph.shift, ", ").concat($$.y(v.y1), ")");
       });
-
       areaUpdate.style('fill', function (d) {
         return d.color;
-      });
+      }); // Make a copy of the scales sticky on the 'graphs' node
 
-      // Make a copy of the scales sticky on the 'graphs' node
       var xCopy = $$.x.copy(),
           yCopy = $$.y.copy();
-
       graphs.each(function () {
         this.__scaleX = xCopy;
         this.__scaleY = yCopy;
       });
-
-      selection.dispatch('svg-area-updated', { bubbles: true });
-
+      selection.dispatch('svg-area-updated', {
+        bubbles: true
+      });
       return area;
     };
 
     var getPath = function getPath(d, x, y) {
       var setupTooltip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
-
       var shift = d.shift;
       if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
       if (d.tooltipGraph && setupTooltip) d.tooltipGraph.data(d.values).x(function (p) {
         return x(p.x) + shift;
       }).y(function (p) {
@@ -2635,7 +2394,6 @@
       }).color(function (p) {
         return p.color;
       });
-
       $$.area.x(function (p) {
         return x(p.x) + shift;
       }).y0(function (p) {
@@ -2643,9 +2401,7 @@
       }).y1(function (p) {
         return y(p.y1);
       });
-
       var path = $$.area(d.values);
-
       return isFinitePath(path) ? path : this.getAttribute('d');
     };
 
@@ -2656,19 +2412,17 @@
     }).x(function (d) {
       return d.x;
     });
-
     var stackNest = d3.nest().key(function (d) {
       var key = d.stackBy;
       return key !== false && key !== null ? key : d2bid();
     });
-
     /* Inherit from base model */
+
     base(area, $$).addProp('area', d3.area()).addProp('stack', stacker.stack(), null, function (d) {
       return stacker.stack(d);
     }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'area').addPropFunctor('graphs', function (d) {
       return d;
-    })
-    // graph props
+    }) // graph props
     .addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
     }).addPropFunctor('shift', null).addPropFunctor('stackBy', null).addPropFunctor('key', function (d) {
@@ -2677,8 +2431,7 @@
       return d.values;
     }).addPropFunctor('color', function (d) {
       return color(d.label);
-    })
-    // points props
+    }) // points props
     .addPropFunctor('px', function (d) {
       return d.x;
     }).addPropFunctor('py', function (d) {
@@ -2689,8 +2442,7 @@
       return i;
     }).addPropFunctor('pannotations', function (d) {
       return d.annotations;
-    })
-    // methods
+    }) // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
         return getGraphs(d, i);
@@ -2700,22 +2452,30 @@
       return data.map(function (graphs) {
         var y0s = [].concat.apply([], graphs.map(function (graph) {
           return graph.values.map(function (v) {
-            return { x: v.x, y: v.y0, graph: graph };
+            return {
+              x: v.x,
+              y: v.y0,
+              graph: graph
+            };
           });
         }));
         var y1s = [].concat.apply([], graphs.map(function (graph) {
           return graph.values.map(function (v) {
-            return { x: v.x, y: v.y1, graph: graph };
+            return {
+              x: v.x,
+              y: v.y1,
+              graph: graph
+            };
           });
         }));
         return y0s.concat(y1s);
       })[0];
     });
-
     return area;
   }
 
   // scatter svg generator
+
   function svgScatter () {
     var $$ = {};
 
@@ -2744,70 +2504,56 @@
             key: $$.pkey(point, i),
             size: $$.psize(point, i),
             annotation: $$.pannotation(point, i)
-          };
-          // initialize y values (these will be overwritten by the stack if stacking applies)
+          }; // initialize y values (these will be overwritten by the stack if stacking applies)
+
           newPoint.y1 = newPoint.y;
           newPoint.y0 = 0;
           return newPoint;
         });
         return newGraph;
       });
-
       stackNest.entries(graphs).forEach(function (sg) {
         if (sg.values.length > 1) stacker(sg.values);
       });
-
       return graphs;
     }
-
     /* Update Function */
+
+
     var scatter = function scatter(context) {
       var selection = context.selection ? context.selection() : context;
-
       var graphs = selection.selectAll('.d2b-scatter-graphs').data(function (d) {
         return [d];
       });
-
       graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-scatter-graphs'));
-
       var graph = graphs.selectAll('.d2b-scatter-graph').data(function (d, i) {
         return getGraphs(d, i);
       }, function (d) {
         return d.key;
       });
-
       var graphEnter = graph.enter().append('g').attr('class', 'd2b-scatter-graph d2b-graph').style('opacity', 0);
-
       var graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
 
       if (context !== selection) {
         graphUpdate = graphUpdate.transition(context);
         graphExit = graphExit.transition(context);
-
-        graphExit.style('opacity', 0)
-        // points needs to be transitioned to where there new locations "would be"
+        graphExit.style('opacity', 0) // points needs to be transitioned to where there new locations "would be"
         // if the graphs had been included
         .each(function (d) {
           var el = d3.select(this),
               x = $$.x,
               y = $$.y;
-
           var pointExit = el.selectAll('.d2b-scatter-point');
-
           if (context !== selection) pointExit = pointExit.transition(context);
-
           var shift = d.shift;
           if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
           pointExit.style('opacity', 0).call(pointTransform, x, y, shift, d.align).remove();
         });
       }
 
       graphUpdate.style('opacity', 1);
-
       graphExit.remove();
-
       graphUpdate.each(function (d) {
         var el = d3.select(this),
             x = $$.x,
@@ -2815,13 +2561,10 @@
             graphsNode = this.parentNode,
             preX = graphsNode.__scaleX || x,
             preY = graphsNode.__scaleY || y;
-
         var shift = d.shift;
         if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
         var preShift = shift;
         if (preShift === null) shift = preX.bandwidth ? preX.bandwidth() / 2 : 0;
-
         if (d.tooltipGraph) d.tooltipGraph.data(d.values).x(function (p) {
           return x(p.x) + shift;
         }).y(function (p) {
@@ -2829,7 +2572,6 @@
         }).color(function (p) {
           return p.color;
         });
-
         $$.point.fill(function (p) {
           return p.color;
         }).type(function (p) {
@@ -2837,47 +2579,40 @@
         }).size(function (p) {
           return p.size;
         });
-
         var point = el.selectAll('.d2b-scatter-point').data(d.values, function (p) {
           return p.key;
         });
         var pointEnter = point.enter().append('g').attr('class', 'd2b-scatter-point');
-
         var pointUpdate = point.merge(pointEnter).order(),
-            pointExit = point.exit();
+            pointExit = point.exit(); // define transitions if the parent context was a transition
 
-        // define transitions if the parent context was a transition
         if (context !== selection) {
           pointUpdate = pointUpdate.transition(context);
           pointExit = pointExit.transition(context);
-        }
+        } // if band scale is used enter points at their new location
 
-        // if band scale is used enter points at their new location
+
         if (preX.bandwidth || preY.bandwidth || x.bandwidth || y.bandwidth) {
           pointEnter.call(pointTransform, x, y, shift, d.align);
         } else {
           pointEnter.call(pointTransform, preX, preY, preShift, d.align);
-        }
+        } // enter update exit point configuration
 
-        // enter update exit point configuration
+
         pointEnter.style('opacity', 0);
-
         pointUpdate.style('opacity', 1).call($$.point).call(pointTransform, x, y, shift, d.align);
+        pointExit.style('opacity', 0).call(pointTransform, x, y, shift, d.align).remove(); // update annotations
 
-        pointExit.style('opacity', 0).call(pointTransform, x, y, shift, d.align).remove();
-
-        // update annotations
         update(pointUpdate, $$.annotation, 'd2b-scatter-annotation');
-      });
+      }); // Make a copy of the scales sticky on the 'graphs' node
 
-      // Make a copy of the scales sticky on the 'graphs' node
       graphs.each(function () {
         this.__scaleX = $$.x.copy();
         this.__scaleY = $$.y.copy();
       });
-
-      selection.dispatch('svg-scatter-updated', { bubbles: true });
-
+      selection.dispatch('svg-scatter-updated', {
+        bubbles: true
+      });
       return scatter;
     };
 
@@ -2885,7 +2620,7 @@
       transition.attr('transform', function (p) {
         var yPos = y(p[align]),
             xPos = x(p.x) + shift;
-        return isFinite(xPos) && isFinite(yPos) ? 'translate(' + [xPos, yPos] + ')' : this.getAttribute('transform');
+        return isFinite(xPos) && isFinite(yPos) ? "translate(".concat([xPos, yPos], ")") : this.getAttribute('transform');
       });
     }
 
@@ -2896,19 +2631,17 @@
     }).x(function (d) {
       return d.x;
     });
-
     var stackNest = d3.nest().key(function (d) {
       var key = d.stackBy;
       return key !== false && key !== null ? key : d2bid();
     });
-
     /* Inherit from base model */
+
     base(scatter, $$).addProp('point', point().active(true)).addProp('stack', stacker.stack(), null, function (d) {
       return stacker.stack(d);
     }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'scatter').addPropFunctor('graphs', function (d) {
       return d;
-    })
-    // graph props
+    }) // graph props
     .addPropFunctor('align', 'y1').addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
     }).addPropFunctor('shift', null).addPropFunctor('stackBy', null).addPropFunctor('key', function (d) {
@@ -2919,8 +2652,7 @@
       return color(d.label);
     }).addPropFunctor('symbol', function () {
       return d3.symbolCircle;
-    })
-    // points props
+    }) // points props
     .addPropFunctor('px', function (d) {
       return d.x;
     }).addPropFunctor('py', function (d) {
@@ -2929,8 +2661,7 @@
       return i;
     }).addPropFunctor('psize', 25).addPropFunctor('pannotation', function (d) {
       return d.annotation;
-    })
-    // methods
+    }) // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
         return getGraphs(d, i);
@@ -2940,29 +2671,46 @@
       return data.map(function (graphs) {
         return [].concat.apply([], graphs.map(function (graph) {
           return graph.values.map(function (v) {
-            return { x: v.x, y: v[graph.align], graph: graph };
+            return {
+              x: v.x,
+              y: v[graph.align],
+              graph: graph
+            };
           });
         }));
       })[0];
     });
-
     return scatter;
   }
 
   // bar svg generator
+
   function svgBar () {
     var $$ = {};
 
     function getOrientMap(orient) {
-      return orient === 'horizontal' ? { rotate: true, px: 'py', py: 'px', x: 'y', y: 'x', w: 'height', h: 'width' } : { rotate: false, px: 'px', py: 'py', x: 'x', y: 'y', w: 'width', h: 'height' };
+      return orient === 'horizontal' ? {
+        rotate: true,
+        px: 'py',
+        py: 'px',
+        x: 'y',
+        y: 'x',
+        w: 'height',
+        h: 'width'
+      } : {
+        rotate: false,
+        px: 'px',
+        py: 'py',
+        x: 'x',
+        y: 'y',
+        w: 'width',
+        h: 'height'
+      };
     }
 
     function getGraphs(d, i) {
       var orientMap = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : getOrientMap($$.orient(d, i));
-
-
       var graphs = $$.graphs(d, i).map(function (graph, i) {
-
         var newGraph = {
           data: graph,
           index: i,
@@ -2987,7 +2735,6 @@
         });
         return newGraph;
       });
-
       stacker.x(function (d) {
         return d[orientMap.x];
       }).y(function (d) {
@@ -2996,22 +2743,23 @@
       stackNest.entries(graphs).forEach(function (sg, si) {
         return stacker.out(buildOut(si))(sg.values);
       });
-
       modifyBaseline(graphs, $$.baseline(d, i, [].concat.apply([], graphs.map(function (g) {
         return g.values.map(function (v) {
           return v.extent[1];
         });
       }))));
-
       return graphs;
     }
-
     /* Update Function */
+
+
     var bar = function bar(context) {
       var selection = context.selection ? context.selection() : context;
+      var scales = {
+        x: $$.x,
+        y: $$.y
+      }; // iterate through each selection element
 
-      var scales = { x: $$.x, y: $$.y };
-      // iterate through each selection element
       selection.each(function (d, i) {
         var orient = $$.orient(d, i),
             orientMap = getOrientMap(orient),
@@ -3022,50 +2770,36 @@
         var padding = $$.padding(d, i),
             groupPadding = $$.groupPadding(d, i),
             bandwidth = $$.bandwidth(d, i);
-
         bandwidth = (1 - padding) * oreq(bandwidth || getBandwidth(x, graphs, orientMap));
-
         var stacking = stackNest.entries(graphs);
-
         var barWidth = bandwidth / Math.max(1, stacking.length);
+        groupPadding = barWidth * groupPadding; // get custom scales
 
-        groupPadding = barWidth * groupPadding;
-
-        // get custom scales
         var base = getBaseScale(x, bandwidth, barWidth, groupPadding),
             extent = getExtentScale(_y);
-
         barWidth -= groupPadding * 2;
-
         var graphsSVG = d3.select(this).selectAll('.d2b-bar-graphs').data(function (d) {
           return [d];
         });
-
         graphsSVG = graphsSVG.merge(graphsSVG.enter().append('g').attr('class', 'd2b-bar-graphs'));
-
         var graphsNode = graphsSVG.node(),
             preBase = graphsNode.__scaleBase || base,
             preY = graphsNode.__scaleY || _y,
             preX = graphsNode.__scaleX || x,
             preBarWidth = graphsNode.__barWidth || barWidth;
-
         var graph = graphsSVG.selectAll('.d2b-bar-graph').data(graphs.slice().reverse(), function (d) {
           return d.key;
         });
-
         var graphEnter = graph.enter().append('g').attr('class', 'd2b-bar-graph d2b-graph');
-
         var graphUpdate = graph.merge(graphEnter).order(),
             graphExit = graph.exit();
 
         if (context !== selection) {
           graphUpdate = graphUpdate.transition(context);
           graphExit = graphExit.transition(context);
-
           graphExit.each(function (d) {
             var shift = d.shift;
             if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
             var barExit = d3.select(this).selectAll('.d2b-bar-group').transition(context);
 
             if (preX.bandwidth || preY.bandwidth || x.bandwidth || _y.bandwidth) {
@@ -3092,16 +2826,13 @@
           });
         }
 
-        graphExit.remove();
+        graphExit.remove(); // iterate through graph containers
 
-        // iterate through graph containers
         graphUpdate.each(function (d) {
           var graph = d3.select(this);
-
           var shift = d.shift;
-          if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
+          if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0; // enter update exit bars
 
-          // enter update exit bars
           var bar = graph.selectAll('.d2b-bar-group').data(d.values, function (v) {
             return v.key;
           });
@@ -3110,7 +2841,6 @@
           barEnter.append('g').attr('class', 'd2b-bar-annotation-group');
           var barUpdate = bar.merge(barEnter).order(),
               barExit = bar.exit();
-
           if (d.tooltipGraph) d.tooltipGraph.data(d.values)[orientMap.x](function (point) {
             return x(point.base) + shift;
           })[orientMap.y](function (point) {
@@ -3125,11 +2855,9 @@
           }
 
           barEnter.attr('class', 'd2b-bar-group');
-
           barExit.remove();
 
           if (preX.bandwidth || preY.bandwidth || x.bandwidth || _y.bandwidth) {
-
             // enter
             barEnter.call(updateBars, {
               opacity: 0,
@@ -3145,12 +2873,10 @@
               },
               graph: d,
               orientMap: orientMap
-            });
+            }); // exit
 
-            // exit
             barExit.style('opacity', 0);
           } else {
-
             // enter
             barEnter.call(updateBars, {
               opacity: 0,
@@ -3166,9 +2892,8 @@
               },
               graph: d,
               orientMap: orientMap
-            });
+            }); // exit
 
-            // exit
             barExit.call(updateBars, {
               opacity: 0,
               x: function x(point) {
@@ -3184,9 +2909,9 @@
               graph: d,
               orientMap: orientMap
             });
-          }
+          } // update
 
-          // update
+
           barUpdate.call(updateBars, {
             opacity: 1,
             x: function x(point) {
@@ -3202,34 +2927,30 @@
             graph: d,
             orientMap: orientMap
           });
-        });
+        }); // Make a copy of the scales sticky on the 'graphs' node
 
-        // Make a copy of the scales sticky on the 'graphs' node
         graphsNode.__scaleY = _y;
         graphsNode.__scaleX = x;
         graphsNode.__scaleBase = base;
         graphsNode.__barWidth = barWidth;
       });
-
-      selection.dispatch('svg-bar-updated', { bubbles: true });
-
+      selection.dispatch('svg-bar-updated', {
+        bubbles: true
+      });
       return bar;
     };
 
     var stacker = stack().values(function (d) {
       return d.values;
     });
-
     var stackNest = d3.nest().key(function (d) {
       return d.stackBy;
-    });
+    }); // custom stacker build out that separates the negative and possitive bars
 
-    // custom stacker build out that separates the negative and possitive bars
     function buildOut(stackIndex) {
       var offsets = {};
       return function (d, y0, y1, x) {
         var offset = offsets[x] = offsets[x] || [0, 0];
-
         d.dy = y1 - y0;
         d.stackIndex = stackIndex;
         d.base = x;
@@ -3241,24 +2962,26 @@
       bars.style('opacity', options.opacity).call(transformBar, options).select('rect').attr('fill', function (point) {
         return point.color;
       }).attr(options.orientMap.w, options.width).attr(options.orientMap.h, options.height);
-
       bars.select('.d2b-bar-annotation-group').call(transformAnnotationGroup, options).call(update, $$.annotation, 'd2b-bar-annotation');
-    }
+    } // transform bar position
 
-    // transform bar position
+
     function transformBar(transition, options) {
       transition.attr('transform', function (d) {
         var xPos = options[options.orientMap.x](d),
             yPos = options[options.orientMap.y](d);
-        return 'translate(' + [xPos, yPos] + ')';
+        return "translate(".concat([xPos, yPos], ")");
       });
-    }
+    } // transform annotation group position
 
-    // transform annotation group position
+
     function transformAnnotationGroup(transition, options) {
       transition.attr('transform', function (d) {
-        var pos = { x: options.width / 2, y: d.extent[0] < d.extent[1] ? 0 : options.height(d) };
-        return 'translate(' + [pos[options.orientMap.x], pos[options.orientMap.y]] + ')';
+        var pos = {
+          x: options.width / 2,
+          y: d.extent[0] < d.extent[1] ? 0 : options.height(d)
+        };
+        return "translate(".concat([pos[options.orientMap.x], pos[options.orientMap.y]], ")");
       });
     }
 
@@ -3279,23 +3002,20 @@
       };
 
       return scale;
-    }
+    } // find closes non equal point pixel distance on the base axis
 
-    // find closes non equal point pixel distance on the base axis
+
     function getBandwidth(x, graphs, orientMap) {
       var xVals = [],
           bandwidth = Infinity;
       graphs.forEach(function (graph) {
         var values = graph.values,
             range = x.range();
-
         bandwidth = Math.min(bandwidth, Math.abs(range[1] - range[0]));
-
         values.forEach(function (point) {
           xVals.push(x(point[orientMap.x]));
         });
       });
-
       xVals.sort(d3.ascending);
 
       for (var i = 0; i < xVals.length - 1; i++) {
@@ -3315,7 +3035,6 @@
         var range = d3.extent(values.map(function (d) {
           return d.extent[1];
         }));
-
         if (range[1] < 0) baseline = range[1];else if (range[0] > 0) baseline = range[0];else baseline = 0;
       }
 
@@ -3327,12 +3046,12 @@
         });
       });
     }
-
     /* Inherit from base model */
+
+
     base(bar, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bar').addPropFunctor('graphs', function (d) {
       return d;
-    }).addPropFunctor('padding', 0.5).addPropFunctor('groupPadding', 0).addPropFunctor('bandwidth', null).addPropFunctor('baseline', 0)
-    // graph props
+    }).addPropFunctor('padding', 0.5).addPropFunctor('groupPadding', 0).addPropFunctor('bandwidth', null).addPropFunctor('baseline', 0) // graph props
     .addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
     }).addPropFunctor('orient', 'vertical').addPropFunctor('shift', null).addPropFunctor('stackBy', null).addPropFunctor('key', function (d) {
@@ -3341,8 +3060,7 @@
       return d.values;
     }, null).addPropFunctor('color', function (d) {
       return color(d.label);
-    })
-    // point props
+    }) // point props
     .addPropFunctor('px', function (d) {
       return d.x;
     }).addPropFunctor('py', function (d) {
@@ -3351,8 +3069,7 @@
       return i;
     }).addPropFunctor('pannotation', function (d) {
       return d.annotation;
-    })
-    // methods
+    }) // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
         return getGraphs(d, i);
@@ -3362,12 +3079,11 @@
         var orient = $$.orient(d, i),
             orientMap = getOrientMap(orient),
             graphs = getGraphs(d, i, orientMap);
-
         var extent0 = [].concat.apply([], graphs.map(function (graph) {
           return graph.values.map(function (v) {
             var point = {};
-            point['' + orientMap.x] = v.base;
-            point['' + orientMap.y] = v.extent[0];
+            point["".concat(orientMap.x)] = v.base;
+            point["".concat(orientMap.y)] = v.extent[0];
             point.graph = graph;
             return point;
           });
@@ -3375,21 +3091,17 @@
         var extent1 = [].concat.apply([], graphs.map(function (graph) {
           return graph.values.map(function (v) {
             var point = {};
-            point['' + orientMap.x] = v.base;
-            point['' + orientMap.y] = v.extent[1];
+            point["".concat(orientMap.x)] = v.base;
+            point["".concat(orientMap.y)] = v.extent[1];
             point.graph = graph;
             return point;
           });
         }));
-
         return extent0.concat(extent1);
       })[0];
     });
-
     return bar;
-  }
-
-  //original stacking function, might revert to this one instead of d3 stack layout in the future
+  } //original stacking function, might revert to this one instead of d3 stack layout in the future
   // // create stack layout based on $$.stack key accessor
   // const stacking = stackNest.entries(data);
   // const bandwidth = (1 - $$.padding.call(this, data, i)) * ($$.bandwidth.call(this, data, i) || getBandwidth(data, orient));
@@ -3420,32 +3132,53 @@
   // });
 
   // creates a box and whisker set for box plots
-
   // box svg generator
+
   function box () {
     var $$ = {};
-
     /* Update Function */
+
     var box = function box(context) {
       var selection = context.selection ? context.selection() : context,
           scale = $$.scale,
           enterScale = $$.enterScale || scale,
           valueFormat = $$.valueFormat,
           vertical = $$.orient === 'vertical',
-          orient = vertical ? { x: 'x', y: 'y', x1: 'x1', x2: 'x2', y1: 'y1', y2: 'y2', width: 'width', height: 'height', cx: 'cx', cy: 'cy', translate: function translate(x, y) {
-          return 'translate(' + x + ', ' + y + ')';
-        } } : { x: 'y', y: 'x', x1: 'y1', x2: 'y2', y1: 'x1', y2: 'x2', width: 'height', height: 'width', cx: 'cy', cy: 'cx', translate: function translate(x, y) {
-          return 'translate(' + y + ', ' + x + ')';
-        } };
+          orient = vertical ? {
+        x: 'x',
+        y: 'y',
+        x1: 'x1',
+        x2: 'x2',
+        y1: 'y1',
+        y2: 'y2',
+        width: 'width',
+        height: 'height',
+        cx: 'cx',
+        cy: 'cy',
+        translate: function translate(x, y) {
+          return "translate(".concat(x, ", ").concat(y, ")");
+        }
+      } : {
+        x: 'y',
+        y: 'x',
+        x1: 'y1',
+        x2: 'y2',
+        y1: 'x1',
+        y2: 'x2',
+        width: 'height',
+        height: 'width',
+        cx: 'cy',
+        cy: 'cx',
+        translate: function translate(x, y) {
+          return "translate(".concat(y, ", ").concat(x, ")");
+        }
+      }; // setup box-group and extract all necessary properties
 
-      // setup box-group and extract all necessary properties
       var group = selection.selectAll('.d2b-box').data(function (d, i) {
         d = $$.data(d, i);
-
         var outliers = $$.outliers(d, i) || [],
             minimum = $$.minimum(d, i),
             maximum = $$.maximum(d, i);
-
         return [{
           data: d,
           index: i,
@@ -3467,9 +3200,8 @@
         }];
       });
       var groupEnter = group.enter().append('g').attr('class', 'd2b-box');
-      var groupUpdate = group.merge(groupEnter).order();
+      var groupUpdate = group.merge(groupEnter).order(); // setup box-center
 
-      // setup box-center
       var center = groupUpdate.selectAll('.d2b-box-center').data(function (d) {
         return [d];
       });
@@ -3478,9 +3210,8 @@
       }).attr(orient.y2, function (d) {
         return enterScale(d.maximum);
       }).attr('class', 'd2b-box-center');
-      var centerUpdate = center.merge(centerEnter);
+      var centerUpdate = center.merge(centerEnter); // setup box-rect
 
-      // setup box-rect
       var rect = groupUpdate.selectAll('.d2b-box-rect').data(function (d) {
         return [d];
       });
@@ -3493,12 +3224,11 @@
       }).attr(orient.y, function (d) {
         return Math.min(enterScale(d.upperQuartile), enterScale(d.lowerQuartile));
       });
-      var rectUpdate = rect.merge(rectEnter);
+      var rectUpdate = rect.merge(rectEnter); // enter, update, exit all outliers
 
-      // enter, update, exit all outliers
       ['max', 'min'].forEach(function (outlierType) {
-        var outlier = groupUpdate.selectAll('.d2b-box-' + outlierType + '-outlier').data(function (d) {
-          return d[outlierType + 'Outliers'].map(function (o) {
+        var outlier = groupUpdate.selectAll(".d2b-box-".concat(outlierType, "-outlier")).data(function (d) {
+          return d["".concat(outlierType, "Outliers")].map(function (o) {
             return {
               outlier: o,
               box: d
@@ -3509,7 +3239,7 @@
           return d.box.width / 5;
         }).attr(orient.cx, 0).attr(orient.cy, function (d) {
           return enterScale(d.outlier);
-        }).attr('class', 'd2b-box-outlier d2b-box-' + outlierType + '-outlier');
+        }).attr('class', "d2b-box-outlier d2b-box-".concat(outlierType, "-outlier"));
         var outlierUpdate = outlier.merge(outlierEnter),
             outlierExit = outlier.exit();
 
@@ -3525,18 +3255,16 @@
         }).attr(orient.cx, 0).attr(orient.cy, function (d) {
           return scale(d.outlier);
         });
-
         outlierExit.attr(orient.cx, 0).attr(orient.cy, function (d) {
           return scale(d.outlier);
         }).style('opacity', 0).remove();
-      });
+      }); // enter, update all dashes
 
-      // enter, update all dashes
       ['maximum', 'median', 'minimum'].forEach(function (dashType) {
-        var dash = groupUpdate.selectAll('.d2b-box-dash-' + dashType).data(function (d) {
+        var dash = groupUpdate.selectAll(".d2b-box-dash-".concat(dashType)).data(function (d) {
           return [d];
         });
-        var dashEnter = dash.enter().append('line').attr('class', 'd2b-box-dash d2b-box-dash-' + dashType).attr(orient.x1, function (d) {
+        var dashEnter = dash.enter().append('line').attr('class', "d2b-box-dash d2b-box-dash-".concat(dashType)).attr(orient.x1, function (d) {
           return -d.width / 2;
         }).attr(orient.x2, function (d) {
           return d.width / 2;
@@ -3546,9 +3274,7 @@
           return enterScale(d[dashType]);
         });
         var dashUpdate = dash.merge(dashEnter);
-
         if (context !== selection) dashUpdate = dashUpdate.transition(context);
-
         dashUpdate.attr('stroke', function (d) {
           return d.color;
         }).attr(orient.x1, function (d) {
@@ -3560,25 +3286,20 @@
         }).attr(orient.y2, function (d) {
           return scale(d[dashType]);
         });
-      });
+      }); // enter, update all labels and annotations
 
-      // enter, update all labels and annotations
       ['maximum', 'upperQuartile', 'median', 'lowerQuartile', 'minimum'].forEach(function (textType, i) {
-        var label = groupUpdate.selectAll('.d2b-box-label-group-' + textType).data(function (d) {
+        var label = groupUpdate.selectAll(".d2b-box-label-group-".concat(textType)).data(function (d) {
           return [d];
         });
-        var labelEnter = label.enter().append('g').attr('class', 'd2b-box-label-group d2b-box-label-group-' + textType).attr('transform', function (d) {
+        var labelEnter = label.enter().append('g').attr('class', "d2b-box-label-group d2b-box-label-group-".concat(textType)).attr('transform', function (d) {
           return orient.translate(0, enterScale(d[textType]));
         });
-
         labelEnter.append('text').attr('class', 'd2b-box-label').attr(orient.x, function (d) {
           return (3 + d.width / 2) * (i % 2 === 0 ? 1 : -1);
         }).style('text-anchor', i % 2 === 0 ? 'start' : 'end');
-
         var labelUpdate = label.merge(labelEnter);
-
         if (context !== selection) labelUpdate = labelUpdate.transition(context);
-
         labelUpdate.attr('transform', function (d) {
           return orient.translate(0, scale(d[textType]));
         }).call(update, $$.annotation, 'd2b-box-annotation', function (d) {
@@ -3586,7 +3307,6 @@
             return (a.location || 'median') === textType;
           });
         });
-
         var labelText = labelUpdate.select('.d2b-box-label').text(function (d) {
           return valueFormat(d[textType]);
         });
@@ -3618,7 +3338,6 @@
       }).attr('stroke', function (d) {
         return d.color;
       });
-
       centerUpdate.attr(orient.x1, 0).attr(orient.x2, 0).attr(orient.y1, function (d) {
         return scale(d.minimum);
       }).attr(orient.y2, function (d) {
@@ -3626,13 +3345,14 @@
       }).attr('stroke', function (d) {
         return d.color;
       });
-
-      selection.dispatch('box-updated', { bubbles: true });
-
+      selection.dispatch('box-updated', {
+        bubbles: true
+      });
       return box;
     };
-
     /* Inherit from base model */
+
+
     base(box, $$).addProp('scale', d3.scaleLinear()).addProp('enterScale', null).addProp('valueFormat', d3.format(',')).addProp('orient', 'vertical').addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropFunctor('data', function (d) {
       return d;
     }).addPropFunctor('median', function (d) {
@@ -3650,13 +3370,12 @@
     }).addPropFunctor('width', 20).addPropFunctor('color', 'steelblue').addPropFunctor('annotations', function (d) {
       return d.annotations;
     });
-
     return box;
   }
 
   // import id from '../util/id';
-
   // box-plot svg generator
+
   function svgBoxPlot () {
     var $$ = {};
 
@@ -3671,7 +3390,6 @@
           color: $$.color(graph, i),
           orient: $$.orient(graph, i)
         };
-
         newGraph.values = $$.values(graph, i).map(function (point, i) {
           return {
             data: point,
@@ -3685,31 +3403,25 @@
         });
         return newGraph;
       });
-
       return graphs;
     }
-
     /* Update Function */
+
+
     var boxPlot = function boxPlot(context) {
       var selection = context.selection ? context.selection() : context;
-
       var graphs = selection.selectAll('.d2b-box-plot-graphs').data(function (d) {
         return [d];
       });
-
       graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-box-plot-graphs'));
-
       var graph = graphs.selectAll('.d2b-box-plot-graph').data(function (d, i) {
         return getGraphs(d, i);
       }, function (d) {
         return d.key;
       });
-
       var graphEnter = graph.enter().append('g').attr('class', 'd2b-box-plot-graph d2b-graph').style('opacity', 0);
-
       var graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
-
       $$.box.data(function (p) {
         return p.data;
       }).annotation($$.annotation).annotations($$.pannotations);
@@ -3717,28 +3429,27 @@
       if (context !== selection) {
         graphUpdate = graphUpdate.transition(context);
         graphExit = graphExit.transition(context);
-
-        graphExit.style('opacity', 0)
-        // boxes needs to be transitioned to where their new locations
+        graphExit.style('opacity', 0) // boxes needs to be transitioned to where their new locations
         // "would be" if the graphs had been included
         .each(function (d) {
           var el = d3.select(this),
               vertical = d.orient === 'vertical',
-              orient = vertical ? { x: 'x', y: 'y' } : { x: 'y', y: 'x' },
+              orient = vertical ? {
+            x: 'x',
+            y: 'y'
+          } : {
+            x: 'y',
+            y: 'x'
+          },
               x = $$[orient.x],
               y = $$[orient.y];
-
           $$.box.scale(y).orient(d.orient).color(function (p, i) {
             return $$.pcolor(p, i) || d.color;
           });
-
           var boxSvgExit = el.selectAll('.d2b-box-plot-box');
-
           if (context !== selection) boxSvgExit = boxSvgExit.transition(context);
-
           var shift = d.shift;
           if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
           boxSvgExit.style('opacity', 0).attr('transform', function (p) {
             return translateBox(x(p[orient.x]) + shift, vertical);
           }).call($$.box).remove();
@@ -3746,26 +3457,30 @@
       }
 
       graphUpdate.style('opacity', 1);
-
       graphExit.remove();
-
       graphUpdate.each(function (d) {
         var el = d3.select(this),
             vertical = d.orient === 'vertical',
-            orient = vertical ? { x: 'x', y: 'y' } : { x: 'y', y: 'x' },
+            orient = vertical ? {
+          x: 'x',
+          y: 'y'
+        } : {
+          x: 'y',
+          y: 'x'
+        },
             x = $$[orient.x],
             y = $$[orient.y],
             graphsNode = this.parentNode,
-            preScales = { x: graphsNode.__scaleX || x, y: graphsNode.__scaleY || y },
+            preScales = {
+          x: graphsNode.__scaleX || x,
+          y: graphsNode.__scaleY || y
+        },
             preX = preScales[orient.x],
             preY = preScales[orient.y];
-
         var shift = d.shift;
         if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-
         var preShift = shift;
         if (preShift === null) shift = preX.bandwidth ? preX.bandwidth() / 2 : 0;
-
         if (d.tooltipGraph) d.tooltipGraph.data(d.values)[orient.x](function (p) {
           return x(p[orient.x]) + shift;
         })[orient.y](function (p) {
@@ -3773,23 +3488,20 @@
         }).color(function (p, i) {
           return $$.pcolor(p.data, i) || d.color;
         });
-
         $$.box.scale(y).enterScale(preY).orient(d.orient).color(function (p, i) {
           return $$.pcolor(p, i) || d.color;
         });
-
         var boxSvg = el.selectAll('.d2b-box-plot-box').data(d.values, $$.pkey);
         var boxSvgEnter = boxSvg.enter().append('g').attr('class', 'd2b-box-plot-box');
-
         var boxSvgUpdate = boxSvg.merge(boxSvgEnter).order(),
             boxSvgExit = boxSvg.exit();
 
         if (context !== selection) {
           boxSvgUpdate = boxSvgUpdate.transition(context);
           boxSvgExit = boxSvgExit.transition(context);
-        }
+        } // if band scale is used enter boxes at their new location
 
-        // if band scale is used enter boxes at their new location
+
         if (preX.bandwidth || preY.bandwidth || x.bandwidth || y.bandwidth) {
           $$.box.enterScale(y);
           boxSvgEnter.attr('transform', function (p) {
@@ -3803,35 +3515,32 @@
         }
 
         boxSvgEnter.style('opacity', 0);
-
         boxSvgUpdate.attr('transform', function (p) {
           return translateBox(x(p[orient.x]) + shift, vertical);
         }).style('opacity', 1).call($$.box);
-
         boxSvgExit.attr('transform', function (p) {
           return translateBox(x(p[orient.x]) + shift, vertical);
         }).style('opacity', 0).call($$.box).remove();
       });
-
       graphs.each(function () {
         this.__scaleX = $$.x.copy();
         this.__scaleY = $$.y.copy();
       });
-
-      selection.dispatch('svg-box-updated', { bubbles: true });
-
+      selection.dispatch('svg-box-updated', {
+        bubbles: true
+      });
       return boxPlot;
     };
 
     function translateBox(position, vertical) {
-      return 'translate(' + (vertical ? [position, 0] : [0, position]) + ')';
+      return "translate(".concat(vertical ? [position, 0] : [0, position], ")");
     }
-
     /* Inherit from base model */
+
+
     base(boxPlot, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('box', box()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'boxPlot').addPropFunctor('graphs', function (d) {
       return d;
-    })
-    // graph props
+    }) // graph props
     .addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
     }).addPropFunctor('shift', null).addPropFunctor('key', function (d) {
@@ -3840,8 +3549,7 @@
       return d.values;
     }).addPropFunctor('color', function (d) {
       return color(d.label);
-    }).addPropFunctor('orient', 'vertical')
-    // points props
+    }).addPropFunctor('orient', 'vertical') // points props
     .addPropFunctor('px', function (d) {
       return d.x;
     }).addPropFunctor('py', function (d) {
@@ -3850,8 +3558,7 @@
       return i;
     }).addPropFunctor('pannotations', function (d) {
       return d.annotations;
-    })
-    // methods
+    }) // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
         return getGraphs(d, i);
@@ -3861,17 +3568,26 @@
           points = [];
       data.forEach(function (graphs) {
         graphs.forEach(function (graph) {
-          var orient = graph.orient === 'vertical' ? { x: 'x', y: 'y' } : { x: 'y', y: 'x' };
+          var orient = graph.orient === 'vertical' ? {
+            x: 'x',
+            y: 'y'
+          } : {
+            x: 'y',
+            y: 'x'
+          };
           graph.values.forEach(function (v, i) {
             ['maximum', 'minimum', 'upperQuartile', 'lowerQuartile', 'median'].forEach(function (metric) {
-              var point = { graph: graph };
+              var point = {
+                graph: graph
+              };
               point[orient.x] = v[orient.x];
               point[orient.y] = $$.box[metric]()(v.data, i);
               points.push(point);
             });
-
             ($$.box.outliers()(v.data, i) || []).forEach(function (outlier) {
-              var point = { graph: graph };
+              var point = {
+                graph: graph
+              };
               point[orient.x] = v[orient.x];
               point[orient.y] = outlier;
               points.push(point);
@@ -3879,17 +3595,15 @@
           });
         });
       });
-
       return points;
     });
-
     return boxPlot;
   }
 
   // bubble pack svg generator
+
   function svgBubblePack () {
     var $$ = {};
-
     var indicatorSymbol = d3.symbol().size(80);
 
     function getPoint(point, i, graph) {
@@ -3913,7 +3627,6 @@
 
     function getGraphs(d, i) {
       var graphs = $$.graphs(d, i).map(function (graph, i) {
-
         var newGraph = {
           data: graph,
           index: i,
@@ -3924,66 +3637,54 @@
           color: $$.color(graph, i),
           symbol: $$.symbol(graph, i)
         };
-
         newGraph.values = $$.values(graph, i).map(function (point, i) {
           return getPoint(point, i, newGraph);
         });
-
         return newGraph;
       });
-
       graphs.forEach(function (graph) {
         return graph.values.forEach(function (v) {
           return setStructure(v, graph.tendancy);
         });
       });
-
       return graphs;
-    }
-
-    // bubble pack updater
+    } // bubble pack updater
     // The autoEnter flag will decide whether the entering bubbles will render
     // at their respective location or if they will expand from their parents
     // location. When the bubblePack is re-rendered upon clicking
     // on a parent bubble, this will be called with autoEnter = false to preserve
     // the flow of child bubbles flowing from their parents location to their
     // location.
+
+
     var bubblePack = function bubblePack(context) {
       var autoEnter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
       var transition = context.selection ? context : null,
           selection = context.selection ? context.selection() : context;
-
       var graphs = selection.selectAll('.d2b-bubble-pack-graphs').data(function (d) {
         return [d];
       });
-
       graphs = graphs.merge(graphs.enter().append('g').attr('class', 'd2b-bubble-pack-graphs'));
-
       var graph = graphs.selectAll('.d2b-bubble-pack-graph').data(function (d, i) {
         return getGraphs(d, i);
       }, function (d) {
         return d.key;
-      });
+      }); // enter graph
 
-      // enter graph
       var graphEnter = graph.enter().append('g').attr('class', 'd2b-bubble-pack-graph d2b-graph');
-
       var graphUpdate = graph.merge(graphEnter).order(),
           graphExit = graph.exit();
 
       if (transition) {
         graphUpdate = graphUpdate.transition(transition);
         graphExit = graphExit.transition(transition);
-      }
+      } // update graph
 
-      // update graph
-      graphUpdate.style('opacity', 1);
 
-      // exit graph
-      graphExit.style('opacity', 0).remove();
+      graphUpdate.style('opacity', 1); // exit graph
 
-      // iterate through each context element
+      graphExit.style('opacity', 0).remove(); // iterate through each context element
+
       context.each(function (d, i) {
         var selection = d3.select(this),
             duration = $$.duration(d, i),
@@ -3991,23 +3692,17 @@
             graphsNode = selection.selectAll('.d2b-bubble-pack-graphs').node(),
             preX = graphsNode.__d2bPreserveScaleX__ || $$.x,
             preY = graphsNode.__d2bPreserveScaleY__ || $$.y;
-
         selection.on('change', function () {
           selection.transition().duration(duration).call(bubblePack, false);
         });
+        var maxWidth = 0; // render the bubble packs for each graph
 
-        var maxWidth = 0;
-
-        // render the bubble packs for each graph
         graph.each(function (graph) {
           var el = d3.select(this),
               xRange = $$.x.range();
-
           maxWidth = Math.max(maxWidth, Math.abs(xRange[0] - xRange[1]));
-
           var shift = graph.shift;
           if (shift === null) shift = $$.x.bandwidth ? $$.x.bandwidth() / 2 : 0;
-
           $$.point.active(function (d) {
             return !!d.children.length;
           }).fill(function (point) {
@@ -4015,7 +3710,6 @@
           }).type(function (point) {
             return point.symbol;
           });
-
           var addTooltipPoint = graph.tooltipGraph ? graph.tooltipGraph.clear().x(function (point) {
             return $$.x(point.x) + shift;
           }).y(function (point) {
@@ -4023,32 +3717,30 @@
           }).color(function (point) {
             return point.color;
           }).addPoint : null;
-
           renderPacks(el, graph.values, transition, $$.x, $$.y, preX, preY, shift, selection, addTooltipPoint, autoEnter);
         });
         positionIndicators(selection, maxWidth);
-      });
+      }); // Make a copy of the scales sticky on the 'graphs' node
 
-      // Make a copy of the scales sticky on the 'graphs' node
       graphs.each(function () {
         this.__d2bPreserveScaleX__ = $$.x.copy();
         this.__d2bPreserveScaleY__ = $$.y.copy();
       });
-
-      selection.dispatch('svg-bubble-pack-updated', { bubbles: true });
-
+      selection.dispatch('svg-bubble-pack-updated', {
+        bubbles: true
+      });
       return bubblePack;
-    };
+    }; // propagate expanded state to child tree
 
-    // propagate expanded state to child tree
+
     function propagateExpanded(data, state) {
       data.data.expanded = state;
       data.children.forEach(function (child) {
         return propagateExpanded(child, state);
       });
-    }
+    } // Position all bubble indicators to be next to each other.
 
-    // Position all bubble indicators to be next to each other.
+
     function positionIndicators(selection, maxWidth) {
       var positionx = 5,
           positiony = 5;
@@ -4060,12 +3752,11 @@
           positiony += box.height + 5;
         }
 
-        var translate = 'translate(' + positionx + ', ' + positiony + ')';
+        var translate = "translate(".concat(positionx, ", ").concat(positiony, ")");
         positionx += box.width + 5;
         return translate;
       });
     }
-
     /**
      * Renders bubble.
      * @param {d3.selection} el - bubble pack
@@ -4074,35 +3765,35 @@
      * @param {d3.scale} y - y scale
      * @param {Number} shift - horizontal pixel shift
      */
+
+
     function renderPoint(el, trans, x, y, shift) {
       el.each(function (d) {
         var el = d3.select(this);
-
         var transform = el.attr('transform');
 
         if (!transform) {
-          el.attr('transform', 'translate(' + (x(d.parent ? d.parent.x : d.x) + shift + ',') + (y(d.parent ? d.parent.y : d.y) + ')'));
+          el.attr('transform', 'translate(' + "".concat(x(d.parent ? d.parent.x : d.x) + shift, ",") + "".concat(y(d.parent ? d.parent.y : d.y), ")"));
         }
 
         if (d.children.length && !d.data.expanded) {
           el.attr('cursor', 'pointer').on('click', function () {
-            d3.select(this).dispatch('change', { bubbles: true, cancelable: true });
+            d3.select(this).dispatch('change', {
+              bubbles: true,
+              cancelable: true
+            });
           }).on('change', function (d) {
             return d.data.expanded = !d.data.expanded;
           });
         } else el.attr('cursor', '').on('click', null);
 
         if (trans) el = el.transition(trans);
-
         if (d.data.expanded) el.style('opacity', 0).selectAll('*').remove();else el.style('opacity', null).call($$.point);
+        el.attr('transform', "translate(".concat(x(d.x) + shift, ", ").concat(y(d.y), ")")); // update annotations
 
-        el.attr('transform', 'translate(' + (x(d.x) + shift) + ', ' + y(d.y) + ')');
-
-        // update annotations
         update(el, $$.annotation, 'd2b-bubble-annotation');
       });
     }
-
     /**
      * Renders bubble indicator.
      * @param {d3.selection} el - bubble pack
@@ -4111,37 +3802,37 @@
      * @param {d3.scale} y - y scale
      * @param {Number} shift - horizontal pixel shift
      */
+
+
     function renderIndicator(el) {
       el.each(function (d) {
         var el = d3.select(this).classed('d2b-active', d.data.expanded);
-
         if (!d.data.expanded) return el.selectAll('rect, text, path').remove();
-
         var rect = el.select('rect'),
             text = el.select('text'),
             path = el.select('path');
         if (!rect.size()) rect = el.append('rect');
         if (!text.size()) text = el.append('text');
         if (!path.size()) path = el.append('path');
-
         text.text(function (d) {
           return d.indicator.substring(0, 5);
         }).attr('x', 20);
         var textBox = text.node().getBBox();
         text.attr('y', textBox.height / 1.35);
         rect.on('click', function () {
-          d3.select(this).dispatch('change', { bubbles: true, cancelable: true });
+          d3.select(this).dispatch('change', {
+            bubbles: true,
+            cancelable: true
+          });
         }).on('change', function (d) {
           d.data.expanded = !d.data.expanded;
           if (!d.data.expanded) propagateExpanded(d, false);
         }).attr('width', textBox.width + 25).attr('height', textBox.height).style('fill', $$.point.fill()).style('stroke', $$.point.stroke());
-
         path.attr('d', function (d) {
           return indicatorSymbol.type(d.symbol)();
         }).attr('transform', 'translate(10, 9.5)').style('fill', $$.point.stroke());
       });
     }
-
     /**
      * Renders bubble packs recursively.
      * @param {d3.selection} el - packs container
@@ -4157,24 +3848,23 @@
      * @param {Boolean} autoEnter - enter point at its own location rather than its parents
      * @param {Number} depth - depth tracker
      */
+
+
     function renderPacks(el, data, trans, x, y, preX, preY, shift, chart, addTooltipPoint, autoEnter) {
       var depth = arguments.length > 11 && arguments[11] !== undefined ? arguments[11] : 0;
-
       // set pack data
-      var pack = el.selectAll('.d2b-bubble-pack.d2b-depth-' + depth).data(data, function (d) {
+      var pack = el.selectAll(".d2b-bubble-pack.d2b-depth-".concat(depth)).data(data, function (d) {
         return d.key;
       }),
-          packEnter = pack.enter().append('g').attr('class', 'd2b-bubble-pack d2b-depth-' + depth),
+          packEnter = pack.enter().append('g').attr('class', "d2b-bubble-pack d2b-depth-".concat(depth)),
           packUpdate = pack.merge(packEnter);
-
       var pointEnter = packEnter.append('g').attr('class', 'd2b-bubble-point');
       if (autoEnter) renderPoint(pointEnter, false, preX, preY, shift);
       pointEnter.style('opacity', 0);
       renderPoint(packUpdate.select('.d2b-bubble-point'), trans, x, y, shift);
       packEnter.append('g').attr('class', 'd2b-bubble-indicator');
-      renderIndicator(packUpdate.select('.d2b-bubble-indicator'));
+      renderIndicator(packUpdate.select('.d2b-bubble-indicator')); // update children bubbles if expanded
 
-      // update children bubbles if expanded
       packUpdate.each(function (point) {
         var el = d3.select(this);
         var subPacks = el.selectAll('.d2b-bubble-pack');
@@ -4184,22 +3874,21 @@
           renderPacks(el, point.children, trans, x, y, preX, preY, shift, chart, addTooltipPoint, autoEnter, depth + 1);
         } else {
           if (addTooltipPoint) addTooltipPoint(point);
-          subPacks.remove().select('.d2b-bubble-point').style('opacity', 0).attr('transform', 'translate(' + [x(point.x) + shift, y(point.y)] + ')');
+          subPacks.remove().select('.d2b-bubble-point').style('opacity', 0).attr('transform', "translate(".concat([x(point.x) + shift, y(point.y)], ")"));
         }
       });
-
       var packExit = pack.exit();
       if (trans) packExit = packExit.transition(trans);
       packExit.remove();
-    }
+    } // Recursively set the data structure starting at root node `d`
 
-    // Recursively set the data structure starting at root node `d`
+
     function setStructure(d, tendancy) {
       var depth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-
       d.children = d.children || [];
       d.leaves = d.children.length ? [] : [d];
       d.depth = depth;
+
       if (d.children.length) {
         d.children.forEach(function (child) {
           setStructure(child, tendancy, depth + 1);
@@ -4211,7 +3900,6 @@
       d.size = oreq(d.size, d3.sum(d.leaves, function (d) {
         return d.size;
       }));
-
       d.x = oreq(d.x, (tendancy.x || tendancy)(d.leaves, function (d) {
         return d.x;
       }, function (d) {
@@ -4223,20 +3911,19 @@
         return d.size;
       }));
     }
-
     /* Inherit from base model */
+
+
     base(bubblePack, $$).addProp('point', point().size(function (d) {
       return d.size * 100;
     })).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bubblePack').addPropFunctor('duration', 250).addPropFunctor('graphs', function (d) {
       return d;
-    })
-    // graph props
+    }) // graph props
     .addPropFunctor('tendancy', mean, function (_) {
       if (!arguments.length) return $$.tendancy;
       if (_ && _.tendancy) $$.tendancy = function () {
         return _;
       };else $$.tendancy = functor(_);
-
       return bubblePack;
     }).addPropFunctor('tooltipGraph', function (d) {
       return d.tooltipGraph;
@@ -4248,8 +3935,7 @@
       return color(d.label);
     }).addPropFunctor('symbol', function () {
       return d3.symbolCircle;
-    })
-    // point props
+    }) // point props
     .addPropFunctor('px', function (d) {
       return d.x;
     }).addPropFunctor('py', function (d) {
@@ -4264,8 +3950,7 @@
       return i;
     }).addPropFunctor('pannotation', function (d) {
       return d.annotation;
-    })
-    // methods
+    }) // methods
     .addMethod('getComputedGraphs', function (context) {
       return (context.selection ? context.selection() : context).data().map(function (d, i) {
         return getGraphs(d, i);
@@ -4275,7 +3960,11 @@
 
       function addPoint(point, points, graph) {
         if (!point.data.expanded) {
-          points.push({ x: point.x, y: point.y, graph: graph });
+          points.push({
+            x: point.x,
+            y: point.y,
+            graph: graph
+          });
         } else {
           point.children.forEach(function (point) {
             return addPoint(point, points, graph);
@@ -4293,25 +3982,21 @@
         }));
       })[0];
     });
-
     return bubblePack;
   }
 
   // sunburst svg generator
+
   function svgSunburst () {
-
-    var $$ = {};
-
-    // const arc = d3.arc().cornerRadius(5);
+    var $$ = {}; // const arc = d3.arc().cornerRadius(5);
 
     /* Update Function */
+
     var sunburst = function sunburst(context) {
       var selection = context.selection ? context.selection() : context;
-
       $$.pie.value(function (d) {
         return d.value;
       });
-
       selection.each(function (d, i) {
         var el = d3.select(this),
             zoomable = $$.zoomable(d, i),
@@ -4319,57 +4004,50 @@
             innerRadius = $$.innerRadius(d, i),
             showLabels = $$.showLabels(d, i),
             root = getHierarchy($$.root(d, i));
-
         var selected = getSelected(root);
         setVisibility(selected, $$.descendantLevels(d, i) + selected.depth);
-
         root.each(function (d) {
           return d.selected = selected;
         });
-
         var radii = getRadii(d, i, root, selected);
-
         updateNodes.call(this, [root], 'arc', 0, $$.startAngle(d, i), $$.endAngle(d, i), {
           transition: context !== selection ? context : null,
           oldRadii: oreq(this.__radii, radii),
           radii: radii,
           zoomable: zoomable
         });
-
         updateNodes.call(this, showLabels ? [root] : [], 'label', 0, $$.startAngle(d, i), $$.endAngle(d, i), {
           transition: context !== selection ? context : null,
           oldRadii: oreq(this.__radii, radii),
           radii: radii
-        });
-
-        // insert a center circle that is transparent, but whenever it is clicked
+        }); // insert a center circle that is transparent, but whenever it is clicked
         // the selection will be passed to the current selection's parent
-        var center = el.selectAll('.d2b-sunburst-center');
 
+        var center = el.selectAll('.d2b-sunburst-center');
         center.data([selected]).enter().append('circle').attr('class', 'd2b-sunburst-center').merge(center).attr('cx', 0).attr('cy', 0).attr('r', Math.max(0, innerRadius)).on('click', function (d) {
           if (!d.parent) return;
           d.data.selected = false;
           d.parent.data.selected = true;
           el.transition().duration($$.duration(d, i)).call(sunburst);
-          selection.dispatch('chart-updated', { bubbles: true });
+          selection.dispatch('chart-updated', {
+            bubbles: true
+          });
         });
-
         this.__radii = radii;
-
         el.selectAll('path.d2b-sunburst-arc').on('click', zoomable ? function (node) {
           root.each(function (d) {
             return d.data.selected = false;
           });
           node.data.selected = true;
           el.transition().duration($$.duration(d, i)).call(sunburst);
-          selection.dispatch('chart-updated', { bubbles: true });
+          selection.dispatch('chart-updated', {
+            bubbles: true
+          });
         } : null).on('mouseover', highlight ? function (node) {
           var ancestors = node.ancestors();
-
           el.selectAll('.d2b-sunburst-arc').classed('d2b-transparent', function (d) {
             return ancestors.indexOf(d) === -1;
           });
-
           el.selectAll('.d2b-sunburst-label').classed('d2b-transparent', function (d) {
             return ancestors.indexOf(d) === -1;
           });
@@ -4378,19 +4056,18 @@
           el.selectAll('.d2b-sunburst-label').classed('d2b-transparent', false);
         });
       });
-
-      selection.dispatch('svg-sunburst-updated', { bubbles: true });
-
+      selection.dispatch('svg-sunburst-updated', {
+        bubbles: true
+      });
       return sunburst;
     };
-
     /* Inherit from base model */
-    base(sunburst, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addProp('ancestorBanding', d3.scaleLinear()).addProp('descendantBanding', d3.scalePow().exponent(0.85))
-    // Datum Level Accessors
+
+
+    base(sunburst, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addProp('ancestorBanding', d3.scaleLinear()).addProp('descendantBanding', d3.scalePow().exponent(0.85)) // Datum Level Accessors
     .addPropFunctor('duration', 250).addPropFunctor('innerRadius', 30).addPropFunctor('outerRadius', 200).addPropFunctor('ancestorPadding', 10).addPropFunctor('ancestorRatio', 0.2).addPropFunctor('descendantLevels', Infinity).addPropFunctor('startAngle', 0).addPropFunctor('endAngle', 2 * Math.PI).addPropFunctor('showLabels', false).addPropFunctor('zoomable', true).addPropFunctor('highlight', true).addPropFunctor('root', function (d) {
       return d;
-    })
-    // Node Level Accessors
+    }) // Node Level Accessors
     .addPropFunctor('key', function (d) {
       return $$.label(d);
     }).addPropFunctor('label', function (d) {
@@ -4408,25 +4085,19 @@
       return updateDescendants(d3.hierarchy(d, $$.children).sum(function (d) {
         var children = $$.children(d);
         if (!children || !children.length) return $$.size(d);
-      }));
-      // return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));
+      })); // return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));
     }
 
     function updateDescendants(node) {
       var i = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
       node.key = $$.key(node.data, i);
       node.color = $$.color(node.data, i);
       node.label = $$.label(node.data, i);
       node.size = $$.size(node.data, i);
       node.value = node.size;
-
       if (!node.children) return;
-
       node.children.forEach(updateDescendants);
-
       node.value = getValue(node);
-
       return node;
     }
 
@@ -4435,64 +4106,57 @@
     }
 
     function getSelected(root) {
-      var node = null;
+      var node = null; // find selected node
 
-      // find selected node
       root.each(function (d) {
         if (d.data.selected) node = d;
-      });
+      }); // if selected isn't defined set it to the root node
 
-      // if selected isn't defined set it to the root node
-      if (!node) node = root;
-      // if selected is a leaf (bottom) node give selected to the parent
+      if (!node) node = root; // if selected is a leaf (bottom) node give selected to the parent
       // else if ((!node.children || !node.children.length) && node.parent) {
       //   node.data.selected = false;
       //   node = node.parent;
       // }
-
       // make sure selected flag is still asserted
+
       node.data.selected = true;
-
       return node;
-    }
+    } // set visibility flag for all nodes
 
-    // set visibility flag for all nodes
+
     function setVisibility(d, maxDepth) {
       d.ancestors().concat(d.descendants()).filter(function (d) {
         return d.depth <= maxDepth && d.value > 0;
       }).forEach(function (d) {
         return d.visible = true;
       });
-    }
-
-    // returns a function used to find the inner/outer radii for an arc based
+    } // returns a function used to find the inner/outer radii for an arc based
     // on it's depth
+
+
     function getRadii(d, i, root, selected) {
       var innerRadius = $$.innerRadius(d, i),
           outerRadius = $$.outerRadius(d, i),
           ancestorPadding = $$.ancestorPadding(d, i),
           ancestorRatio = $$.ancestorRatio(d, i);
-
       var height = 0;
-
       root.each(function (node) {
         if (node.visible) height = Math.max(height, node.depth);
       });
-
       var width = outerRadius - innerRadius - ancestorPadding,
           breakpoint = innerRadius + width * ancestorRatio,
-
-      // radii-inner-scale is used to position inner bands
+          // radii-inner-scale is used to position inner bands
       radiiInner = $$.ancestorBanding.copy().range([innerRadius, breakpoint]).domain([0, selected.depth + 1]),
+          // radii-outer-scale is used to position outer bands
+      radiiOuter = $$.descendantBanding.copy().range([breakpoint + ancestorPadding, outerRadius]).domain([selected.depth + 1, height + 1]); // fetch the { inner, outer } radii for an arc based on it's depth
 
-      // radii-outer-scale is used to position outer bands
-      radiiOuter = $$.descendantBanding.copy().range([breakpoint + ancestorPadding, outerRadius]).domain([selected.depth + 1, height + 1]);
-
-      // fetch the { inner, outer } radii for an arc based on it's depth
       return function (depth) {
-        var scale = void 0;
+        var scale;
         if (depth <= selected.depth) scale = radiiInner;else scale = radiiOuter;
-        return { inner: scale(depth), outer: scale(depth + 1) };
+        return {
+          inner: scale(depth),
+          outer: scale(depth + 1)
+        };
       };
     }
 
@@ -4510,46 +4174,34 @@
     }
 
     function updateNodes(newData, type, depth, startAngle, endAngle, tools) {
-
       var tween = type === 'arc' ? tweenArc : tweenCentroid;
-
       newData = newData.filter(function (d) {
         return d.visible;
       });
-
       $$.pie.startAngle(startAngle).endAngle(endAngle);
-
       $$.pie(newData).forEach(function (d) {
         var radii = tools.radii(d.data.depth);
-
         d.data.startAngle = d.startAngle;
         d.data.endAngle = d.endAngle;
         d.data.padAngle = d.padAngle;
         d.data.innerRadius = radii.inner;
         d.data.outerRadius = radii.outer;
         d.data.centerAngle = (d.startAngle + d.endAngle) / 2;
-
         d.data.rotate = getLabelRotation(d.data.centerAngle);
         d.data.labelOffset = getLabelOffset(d.data.centerAngle, radii);
         d.data.labelAnchor = getLabelAnchor(d.data.centerAngle);
       });
-
       var el = d3.select(this),
-          levelClass = 'd2b-sunburst-level-' + depth;
-
-      var arcUpdate = el.selectAll('.d2b-sunburst-' + type + '-group.' + levelClass);
-
+          levelClass = "d2b-sunburst-level-".concat(depth);
+      var arcUpdate = el.selectAll(".d2b-sunburst-".concat(type, "-group.").concat(levelClass));
       var oldData = arcUpdate.data();
-
       arcUpdate = arcUpdate.data(newData, function (d) {
         return d.key;
       });
-
-      var arcEnter = arcUpdate.enter().append('g').attr('class', 'd2b-sunburst-' + type + '-group ' + levelClass),
-          pathEnter = arcEnter.append(type === 'arc' ? 'path' : 'text').attr('class', 'd2b-sunburst-' + type + ' ' + levelClass).each(function (d, i) {
+      var arcEnter = arcUpdate.enter().append('g').attr('class', "d2b-sunburst-".concat(type, "-group ").concat(levelClass)),
+          pathEnter = arcEnter.append(type === 'arc' ? 'path' : 'text').attr('class', "d2b-sunburst-".concat(type, " ").concat(levelClass)).each(function (d, i) {
         var radii = tools.oldRadii(d.depth),
             neighbor = d.neighbor || findNeighborArc(i, oldData, newData);
-
         this.current = {
           startAngle: neighbor.startAngle,
           endAngle: neighbor.endAngle,
@@ -4557,45 +4209,34 @@
           outerRadius: radii.outer,
           rotate: getLabelRotation((neighbor.startAngle + neighbor.endAngle) / 2)
         };
-
         if (!d.children) return;
-
         d.children.forEach(function (dd) {
           return dd.neighbor = neighbor;
         });
       });
-
-      arcEnter.append('g').attr('class', 'd2b-sunburst-' + type + '-children ' + levelClass);
-
+      arcEnter.append('g').attr('class', "d2b-sunburst-".concat(type, "-children ").concat(levelClass));
       if (type === 'arc') pathEnter.style('fill', function (d) {
         return d.color;
       });else pathEnter.style('opacity', 0).attr('y', 4);
-
       var arcExit = arcUpdate.exit();
-
       arcUpdate = arcUpdate.merge(arcEnter);
-
-      arcUpdate.select('.d2b-sunburst-' + type + '.' + levelClass).classed('d2b-sunburst-ancestor', function (d) {
+      arcUpdate.select(".d2b-sunburst-".concat(type, ".").concat(levelClass)).classed('d2b-sunburst-ancestor', function (d) {
         return d.depth < d.selected.depth;
       });
 
       if (tools.transition) {
-
         arcExit.each(function (d, i) {
           var data = findNeighborArc(i, newData, oldData);
           var el = d3.select(this);
-
-          var pathExit = el.selectAll('.d2b-sunburst-' + type).datum(function (d) {
+          var pathExit = el.selectAll(".d2b-sunburst-".concat(type)).datum(function (d) {
             var radii = tools.radii(d.depth);
             d.innerRadius = radii.inner;
             d.outerRadius = radii.outer;
             d.startAngle = data.startAngle;
             d.endAngle = data.endAngle;
             d.centerAngle = data.centerAngle;
-
             d.rotate = getLabelRotation(d.centerAngle);
             d.labelOffset = getLabelOffset(d.centerAngle, radii);
-
             return d;
           }).transition(tools.transition).call(tween, $$.arc);
 
@@ -4605,15 +4246,12 @@
             });
           }
         });
-
         arcExit = arcExit.transition(tools.transition);
-
         arcUpdate = arcUpdate.transition(tools.transition);
       }
 
       arcExit.remove();
-
-      var pathUpdate = arcUpdate.select('.d2b-sunburst-' + type + '.' + levelClass).call(tween, $$.arc);
+      var pathUpdate = arcUpdate.select(".d2b-sunburst-".concat(type, ".").concat(levelClass)).call(tween, $$.arc);
 
       if (type === 'arc') {
         pathUpdate.style('fill', function (d) {
@@ -4629,7 +4267,7 @@
         });
       }
 
-      arcUpdate.select('.d2b-sunburst-' + type + '-children.' + levelClass).each(function (d) {
+      arcUpdate.select(".d2b-sunburst-".concat(type, "-children.").concat(levelClass)).each(function (d) {
         var children = d.children || [];
         var childrenTotal = d3.sum(children, function (c) {
           return c.value;
@@ -4642,31 +4280,47 @@
     function findNeighborArc(i, data0, data1) {
       var preceding = findPreceding(i, data0, data1),
           following = findFollowing(i, data0, data1);
-      if (preceding) {
-        return { startAngle: preceding.endAngle, endAngle: preceding.endAngle };
-      } else if (following) {
-        return { startAngle: following.startAngle, endAngle: following.startAngle };
-      }
-      return { startAngle: 0, endAngle: 0, centerAngle: 0 };
-    }
 
-    // Find the element in data0 that joins the highest preceding element in data1.
+      if (preceding) {
+        return {
+          startAngle: preceding.endAngle,
+          endAngle: preceding.endAngle
+        };
+      } else if (following) {
+        return {
+          startAngle: following.startAngle,
+          endAngle: following.startAngle
+        };
+      }
+
+      return {
+        startAngle: 0,
+        endAngle: 0,
+        centerAngle: 0
+      };
+    } // Find the element in data0 that joins the highest preceding element in data1.
+
+
     function findPreceding(i, data0, data1) {
       var m = data0.length;
+
       while (--i >= 0) {
         var k = data1[i].key;
+
         for (var j = 0; j < m; ++j) {
           if (data0[j].key === k) return data0[j];
         }
       }
-    }
+    } // Find the element in data0 that joins the lowest following element in data1.
 
-    // Find the element in data0 that joins the lowest following element in data1.
+
     function findFollowing(i, data0, data1) {
       var n = data1.length,
           m = data0.length;
+
       while (++i < n) {
         var k = data1[i].key;
+
         for (var j = 0; j < m; ++j) {
           if (data0[j].key === k) return data0[j];
         }
@@ -4677,25 +4331,21 @@
   }
 
   // sankey svg generator
+
   function sankey$1 () {
-
     var $$ = {};
-
     /* Update Function */
+
     var sankey = function sankey(context) {
       var selection = context.selection ? context.selection() : context;
-
       selection.each(function (datum) {
         var transition = context === selection ? null : context;
-
         var el = d3.select(this),
             size = $$.size(datum),
-            sankeyLink = d3Sankey.sankeyLinkHorizontal();
+            sankeyLink = d3Sankey.sankeyLinkHorizontal(); // map node data wrapper
 
-        // map node data wrapper
         var nodesData = $$.nodes(datum).map(function (d, i) {
           var key = $$.nodeKey(d, i);
-
           return {
             key: key,
             label: $$.nodeLabel(d, i, key),
@@ -4707,22 +4357,18 @@
             data: d,
             index: i
           };
-        });
+        }); // map link data wrapper
 
-        // map link data wrapper
         var linksData = $$.links(datum).map(function (d, i) {
           var source = $$.linkSource(d, i),
               target = $$.linkTarget(d, i);
-
-          if ((typeof source === 'undefined' ? 'undefined' : _typeof(source)) !== 'object') source = nodesData.find(function (node) {
+          if (_typeof(source) !== 'object') source = nodesData.find(function (node) {
             return node.key === source;
           });
-          if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) !== 'object') target = nodesData.find(function (node) {
+          if (_typeof(target) !== 'object') target = nodesData.find(function (node) {
             return node.key === target;
           });
-
           var key = $$.linkKey(d, i, source.key, target.key);
-
           return {
             sourceKey: source.key,
             targetKey: target.key,
@@ -4736,16 +4382,13 @@
             data: d,
             index: i
           };
-        });
+        }); // config sankey
 
-        // config sankey
         $$.sankey.size([size.width, size.height]).nodeId(function (d) {
           return d.key;
         }).nodes(nodesData).links(linksData);
+        var nodeWidth = $$.sankey.nodeWidth(); // get sankey graph layout and filter out those that have a falsy value
 
-        var nodeWidth = $$.sankey.nodeWidth();
-
-        // get sankey graph layout and filter out those that have a falsy value
         var graph = $$.sankey.nodes(nodesData).links(linksData)();
         graph.links = graph.links.filter(function (n) {
           return !!n.value;
@@ -4753,14 +4396,11 @@
         graph.nodes = graph.nodes.filter(function (n) {
           return !!n.value;
         });
-        graph = $$.sankey.nodes(graph.nodes).links(graph.links)();
+        graph = $$.sankey.nodes(graph.nodes).links(graph.links)(); // render link gradients
 
-        // render link gradients
         var linkDefs = el.selectAll('.d2b-sankey-link-defs').data([graph.links]),
             linksDefsEnter = linkDefs.enter().append('defs').attr('class', 'd2b-sankey-link-defs');
-
         linkDefs = linkDefs.merge(linksDefsEnter);
-
         var linkGradient = linkDefs.selectAll('.d2b-def-gradient').data(function (d) {
           return d;
         }, function (d) {
@@ -4768,11 +4408,8 @@
         }),
             linkGradientEnter = linkGradient.enter().append('linearGradient').attr('class', 'd2b-def-gradient'),
             linkGradientExit = linkGradient.exit();
-
         linkGradientEnter.append('stop').attr('class', 'd2b-gradient-from').attr('offset', '0%');
-
         linkGradientEnter.append('stop').attr('class', 'd2b-gradient-to').attr('offset', '100%');
-
         linkGradient = linkGradient.merge(linkGradientEnter);
 
         if (transition) {
@@ -4781,25 +4418,19 @@
         }
 
         linkGradientExit.remove();
-
         linkGradient.attr('id', function (d) {
           return d.keyTrim;
         });
-
         linkGradient.select('.d2b-gradient-from').attr('stop-color', function (d) {
           return d.sourceColor;
         });
-
         linkGradient.select('.d2b-gradient-to').attr('stop-color', function (d) {
           return d.targetColor;
-        });
+        }); // render links
 
-        // render links
         var links = el.selectAll('.d2b-sankey-links').data([graph.links]),
             linksEnter = links.enter().append('g').attr('class', 'd2b-sankey-links');
-
         links = links.merge(linksEnter);
-
         var link = links.selectAll('.d2b-sankey-link').data(function (d) {
           return d;
         }, function (d) {
@@ -4807,20 +4438,17 @@
         }),
             linkEnter = link.enter().append('g').attr('class', 'd2b-sankey-link'),
             linkExit = link.exit();
-
         var linkStatic = link = link.merge(linkEnter);
 
         if (transition) {
           link = link.transition(transition);
           linkExit = linkExit.transition(transition);
-        }
+        } // render nodes
 
-        // render nodes
+
         var nodes = el.selectAll('.d2b-sankey-nodes').data([graph.nodes]),
             nodesEnter = nodes.enter().append('g').attr('class', 'd2b-sankey-nodes');
-
         nodes = nodes.merge(nodesEnter);
-
         var node = nodes.selectAll('.d2b-sankey-node').data(function (d) {
           return d;
         }, function (d) {
@@ -4828,15 +4456,14 @@
         }),
             nodeEnter = node.enter().append('g').attr('class', 'd2b-sankey-node'),
             nodeExit = node.exit();
-
         var nodeStatic = node = node.merge(nodeEnter);
 
         if (transition) {
           node = node.transition(transition);
           nodeExit = nodeExit.transition(transition);
-        }
+        } // setup node dragging and preserve previous dragging
 
-        // setup node dragging and preserve previous dragging
+
         node.each(function (d) {
           if (d.draggableX || d.draggableY) {
             d3.select(this).classed('d2b-draggable', true).call(d3.drag().on('drag', drag));
@@ -4857,29 +4484,21 @@
             }
           }
         });
-
         $$.sankey.update(graph);
-
         linkEnter.style('opacity', 0).append('path').attr('d', sankeyLink).style('stroke', function (d) {
-          return 'url(#' + d.keyTrim + ')';
+          return "url(#".concat(d.keyTrim, ")");
         }).style('stroke-width', function (d) {
-          return d.width + 'px';
+          return "".concat(d.width, "px");
         });
-
         linkExit.style('opacity', 0).remove();
-
         nodeEnter.attr('transform', function (d) {
-          return 'translate(' + d.x0 + ', ' + d.y0 + ')';
+          return "translate(".concat(d.x0, ", ").concat(d.y0, ")");
         }).style('opacity', 0);
-
         nodeEnter.append('rect').attr('width', Math.max(0, nodeWidth)).attr('height', function (d) {
           return Math.max(0, d.y1 - d.y0);
         });
-
         nodeEnter.append('text').attr('x', labelX).attr('y', labelY);
-
         nodeExit.style('opacity', 0).remove();
-
         updater(transition);
 
         function labelX(d) {
@@ -4900,21 +4519,24 @@
             d.x1 = d.x0 + nodeWidth;
             this.__dragX0 = d.x0 / size.width; // save drag position as a percent of the width
           }
+
           if (d.draggableY) {
             var height = d.y1 - d.y0;
             d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + d3.event.dy));
             d.y1 = d.y0 + height;
             this.__dragY0 = d.y0 / size.height; // save drag position as a percent of the height
           }
+
           $$.sankey.update(graph);
           updater();
-          selection.dispatch('chart-updated', { bubbles: true });
-        }
+          selection.dispatch('chart-updated', {
+            bubbles: true
+          });
+        } // set attributes on defined nodes and links
 
-        // set attributes on defined nodes and links
+
         function updater() {
           var transition = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
           nodeStatic.select('text').classed('d2b-text-anchor-end', function (d) {
             return !labelLeft(d);
           }).call(textWrap, function (d) {
@@ -4922,60 +4544,53 @@
           }, function (d) {
             return d.wrapLength;
           }, 'middle');
-
           var l = transition ? link : linkStatic,
               n = transition ? node : nodeStatic;
-
           l.style('opacity', 1).select('path').attr('d', sankeyLink).style('stroke', function (d) {
-            return 'url(#' + d.keyTrim + ')';
+            return "url(#".concat(d.keyTrim, ")");
           }).style('stroke-width', function (d) {
-            return d.width + 'px';
-          });
+            return "".concat(d.width, "px");
+          }); // fix for rectangular link gradients
 
-          // fix for rectangular link gradients
           l.each(function (d) {
-            var l = d3.select(this);
+            var l = d3.select(this); // special case draw a rect
 
-            // special case draw a rect
             if (Math.abs(d.y1 - d.y0) < 0.00001) {
               var rect = l.selectAll('rect').data([d]),
                   rectEnter = rect.enter().append('rect'),
                   width = d.target.x0 - d.source.x1;
-
               rect = rect.merge(rectEnter);
-
               if (transition) rect = rect.transition(transition);
-
-              rect.attr('x', d.source.x1 + Math.min(0, width)).attr('y', d.y0 - d.width / 2).attr('height', Math.max(0, d.width)).attr('width', Math.abs(d.target.x0 - d.source.x1)).style('fill', 'url(#' + d.keyTrim + ')');
-
+              rect.attr('x', d.source.x1 + Math.min(0, width)).attr('y', d.y0 - d.width / 2).attr('height', Math.max(0, d.width)).attr('width', Math.abs(d.target.x0 - d.source.x1)).style('fill', "url(#".concat(d.keyTrim, ")"));
               l.select('path').style('display', 'none');
             } else {
               l.select('rect').remove();
               l.select('path').style('display', '');
             }
           });
-
           n.attr('transform', function (d) {
-            return 'translate(' + d.x0 + ', ' + d.y0 + ')';
+            return "translate(".concat(d.x0, ", ").concat(d.y0, ")");
           }).style('opacity', 1);
-
           n.select('rect').attr('width', Math.max(0, nodeWidth)).attr('height', function (d) {
             return Math.max(0, d.y1 - d.y0);
           }).style('fill', function (d) {
             return d.color;
           });
-
           n.select('text').attr('x', labelX).attr('y', labelY);
         }
       });
-
-      selection.dispatch('svg-sankey-updated', { bubbles: true });
-
+      selection.dispatch('svg-sankey-updated', {
+        bubbles: true
+      });
       return sankey;
     };
-
     /* Inherit from base model */
-    base(sankey, $$).addProp('sankey', d3Sankey.sankey()).addPropFunctor('size', { width: 960, height: 500 }).addPropFunctor('nodes', function (d) {
+
+
+    base(sankey, $$).addProp('sankey', d3Sankey.sankey()).addPropFunctor('size', {
+      width: 960,
+      height: 500
+    }).addPropFunctor('nodes', function (d) {
       return d.nodes;
     }).addPropFunctor('nodeKey', function (d) {
       return d.name;
@@ -4994,30 +4609,30 @@
     }).addPropFunctor('linkTargetColor', function (d, i, targetColor) {
       return targetColor;
     }).addPropFunctor('linkKey', function (d, i, sourceKey, targetKey) {
-      return sourceKey + '-' + targetKey;
+      return "".concat(sourceKey, "-").concat(targetKey);
     }).addPropFunctor('linkValue', function (d) {
       return d.value;
     });
-
     return sankey;
   }
 
   // TODO: Clean up text wrapping with transition udpates
   // TODO: Clean up plane build workflow
-
   // plane svg generator
-  function plane () {
 
+  function plane () {
     var $$ = {},
         labelPad = 5;
-
     /* Update Function */
+
     var plane = function plane(context) {
       var selection = context.selection ? context.selection() : context;
-
       selection.each(function (d, i) {
         // get plane props
-        var size = $$.size.call(this, d, i) || { width: 960, height: 500 },
+        var size = $$.size.call(this, d, i) || {
+          width: 960,
+          height: 500
+        },
             margin = makeMargin($$.margin.call(this, d, i)),
             x = $$.x.call(this, d, i),
             x2 = $$.x2.call(this, d, i),
@@ -5025,35 +4640,39 @@
             y2 = $$.y2.call(this, d, i),
             el = d3.select(this),
             axes = {
-          x: { type: 'x', data: x },
-          x2: { type: 'x2', data: x2 },
-          y: { type: 'y', data: y },
-          y2: { type: 'y2', data: y2 }
-        };
+          x: {
+            type: 'x',
+            data: x
+          },
+          x2: {
+            type: 'x2',
+            data: x2
+          },
+          y: {
+            type: 'y',
+            data: y
+          },
+          y2: {
+            type: 'y2',
+            data: y2
+          }
+        }; // check if user defined padding
 
-        // check if user defined padding
-        var padding = makePadding($$.padding.call(this, d, i));
+        var padding = makePadding($$.padding.call(this, d, i)); // enter plane svg group
 
-        // enter plane svg group
         var planeUpdate = el.selectAll('.d2b-plane').data([d]),
             planeEnter = planeUpdate.enter().append('g').attr('class', 'd2b-plane'),
             plane = planeUpdate.merge(planeEnter);
-
-        var clipID = this.__clipID = this.__clipID || 'd2b-clip-plane-' + d2bid();
-
+        var clipID = this.__clipID = this.__clipID || "d2b-clip-plane-".concat(d2bid());
         planeEnter.append('defs').append('clipPath').attr('id', clipID).attr('class', 'd2b-clip-plane').append('rect');
-
         var transCtx = context !== selection ? context : null;
-
         setupAxis(axes.x, i, plane, size.width, transCtx);
         setupAxis(axes.x2, i, plane, size.width, transCtx);
         setupAxis(axes.y, i, plane, size.height, transCtx);
-        setupAxis(axes.y2, i, plane, size.height, transCtx);
+        setupAxis(axes.y2, i, plane, size.height, transCtx); // if padding is not set, find it dynamically
 
-        // if padding is not set, find it dynamically
-        if (!padding) padding = dynamicPadding(axes);
+        if (!padding) padding = dynamicPadding(axes); // define plane box properties
 
-        // define plane box properties
         var planeBox = {
           top: padding.top + margin.top,
           bottom: padding.bottom + margin.bottom,
@@ -5061,45 +4680,37 @@
           right: padding.right + margin.right
         };
         planeBox.width = size.width - planeBox.left - planeBox.right;
-        planeBox.height = size.height - planeBox.top - planeBox.bottom;
+        planeBox.height = size.height - planeBox.top - planeBox.bottom; // store plane box on the node
 
-        // store plane box on the node
         this.__box__ = planeBox;
+        if (transCtx) planeUpdate = planeUpdate.transition(transCtx); // position plane
 
-        if (transCtx) planeUpdate = planeUpdate.transition(transCtx);
-
-        // position plane
-        planeEnter.attr('transform', 'translate(' + planeBox.left + ', ' + planeBox.top + ')');
-        planeUpdate.attr('transform', 'translate(' + planeBox.left + ', ' + planeBox.top + ')');
-
+        planeEnter.attr('transform', "translate(".concat(planeBox.left, ", ").concat(planeBox.top, ")"));
+        planeUpdate.attr('transform', "translate(".concat(planeBox.left, ", ").concat(planeBox.top, ")"));
         updateAxis(axes.x, planeBox.width, 0, planeBox.height);
         updateAxis(axes.x2, planeBox.width, 0, 0);
         updateAxis(axes.y, planeBox.height, 0, 0);
         updateAxis(axes.y2, planeBox.height, planeBox.width, 0);
-
         updateGrid(axes.x, planeBox.width, planeBox.height);
         updateGrid(axes.x2, planeBox.width, planeBox.height);
         updateGrid(axes.y, planeBox.height, planeBox.width);
         updateGrid(axes.y2, planeBox.height, planeBox.width);
-
         updateLabel(axes.x, planeBox.width);
         updateLabel(axes.x2, planeBox.width);
         updateLabel(axes.y, -planeBox.height);
         updateLabel(axes.y2, -planeBox.height);
-
         plane.select('.d2b-clip-plane').select('rect').attr('width', planeBox.width + 1).attr('height', planeBox.height + 1);
-
-        plane.selectAll('.d2b-grid').attr('clip-path', 'url(#' + clipID + ')');
+        plane.selectAll('.d2b-grid').attr('clip-path', "url(#".concat(clipID, ")"));
       });
-
-      selection.dispatch('plane-updated', { bubbles: true });
-
+      selection.dispatch('plane-updated', {
+        bubbles: true
+      });
       return plane;
     };
-
     /* Inherit from base model */
-    base(plane, $$)
-    // plane level functors
+
+
+    base(plane, $$) // plane level functors
     .addPropFunctor('size', function (d) {
       return d.size;
     }).addPropFunctor('padding', null).addPropFunctor('margin', 0).addPropFunctor('x', function (d) {
@@ -5110,8 +4721,7 @@
       return d.y;
     }).addPropFunctor('y2', function (d) {
       return d.y2;
-    })
-    // axis level functors
+    }) // axis level functors
     .addPropFunctor('axis', function (d) {
       return d.axis;
     }).addPropFunctor('orient', function (d) {
@@ -5126,8 +4736,7 @@
       return d.label;
     }).addPropFunctor('labelOrient', function (d) {
       return d.labelOrient || 'outer middle';
-    })
-    // Method to get the computed box of a specific plane container. This
+    }) // Method to get the computed box of a specific plane container. This
     // method should be used after the plane has been rendered. Either the
     // legend SVG node or a d3 selection of the node may be specified.
     .addMethod('box', function (_) {
@@ -5135,7 +4744,6 @@
       if (!node) return null;
       return node.__box__;
     });
-
     return plane;
 
     function setupAxis(axis, index, plane, extent, transCtx) {
@@ -5147,34 +4755,26 @@
         setAxisInfo(axis, data, index, plane, extent);
         axisData = [data];
         if (axis.info.showGrid) gridData = [data];
-      }
+      } // enter new axis container
 
-      // enter new axis container
-      axis.update = plane.selectAll('.d2b-' + axis.type + '-axis').data(axisData);
-      axis.enter = axis.update.enter().append('g').attr('class', 'd2b-axis d2b-' + axis.type + '-axis');
 
-      // enter label container
-      axis.labelEnter = axis.enter.append('text').attr('class', 'd2b-axis-label');
+      axis.update = plane.selectAll(".d2b-".concat(axis.type, "-axis")).data(axisData);
+      axis.enter = axis.update.enter().append('g').attr('class', "d2b-axis d2b-".concat(axis.type, "-axis")); // enter label container
 
-      // merge axis svg container
-      axis.svg = axis.enter.merge(axis.update);
+      axis.labelEnter = axis.enter.append('text').attr('class', 'd2b-axis-label'); // merge axis svg container
 
-      // fetch axis label
-      axis.label = axis.svg.select('.d2b-axis-label');
+      axis.svg = axis.enter.merge(axis.update); // fetch axis label
 
-      // exit axis
-      axis.update.exit().remove();
+      axis.label = axis.svg.select('.d2b-axis-label'); // exit axis
 
-      // set axis grid data
-      axis.gridUpdate = plane.selectAll('.d2b-' + axis.type + '-grid').data(gridData);
+      axis.update.exit().remove(); // set axis grid data
 
-      // enter axis grid
-      axis.gridEnter = axis.gridUpdate.enter().append('g').attr('class', 'd2b-grid d2b-' + axis.type + '-grid');
+      axis.gridUpdate = plane.selectAll(".d2b-".concat(axis.type, "-grid")).data(gridData); // enter axis grid
 
-      // exit axis grid
-      axis.gridUpdate.exit().remove();
+      axis.gridEnter = axis.gridUpdate.enter().append('g').attr('class', "d2b-grid d2b-".concat(axis.type, "-grid")); // exit axis grid
 
-      // merge axis grid
+      axis.gridUpdate.exit().remove(); // merge axis grid
+
       axis.grid = axis.gridEnter.merge(axis.gridUpdate);
 
       if (transCtx) {
@@ -5190,10 +4790,8 @@
       if (!axis.data) return;
       setAxisTickSize(axis);
       setAxisRange(axis, extent);
-
-      axis.enter.call(axis.info.axis).attr('transform', 'translate(' + x + ', ' + y + ')');
-      axis.update.call(axis.info.axis).attr('transform', 'translate(' + x + ', ' + y + ')');
-
+      axis.enter.call(axis.info.axis).attr('transform', "translate(".concat(x, ", ").concat(y, ")"));
+      axis.update.call(axis.info.axis).attr('transform', "translate(".concat(x, ", ").concat(y, ")"));
       axis.svg.call(wrapTicks, axis).on('end', function () {
         axis.svg.call(wrapTicks, axis);
       });
@@ -5203,9 +4801,7 @@
       if (!axis.data) return;
       setGridTickSize(axis, extentGrid);
       setAxisRange(axis, extentRange);
-
       axis.gridUpdate.call(axis.info.axis).selectAll('.tick text').remove();
-
       axis.gridEnter.call(axis.info.axis).selectAll('.tick text').remove();
     }
 
@@ -5217,13 +4813,17 @@
 
     function setGridTickSize(axis, extent) {
       if (!axis.data) return;
+
       switch (axis.type) {
         case 'x':
           return axis.info.axis.tickSize(axis.info.orient === 'inner' ? -extent : extent);
+
         case 'x2':
           return axis.info.axis.tickSize(axis.info.orient === 'inner' ? extent : -extent);
+
         case 'y':
           return axis.info.axis.tickSize(axis.info.orient === 'inner' ? extent : -extent);
+
         case 'y2':
           return axis.info.axis.tickSize(axis.info.orient === 'inner' ? -extent : extent);
       }
@@ -5236,18 +4836,18 @@
 
     function setAxisRange(axis, extent) {
       if (!axis.data) return;
+
       if (['y', 'y2'].indexOf(axis.type) > -1) {
         axis.info.axis.scale().range([extent, 0]);
       } else {
         axis.info.axis.scale().range([0, extent]);
       }
-    }
+    } // insert and remove dummy ticks and labels to pad axes accordingly
 
-    // insert and remove dummy ticks and labels to pad axes accordingly
+
     function setAxisInfo(axis, d, i, cont, extent) {
       if (!axis.data) return;
       var info = axis.info = {};
-
       info.axis = $$.axis(d, i);
       info.orient = $$.orient(d, i);
       info.wrapLength = $$.wrapLength(d, i);
@@ -5257,18 +4857,13 @@
       info.showGrid = $$.showGrid(d, i);
       info.labelOrient1 = info.labelOrient.split(' ')[0];
       info.labelOrient2 = info.labelOrient.split(' ')[1];
-
       info.wrapAnchor = wrapAnchor(axis);
-
       setAxisTickSize(axis);
       setAxisRange(axis, extent);
-
-      var dummyAxis = cont.append('g').attr('class', 'd2b-axis d2b-' + axis.type + '-axis').call(info.axis).call(wrapTicks, axis);
+      var dummyAxis = cont.append('g').attr('class', "d2b-axis d2b-".concat(axis.type, "-axis")).call(info.axis).call(wrapTicks, axis);
       info.axisBox = dummyAxis.node().getBBox();
-
-      var dummyLabel = dummyAxis.append('text').attr('class', 'd2b-axis-label d2b-' + axis.type + '-label').text(info.label);
+      var dummyLabel = dummyAxis.append('text').attr('class', "d2b-axis-label d2b-".concat(axis.type, "-label")).text(info.label);
       info.labelBox = dummyLabel.node().getBBox();
-
       dummyAxis.remove();
     }
 
@@ -5281,14 +4876,18 @@
 
     function wrapAnchor(axis) {
       if (!axis.data) return;
+
       switch (axis.type) {
         case 'x':
           return axis.info.orient === 'inner' ? 'end' : 'start';
+
         case 'x2':
           return axis.info.orient === 'outer' ? 'end' : 'start';
+
         case 'y':
         case 'y2':
           return 'middle';
+
         default:
           return 'start';
       }
@@ -5298,27 +4897,33 @@
       if (!axis.data) return;
       var info = axis.info;
 
-      switch (axis.type + ' ' + info.orient + ' ' + info.labelOrient1) {
+      switch ("".concat(axis.type, " ").concat(info.orient, " ").concat(info.labelOrient1)) {
         case 'x inner inner':
         case 'x2 outer outer':
           return -info.axisBox.height - labelPad;
+
         case 'x inner outer':
         case 'x2 outer inner':
           return info.labelBox.height + labelPad;
+
         case 'x outer inner':
         case 'x2 inner outer':
         case 'y inner outer':
         case 'y2 outer inner':
           return -labelPad;
+
         case 'x outer outer':
         case 'x2 inner inner':
           return info.labelBox.height + info.axisBox.height + labelPad;
+
         case 'y inner inner':
         case 'y2 outer outer':
           return info.labelBox.height + info.axisBox.width + labelPad;
+
         case 'y outer inner':
         case 'y2 inner outer':
           return info.labelBox.height + labelPad;
+
         case 'y outer outer':
         case 'y2 inner inner':
           return -info.axisBox.width - labelPad;
@@ -5331,7 +4936,12 @@
     }
 
     function dynamicPadding(axes) {
-      var padding = { top: 0, left: 0, right: 0, bottom: 0 };
+      var padding = {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+      };
 
       if (axes.x.data) {
         if (axes.x.info.orient === 'outer') padding.bottom += axes.x.info.axisBox.height;
@@ -5357,7 +4967,6 @@
       padding.bottom = Math.max(padding.bottom, 10);
       padding.left = Math.max(padding.left, 10);
       padding.right = Math.max(padding.right, 10);
-
       return padding;
     }
 
@@ -5372,14 +4981,19 @@
       }).call(textWrap, function () {
         return this.storeText;
       }, length, anchor);
-    }
+    } // create padding from number or object
 
-    // create padding from number or object
+
     function makePadding(p) {
-      return typeof p === 'number' ? { top: p, left: p, right: p, bottom: p } : p;
-    }
+      return typeof p === 'number' ? {
+        top: p,
+        left: p,
+        right: p,
+        bottom: p
+      } : p;
+    } // create margin same as padding but default as 0
 
-    // create margin same as padding but default as 0
+
     function makeMargin(m) {
       return makePadding(m || 0);
     }
@@ -5388,11 +5002,11 @@
   /**
    * d2b.chartPieAdvanced(chart, datum) configures the input chart and formats a returned datum set
    */
+
   function chartPieAdvanced (chart, datum) {
     var legendConfig = datum.legend || {};
-    var tooltipConfig = datum.tooltip || {};
+    var tooltipConfig = datum.tooltip || {}; // Chart Config
 
-    // Chart Config
     chart.label(function (d) {
       return d.label;
     }).value(function (d) {
@@ -5404,35 +5018,32 @@
     }).at.conditionally(datum.at, function (d, w, h, r) {
       return functor(datum.at)(w, h, r);
     }).color.proxy(function (d) {
-      return d.color || (datum.color ? datum.color(d) : undefined);
-    });
+      return d.color || functor(datum.color)(d);
+    }); // Chart Frame Config
 
-    // Chart Frame Config
-    chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient);
+    chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient); // Legend Config
 
-    // Legend Config
-    chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.conditionally(legendConfig.icon);
-
-    // Tooltip Config
+    chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.proxy(function (d) {
+      return d.legendIcon || functor(legendConfig.icon)(d);
+    }); // Tooltip Config
     // const percentFormat = format('.0%');
+
     chart.tooltip().followMouse.conditionally(tooltipConfig.followMouse).my.conditionally(tooltipConfig.my).at.conditionally(tooltipConfig.at).html.proxy(function (d) {
       var data = d.data;
       var percent = d.__percent__;
+
       if (data.tooltip !== undefined) {
         return data.tooltip;
       } else if (tooltipConfig.html !== undefined) {
         return functor(tooltipConfig.html)(data, percent);
       }
-    });
+    }); // Pie Config
 
-    // Pie Config
-    var pie = chart.pie();
+    var pie = chart.pie(); // D3 Arc Config
 
-    // D3 Arc Config
     var d3Arc = pie.arc();
-    if (datum.cornerRadius !== undefined) d3Arc.cornerRadius(datum.cornerRadius, 0);
+    if (datum.cornerRadius !== undefined) d3Arc.cornerRadius(datum.cornerRadius, 0); // D3 Pie Config
 
-    // D3 Pie Config
     var d3Pie = pie.pie();
     if (datum.startAngle !== undefined) d3Pie.startAngle(datum.startAngle);
     if (datum.endAngle !== undefined) d3Pie.endAngle(datum.endAngle);
@@ -5440,7 +5051,6 @@
     if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : function (a, b) {
       return datum.sort(a.data, b.data);
     });
-
     return datum;
   }
 
@@ -5448,41 +5058,38 @@
    * d2b.chartPie() returns a d2b
    * pie chart generator
    */
+
   function pie () {
     var $$ = {};
 
     var chart = function chart(context) {
-      context.call($$.chartFrame);
+      context.call($$.chartFrame); // make sure pie, arc, and legend accessors are defined properly
 
-      // make sure pie, arc, and legend accessors are defined properly
       $$.pie.value($$.value).color($$.color).key($$.key);
-
       $$.legend.html($$.label).key($$.key).color($$.color);
-
       $$.tooltip.color(function (d) {
         return d3.rgb($$.color(d.data)).darker(0.3);
       });
-
       var selection = context.selection ? context.selection() : context;
-
       selection.each(function (datum) {
         update.call(this, datum, context !== selection ? context : null);
       });
-
-      selection.dispatch('chart-pie-updated', { bubbles: true });
-      selection.dispatch('chart-updated', { bubbles: true });
-
+      selection.dispatch('chart-pie-updated', {
+        bubbles: true
+      });
+      selection.dispatch('chart-updated', {
+        bubbles: true
+      });
       return chart;
-    };
+    }; // percent formater
 
-    // percent formater
-    var percent = d3.format('.0%');
 
-    // configure model properties
+    var percent = d3.format('.0%'); // configure model properties
+
     base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addProp('key', function (d) {
       return d.label;
     }).addProp('pie', svgPie()).addProp('tooltip', tooltip().followMouse(true).html(function (d) {
-      return '<b>' + $$.label(d.data) + '</b>: ' + $$.value(d.data) + ' (' + percent(d.__percent__) + ')';
+      return "<b>".concat($$.label(d.data), "</b>: ").concat($$.value(d.data), " (").concat(percent(d.__percent__), ")");
     })).addPropFunctor('values', function (d) {
       return d;
     }).addPropFunctor('duration', 250).addPropFunctor('donutRatio', 0).addPropFunctor('at', 'center center').addPropFunctor('showPercent', function (d, total) {
@@ -5495,15 +5102,12 @@
       return d.value;
     }).addPropFunctor('arcLabel', null).addPropFunctor('label', function (d) {
       return d.label;
-    }).addAdvancedConfig(chartPieAdvanced);
-
-    // // The advanced method is an alternative to calling the chart base method directly.
+    }).addAdvancedConfig(chartPieAdvanced); // // The advanced method is an alternative to calling the chart base method directly.
     // // The method will provide additional chart configuration before rendering through
     // // the `chartPieAdvanced` function.
     // chart.advanced = function (context) {
     //   const selection = (context.selection)? context.selection() : context;
     //   const transition = selection !== context;
-
     //   selection.each(function (datum) {
     //     if (datum.onChartUpdated) d3.select(this).on('chart-updated', datum.onChartUpdated);
     //     let el = d3.select(this).selectAll('.d2b-chart-advanced').data([chartPieAdvanced(chart, datum)]);
@@ -5513,8 +5117,8 @@
     //     elTransition.call(chart);
     //   });
     // };
-
     // update chart
+
     function update(datum, transition) {
       var el = d3.select(this),
           selection = el.select('.d2b-chart-container'),
@@ -5528,54 +5132,42 @@
       });
 
       $$.pie.values(filtered);
-      $$.legend.values(values);
+      $$.legend.values(values); // legend functionality
 
-      // legend functionality
       el.select('.d2b-legend-container').call($$.legend).on('change', function () {
         return el.transition().duration($$.duration(datum)).call(chart);
       }).selectAll('.d2b-legend-item').on('mouseover', function (d) {
         arcGrow.call(this, el, d, 1.03);
       }).on('mouseout', function (d) {
         arcGrow.call(this, el, d);
-      });
+      }); // get pie total
 
-      // get pie total
       var total = d3.sum(filtered, function (d) {
         return $$.value(d);
-      });
+      }); // select and enter pie chart 'g' element.
 
-      // select and enter pie chart 'g' element.
       var chartGroup = selection.selectAll('.d2b-pie-chart').data([filtered]);
       var chartGroupEnter = chartGroup.enter().append('g').attr('class', 'd2b-pie-chart');
-
       chartGroup = chartGroup.merge(chartGroupEnter);
-
       if (transition) chartGroup = chartGroup.transition(transition);
-
       $$.pie.arc().innerRadius(radius * donutRatio).outerRadius(radius);
-
       chartGroup.call($$.pie);
-
       var arcGroup = selection.selectAll('.d2b-pie-arc').each(function (d) {
         // store inner and outer radii so that they can be used for hover
         // transitions
         d.__innerRadius__ = radius * donutRatio;
-        d.__outerRadius__ = radius;
+        d.__outerRadius__ = radius; // store percent for use with the tooltip
 
-        // store percent for use with the tooltip
         d.__percent__ = d.value / total;
       }).on('mouseover', function (d) {
         arcGrow.call(this, el, d.data, 1.03);
       }).on('mouseout', function (d) {
         arcGrow.call(this, el, d.data);
       }).call($$.tooltip);
-
       var arcPercent = arcGroup.selectAll('.d2b-pie-arc-percent').data(function (d) {
         return [d];
       });
-
       arcPercent.enter().append('g').attr('class', 'd2b-pie-arc-percent').append('text').attr('y', 6);
-
       arcGroup.each(function () {
         var elem = d3.select(this),
             current = elem.select('.d2b-pie-arc path').node().current,
@@ -5594,14 +5186,11 @@
       }
 
       var arcText = arcGroup.select('.d2b-pie-arc-percent').call(tweenCentroid, $$.pie.arc()).select('text');
-
       arcText.each(function (d) {
         var arcLabel = $$.arcLabel(d.data);
         var text = d3.select(this);
+        if (transition) text = text.transition(transition); // if arc label is non-null use percents
 
-        if (transition) text = text.transition(transition);
-
-        // if arc label is non-null use percents
         if (arcLabel) {
           text.text(arcLabel);
         } else {
@@ -5610,33 +5199,36 @@
           });
         }
       });
-
       var coords = chartCoords(datum, radius, size);
-
       if (isNaN(coords.x) || isNaN(coords.y)) return;
-
-      chartGroupEnter.attr('transform', 'translate(' + coords.x + ', ' + coords.y + ')');
-      chartGroup.attr('transform', 'translate(' + coords.x + ', ' + coords.y + ')');
-    }
-
-    // Position the pie chart according to the 'at' string (e.g. 'center left',
+      chartGroupEnter.attr('transform', "translate(".concat(coords.x, ", ").concat(coords.y, ")"));
+      chartGroup.attr('transform', "translate(".concat(coords.x, ", ").concat(coords.y, ")"));
+    } // Position the pie chart according to the 'at' string (e.g. 'center left',
     // 'top center', ..). Unless at is an object like {x: , y:}, then position
     // according to these coordinates.
+
+
     function chartCoords(datum, radius, size) {
       var coords = $$.at(datum, size.width, size.height, radius);
 
-      if ((typeof coords === 'undefined' ? 'undefined' : _typeof(coords)) !== 'object') {
+      if (_typeof(coords) !== 'object') {
         coords = coords.split(' ');
-        var at = { x: coords[1], y: coords[0] };
+        var at = {
+          x: coords[1],
+          y: coords[0]
+        };
         coords = {};
+
         switch (at.x) {
           case 'left':
             coords.x = radius;
             break;
+
           case 'center':
           case 'middle':
             coords.x = size.width / 2;
             break;
+
           case 'right':
           default:
             coords.x = size.width - radius;
@@ -5646,10 +5238,12 @@
           case 'bottom':
             coords.y = size.height - radius;
             break;
+
           case 'center':
           case 'middle':
             coords.y = size.height / 2;
             break;
+
           case 'top':
           default:
             coords.y = radius;
@@ -5661,10 +5255,8 @@
 
     function arcGrow(el, d) {
       var multiplier = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-
       var arc = $$.pie.arc();
       var transitioning = false;
-
       var arcSvg = el.selectAll('.d2b-pie-arc').filter(function (dd) {
         return dd.data === d;
       }).each(function (d) {
@@ -5672,87 +5264,66 @@
         d.outerRadius = d.__outerRadius__ * multiplier;
         d.innerRadius = d.__innerRadius__;
       });
-
       if (transitioning) return;
-
       arcSvg.select('path').transition().duration(100).call(tweenArc, arc);
     }
 
     return chart;
   }
 
-  // Work around for JavaScripts ||= operator. Only undefined will be construed as falsy.
-
-  function oreqUndefined () {
-    var truthy = function truthy(v) {
-      return v !== undefined;
-    };
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    var val = args.filter(truthy)[0];
-    return truthy(val) ? val : undefined;
-  }
-
   /**
    * d2b.chartPieAdvanced(chart, datum) configures the input chart and formats a returned datum set
    */
+
   function chartAxisAdvanced (chart, datum) {
     var legendConfig = datum.legend || {};
-    var tooltipConfig = datum.tooltip || {};
+    var tooltipConfig = datum.tooltip || {}; // Chart Config
 
-    // Chart Config
     chart.duration.conditionally(datum.duration).graphColor.proxy(function (graph) {
-      return graph.color || functor(datum.graphColor)(graph) || undefined;
+      return graph.color || functor(datum.graphColor)(graph);
     }).groupColor.proxy(function (group) {
-      return group.color || functor(datum.groupColor)(group) || undefined;
-    });
+      return group.color || functor(datum.groupColor)(group);
+    }); // Chart Frame Config
 
-    // Chart Frame Config
-    chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient);
+    chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient); // Plane Config
 
-    // Plane Config
-    chart.plane().margin.conditionally(datum.planeMargin).padding.conditionally(datum.planePadding);
+    chart.plane().margin.conditionally(datum.planeMargin).padding.conditionally(datum.planePadding); // Legend Config
 
-    // Legend Config
-    chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.conditionally(legendConfig.icon);
+    chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.proxy(function (d) {
+      return d.data.legendIcon || functor(legendConfig.icon)(d.data);
+    }); // Tooltip Config
 
-    // Tooltip Config
     chart.tooltipConfig(function (tooltipAxis) {
-      tooltipAxis.trackX.conditionally(tooltipConfig.trackX).trackY.conditionally(tooltipConfig.trackY).title.conditionally(tooltipConfig.title, function (rows) {
+      tooltipAxis.trackX.conditionally(tooltipConfig.trackX).trackY.conditionally(tooltipConfig.trackY).threshold.conditionally(tooltipConfig.threshold).title.conditionally(tooltipConfig.title, function (rows) {
         return tooltipConfig.title(rows.map(function (row) {
-          return { value: row.data, graph: row.graph.data };
+          return {
+            value: row.data,
+            graph: row.graph.data
+          };
         }));
       });
-    });
+    }); // Tooltip Row Config
 
-    // Tooltip Row Config
     chart.graphTooltipConfig(function (graph) {
       return function (tooltipGraph) {
         tooltipGraph.row.proxy(function (row) {
           var value = row.data;
-          var tooltip = value.tooltip || graph.tooltip || tooltipConfig.row || undefined;
+          var tooltip = oreqUndefined(value.tooltip, graph.tooltip, tooltipConfig.row);
           return functor(tooltip)(value, graph);
         });
       };
-    });
+    }); // Generators Config
 
-    // Generators Config
     chart.setGenerators(function (set) {
       var generators = [];
-
       set.generators.forEach(function (gen) {
         // If generator is a function it is probably a d2b generator and is ready to go
         if (typeof gen === 'function') {
-          generators.push(gen);
-          // Otherwise if multiple types are provided, setup the described generators
+          generators.push(gen); // Otherwise if multiple types are provided, setup the described generators
         } else if (gen.types) {
           gen.types.forEach(function (type) {
             generators.push(buildGenerator(type, gen));
-          });
-          // Otherwise setup the described type generator
+          }); // Otherwise setup the described type generator
         } else {
           generators.push(buildGenerator(gen.type, gen));
         }
@@ -5781,17 +5352,16 @@
           });
         });
       });
-
       return generators;
-    });
+    }); // Axis Config
 
-    // Axis Config
     ['x', 'x2', 'y', 'y2'].forEach(function (axis) {
-      var axisConfig = datum[axis];
-
-      chart[axis].conditionally(axisConfig, function (d, points) {
+      var axisConfig = datum[axis] || {};
+      chart[axis](function (d, points) {
+        if (!points.length) return {};
         var scaleConfig = axisConfig.scale || {};
-        var config = {};
+        var config = {}; // Unique set of values.
+
         var values = points.filter(function (value, index, self) {
           return self.indexOf(value) === index;
         }).sort(d3.ascending);
@@ -5801,36 +5371,41 @@
         if (axisConfig.showGrid !== undefined) config.showGrid = axisConfig.showGrid;
         if (axisConfig.label !== undefined) config.label = axisConfig.label;
         if (axisConfig.labelOrient !== undefined) config.labelOrient = axisConfig.labelOrient;
-        if (axisConfig.linearPadding !== undefined) config.linearPadding = axisConfig.linearPadding;
-        // D3 Axis Config:
-
+        if (axisConfig.linearPadding !== undefined) config.linearPadding = axisConfig.linearPadding; // D3 Axis Config:
         // If axis is given as a function it is probably a d3.axis and is ready to go
+
         if (typeof axisConfig.axis === 'function') {
-          config.axis = axisConfig.axis;
-          // Otherwise we can dynamically setup the axis
+          config.axis = axisConfig.axis; // Otherwise we can dynamically setup the axis
         } else {
-          switch (axis + '-' + config.orient) {
+          switch ("".concat(axis, "-").concat(config.orient)) {
             case 'x-outer':
               config.axis = d3.axisBottom();
               break;
+
             case 'y-outer':
               config.axis = d3.axisLeft();
               break;
+
             case 'x2-outer':
               config.axis = d3.axisTop();
               break;
+
             case 'y2-outer':
               config.axis = d3.axisRight();
               break;
+
             case 'x-inner':
               config.axis = d3.axisTop();
               break;
+
             case 'y-inner':
               config.axis = d3.axisRight();
               break;
+
             case 'x2-inner':
               config.axis = d3.axisBottom();
               break;
+
             case 'y2-inner':
               config.axis = d3.axisLeft();
               break;
@@ -5840,18 +5415,23 @@
         if (axisConfig.tickPadding !== undefined) config.axis.tickPadding(axisConfig.tickPadding);
         if (axisConfig.ticks !== undefined) config.axis.ticks(axisConfig.ticks);
         if (axisConfig.tickFormat !== undefined) config.axis.tickFormat(axisConfig.tickFormat);
-        if (axisConfig.tickValues !== undefined) config.axis.tickValues(axisConfig.tickValues);
-
-        // D3 Scale Config
-
+        if (axisConfig.tickValues !== undefined) config.axis.tickValues(axisConfig.tickValues); // D3 Scale Config
         // If scale is given as a function it is probably a d3.scale and is ready to go
+
         var domain = [0, 1];
+
         if (typeof scaleConfig === 'function') {
-          config.scale = scaleConfig;
-          // Otherwise we can dynamically setup the scale
-        } else if (scaleConfig.type) {
-          var type = scaleConfig.type.toLowerCase();
-          var scaleGenerator = d3['scale' + (type.charAt(0).toUpperCase() + type.slice(1))];
+          config.scale = scaleConfig; // Otherwise we can dynamically setup the scale
+        } else {
+          var type = scaleConfig.type;
+
+          if (!type) {
+            var firstValue = values[0];
+            if (firstValue.constructor.name === 'String') type = 'band';else if (firstValue.constructor.name === 'Date') type = 'time';else type = 'linear';
+          }
+
+          type = type.toLowerCase();
+          var scaleGenerator = d3["scale".concat(type.charAt(0).toUpperCase() + type.slice(1))];
           config.scale = scaleGenerator();
 
           switch (type) {
@@ -5859,30 +5439,28 @@
             case 'point':
               domain = values;
               break;
+
             default:
               domain = d3.extent(values.map(Number));
           }
         }
 
-        if (config.scale) {
-          if (scaleConfig.domain) domain = functor(scaleConfig.domain)(values);
-          if (scaleConfig.clamp !== undefined) config.scale.clamp(scaleConfig.clamp);
-          if (scaleConfig.nice !== undefined) config.scale.nice(scaleConfig.nice);
-          if (scaleConfig.exponent !== undefined) config.scale.exponent(scaleConfig.exponent);
-          if (scaleConfig.base !== undefined) config.scale.base(scaleConfig.base);
-          if (scaleConfig.constant !== undefined) config.scale.constant(scaleConfig.constant);
-          if (scaleConfig.forceBounds) {
-            if (scaleConfig.forceBounds.min) domain[0] = scaleConfig.forceBounds.min;
-            if (scaleConfig.forceBounds.max) domain[1] = scaleConfig.forceBounds.max;
-          }
+        if (scaleConfig.domain) domain = functor(scaleConfig.domain)(values);
+        if (scaleConfig.clamp !== undefined) config.scale.clamp(scaleConfig.clamp);
+        if (scaleConfig.nice !== undefined) config.scale.nice(scaleConfig.nice);
+        if (scaleConfig.exponent !== undefined) config.scale.exponent(scaleConfig.exponent);
+        if (scaleConfig.base !== undefined) config.scale.base(scaleConfig.base);
+        if (scaleConfig.constant !== undefined) config.scale.constant(scaleConfig.constant);
 
-          config.scale.domain(domain);
+        if (scaleConfig.forceBounds) {
+          if (scaleConfig.forceBounds.min !== undefined) domain[0] = scaleConfig.forceBounds.min;
+          if (scaleConfig.forceBounds.max !== undefined) domain[1] = scaleConfig.forceBounds.max;
         }
 
+        config.scale.domain(domain);
         return config;
       });
     });
-
     return datum;
   }
 
@@ -5893,20 +5471,25 @@
     var curve = gen.curve;
     var orient = gen.orient;
     var align = gen.align;
+
     var configureStack = function configureStack(svgGen) {
       var stack = svgGen.stack();
       if (stackOffset !== undefined) stack.offset(stackOffset);
       if (stackOrder !== undefined) stack.order(stackOrder);
     };
+
     var configureCurve = function configureCurve(shape) {
       if (curve !== undefined) shape.curve(curve);
     };
+
     var configureOrient = function configureOrient(svgGen) {
       svgGen.orient.conditionally(orient);
     };
+
     var configureAlign = function configureAlign(svgGen) {
       svgGen.align.conditionally(align);
     };
+
     switch (type) {
       case 'bar':
         newGen = svgBar().padding.conditionally(gen.padding).groupPadding.conditionally(gen.groupPadding);
@@ -5941,7 +5524,6 @@
 
       case 'boxPlot':
         newGen = svgBoxPlot();
-
         newGen.box().valueFormat.conditionally(gen.valueFormat);
         configureOrient(newGen);
         break;
@@ -5951,12 +5533,10 @@
   }
 
   function axis () {
-
     var $$ = {};
 
     var chart = function chart(context) {
       context.call($$.chartFrame);
-
       $$.legend.empty(function (d) {
         return d.data.hidden;
       }).setEmpty(function (d, i, state) {
@@ -5968,16 +5548,16 @@
       }).color(function (d) {
         return d.color;
       });
-
       var selection = context.selection ? context.selection() : context;
-
       selection.each(function (datum) {
         update.call(this, datum, context !== selection ? context : null);
       });
-
-      selection.dispatch('chart-axis-updated', { bubbles: true });
-      selection.dispatch('chart-updated', { bubbles: true });
-
+      selection.dispatch('chart-axis-updated', {
+        bubbles: true
+      });
+      selection.dispatch('chart-updated', {
+        bubbles: true
+      });
       return chart;
     };
 
@@ -5989,14 +5569,12 @@
       return d.groups;
     }).addPropFunctor('sets', function (d) {
       return d.sets;
-    })
-    // group functors
+    }) // group functors
     .addPropFunctor('groupLabel', function (d) {
       return d.label;
     }).addPropFunctor('groupColor', function (d) {
       return color($$.groupLabel(d));
-    })
-    // set functors
+    }) // set functors
     .addPropFunctor('setKey', function (d, i) {
       return i;
     }).addPropFunctor('setGenerators', function (d) {
@@ -6007,8 +5585,7 @@
       return d.yType;
     }).addPropFunctor('setGraphs', function (d) {
       return d.graphs;
-    })
-    // graph functors
+    }) // graph functors
     .addPropFunctor('graphKey', function (d) {
       return d.label;
     }).addPropFunctor('graphLabel', function (d) {
@@ -6021,8 +5598,7 @@
       return d.tooltipConfig;
     }).addPropFunctor('graphAnnotations', function (d) {
       return d.annotations;
-    })
-    // annotation functors
+    }) // annotation functors
     .addPropFunctor('annotationKey', function (d, i) {
       return i;
     }).addPropFunctor('annotationXType', function (d) {
@@ -6053,9 +5629,9 @@
           allGraphs = getAllGraphs(sets),
           duration = $$.duration(datum),
           groups = getGroups(datum, sets),
-          clipPlane = $$.clipPlane(datum);
+          clipPlane = $$.clipPlane(datum); // define chart level annotations
 
-      // define chart level annotations
+
       var annotations = ($$.annotations(datum) || []).slice().map(function (a, i) {
         return {
           key: $$.annotationKey(a, i),
@@ -6070,18 +5646,14 @@
           data: a
         };
       });
-
-      propagateHidden(groups);
-
-      // make tooltip sticky on the chart node because tooltipAxis requires
+      propagateHidden(groups); // make tooltip sticky on the chart node because tooltipAxis requires
       // one instance per axisChart
+
       var tooltip = chartNode.tooltip = chartNode.tooltip || tooltipAxis().trackX(true).trackY(false).threshold(50);
-
       tooltip.title(function (points) {
-        return '' + oreq(points[0].x, points[0].x1, points[0].median);
-      }).clear();
+        return "".concat(oreq(points[0].x, points[0].x1, points[0].median));
+      }).clear(); // update functionality
 
-      // update functionality
       $$.legend.values(groups);
       legendContainer.call($$.legend).on('change', function () {
         return container.transition().duration(duration).call(chart);
@@ -6089,58 +5661,47 @@
         return legendMouseover(d, chartContainer);
       }).on('mouseout', function (d) {
         return legendMouseout(d, chartContainer);
-      });
+      }); // update plane dimensions, width and height
 
-      // update plane dimensions, width and height
       $$.plane.size(size);
-
       var plane = chartContainer.selectAll('.d2b-axis-plane').data([datum]),
           planeUpdate = plane,
           planeEnter = plane.enter().append('g').attr('class', 'd2b-axis-plane');
+      planeUpdate = plane = plane.merge(planeEnter); // enter axis-set wrapper
 
-      planeUpdate = plane = plane.merge(planeEnter);
-
-      // enter axis-set wrapper
       var wrapper = chartContainer.selectAll('.d2b-axis-wrapper').data([datum]),
           wrapperUpdate = wrapper,
           wrapperEnter = wrapper.enter().append('g').attr('class', 'd2b-axis-wrapper');
-
       wrapperEnter.append('rect').attr('class', 'd2b-axis-background');
       wrapperEnter.append('g').attr('class', 'd2b-axis-back-annotations');
       wrapperEnter.append('g').attr('class', 'd2b-axis-sets');
       wrapperEnter.append('g').attr('class', 'd2b-axis-front-annotations');
-
       wrapperUpdate = wrapper = wrapper.merge(wrapperEnter);
-
       var backAnnotationsUpdate = wrapper.select('.d2b-axis-back-annotations'),
-          frontAnnotationsUpdate = wrapper.select('.d2b-axis-front-annotations');
+          frontAnnotationsUpdate = wrapper.select('.d2b-axis-front-annotations'); // enter axis-sets
 
-      // enter axis-sets
       var set = wrapper.select('.d2b-axis-sets').selectAll('.d2b-axis-set').data(sets, function (d) {
         return d.key;
       }),
           setEnter = set.enter().append('g').attr('class', 'd2b-axis-set'),
           setExit = set.exit();
+      set = set.merge(setEnter).order(); // queue transitions if context is a transition
 
-      set = set.merge(setEnter).order();
-
-      // queue transitions if context is a transition
       if (transition) {
         setExit = setExit.transition(transition);
         wrapperUpdate = wrapperUpdate.transition(transition);
         planeUpdate = planeUpdate.transition(transition);
         backAnnotationsUpdate = backAnnotationsUpdate.transition(transition);
         frontAnnotationsUpdate = frontAnnotationsUpdate.transition(transition);
-      }
+      } // initialze generator and visible point sets
 
-      // initialze generator and visible point sets
+
       var visible = {
         x: [],
         x2: [],
         y: [],
         y2: []
       };
-
       set.each(function (s) {
         var el = d3.select(this),
             graphs = s.graphs.filter(function (g) {
@@ -6148,13 +5709,12 @@
         }),
             graphsRaw = graphs.map(function (g) {
           return g.data;
-        });
+        }); // add graph annotations to chart annotations
 
-        // add graph annotations to chart annotations
         graphs.forEach(function (g) {
           annotations = annotations.concat(g.annotations.map(function (a, i) {
             return {
-              key: s.key + '-' + g.key + '-' + $$.annotationKey(a, i),
+              key: "".concat(s.key, "-").concat(g.key, "-").concat($$.annotationKey(a, i)),
               xType: s.xType,
               yType: s.yType,
               z: $$.annotationZ(a) || 'front',
@@ -6168,66 +5728,50 @@
             };
           }));
         });
-
         this.genUpdate = el.selectAll('.d2b-graph-generator').data(s.generators.slice().reverse(), function (d) {
           return d.key;
         });
-
         this.genEnter = this.genUpdate.enter().append('g').attr('class', 'd2b-graph-generator').style('opacity', 0);
-
         this.genExit = this.genUpdate.exit();
-
         this.gen = this.genUpdate.merge(this.genEnter).order();
-
         var size = this.gen.size();
-
         this.gen.each(function (d, i) {
           var gen = d3.select(this),
               visiblePoints = d.generator.tooltipGraph(function (graph) {
             if (i < size - 1) return null;
             var tooltipGraph = tooltip.graph(d2bid());
-
             matchGraph(graph, allGraphs).tooltipConfig(tooltipGraph);
             return tooltipGraph;
           }).color(function (graph) {
             return matchGraph(graph, allGraphs).color;
           }).graphs(graphsRaw).getVisiblePoints(gen);
-
           if (d.generator.duration) d.generator.duration(duration);
-
           visiblePoints.forEach(function (point) {
             visible[s.xType].push(point.x);
             visible[s.yType].push(point.y);
           });
         });
       });
-
       var xData = $$.x(datum, visible.x),
           yData = $$.y(datum, visible.y),
           x2Data = $$.x2(datum, visible.x2),
           y2Data = $$.y2(datum, visible.y2);
-
       setupAxis(xData, visible.x, axisDefaults.x);
       setupAxis(yData, visible.y, axisDefaults.y);
       setupAxis(x2Data, visible.x2, axisDefaults.x2);
       setupAxis(y2Data, visible.y2, axisDefaults.y2);
-
       $$.plane.axis(function (d) {
         return d.__axis__;
-      }).x(xData.__axis__ && visible.x.length ? xData : null).y(yData.__axis__ && visible.y.length ? yData : null).x2(x2Data.__axis__ && visible.x2.length ? x2Data : null).y2(y2Data.__axis__ && visible.y2.length ? y2Data : null);
+      }).x(xData.__axis__ && visible.x.length ? xData : null).y(yData.__axis__ && visible.y.length ? yData : null).x2(x2Data.__axis__ && visible.x2.length ? x2Data : null).y2(y2Data.__axis__ && visible.y2.length ? y2Data : null); // update plane
 
-      // update plane
       planeEnter.call($$.plane);
-      planeUpdate.call($$.plane);
+      planeUpdate.call($$.plane); // after plane update, fetch plane box
 
-      // after plane update, fetch plane box
-      var planeBox = $$.plane.box(plane);
+      var planeBox = $$.plane.box(plane); // add clip path from plane
 
-      // add clip path from plane
-      var planeClip = 'url(#' + plane.select('.d2b-clip-plane').attr('id') + ')';
-      wrapper.attr('clip-path', clipPlane ? planeClip : '');
+      var planeClip = "url(#".concat(plane.select('.d2b-clip-plane').attr('id'), ")");
+      wrapper.attr('clip-path', clipPlane ? planeClip : ''); // update the graphs with their generators
 
-      // update the graphs with their generators
       set.each(function (s) {
         var xAxis = s.xType === 'x2' ? x2Data.__axis__ : xData.__axis__,
             yAxis = s.yType === 'y2' ? y2Data.__axis__ : yData.__axis__;
@@ -6238,30 +5782,21 @@
         }
 
         this.genExit.remove();
-
         this.gen.each(function (d) {
           var el = d3.select(this);
           if (transition) el = el.transition(transition);
-
           d.generator.x(xAxis.scale()).y(yAxis.scale());
-
           el.style('opacity', 1).call(d.generator);
         });
-
         d3.select(this).on('change', function () {
           return container.transition().duration(duration).call(chart);
         });
-      });
+      }); // remaining transitions and exits
 
-      // remaining transitions and exits
-      setExit.style('opacity', 0).remove();
+      setExit.style('opacity', 0).remove(); // position wrapper
 
-      // position wrapper
-      wrapperEnter.attr('transform', 'translate(' + planeBox.left + ', ' + planeBox.top + ')').select('rect.d2b-axis-background').attr('height', Math.max(0, planeBox.height)).attr('width', Math.max(0, planeBox.width));
-
-      wrapperUpdate.attr('transform', 'translate(' + planeBox.left + ', ' + planeBox.top + ')').select('rect.d2b-axis-background').attr('height', Math.max(0, planeBox.height)).attr('width', Math.max(0, planeBox.width));
-
-      // update annotations
+      wrapperEnter.attr('transform', "translate(".concat(planeBox.left, ", ").concat(planeBox.top, ")")).select('rect.d2b-axis-background').attr('height', Math.max(0, planeBox.height)).attr('width', Math.max(0, planeBox.width));
+      wrapperUpdate.attr('transform', "translate(".concat(planeBox.left, ", ").concat(planeBox.top, ")")).select('rect.d2b-axis-background').attr('height', Math.max(0, planeBox.height)).attr('width', Math.max(0, planeBox.width)); // update annotations
 
       if ($$.annotation) {
         var annotationScales = {
@@ -6270,27 +5805,24 @@
           x2: x2Data.__scale__,
           y2: y2Data.__scale__
         };
-
         backAnnotationsUpdate.call(updateAnnotations, $$.annotation, annotations.filter(function (a) {
           return a.z === 'back';
         }), annotationScales);
-
         frontAnnotationsUpdate.call(updateAnnotations, $$.annotation, annotations.filter(function (a) {
           return a.z === 'front';
         }), annotationScales);
-      }
+      } // configure tooltip
 
-      // configure tooltip
+
       tooltip.row(function (point) {
         var graphLabel = matchGraph(point.graph.data, allGraphs).label;
-        return graphLabel + ': ' + oreq(point.y, point.y1, point.median);
+        return "".concat(graphLabel, ": ").concat(oreq(point.y, point.y1, point.median));
       });
-
       $$.tooltipConfig(tooltip);
       tooltip.svgContainer(wrapper).tracker(wrapper).size(planeBox);
-    }
+    } // defaultz axis components
 
-    // defaultz axis components
+
     var bandDefault = d3.scaleBand(),
         linearDefault = d3.scaleLinear(),
         axisDefaults = {
@@ -6319,16 +5851,13 @@
     function getGroups(d) {
       var sets = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : getSets(d);
       var graphs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : getAllGraphs(sets);
-
       var graphGroups = graphs.filter(function (graph) {
         return !graph.group;
       });
-
       graphGroups.forEach(function (g) {
         g.groupType = 'graph';
         g.groupGraphs = [g];
       });
-
       return ($$.groups(d) || []).map(function (group) {
         var newGroup = {
           groupType: 'group',
@@ -6336,15 +5865,12 @@
           label: $$.groupLabel(group),
           color: $$.groupColor(group)
         };
-
         newGroup.groupGraphs = graphs.filter(function (graph) {
           return newGroup.label === graph.group;
         });
-
         newGroup.groupGraphs.forEach(function (g) {
           g.color = newGroup.color;
         });
-
         return newGroup;
       }).concat(graphGroups);
     }
@@ -6358,17 +5884,14 @@
           xType: $$.setXType(set) || 'x',
           yType: $$.setYType(set) || 'y',
           generators: $$.setGenerators(set).map(function (generator, i) {
-            var type = generator.type();
+            var type = generator.type(); // only annotate first generator
 
-            // only annotate first generator
             if (i !== 0) (generator.pannotation || generator.pannotations || function () {})(null);
-
             generator.annotation($$.annotation).key($$.graphKey);
-
             generatorTypes[type] = generatorTypes[type] || 0;
             return {
               data: generator,
-              key: type + '-' + (generatorTypes[type] += 1),
+              key: "".concat(type, "-").concat(generatorTypes[type] += 1),
               generator: generator
             };
           }),
@@ -6416,7 +5939,6 @@
           return d.data;
         }) || []).indexOf(graph.data) > -1;
       }).style('opacity', '');
-
       annotations.style('opacity', 0.2).filter(function (annotation) {
         return d.data === annotation.graph || (d.groupGraphs.map(function (d) {
           return d.data;
@@ -6437,10 +5959,8 @@
 
     function setupAxis(data, points, defaults) {
       if (!points.length) data.hidden = true;
-
       var axis = data.axis || defaults.axis,
           scale = data.scale ? data.scale.copy() : getScale(points, defaults);
-
       var domain = scale.domain();
 
       if (!scale.bandwidth && data.linearPadding) {
@@ -6462,7 +5982,6 @@
         return d || 0;
       }),
           scale = band ? defaults.band : defaults.linear;
-
       return scale.domain(domain);
     }
 
@@ -6472,66 +5991,61 @@
   /**
    * d2b.chartSankeyAdvanced(chart, datum) configures the input chart and formats a returned datum set
    */
+
   function chartSunburstAdvanced (chart, datum) {
     var breadcrumbsConfig = datum.breadcrumbs || {};
-    var tooltipConfig = datum.tooltip || {};
+    var tooltipConfig = datum.tooltip || {}; // Chart Config
 
-    // Chart Config
     chart.label(function (d) {
       return d.label;
     }).outerRadius.conditionally(datum.outerRadius, function (d, w, h) {
-      return datum.outerRadius(w, h);
+      return functor(datum.outerRadius)(w, h);
     }).innerRadius.conditionally(datum.innerRadius, function (d, w, h) {
-      return datum.innerRadius(w, h);
+      return functor(datum.innerRadius)(w, h);
     }).color.proxy(function (d) {
-      return d.color || (datum.color ? datum.color(d) : undefined);
-    });
+      return d.color || functor(datum.color)(d);
+    }); // Chart Frame Config
 
-    // Chart Frame Config
-    chart.chartFrame().size.conditionally(datum.size).padding.conditionally(datum.padding).chartPadding.conditionally(datum.chartPadding).breadcrumbsEnabled.conditionally(breadcrumbsConfig.enabled).breadcrumbsOrient.conditionally(breadcrumbsConfig.orient);
+    chart.chartFrame().size.conditionally(datum.size).padding.conditionally(datum.padding).chartPadding.conditionally(datum.chartPadding).breadcrumbsEnabled.conditionally(breadcrumbsConfig.enabled).breadcrumbsOrient.conditionally(breadcrumbsConfig.orient); // Breadcrumbs Config
 
-    // Breadcrumbs Config
     chart.breadcrumbs().html.proxy(function (d) {
       var data = d.data;
       var value = d.value;
       var percent = d.value / d.selected.value;
+
       if (data.breadcrumb !== undefined) {
         return data.breadcrumb;
       } else if (breadcrumbsConfig.html !== undefined) {
         return functor(breadcrumbsConfig.html)(data, value, percent);
       }
-    });
+    }); // Tooltip Config
 
-    // Tooltip Config
     chart.tooltip().followMouse.conditionally(tooltipConfig.followMouse).my.conditionally(tooltipConfig.my).at.conditionally(tooltipConfig.at).html.proxy(function (d) {
       var data = d.data;
       var value = d.value;
       var percent = d.value / d.selected.value;
-      if (data.breadcrumb !== undefined) {
-        return data.breadcrumb;
-      } else if (breadcrumbsConfig.html !== undefined) {
-        return functor(breadcrumbsConfig.html)(data, value, percent);
-      }
-    });
 
-    // Sunburst Config
+      if (data.tooltip !== undefined) {
+        return data.tooltip;
+      } else if (tooltipConfig.html !== undefined) {
+        return functor(tooltipConfig.html)(data, value, percent);
+      }
+    }); // Sunburst Config
+
     var sunburst = chart.sunburst().root(function (d) {
       return d.root;
     }).size(function (d) {
       return d.size;
-    }).duration.conditionally(datum.duration).ancestorPadding.conditionally(datum.ancestorPadding).ancestorRatio.conditionally(datum.ancestorRatio).descendantLevels.conditionally(datum.descendantLevels).startAngle.conditionally(datum.startAngle).endAngle.conditionally(datum.endAngle).showLabels.conditionally(datum.showLabels).zoomable.conditionally(datum.zoomable).highlight.conditionally(datum.highlight).ancestorBanding.conditionally(datum.ancestorBandingExponent, d3.scalePow().exponent(datum.ancestorBandingExponent)).descendantBanding.conditionally(datum.descendantBandingExponent, d3.scalePow().exponent(datum.descendantBandingExponent));
+    }).duration.conditionally(datum.duration).ancestorPadding.conditionally(datum.ancestorPadding).ancestorRatio.conditionally(datum.ancestorRatio).descendantLevels.conditionally(datum.descendantLevels).startAngle.conditionally(datum.startAngle).endAngle.conditionally(datum.endAngle).showLabels.conditionally(datum.showLabels).zoomable.conditionally(datum.zoomable).highlight.conditionally(datum.highlight).ancestorBanding.conditionally(datum.ancestorBandingExponent, d3.scalePow().exponent(datum.ancestorBandingExponent)).descendantBanding.conditionally(datum.descendantBandingExponent, d3.scalePow().exponent(datum.descendantBandingExponent)); // D3 Pie Config
 
-    // D3 Pie Config
     var d3Pie = sunburst.pie();
     if (datum.padAngle !== undefined) d3Pie.padAngle(datum.padAngle);
     if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : function (a, b) {
       return datum.sort(a.data, b.data);
-    });
+    }); // D3 Arc Config
 
-    // D3 Arc Config
     var d3Arc = sunburst.arc();
     if (datum.cornerRadius !== undefined) d3Arc.cornerRadius(datum.cornerRadius, 0);
-
     return datum;
   }
 
@@ -6539,44 +6053,42 @@
    * d2b.chartSunburst() returns a d2b
    * sunburst chart generator
    */
+
   function sunburst () {
+    var $$ = {}; // chart updater
 
-    var $$ = {};
-
-    // chart updater
     var chart = function chart(context) {
-      context.call($$.chartFrame);
+      context.call($$.chartFrame); // configure sunburst
 
-      // configure sunburst
-      $$.sunburst.label($$.label).color($$.color);
-      // configure breadcrumbs
+      $$.sunburst.label($$.label).color($$.color); // configure breadcrumbs
+
       $$.breadcrumbs.color(function (d) {
         return $$.color(d.data);
       }).key(function (d, i) {
         return i;
-      });
-      // configure tooltip
+      }); // configure tooltip
+
       $$.tooltip.color(function (d) {
         return $$.color(d.data);
       });
-
       var selection = context.selection ? context.selection() : context;
-
       selection.each(function (datum) {
         update.call(this, datum, context !== selection ? context : null);
       });
-
-      selection.dispatch('chart-sunburst-updated', { bubbles: true });
-      selection.dispatch('chart-updated', { bubbles: true });
-
+      selection.dispatch('chart-sunburst-updated', {
+        bubbles: true
+      });
+      selection.dispatch('chart-updated', {
+        bubbles: true
+      });
       return chart;
-    };
+    }; // configure chart properties
 
-    // configure chart properties
+
     base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(true)).addProp('sunburst', svgSunburst()).addProp('breadcrumbs', breadcrumbs().html(function (d) {
-      return '<div class = \'d2b-sunburst-breadcrumb\'>' + tipTemplate(d) + '</div>';
+      return "<div class = 'd2b-sunburst-breadcrumb'>".concat(tipTemplate(d), "</div>");
     })).addProp('tooltip', tooltip().followMouse(true).html(function (d) {
-      return '<div class = \'d2b-sunburst-tooltip\'>' + tipTemplate(d) + '</div>';
+      return "<div class = 'd2b-sunburst-tooltip'>".concat(tipTemplate(d), "</div>");
     })).addPropFunctor('label', function (d) {
       return d.label;
     }).addPropFunctor('color', function (d) {
@@ -6585,30 +6097,27 @@
       return Math.min(w, h) / 2;
     }).addPropFunctor('innerRadius', function (d, w, h) {
       return Math.min(50, Math.min(w, h) / 4);
-    }).addAdvancedConfig(chartSunburstAdvanced);
+    }).addAdvancedConfig(chartSunburstAdvanced); // helpers
 
-    // helpers
     var format = d3.format(',.0f'),
         formatPercent = d3.format('.1%');
 
     var tipTemplate = function tipTemplate(d) {
       var percent = d.value / d.selected.value;
-      var percentText = percent > 1 ? '' : '<div class = \'d2b-sunburst-percent\'>\n        ' + formatPercent(d.value / d.selected.value) + '\n      </div>';
+      var percentText = percent > 1 ? '' : "<div class = 'd2b-sunburst-percent'>\n        ".concat(formatPercent(d.value / d.selected.value), "\n      </div>");
+      return "\n      <div class = 'd2b-sunburst-label'>\n        ".concat($$.label(d.data), "\n      </div>\n      <div class = 'd2b-sunburst-value'>\n        ").concat(format(d.value), "\n        ").concat(percentText, "\n      </div>\n    ");
+    }; // update breadcrumbs
 
-      return '\n      <div class = \'d2b-sunburst-label\'>\n        ' + $$.label(d.data) + '\n      </div>\n      <div class = \'d2b-sunburst-value\'>\n        ' + format(d.value) + '\n        ' + percentText + '\n      </div>\n    ';
-    };
 
-    // update breadcrumbs
     function setBreadcrumbs(el, data) {
       el.select('.d2b-breadcrumbs-container').datum(data).transition('sunburst-breadcrumbs').duration(100).call($$.breadcrumbs);
-    }
+    } // define mouseover and click events
 
-    // define mouseover and click events
+
     function defineEvents(el) {
       var sunburstChart = el.select('.d2b-sunburst-chart'),
           root = el.selectAll('.d2b-sunburst-arc.d2b-sunburst-level-0').datum(),
           selected = root.selected;
-
       setBreadcrumbs(el, [selected]);
       sunburstChart.selectAll('.d2b-sunburst-arc').call($$.tooltip.clear).call($$.tooltip).on('mouseover.breadcrumbs', function (d) {
         var ancestors = d.ancestors();
@@ -6617,26 +6126,24 @@
       }).on('mouseout.breadcrumbs', function () {
         return setBreadcrumbs(el, [selected]);
       });
-
       sunburstChart.on('mouseout', function () {
         return defineEvents(el);
       }).on('click', function () {
         return defineEvents(el);
       });
-    }
+    } // update sunburst
 
-    // update sunburst
+
     function update(datum, transition) {
       var el = d3.select(this),
           selection = el.select('.d2b-chart-container'),
           size = selection.node().__size__,
-          transform = 'translate(' + size.width / 2 + ', ' + size.height / 2 + ')';
+          transform = "translate(".concat(size.width / 2, ", ").concat(size.height / 2, ")");
 
       var sunburstChart = selection.selectAll('.d2b-sunburst-chart').data(function (d) {
         return [d];
       }),
           sunburstChartEnter = sunburstChart.enter().append('g').attr('transform', transform).attr('class', 'd2b-sunburst-chart');
-
       sunburstChart = sunburstChart.merge(sunburstChartEnter);
 
       if (transition) {
@@ -6644,9 +6151,7 @@
       }
 
       $$.sunburst.outerRadius($$.outerRadius(datum, size.width, size.height)).innerRadius($$.innerRadius(datum, size.width, size.height));
-
       sunburstChart.attr('transform', transform).call($$.sunburst);
-
       defineEvents(el);
     }
 
@@ -6656,93 +6161,95 @@
   /**
    * d2b.chartSankeyAdvanced(chart, datum) configures the input chart and formats a returned datum set
    */
+
   function chartSankeyAdvanced (chart, datum) {
     var nodeConfig = datum.node || {};
     var linkConfig = datum.link || {};
     var nodeTooltipConfig = nodeConfig.tooltip || {};
-    var linkTooltipConfig = linkConfig.tooltip || {};
+    var linkTooltipConfig = linkConfig.tooltip || {}; // Chart Frame Config
 
-    // Chart Frame Config
-    chart.chartFrame().chartPadding(0).size.conditionally(datum.size).padding.conditionally(datum.padding);
+    chart.chartFrame().chartPadding(0).size.conditionally(datum.size).padding.conditionally(datum.padding); // Node Tooltip Config
 
-    // Node Tooltip Config
     chart.nodeTooltip().followMouse.conditionally(nodeTooltipConfig.followMouse).my.conditionally(nodeTooltipConfig.my).at.conditionally(nodeTooltipConfig.at).html.proxy(function (d) {
       var data = d.data;
       var value = d.value;
+
       if (data.tooltip !== undefined) {
         return data.tooltip;
       } else if (nodeTooltipConfig.html !== undefined) {
         return functor(nodeTooltipConfig.html)(data, value);
       }
-    });
+    }); // Link Tooltip Config
 
-    // Link Tooltip Config
     chart.linkTooltip().followMouse.conditionally(linkTooltipConfig.followMouse).my.conditionally(linkTooltipConfig.my).at.conditionally(linkTooltipConfig.at).html.proxy(function (d) {
       var data = d.data;
       var source = d.source.data;
       var target = d.target.data;
+
       if (data.tooltip !== undefined) {
         return data.tooltip;
       } else if (linkTooltipConfig.html !== undefined) {
         return functor(linkTooltipConfig.html)(data, source, target);
       }
-    });
+    }); // Sankey Config
 
-    // Sankey Config
     var sankey = chart.sankey().nodeLabel(function (d) {
       return d.name;
     }).linkValue(function (d) {
       return d.value;
     }).nodeLabelWrapLength.conditionally(nodeConfig.labelWrapLength).nodeDraggableX.conditionally(nodeConfig.draggableX).nodeDraggableY.conditionally(nodeConfig.draggableY).nodeColor.proxy(function (d, i, k) {
-      return d.color || (nodeConfig.color ? nodeConfig.color(d, k) : undefined);
+      return d.color || functor(nodeConfig.color)(d, k);
     }).linkSourceColor.proxy(function (d, i, s) {
-      return d.sourceColor || (linkConfig.sourceColor ? linkConfig.sourceColor(d, s) : undefined);
+      return d.sourceColor || functor(linkConfig.sourceColor)(d, s);
     }).linkTargetColor.proxy(function (d, i, t) {
-      return d.targetColor || (linkConfig.targetColor ? linkConfig.targetColor(d, t) : undefined);
-    });
+      return d.targetColor || functor(linkConfig.targetColor)(d, t);
+    }); // D3 Sankey Config
 
-    // D3 Sankey Config
     var d3Sankey$$ = sankey.sankey();
+
     if (nodeConfig.align !== undefined) {
       var nodeAlign = typeof nodeConfig.align === 'function' ? nodeConfig.align : d3Sankey.sankeyJustify;
+
       switch (nodeConfig.align) {
         case 'left':
           nodeAlign = d3Sankey.sankeyLeft;
           break;
+
         case 'right':
           nodeAlign = d3Sankey.sankeyRight;
           break;
+
         case 'center':
           nodeAlign = d3Sankey.sankeyCenter;
           break;
       }
+
       d3Sankey$$.nodeAlign(nodeAlign);
     }
+
     if (datum.iterations !== undefined) d3Sankey$$.iterations(datum.iterations);
     if (nodeConfig.padding !== undefined) d3Sankey$$.nodePadding(nodeConfig.padding);
     if (nodeConfig.sort !== undefined) d3Sankey$$.nodeSort(nodeConfig.sort === null ? null : function (a, b) {
       return nodeConfig.sort(a.data, b.data);
     });
-
     return datum;
   }
 
   function sankey$2 () {
-
     var $$ = {};
 
     function chart(context) {
       context.call($$.chartFrame);
-
       var selection = context.selection ? context.selection() : context;
-
       selection.each(function (datum) {
         update.call(this, datum, context !== selection ? context : null);
       });
-
-      selection.dispatch('chart-sankey-updated', { bubbles: true });
-      selection.dispatch('chart-updated', { bubbles: true });
-
+      selection.dispatch('chart-sankey-updated', {
+        bubbles: true
+      });
+      selection.dispatch('chart-updated', {
+        bubbles: true
+      });
       return chart;
     }
 
@@ -6755,7 +6262,6 @@
         return [d];
       }),
           sankeyChartEnter = sankeyChart.enter().append('g').attr('class', 'd2b-sankey-chart');
-
       sankeyChart = sankeyChart.merge(sankeyChartEnter);
 
       if (transition) {
@@ -6763,27 +6269,21 @@
       }
 
       sankeyChart.call($$.sankey.size(size));
-
       sankeyChart.selectAll('.d2b-sankey-link').call($$.linkTooltip);
-
       sankeyChart.selectAll('.d2b-sankey-node').call($$.nodeTooltip);
-
       return chart;
     }
 
     var defaultNodeTooltip = tooltip().html(function (d) {
-      return '\n          <b>' + d.key + '</b>:\n          ' + d.value + '\n        ';
+      return "\n          <b>".concat(d.key, "</b>:\n          ").concat(d.value, "\n        ");
     }).color(function (d) {
       return d.color;
     }).followMouse(true);
-
     var defaultLinkTooltip = tooltip().html(function (d) {
-      return '\n          <b>' + d.source.key + '</b>\n          <i class=\'fa fa-arrow-right d2b-sankey-link-arrow\' aria-hidden=\'true\'></i>\n          <b>' + d.target.key + '</b>:\n          ' + d.value + '\n        ';
-    }).color('#444').followMouse(true);
+      return "\n          <b>".concat(d.source.key, "</b>\n          <i class='fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>\n          <b>").concat(d.target.key, "</b>:\n          ").concat(d.value, "\n        ");
+    }).color('#444').followMouse(true); // configure the model
 
-    // configure the model
     base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey$1()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip).addAdvancedConfig(chartSankeyAdvanced);
-
     return chart;
   }
 

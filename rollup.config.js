@@ -35,7 +35,7 @@ let plugins = [
 if (process.env.NODE_ENV === 'production') {
   targets = [
     {
-      dest: 'build/d2b.min.js',
+      dest: 'dist/d2b.min.js',
       format: 'iife',
       globals: {d3: 'd3', 'd3-sankey': 'd3', 'd3-interpolate-path': 'd3', 'd3-svg-annotation': 'd3'},
       moduleName: 'd2b'
@@ -46,11 +46,11 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   targets = [
     {
-      dest: 'build/d2b.cjs.js',
+      dest: 'dist/d2b.cjs.js',
       format: 'cjs',
     },
     {
-      dest: 'build/d2b.js',
+      dest: 'dist/d2b.js',
       format: 'iife',
       globals: {d3: 'd3', 'd3-sankey': 'd3', 'd3-interpolate-path': 'd3', 'd3-svg-annotation': 'd3'},
       moduleName: 'd2b'

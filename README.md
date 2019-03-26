@@ -6,7 +6,7 @@ A reusable d3-based chart library.
 
 ## Installing
 
-If you use NPM, `npm install d2b`. Otherwise, you can download the latest build [here](https://github.com/d2bjs/d2b) or install it via [CDN](https://unpkg.com/d2b/build/d2b.min.js).
+If you use NPM, `npm install d2b`. Otherwise, you can download the latest build [here](https://github.com/d2bjs/d2b) or install it via [CDN](https://unpkg.com/d2b/dist/d2b.min.js).
 
 ## API Reference
 

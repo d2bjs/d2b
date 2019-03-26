@@ -1,6 +1,6 @@
 import '../styles/index.scss';
 
-export {version} from '../../build/package';
+export {version} from '../../dist/package';
 export * from './util/util';
 export * from './math/math';
 export * from './model/model';

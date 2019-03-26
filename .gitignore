@@ -4,3 +4,4 @@ npm-debug.log
 _book
 playground
 spec-old
+examples/chartAdvanced/*.js

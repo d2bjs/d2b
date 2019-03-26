@@ -11,9 +11,9 @@ export default function (chart, datum) {
   // Chart Config
   chart
     .label(d => d.label)
-    .outerRadius.conditionally(datum.outerRadius, (d, w, h) => datum.outerRadius(w, h))
-    .innerRadius.conditionally(datum.innerRadius, (d, w, h) => datum.innerRadius(w, h))
-    .color.proxy(d => d.color || (datum.color ? datum.color(d) : undefined));
+    .outerRadius.conditionally(datum.outerRadius, (d, w, h) => functor(datum.outerRadius)(w, h))
+    .innerRadius.conditionally(datum.innerRadius, (d, w, h) => functor(datum.innerRadius)(w, h))
+    .color.proxy(d => d.color || functor(datum.color)(d));
 
   // Chart Frame Config
   chart.chartFrame()
@@ -45,10 +45,10 @@ export default function (chart, datum) {
       const data = d.data;
       const value = d.value;
       const percent = d.value / d.selected.value;
-      if (data.breadcrumb !== undefined) {
-        return data.breadcrumb;
-      } else if (breadcrumbsConfig.html !== undefined) {
-        return functor(breadcrumbsConfig.html)(data, value, percent);
+      if (data.tooltip !== undefined) {
+        return data.tooltip;
+      } else if (tooltipConfig.html !== undefined) {
+        return functor(tooltipConfig.html)(data, value, percent);
       }
     });
 

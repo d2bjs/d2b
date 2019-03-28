@@ -28699,7 +28699,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														},
 														{
@@ -28710,7 +28710,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														}
 													],
@@ -28789,7 +28789,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														},
 														{
@@ -28800,7 +28800,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														}
 													],
@@ -30464,7 +30464,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														},
 														{
@@ -30475,7 +30475,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														}
 													],
@@ -30559,7 +30559,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														},
 														{
@@ -30570,7 +30570,7 @@
 															"flags": {},
 															"type": {
 																"type": "intrinsic",
-																"name": "any"
+																"name": "number"
 															}
 														}
 													],

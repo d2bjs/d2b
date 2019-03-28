@@ -202,13 +202,13 @@ export interface ChartSunburstConfig {
    * The pixel inner radius of the sunburst chart. Usually relative to the width / height of the container.
    * @default (width, height) => Math.min(width, height) / 2
    */
-  innerRadius?: number | ((width, height) => number)
+  innerRadius?: number | ((width: number, height: number) => number)
 
   /**
    * The pixel outer radius of the sunburst chart. Usually relative to the width / height of the container.
    * @default (width, height) => Math.min(50, Math.min(width, height) / 4)
    */
-  outerRadius?: number | ((width, height) => number)
+  outerRadius?: number | ((width: number, height: number) => number)
 
   /**
    * Chart breadcrumbs configuration options.

@@ -35,9 +35,11 @@
       transform: translateX(-50%);
       left: 50%;
       top: 100%;
-      triangle: right-iso pointing-down;
-      height: $arrowSize;
-      background-color: inherit;
+
+      border-style: solid;
+      border-color: transparent;
+      border-width: $arrowSize 7px 0 7px;
+      border-top-color: inherit;
     }
   }
 
@@ -50,9 +52,11 @@
       transform: translateX(-50%);
       left: 50%;
       top: -$arrowSize;
-      triangle: right-iso pointing-up;
-      height: $arrowSize;
-      background-color: inherit;
+      
+      border-style: solid;
+      border-color: transparent;
+      border-width: 0 7px $arrowSize 7px;
+      border-bottom-color: inherit;
     }
   }
 
@@ -65,9 +69,11 @@
       transform: translateY(-50%);
       left: -$arrowSize;
       top: 50%;
-      triangle: right-iso pointing-left;
-      width: $arrowSize;
-      background-color: inherit;
+
+      border-style: solid;
+      border-color: transparent;
+      border-width: 7px $arrowSize 7px 0;
+      border-right-color: inherit;
     }
   }
 
@@ -80,9 +86,11 @@
       transform: translateY(-50%);
       left: 100%;
       top: 50%;
-      triangle: right-iso pointing-right;
-      width: $arrowSize;
-      background-color: inherit;
+
+      border-style: solid;
+      border-color: transparent;
+      border-width: 7px 0 7px $arrowSize;
+      border-left-color: inherit;
     }
   }
 

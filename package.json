@@ -17,13 +17,16 @@
   ],
   "license": "MIT",
   "main": "dist/d2b.cjs.js",
-  "jsnext:main": "src/scripts/index.js",
+  "unpkg": "dist/d2b.min.js",
+  "jsdelivr": "dist/d2b.min.js",
+  "module": "src/scripts/index.js",
   "homepage": "http://d2bjs.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
+    "rollup": "npm run test",
     "build:dev": "npm run build:package && rollup -c -g d3:d3,d3-sankey:d3,d3-interpolate-path:d3,d3-svg-annotation:d3 && npm run test",
     "build:prod": "npm run build:package && NODE_ENV=production rollup -c -g d3:d3,d3-sankey:d3,d3-interpolate-path:d3,d3-svg-annotation:d3",
     "build:server": "http-server -a 0.0.0.0 -p 8000",
@@ -43,7 +46,7 @@
     "d3": ">5.9.1",
     "d3-interpolate-path": ">2.0.0",
     "d3-sankey": ">0.7.1",
-    "d3-svg-annotation": ">2.1.0"
+    "d3-svg-annotation": "^2.4.0"
   },
   "browserify": {
     "transform": [
@@ -59,31 +62,41 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-env": "^7.4.2",
     "@types/d3": "^5.7.1",
-    "@types/node": "^11.11.3",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "@types/node": "^11.12.0",
     "babelify": "^10.0.0",
-    "cssnano": "^3.10.0",
-    "http-server": "^0.9.0",
-    "jasmine": "^2.5.3",
+    "browserify": "^16.2.3",
+    "cssnano": "^4.1.10",
+    "gitbook": "^3.2.3",
+    "gitbook-plugin-custom-favicon": "0.0.4",
+    "gitbook-plugin-ga": "^1.0.1",
+    "gitbook-plugin-toggle-chapters": "0.0.3",
+    "http-server": "^0.11.1",
+    "jasmine": "2.5.3",
     "jsdom-no-contextify": "^3.1.0",
-    "npm-run-all": "^4.0.1",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
     "npm-watch": "^0.1.8",
-    "postcss-cssnext": "^2.9.0",
+    "postcss-preset-env": "^6.6.0",
     "postcss-triangle": "^1.0.1",
+    "postcss-utilities": "^0.8.0",
     "precss": "^1.4.0",
-    "rollup": "0.27",
+    "rollup": "^1.7.3",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-eslint": "^3.0.0",
-    "rollup-plugin-postcss": "^0.2.0",
-    "rollup-plugin-uglify": "^1.0.1",
-    "rollup-watch": "^3.2.2",
+    "rollup-plugin-eslint": "^5.1.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-uglify": "^6.0.2",
+    "styled-jsx": "^3.2.1",
+    "styled-jsx-plugin-postcss": "^2.0.0",
     "tsify": "^4.0.1",
-    "typescript": "^3.3.3333",
-    "uglify-js": "^3.2.2"
+    "typescript": "^3.3.4000",
+    "uglify-js": "^3.5.2"
   },
-  "typings": "./src/types/index.ts",
+  "files": [
+    "/dist",
+    "/src"
+  ],
   "watch": {
     "build:dev": {
       "patterns": [

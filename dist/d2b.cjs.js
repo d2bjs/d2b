@@ -7,24 +7,35 @@ var d3SvgAnnotation = require('d3-svg-annotation');
 var d3InterpolatePath = require('d3-interpolate-path');
 var d3Sankey = require('d3-sankey');
 
-function __$styleInject(css, returnValue) {
-  if (typeof document === 'undefined') {
-    return returnValue;
-  }
-  css = css || '';
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
   var head = document.head || document.getElementsByTagName('head')[0];
   var style = document.createElement('style');
   style.type = 'text/css';
-  head.appendChild(style);
-  
-  if (style.styleSheet){
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
     style.styleSheet.cssText = css;
   } else {
     style.appendChild(document.createTextNode(css));
   }
-  return returnValue;
 }
-__$styleInject(".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:0.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:0.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:0.4}\n/*.d2b-box-graph {\n  .d2b-box-dash,\n  .d2b-box-center,\n  .d2b-box-rect,\n  .d2b-box-outlier {\n    stroke-width: 1.5px;\n  }\n\n  .d2b-box-rect {\n    fill: #fff;\n  }\n\n  .d2b-box-center {\n    stroke-dasharray: 3 3;\n  }\n\n  .d2b-box-label {\n    fill: #555;\n    font-size: 10pt;\n    dominant-baseline: middle;\n  }\n\n  .d2b-box-outlier {\n    fill: none;\n    stroke: #888;\n    opacity: 0.4;\n  }\n}*/.d2b-bar-graph .d2b-bar-group rect{opacity:0.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:0.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:0.25;stroke-opacity:0.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:0.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:0.5px;stroke-opacity:0.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:0.4px;stroke-opacity:0.4}.d2b-sunburst-arc{transition:opacity 0.2s,stroke-width 0.2s;cursor:pointer;opacity:0.9;stroke-width:0.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:0.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:0.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:0.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:0.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:0.6}.d2b-sankey-nodes rect{stroke-width:0.3px;stroke:#000;opacity:0.6}.d2b-sankey-nodes rect:hover{opacity:0.8}.d2b-text-anchor-end{text-anchor:end}\n/*.d2b-tooltip-area {\n  pointer-events: none;*/.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0px 0px 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%,0);transform:translate(-50%,0);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;width:0;height:0;border-style:solid;border-color:transparent;border-width:0 6px 6px;border-bottom-color:inherit}.d2b-tooltip-right{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);margin-left:15px;margin-top:0}.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-6px;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 6px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit}\n/*}*/\n/*.d2b-tooltip-axis-area {\n  pointer-events: none;\n  font-family: 'Arial';*/.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:0.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0px 0px 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0px}\n/*}*/.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border:0px solid transparent;border-left-width:8px;border-bottom-width:1px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 0 6px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb{/*&:after {\n      triangle: pointing-right;\n      width: 100px;\n      height: 100px;\n      background-color: inherit;\n      position: absolute;\n      z-index: 2;\n      content: '';\n\n      top: 100%;\n      left: 50%;\n\n      transform: translateX(-50%);\n\n    }*/}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{width:0;height:0;border-style:solid;border-color:transparent;border-width:6px 6px 0;border-top-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.stuff{display:none}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0px solid transparent;padding:2px;padding-left:18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:0.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}",undefined);
+
+var css = ".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:.4}.d2b-bar-graph .d2b-bar-group rect{opacity:.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:.25;stroke-opacity:.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:.5px;stroke-opacity:.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:.4px;stroke-opacity:.4}.d2b-sunburst-arc{transition:opacity .2s,stroke-width .2s;cursor:pointer;opacity:.9;stroke-width:.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:.6}.d2b-sankey-nodes rect{stroke-width:.3px;stroke:#000;opacity:.6}.d2b-sankey-nodes rect:hover{opacity:.8}.d2b-text-anchor-end{text-anchor:end}.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0 0 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;border-color:transparent;border-style:solid;border-width:6px 7px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%);transform:translate(-50%);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;border-color:transparent;border-style:solid;border-width:0 7px 6px;border-bottom-color:inherit}.d2b-tooltip-right{margin-left:15px;margin-top:0}.d2b-tooltip-right,.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-tooltip-right:before{left:-6px;top:50%;border-color:transparent;border-style:solid;border-width:7px 6px 7px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;border-color:transparent;border-style:solid;border-width:7px 0 7px 6px;border-left-color:inherit}.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0 0 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0}.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border-color:transparent;border-style:solid;border-width:0 0 1px 8px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:6px;background-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{height:6px;background-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0 solid transparent;padding:2px 2px 2px 18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}";
+styleInject(css);
 
 var version = "0.5.6";
 
@@ -48,7 +59,6 @@ function oreq () {
   return truthy(val) ? val : undefined;
 }
 
-// Wraps text based on character count and text accessor. This method uses
 // d3's enter/update/exit strategy as to be less destructive on the text content.
 
 function textWrap (text) {
@@ -98,7 +108,6 @@ function textWrap (text) {
   });
 }
 
-// Wrap text based on pixel length.
 // This isn't used very frequently because it causes problems with event
 // rebinding namely double click events.
 
@@ -568,6 +577,17 @@ function base () {
           el = elEnter.merge(el);
           var elTransition = transition ? el.transition(context) : el;
           elTransition.call(_base);
+
+          if (transition) {
+            var test = d3.select('body').selectAll('.test-el'); // console.log(test.size())
+
+            var testEnter = test.enter().append('div').attr('class', 'test-el');
+            test = testEnter.merge(test);
+            var t1 = test.transition().duration(5000);
+            var t2 = d3.select('body').transition(t1);
+            console.log(t2.duration());
+          } // if (transition) console.log(context.duration(), elTransition.duration());
+
         });
         return _base;
       };
@@ -983,7 +1003,6 @@ function tooltipAxis () {
   return tooltip;
 }
 
-// d2b.stack will stack the x and y values in place for
 // some datum and d3.stack configuration.
 
 function stack () {
@@ -1507,6 +1526,8 @@ function toRadians (angle) {
   return angle * (Math.PI / 180);
 }
 
+// export {default as modelChart} from './chart';
+
 var pi = Math.PI;
 var sqrt8 = Math.sqrt(8);
 var sqrt2 = Math.sqrt(2);
@@ -1551,7 +1572,7 @@ var venus = {
   }
 };
 
-// point svg generator
+// TODO: Clean up symbols.
 
 function point () {
   var $$ = {};
@@ -1638,8 +1659,6 @@ function point () {
 
   return point;
 }
-
-// pie svg generator
 
 function svgPie () {
   var $$ = {};
@@ -1788,8 +1807,6 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
-// copy d3.annotation instance for single use cases
-
 var copy = function copy(_annotation) {
   return d3SvgAnnotation.annotation().disable(_annotation.disable()).textWrap(_annotation.textWrap()).notePadding(_annotation.notePadding()).type(_annotation.type()).accessors(_annotation.accessors()).accessorsInverse(_annotation.accessorsInverse()).ids(_annotation.ids()).editMode(_annotation.editMode()).collection(_annotation.collection());
 }; // Update a set of annotations, should only be used for point oriented annotations. (e.g. not rectangles / thresholds)
@@ -1869,7 +1886,7 @@ function clone(obj) {
  */
 
 
-var updateAnnotations = function updateAxis(context, annotation, data, scales) {
+var updateAxis = function updateAxis(context, annotation, data, scales) {
   var selection = context.selection ? context.selection() : context,
       node = selection.node(),
       preScales = node.__scales || scales;
@@ -1968,8 +1985,6 @@ var updateAnnotations = function updateAxis(context, annotation, data, scales) {
     }
   });
 };
-
-// line svg generator
 
 function svgLine () {
   var $$ = {};
@@ -2211,8 +2226,6 @@ function svgLine () {
   });
   return line;
 }
-
-// line svg generator
 
 function svgArea () {
   var $$ = {};
@@ -2480,8 +2493,6 @@ function svgArea () {
   return area;
 }
 
-// scatter svg generator
-
 function svgScatter () {
   var $$ = {};
 
@@ -2689,7 +2700,7 @@ function svgScatter () {
   return scatter;
 }
 
-// bar svg generator
+// TODO: Clean up bar graph code flow a bit
 
 function svgBar () {
   var $$ = {};
@@ -3137,7 +3148,6 @@ function svgBar () {
 //   });
 // });
 
-// creates a box and whisker set for box plots
 // box svg generator
 
 function box () {
@@ -3379,7 +3389,6 @@ function box () {
   return box;
 }
 
-// import id from '../util/id';
 // box-plot svg generator
 
 function svgBoxPlot () {
@@ -3605,8 +3614,6 @@ function svgBoxPlot () {
   });
   return boxPlot;
 }
-
-// bubble pack svg generator
 
 function svgBubblePack () {
   var $$ = {};
@@ -3991,7 +3998,7 @@ function svgBubblePack () {
   return bubblePack;
 }
 
-// sunburst svg generator
+// TODO : Clean up node updater code.
 
 function svgSunburst () {
   var $$ = {}; // const arc = d3.arc().cornerRadius(5);
@@ -4336,9 +4343,7 @@ function svgSunburst () {
   return sunburst;
 }
 
-// sankey svg generator
-
-function sankey$1 () {
+function sankey () {
   var $$ = {};
   /* Update Function */
 
@@ -4622,7 +4627,6 @@ function sankey$1 () {
   return sankey;
 }
 
-// TODO: Clean up text wrapping with transition udpates
 // TODO: Clean up plane build workflow
 // plane svg generator
 
@@ -5811,10 +5815,10 @@ function axis () {
         x2: x2Data.__scale__,
         y2: y2Data.__scale__
       };
-      backAnnotationsUpdate.call(updateAnnotations, $$.annotation, annotations.filter(function (a) {
+      backAnnotationsUpdate.call(updateAxis, $$.annotation, annotations.filter(function (a) {
         return a.z === 'back';
       }), annotationScales);
-      frontAnnotationsUpdate.call(updateAnnotations, $$.annotation, annotations.filter(function (a) {
+      frontAnnotationsUpdate.call(updateAxis, $$.annotation, annotations.filter(function (a) {
         return a.z === 'front';
       }), annotationScales);
     } // configure tooltip
@@ -6211,7 +6215,7 @@ function chartSankeyAdvanced (chart, datum) {
     return d.targetColor || functor(linkConfig.targetColor)(d, t);
   }); // D3 Sankey Config
 
-  var d3Sankey$$ = sankey.sankey();
+  var d3Sankey$1 = sankey.sankey();
 
   if (nodeConfig.align !== undefined) {
     var nodeAlign = typeof nodeConfig.align === 'function' ? nodeConfig.align : d3Sankey.sankeyJustify;
@@ -6230,18 +6234,18 @@ function chartSankeyAdvanced (chart, datum) {
         break;
     }
 
-    d3Sankey$$.nodeAlign(nodeAlign);
+    d3Sankey$1.nodeAlign(nodeAlign);
   }
 
-  if (datum.iterations !== undefined) d3Sankey$$.iterations(datum.iterations);
-  if (nodeConfig.padding !== undefined) d3Sankey$$.nodePadding(nodeConfig.padding);
-  if (nodeConfig.sort !== undefined) d3Sankey$$.nodeSort(nodeConfig.sort === null ? null : function (a, b) {
+  if (datum.iterations !== undefined) d3Sankey$1.iterations(datum.iterations);
+  if (nodeConfig.padding !== undefined) d3Sankey$1.nodePadding(nodeConfig.padding);
+  if (nodeConfig.sort !== undefined) d3Sankey$1.nodeSort(nodeConfig.sort === null ? null : function (a, b) {
     return nodeConfig.sort(a.data, b.data);
   });
   return datum;
 }
 
-function sankey$2 () {
+function sankey$1 () {
   var $$ = {};
 
   function chart(context) {
@@ -6289,49 +6293,51 @@ function sankey$2 () {
     return "\n          <b>".concat(d.source.key, "</b>\n          <i class='fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>\n          <b>").concat(d.target.key, "</b>:\n          ").concat(d.value, "\n        ");
   }).color('#444').followMouse(true); // configure the model
 
-  base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey$1()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip).addAdvancedConfig(chartSankeyAdvanced);
+  base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip).addAdvancedConfig(chartSankeyAdvanced);
   return chart;
 }
 
-exports.version = version;
-exports.textWrap = textWrap;
-exports.textWrapPX = textWrapPX;
-exports.tweenArc = tweenArc;
-exports.tweenNumber = tweenNumber;
-exports.tweenCentroid = tweenCentroid;
-exports.tooltip = tooltip;
-exports.tooltipAxis = tooltipAxis;
-exports.stack = stack;
+// export {default as chartTemplate} from './template';
+
+exports.box = box;
 exports.breadcrumbs = breadcrumbs;
-exports.legend = legend;
+exports.chartAxis = axis;
 exports.chartFrame = chartFrame;
+exports.chartPie = pie;
+exports.chartSankey = sankey$1;
+exports.chartSunburst = sunburst;
+exports.color = color;
 exports.defaultColor = color;
 exports.id = d2bid;
-exports.color = color;
-exports.omit = omit;
+exports.legend = legend;
 exports.mean = mean;
 exports.median = median;
-exports.mode = mode;
-exports.range = range;
 exports.midpoint = midpoint;
-exports.toDegrees = toDegrees;
-exports.toRadians = toRadians;
+exports.mode = mode;
 exports.modelBase = base;
-exports.symbolMars = mars;
-exports.symbolVenus = venus;
+exports.omit = omit;
+exports.plane = plane;
 exports.point = point;
-exports.svgPie = svgPie;
-exports.svgLine = svgLine;
+exports.range = range;
+exports.stack = stack;
 exports.svgArea = svgArea;
-exports.svgScatter = svgScatter;
 exports.svgBar = svgBar;
 exports.svgBoxPlot = svgBoxPlot;
 exports.svgBubblePack = svgBubblePack;
+exports.svgLine = svgLine;
+exports.svgPie = svgPie;
+exports.svgSankey = sankey;
+exports.svgScatter = svgScatter;
 exports.svgSunburst = svgSunburst;
-exports.svgSankey = sankey$1;
-exports.plane = plane;
-exports.box = box;
-exports.chartPie = pie;
-exports.chartAxis = axis;
-exports.chartSunburst = sunburst;
-exports.chartSankey = sankey$2;
+exports.symbolMars = mars;
+exports.symbolVenus = venus;
+exports.textWrap = textWrap;
+exports.textWrapPX = textWrapPX;
+exports.toDegrees = toDegrees;
+exports.toRadians = toRadians;
+exports.tooltip = tooltip;
+exports.tooltipAxis = tooltipAxis;
+exports.tweenArc = tweenArc;
+exports.tweenCentroid = tweenCentroid;
+exports.tweenNumber = tweenNumber;
+exports.version = version;

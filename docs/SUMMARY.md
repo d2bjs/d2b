@@ -12,7 +12,7 @@
   * [d2b.chartSunburst](chartsAdvanced/sunburst.md)
 
 ---
-<!-- 
+
 * [Charts](charts/charts.md)
 
   * [d2b.chartAxis](charts/axis.md)
@@ -466,4 +466,4 @@
 
   * [d2b.tweenNumber](utils/tween_number.md)
 
---- -->
+---

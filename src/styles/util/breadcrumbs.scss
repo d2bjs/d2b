@@ -57,7 +57,7 @@
     }
 
     &:not(:last-child):after {
-      triangle: right-iso pointing-right;
+      // triangle: right-iso pointing-right;
       width: 6px;
       background-color: inherit;
       position: absolute;
@@ -76,7 +76,7 @@
 
   .d2b-breadcrumb {
     &:not(:last-child):after {
-      triangle: right-iso pointing-down;
+      // triangle: right-iso pointing-down;
       height: 6px;
       background-color: inherit;
       position: absolute;
@@ -104,8 +104,4 @@
 
     }*/
   }
-}
-
-.stuff {
-  display: none;
 }

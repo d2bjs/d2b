@@ -2,7 +2,7 @@ import functor from '../util/functor';
 import * as d3 from 'd3';
 import oreq from '../util/oreq';
 import oreqUndefined from '../util/oreqUndefined';
-import { svgBar, svgLine, svgBubblePack, svgBoxPlot, svgArea, svgScatter } from '../index';
+import { svgBar, svgLine, svgBubblePack, svgBoxPlot, svgArea, svgScatter } from '../svg/svg';
 
 /**
  * d2b.chartPieAdvanced(chart, datum) configures the input chart and formats a returned datum set

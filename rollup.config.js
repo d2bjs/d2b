@@ -1,66 +1,68 @@
 // Rollup plugins
 import babel from 'rollup-plugin-babel';
-import eslint from 'rollup-plugin-eslint';
-import uglify from 'rollup-plugin-uglify';
+import { uglify } from 'rollup-plugin-uglify';
 import postcss from 'rollup-plugin-postcss';
 
 // Postcss plugins
-import csstriangle from 'postcss-triangle';
+// import csstriangle from 'postcss-triangle';
 import precss from 'precss';
-import cssnext from 'postcss-cssnext';
+import postcssUtilities from 'postcss-utilities';
+import postcssPresetEnv from 'postcss-preset-env';
 import cssnano from 'cssnano';
 
-let targets;
+let outputs;
 
 let plugins = [
   postcss({
     extensions: ['.css', '.scss'],
     plugins: [
       precss(),
-      cssnext({warnForDuplicates: false}),
+      postcssPresetEnv({ stage: 0 }),
       cssnano(),
-      csstriangle(),
+      postcssUtilities()
     ],
   }),
-  eslint({
-    exclude: [
-      'src/styles/**',
-    ],
-  }),
+  // eslint({
+  //   exclude: [
+  //     'src/styles/**',
+  //   ],
+  // }),
   babel({
     exclude: 'node_modules/**',
   }),
 ];
 
 if (process.env.NODE_ENV === 'production') {
-  targets = [
+  outputs = [
     {
-      dest: 'dist/d2b.min.js',
+      file: 'dist/d2b.min.js',
       format: 'iife',
       globals: {d3: 'd3', 'd3-sankey': 'd3', 'd3-interpolate-path': 'd3', 'd3-svg-annotation': 'd3'},
-      moduleName: 'd2b'
+      sourceMap: 'inline',
+      name: 'd2b'
     }
   ];
 
   plugins.push(process.env.NODE_ENV === 'production' && uglify());
 } else {
-  targets = [
+  outputs = [
     {
-      dest: 'dist/d2b.cjs.js',
+      file: 'dist/d2b.cjs.js',
+      sourceMap: 'inline',
       format: 'cjs',
     },
     {
-      dest: 'dist/d2b.js',
+      file: 'dist/d2b.js',
       format: 'iife',
       globals: {d3: 'd3', 'd3-sankey': 'd3', 'd3-interpolate-path': 'd3', 'd3-svg-annotation': 'd3'},
-      moduleName: 'd2b'
+      sourceMap: 'inline',
+      name: 'd2b'
     },
   ];
 }
 
 export default {
-  entry: 'src/scripts/index.js',
-  targets: targets,
-  sourceMap: 'inline',
+  input: 'src/scripts/index.js',
+  output: outputs,
   plugins: plugins,
 };

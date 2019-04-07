@@ -10,8 +10,6 @@ import postcssUtilities from 'postcss-utilities';
 import postcssPresetEnv from 'postcss-preset-env';
 import cssnano from 'cssnano';
 
-let outputs;
-
 let plugins = [
   postcss({
     extensions: ['.css', '.scss'],
@@ -32,6 +30,21 @@ let plugins = [
   }),
 ];
 
+let outputs = [
+  {
+    file: 'dist/d2b.cjs.js',
+    sourceMap: 'inline',
+    format: 'cjs',
+  },
+  {
+    file: 'dist/d2b.js',
+    format: 'iife',
+    globals: {d3: 'd3', 'd3-sankey': 'd3', 'd3-interpolate-path': 'd3', 'd3-svg-annotation': 'd3'},
+    sourceMap: 'inline',
+    name: 'd2b'
+  },
+];
+
 if (process.env.NODE_ENV === 'production') {
   outputs = [
     {
@@ -43,22 +56,7 @@ if (process.env.NODE_ENV === 'production') {
     }
   ];
 
-  plugins.push(process.env.NODE_ENV === 'production' && uglify());
-} else {
-  outputs = [
-    {
-      file: 'dist/d2b.cjs.js',
-      sourceMap: 'inline',
-      format: 'cjs',
-    },
-    {
-      file: 'dist/d2b.js',
-      format: 'iife',
-      globals: {d3: 'd3', 'd3-sankey': 'd3', 'd3-interpolate-path': 'd3', 'd3-svg-annotation': 'd3'},
-      sourceMap: 'inline',
-      name: 'd2b'
-    },
-  ];
+  plugins.push(uglify());
 }
 
 export default {

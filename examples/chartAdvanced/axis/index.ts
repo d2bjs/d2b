@@ -1,6 +1,10 @@
 import { ChartAxisData } from '../../..';
 
-import { select, scaleBand, axisTop, scaleLinear, scaleTime, format, curveLinear } from 'd3';
+import { select } from 'd3-selection';
+import { scaleBand, scaleLinear, scaleTime } from 'd3-scale';
+import { format } from 'd3-format';
+import { axisTop } from 'd3-axis';
+import { curveLinear } from 'd3-shape';
 import { chartAxis } from '../../../dist/d2b.cjs.js';
 import { annotationBadge } from 'd3-svg-annotation';
 

@@ -1,5 +1,9 @@
-// TODO : Clean up node updater code.
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import { arc, pie } from 'd3-shape';
+import { scaleLinear, scalePow } from 'd3-scale';
+import { sum } from 'd3-array';
+import { hierarchy } from 'd3-hierarchy';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -13,7 +17,7 @@ export default function () {
 
   const $$ = {};
 
-  // const arc = d3.arc().cornerRadius(5);
+  // const arc = arc().cornerRadius(5);
 
   /* Update Function */
   const sunburst = function (context) {
@@ -22,7 +26,7 @@ export default function () {
     $$.pie.value(d => d.value);
 
     selection.each (function (d, i) {
-      const el          = d3.select(this),
+      const el          = select(this),
             zoomable    = $$.zoomable(d, i),
             highlight   = $$.highlight(d, i),
             innerRadius = $$.innerRadius(d, i),
@@ -109,10 +113,10 @@ export default function () {
 
   /* Inherit from base model */
   base(sunburst, $$)
-    .addProp('arc', d3.arc())
-    .addProp('pie', d3.pie().sort(null))
-    .addProp('ancestorBanding', d3.scaleLinear())
-    .addProp('descendantBanding', d3.scalePow().exponent(0.85))
+    .addProp('arc', arc())
+    .addProp('pie', pie().sort(null))
+    .addProp('ancestorBanding', scaleLinear())
+    .addProp('descendantBanding', scalePow().exponent(0.85))
     // Datum Level Accessors
     .addPropFunctor('duration', 250)
     .addPropFunctor('innerRadius', 30)
@@ -135,11 +139,11 @@ export default function () {
 
   function getHierarchy (d) {
     // compute a hierarchy based on the root, only use sizes for leaf nodes.
-    return updateDescendants(d3.hierarchy(d, $$.children).sum(d => {
+    return updateDescendants(hierarchy(d, $$.children).sum(d => {
       const children = $$.children(d);
       if (!children || !children.length) return $$.size(d);
     }));
-    // return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));
+    // return updateDescendants(hierarchy(d, $$.children).sum($$.size));
   }
 
   function updateDescendants (node, i = 0) {
@@ -159,7 +163,7 @@ export default function () {
   }
 
   function getValue (node) {
-    return oreq(node.size, node.children ? d3.sum(node.children, getValue) : 0);
+    return oreq(node.size, node.children ? sum(node.children, getValue) : 0);
   }
 
   function getSelected (root) {
@@ -267,7 +271,7 @@ export default function () {
         d.data.labelAnchor = getLabelAnchor(d.data.centerAngle);
       });
 
-    const el          = d3.select(this),
+    const el          = select(this),
           levelClass  = `d2b-sunburst-level-${depth}`;
 
     let arcUpdate = el.selectAll(`.d2b-sunburst-${type}-group.${levelClass}`);
@@ -318,7 +322,7 @@ export default function () {
       arcExit
           .each(function (d, i) {
             const data = findNeighborArc(i, newData, oldData);
-            const el = d3.select(this);
+            const el = select(this);
 
             const pathExit = el.selectAll(`.d2b-sunburst-${type}`)
                 .datum(function (d) {
@@ -369,7 +373,7 @@ export default function () {
     arcUpdate.select(`.d2b-sunburst-${type}-children.${levelClass}`)
         .each(function (d) {
           const children = d.children || [];
-          const childrenTotal = d3.sum(children, c => c.value);
+          const childrenTotal = sum(children, c => c.value);
           const childrenEndAngle = d.startAngle + ((d.endAngle - d.startAngle) * childrenTotal) / d.value;
           updateNodes.call(this, children, type, depth + 1, d.startAngle, childrenEndAngle, tools);
         });

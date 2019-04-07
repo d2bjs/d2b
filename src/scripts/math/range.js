@@ -1,11 +1,11 @@
-import * as d3 from 'd3';
+import { extent } from 'd3-array';
 
 import functor from '../util/functor';
 
 function range(arr, value) {
   value = functor(value || function(d){return d;});
-  var extent = d3.extent(arr, value);
-  if(arr.length) return extent[1] - extent[0];
+  var valueExtent = extent(arr, value);
+  if(arr.length) return valueExtent[1] - valueExtent[0];
 }
 
 range.tendancy = 'range';

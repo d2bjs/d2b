@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import { interpolate } from 'd3-interpolate';
 
 export default function (context, arc, reform = true) {
   // Reform the arc config methods so that they will first look at the arc datum
@@ -40,7 +40,7 @@ export default function (context, arc, reform = true) {
     // omit data attribute incase of a pie chart with nested associations
     d = getProperties(d);
     this.current = this.current || d;
-    const i = d3.interpolate(this.current, d);
+    const i = interpolate(this.current, d);
     return t => {
       this.current = i(t);
       return arc(this.current);

@@ -1,5 +1,9 @@
-import { select, nest, scaleLinear, symbolCircle } from 'd3';
+import { select } from 'd3-selection';
+import { scaleLinear } from 'd3-scale';
+import { symbolCircle } from 'd3-shape';
+import { nest } from 'd3-collection';
 import { annotation } from 'd3-svg-annotation';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';

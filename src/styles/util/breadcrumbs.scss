@@ -24,7 +24,8 @@
       height: 13px;
       text-align: center;
 
-      font-family: FontAwesome;
+      font-family: FontAwesome, 'Font Awesome 5 Free';
+      font-weight: bold;
 
       color: white;
       background-color: inherit;
@@ -57,9 +58,11 @@
     }
 
     &:not(:last-child):after {
-      // triangle: right-iso pointing-right;
-      width: 6px;
-      background-color: inherit;
+      border-style: solid;
+      border-color: transparent;
+      border-width: 7px 0 7px $arrowSize;
+      border-left-color: inherit;
+
       position: absolute;
       z-index: 2;
       content: '';
@@ -76,6 +79,11 @@
 
   .d2b-breadcrumb {
     &:not(:last-child):after {
+      border-style: solid;
+      border-color: transparent;
+      border-width: $arrowSize 7px 0 7px;
+      border-top-color: inherit;
+
       // triangle: right-iso pointing-down;
       height: 6px;
       background-color: inherit;

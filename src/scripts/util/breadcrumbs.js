@@ -1,4 +1,5 @@
 import base from '../model/base';
+import 'd3-transition';
 
 export default function () {
   const $$ = {};

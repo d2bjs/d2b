@@ -2,10 +2,23 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var d3 = require('d3');
+var d3Selection = require('d3-selection');
+var d3Interpolate = require('d3-interpolate');
+require('d3-transition');
+var d3Dispatch = require('d3-dispatch');
+var d3Array = require('d3-array');
+var d3Collection = require('d3-collection');
+var d3Shape = require('d3-shape');
+var d3Scales = require('d3-scale');
+var d3ScaleChromatic = require('d3-scale-chromatic');
+var d3Color = require('d3-color');
 var d3SvgAnnotation = require('d3-svg-annotation');
 var d3InterpolatePath = require('d3-interpolate-path');
+var d3Format = require('d3-format');
+var d3Hierarchy = require('d3-hierarchy');
 var d3Sankey = require('d3-sankey');
+var d3Drag = require('d3-drag');
+var d3Axis = require('d3-axis');
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -34,10 +47,10 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:.4}.d2b-bar-graph .d2b-bar-group rect{opacity:.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:.25;stroke-opacity:.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:.5px;stroke-opacity:.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:.4px;stroke-opacity:.4}.d2b-sunburst-arc{transition:opacity .2s,stroke-width .2s;cursor:pointer;opacity:.9;stroke-width:.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:.6}.d2b-sankey-nodes rect{stroke-width:.3px;stroke:#000;opacity:.6}.d2b-sankey-nodes rect:hover{opacity:.8}.d2b-text-anchor-end{text-anchor:end}.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0 0 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;border-color:transparent;border-style:solid;border-width:6px 7px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%);transform:translate(-50%);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;border-color:transparent;border-style:solid;border-width:0 7px 6px;border-bottom-color:inherit}.d2b-tooltip-right{margin-left:15px;margin-top:0}.d2b-tooltip-right,.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-tooltip-right:before{left:-6px;top:50%;border-color:transparent;border-style:solid;border-width:7px 6px 7px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;border-color:transparent;border-style:solid;border-width:7px 0 7px 6px;border-left-color:inherit}.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0 0 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0}.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border-color:transparent;border-style:solid;border-width:0 0 1px 8px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{width:6px;background-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{height:6px;background-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0 solid transparent;padding:2px 2px 2px 18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome;text-anchor:middle;stroke-width:1px;fill-opacity:.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}";
+var css = ".d2b-draggable{cursor:move}.d2b-chart-advanced{width:100%;height:100%}.d2b-pie-chart .d2b-pie-arc path{stroke-width:1px;stroke:#fff}.d2b-pie-chart .d2b-pie-arc text{fill:#fff;font-weight:700;pointer-events:none;text-anchor:middle}.d2b-axis-wrapper .d2b-axis-background{opacity:0}.d2b-chart-breadcrumbs{width:200px;padding-left:10px}.d2b-sunburst-breadcrumb .d2b-sunburst-label,.d2b-sunburst-tooltip .d2b-sunburst-label{text-align:center}.d2b-sunburst-breadcrumb .d2b-sunburst-value,.d2b-sunburst-tooltip .d2b-sunburst-value{font-size:14pt;margin-top:5px}.d2b-sunburst-breadcrumb .d2b-sunburst-percent{float:right}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-sunburst-percent{margin-left:30px}.d2b-sunburst-tooltip{text-align:center}.d2b-sunburst-tooltip .d2b-sunburst-percent{display:inline}.d2b-sunburst-tooltip .d2b-sunburst-percent:before{content:\"(\"}.d2b-sunburst-tooltip .d2b-sunburst-percent:after{content:\")\"}.d2b-sankey-link-arrow{font-size:10px;position:relative;top:-2px}.d2b-line-graph .d2b-line{stroke-width:1.5px;fill:none}.d2b-area-graph .d2b-area{stroke:none;fill-opacity:.3}.d2b-box .d2b-box-center,.d2b-box .d2b-box-dash,.d2b-box .d2b-box-outlier,.d2b-box .d2b-box-rect{stroke-width:1.5px}.d2b-box .d2b-box-rect{fill:#fff;fill-opacity:.3}.d2b-box .d2b-box-center{stroke-dasharray:3 3}.d2b-box .d2b-box-label{fill:#555;font-size:10pt}.d2b-box .d2b-box-outlier{fill:none;stroke-opacity:.4}.d2b-bar-graph .d2b-bar-group rect{opacity:.8}.d2b-bubble-pack-graph .d2b-bubble-point{opacity:.75}.d2b-bubble-pack-graph .d2b-bubble-indicator rect{fill-opacity:.25;stroke-opacity:.9;cursor:pointer;stroke-width:1px}.d2b-bubble-pack-graph .d2b-bubble-indicator rect:hover{stroke-width:2px}.d2b-bubble-pack-graph .d2b-bubble-indicator path,.d2b-bubble-pack-graph .d2b-bubble-indicator text{pointer-events:none}.d2b-plane text{font-size:10pt}.d2b-plane .d2b-y2-axis .d2b-axis-label,.d2b-plane .d2b-y-axis .d2b-axis-label{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.d2b-plane .d2b-y2-axis .tick line,.d2b-plane .d2b-y-axis .tick line{stroke-width:.6px}.d2b-plane .d2b-grid .tick line{shape-rendering:crispEdges;stroke-width:.5px;stroke-opacity:.15}.d2b-plane .d2b-grid .tick text{display:none}.d2b-plane .d2b-axis-label{fill:#000;font-weight:700}.d2b-plane path.domain{stroke-width:.4px;stroke-opacity:.4}.d2b-sunburst-arc{transition:opacity .2s,stroke-width .2s;cursor:pointer;opacity:.9;stroke-width:.8px;stroke:#fff}.d2b-sunburst-arc.d2b-transparent{fill-opacity:.2}.d2b-sunburst-label{font-size:8pt;fill-opacity:.8;pointer-events:none;font-family:arial}.d2b-sunburst-label.d2b-transparent{fill-opacity:.2}.d2b-sunburst-center{fill-opacity:0;stroke:none;cursor:pointer}.d2b-sunburst-ancestor{opacity:.4}.d2b-sankey-links path{fill:none}.d2b-sankey-links path,.d2b-sankey-links rect{opacity:.4}.d2b-sankey-links path:hover,.d2b-sankey-links rect:hover{opacity:.6}.d2b-sankey-nodes rect{stroke-width:.3px;stroke:#000;opacity:.6}.d2b-sankey-nodes rect:hover{opacity:.8}.d2b-text-anchor-end{text-anchor:end}.d2b-tooltip{pointer-events:none;background:#fff;border:1px solid #bbb;border-radius:2px;position:fixed;box-shadow:0 0 2px #ccc;margin:0}.d2b-tooltip:before{left:0;top:0;position:absolute;z-index:2;content:\"\"}.d2b-tooltip-content{white-space:nowrap;padding:6px 10px}.d2b-tooltip-top{-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%);margin-left:0;margin-top:-15px}.d2b-tooltip-top:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:100%;border-color:transparent;border-style:solid;border-width:6px 7px 0;border-top-color:inherit}.d2b-tooltip-bottom{-webkit-transform:translate(-50%);transform:translate(-50%);margin-left:0;margin-top:15px}.d2b-tooltip-bottom:before{-webkit-transform:translateX(-50%);transform:translateX(-50%);left:50%;top:-6px;border-color:transparent;border-style:solid;border-width:0 7px 6px;border-bottom-color:inherit}.d2b-tooltip-right{margin-left:15px;margin-top:0}.d2b-tooltip-right,.d2b-tooltip-right:before{-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-tooltip-right:before{left:-6px;top:50%;border-color:transparent;border-style:solid;border-width:7px 6px 7px 0;border-right-color:inherit}.d2b-tooltip-left{-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%);margin-left:-15px;margin-top:0}.d2b-tooltip-left:before{-webkit-transform:translateY(-50%);transform:translateY(-50%);left:100%;top:50%;border-color:transparent;border-style:solid;border-width:7px 0 7px 6px;border-left-color:inherit}.d2b-tooltip-marker{stroke-width:2px;stroke:#bbb;stroke-dasharray:5,5}.d2b-tooltip-axis{pointer-events:none;font-family:Arial;opacity:.9;white-space:nowrap;border:1px solid #ddd;background:hsla(0,0%,100%,.8);position:absolute;box-shadow:0 0 2px #ccc}.d2b-tooltip-axis .d2b-tooltip-title{text-align:center;background:rgba(150,165,175,.8);padding:5px 10px;font-weight:700;color:#fff}.d2b-tooltip-axis .d2b-tooltip-content{padding:5px 10px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row{padding-left:5px;border-left-width:3px;border-left-style:solid;margin-bottom:5px}.d2b-tooltip-axis .d2b-tooltip-content .d2b-tooltip-row:last-child{margin-bottom:0}.d2b-breadcrumbs{color:#555;font-size:9pt;box-sizing:content-box}.d2b-breadcrumbs .d2b-breadcrumb{border-color:transparent;border-style:solid;border-width:0 0 1px 8px;padding:6px 13px;margin-bottom:10px;text-transform:uppercase;position:relative}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after,.d2b-breadcrumbs .d2b-breadcrumb:last-child .d2b-breadcrumb-icon:after{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:-15.5px;width:13px;height:13px;text-align:center;font-family:FontAwesome,Font Awesome\\ 5 Free;font-weight:700;color:#fff;background-color:inherit;padding:5px;border-radius:15px}.d2b-breadcrumbs .d2b-breadcrumb:first-child .d2b-breadcrumb-icon:after{content:\"\\f015\"}.d2b-breadcrumbs .d2b-breadcrumb:not(:first-child):last-child .d2b-breadcrumb-icon:after{content:\"\\f25a\"}.d2b-breadcrumbs:not(.d2b-vertical){white-space:nowrap}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb{border-right-width:1px;border-top-width:1px;white-space:nowrap;display:inline-block}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child){margin-right:20px}.d2b-breadcrumbs:not(.d2b-vertical) .d2b-breadcrumb:not(:last-child):after{border-color:transparent;border-style:solid;border-width:7px 0 7px 6px;border-left-color:inherit;position:absolute;z-index:2;content:\"\";top:50%;left:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.d2b-breadcrumbs.d2b-vertical .d2b-breadcrumb:not(:last-child):after{border-color:transparent;border-style:solid;border-width:6px 7px 0;border-top-color:inherit;height:6px;background-color:inherit;position:absolute;z-index:2;content:\"\";top:100%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.d2b-legend{color:#555;font-size:9pt}.d2b-legend .d2b-legend-item{border:0 solid transparent;padding:2px 2px 2px 18px;position:relative;cursor:pointer}.d2b-legend .d2b-legend-item .d2b-legend-icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:7px;width:12px;height:12px}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon{margin-left:-5px;margin-top:-5px;pointer-events:none}.d2b-legend .d2b-legend-item .d2b-legend-svg-icon path,.d2b-legend .d2b-legend-item .d2b-legend-svg-icon text{font-family:FontAwesome,Font Awesome\\ 5 Free;font-weight:700;text-anchor:middle;stroke-width:1px;fill-opacity:.8}.d2b-legend:not(.d2b-vertical) .d2b-legend-item{display:inline-block}.d2b-legend:not(.d2b-vertical) .d2b-legend-item:not(:last-child){margin-right:10px}.d2b-legend:not(.d2b-vertical) .d2b-legend-icon{margin-top:1.5px}.d2b-chart-frame{height:100%;width:100%;position:relative}.d2b-chart-frame .d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-chart,.d2b-chart-frame .d2b-legend-frame{position:absolute;overflow:auto}.d2b-chart-frame .d2b-breadcrumbs-frame .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame .d2b-breadcrumbs{padding-left:10px;padding-right:2px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical),.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical){overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-legend-frame{height:20px;text-align:center}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical).d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical).d2b-breadcrumbs-frame{height:55px}.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame:not(.d2b-vertical) .d2b-legend-item,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend,.d2b-chart-frame .d2b-legend-frame:not(.d2b-vertical) .d2b-legend-item{white-space:nowrap;overflow-y:hidden}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-breadcrumbs-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-breadcrumbs-frame{width:180px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical.d2b-legend-frame,.d2b-chart-frame .d2b-legend-frame.d2b-vertical.d2b-legend-frame{width:110px}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container{display:table;height:100%;width:100%}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-legend,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-legend{display:table-cell;vertical-align:middle}.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-breadcrumbs-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-breadcrumbs-container .d2b-breadcrumbs,.d2b-chart-frame .d2b-legend-frame.d2b-vertical .d2b-legend-container .d2b-breadcrumbs{display:table-cell;vertical-align:top}";
 styleInject(css);
 
-var version = "0.5.6";
+var version = "1.0.0";
 
 function functor(v) {
   return typeof v === 'function' ? v : function () {
@@ -71,7 +84,7 @@ function textWrap (text) {
   getCount = functor(getCount);
   getAnchor = functor(getAnchor);
   text.each(function (d, i) {
-    var text = d3.select(this),
+    var text = d3Selection.select(this),
         words = "".concat(getText.call(this, d, i)).split(/\s+/).reverse(),
         word,
         lines = [],
@@ -114,7 +127,7 @@ function textWrap (text) {
 function textWrapPX (text) {
   var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Infinity;
   text.each(function () {
-    var text = d3.select(this),
+    var text = d3Selection.select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
         line = [],
@@ -189,7 +202,7 @@ function tweenArc (context, arc) {
     // omit data attribute incase of a pie chart with nested associations
     d = getProperties(d);
     this.current = this.current || d;
-    var i = d3.interpolate(this.current, d);
+    var i = d3Interpolate.interpolate(this.current, d);
     return function (t) {
       _this.current = i(t);
       return arc(_this.current);
@@ -224,9 +237,9 @@ function tweenNumber (context) {
 
     var val = numberize(number.call(this, d, i));
     this.current = numberize(this.current, val);
-    var interpolate = d3.interpolate(this.current, val);
+    var interp = d3Interpolate.interpolate(this.current, val);
     return function (t) {
-      _this.textContent = format(_this.current = interpolate(t));
+      _this.textContent = format(_this.current = interp(t));
     };
   });
 }
@@ -260,7 +273,7 @@ function tweenCentroid (context, arc) {
 
     d = getProperties(d);
     this.current = this.current || d;
-    var i = d3.interpolate(this.current, d);
+    var i = d3Interpolate.interpolate(this.current, d);
     return function (t) {
       _this.current = i(t);
       return "translate(".concat(arc.centroid(_this.current), ") ") + "rotate(".concat(_this.current.rotate || 0, ")");
@@ -285,7 +298,6 @@ function base () {
   var _base = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   var $$ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var protect = arguments.length > 2 ? arguments[2] : undefined;
 
   // Define an emitter updater that will fire events around the base updater
   // if (typeof base === 'function') {
@@ -386,11 +398,6 @@ function base () {
       * @return {Object} model  - returns model to allow for method chaining
       */
     removeProp: function removeProp(prop) {
-      if (protect.indexOf(prop) !== -1) {
-        // console.log(`Cannot remove ${prop} property or value`);
-        return model;
-      }
-
       $$[prop] = null;
       _base[prop] = null;
       return model;
@@ -556,7 +563,7 @@ function base () {
       };
 
       methodAdded(_base[prop]);
-      $$[store] = d3.dispatch.apply(_this, events);
+      $$[store] = d3Dispatch.dispatch.apply(_this, events);
       return model;
     },
 
@@ -571,23 +578,12 @@ function base () {
         var selection = context.selection ? context.selection() : context;
         var transition = selection !== context;
         selection.each(function (datum) {
-          if (datum.updated !== undefined) d3.select(this).on('chart-updated.advanced', datum.updated);
-          var el = d3.select(this).selectAll('.d2b-chart-advanced').data([config(_base, datum)]);
+          if (datum.updated !== undefined) d3Selection.select(this).on('chart-updated.advanced', datum.updated);
+          var el = d3Selection.select(this).selectAll('.d2b-chart-advanced').data([config(_base, datum)]);
           var elEnter = el.enter().append('div').attr('class', 'd2b-chart-advanced');
           el = elEnter.merge(el);
           var elTransition = transition ? el.transition(context) : el;
           elTransition.call(_base);
-
-          if (transition) {
-            var test = d3.select('body').selectAll('.test-el'); // console.log(test.size())
-
-            var testEnter = test.enter().append('div').attr('class', 'test-el');
-            test = testEnter.merge(test);
-            var t1 = test.transition().duration(5000);
-            var t2 = d3.select('body').transition(t1);
-            console.log(t2.duration());
-          } // if (transition) console.log(context.duration(), elTransition.duration());
-
         });
         return _base;
       };
@@ -622,7 +618,7 @@ function tooltip () {
     var box = this.getBoundingClientRect();
     var coords = {}; // construct at object, if null automatically set it based on cursor event position
 
-    var at = ($$.at.call(this, d, i) || (d3.event.clientX > window.innerWidth / 2 ? 'center left' : 'center right')).split(' ');
+    var at = ($$.at.call(this, d, i) || (d3Selection.event.clientX > window.innerWidth / 2 ? 'center left' : 'center right')).split(' ');
     at = {
       x: at[1],
       y: at[0]
@@ -680,15 +676,15 @@ function tooltip () {
         color = $$.color.call(this, d, i),
         targetNode = target ? target.node() : this,
         coords = $$.followMouse.call(this, d, i) ? {
-      x: d3.event.clientX,
-      y: d3.event.clientY
+      x: d3Selection.event.clientX,
+      y: d3Selection.event.clientY
     } : getCoords.call(targetNode, d, i);
     if (!html) return; // if (!$$.container.selectAll('.d2b-tooltip').size()) return mouseover(d, i);
 
     var tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(function (d) {
       return [d];
     });
-    var my = $$.my.call(this, d, i) || (d3.event.clientX > window.innerWidth / 2 ? 'left' : 'right');
+    var my = $$.my.call(this, d, i) || (d3Selection.event.clientX > window.innerWidth / 2 ? 'left' : 'right');
     tooltipUpdate.attr('class', "d2b-tooltip d2b-tooltip-".concat(my)).style('top', coords.y + 'px').style('left', coords.x + 'px').style('border-color', color).select('.d2b-tooltip-content').html(html);
     $$.dispatch.call('move', tooltipUpdate, this, d, i);
   };
@@ -707,7 +703,7 @@ function tooltip () {
   /* Inherit from base model */
 
 
-  base(tooltip, $$).addProp('container', d3.select('body')) //, null, updateContainer)
+  base(tooltip, $$).addProp('container', d3Selection.select('body')) //, null, updateContainer)
   .addMethod('clear', function (context) {
     (context.selection ? context.selection() : context).on(event('mouseover'), null).on(event('mouseout'), null).on(event('mousemove'), null);
     return tooltip;
@@ -759,10 +755,10 @@ function tooltipAxis () {
         y += info.y + pad;
       }
     } else {
-      if (d3.event.clientY - base.y > $$.size.height / 2) {
-        y = d3.event.clientY - pad - tooltipBox.height;
+      if (d3Selection.event.clientY - base.y > $$.size.height / 2) {
+        y = d3Selection.event.clientY - pad - tooltipBox.height;
       } else {
-        y = d3.event.clientY + pad;
+        y = d3Selection.event.clientY + pad;
       }
     }
 
@@ -773,10 +769,10 @@ function tooltipAxis () {
         x += info.x + pad;
       }
     } else {
-      if (d3.event.clientX - base.x > $$.size.width / 2) {
-        x = d3.event.clientX - pad - tooltipBox.width;
+      if (d3Selection.event.clientX - base.x > $$.size.width / 2) {
+        x = d3Selection.event.clientX - pad - tooltipBox.width;
       } else {
-        x = d3.event.clientX + pad;
+        x = d3Selection.event.clientX + pad;
       }
     }
 
@@ -806,8 +802,8 @@ function tooltipAxis () {
 
   var findPointInfo = function findPointInfo(base) {
     var cursor = {
-      x: d3.event.clientX - base.x,
-      y: d3.event.clientY - base.y
+      x: d3Selection.event.clientX - base.x,
+      y: d3Selection.event.clientY - base.y
     };
     var x = Infinity,
         y = Infinity,
@@ -878,7 +874,7 @@ function tooltipAxis () {
     }
 
     points = points.sort(function (a, b) {
-      return d3.ascending(a.x, b.x) || d3.ascending(a.y, b.y);
+      return d3Array.ascending(a.x, b.x) || d3Array.ascending(a.y, b.y);
     });
     return {
       x: x,
@@ -960,7 +956,7 @@ function tooltipAxis () {
   }; // setup tooltip model
 
 
-  base(tooltip, $$).addProp('htmlContainer', d3.select('body')).addProp('svgContainer', null).addProp('tracker', d3.select('body'), null, updateTracker).addProp('size', {
+  base(tooltip, $$).addProp('htmlContainer', d3Selection.select('body')).addProp('svgContainer', null).addProp('tracker', d3Selection.select('body'), null, updateTracker).addProp('size', {
     height: 0,
     width: 0
   }).addProp('trackX', true).addProp('trackY', false).addProp('threshold', Infinity).addMethod('clear', function (groupName, graphName) {
@@ -1031,14 +1027,14 @@ function stack () {
       return nodes;
     }); // find unique set of x values
 
-    xset = d3.set(xset).values(); // value => index mapping of x values
+    xset = d3Collection.set(xset).values(); // value => index mapping of x values
 
     var xmap = xset.reduce(function (o, v, i) {
       o[v] = i;
       return o;
     }, {}); // graph keys (just use index)
 
-    var keys = d3.range(0, datum.length); // transpose values for d3.stack
+    var keys = d3Array.range(0, datum.length); // transpose values for d3.stack
 
     var tvals = xset.map(function (col) {
       return vals.map(function (row) {
@@ -1063,7 +1059,7 @@ function stack () {
   /* Inherit from base model */
 
 
-  base(stack, $$).addProp('stack', d3.stack()).addPropFunctor('values', function (d) {
+  base(stack, $$).addProp('stack', d3Shape.stack()).addPropFunctor('values', function (d) {
     return d;
   }).addPropFunctor('x', function (d) {
     return d.x;
@@ -1122,11 +1118,11 @@ function breadcrumbs () {
   return breadcrumbs;
 }
 
-var color = d3.scaleOrdinal(d3.schemeCategory10);
+var color = d3Scales.scaleOrdinal(d3ScaleChromatic.schemeCategory10);
 
 function legend () {
   var $$ = {};
-  var symbol = d3.symbol().size(80);
+  var symbol = d3Shape.symbol().size(80);
 
   var legend = function legend(context) {
     var selection = context.selection ? context.selection() : context;
@@ -1150,10 +1146,9 @@ function legend () {
 
     legItem.style('opacity', 1).each(function (d, i) {
       // legend item customization
-      var item = d3.select(this),
-          color = $$.color(d, i),
-          empty = $$.empty(d, i);
-      item.style('border-color', color); // legend icon customization
+      var item = d3Selection.select(this);
+      var color = $$.color(d, i),
+          empty = $$.empty(d, i); // legend icon customization
 
       var icon = $$.icon(d, i),
           iconDiv = item.select('.d2b-legend-icon'),
@@ -1173,27 +1168,38 @@ function legend () {
         return [d];
       });
       var svgIconEnter = svgIcon.enter().append('svg');
-      svgIconEnter.attr('class', 'd2b-legend-svg-icon').attr('width', size.width).attr('height', size.height);
       svgIcon = svgIcon.merge(svgIconEnter);
       var svgFa = svgIcon.selectAll('text').data(fa),
           svgFaEnter = svgFa.enter().append('text');
       svgFa.exit().remove();
       svgFaEnter.append('tspan');
       svgFa = svgFa.merge(svgFaEnter);
-      svgFa.style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', "translate(".concat(center.x, ",").concat(center.y * 1.65, ")")).select('tspan').text(function (d) {
+      svgFa.select('tspan').text(function (d) {
         return d;
       });
       var svgShape = svgIcon.selectAll('path').data(shape);
       svgShape.exit().remove();
       svgShape = svgShape.merge(svgShape.enter().append('path'));
-      svgShape.style('stroke', color).style('fill', empty ? 'white' : color).attr('d', function (d) {
+      svgShape.attr('d', function (d) {
         return symbol.type(d)();
-      }).attr('transform', "translate(".concat(center.x, ",").concat(center.y, ")"));
+      });
+
+      if (context !== selection) {
+        item = item.transition(context);
+        svgIconEnter = svgIconEnter.transition(context);
+        svgFa = svgFa.transition(context);
+        svgShape = svgShape.transition(context);
+      }
+
+      item.style('border-color', color);
+      svgIconEnter.attr('class', 'd2b-legend-svg-icon').attr('width', size.width).attr('height', size.height);
+      svgFa.style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', "translate(".concat(center.x, ",").concat(center.y * 1.65, ")"));
+      svgShape.style('stroke', color).style('fill', empty ? 'white' : color).attr('transform', "translate(".concat(center.x, ",").concat(center.y, ")"));
     }); // bind events
 
     leg.each(function (d, i) {
       var allowEmptied = $$.allowEmptied(d, i),
-          items = d3.select(this).selectAll('.d2b-legend-item'),
+          items = d3Selection.select(this).selectAll('.d2b-legend-item'),
           setAllEmpty = function setAllEmpty(state) {
         items.each(function (dd, ii) {
           $$.setEmpty(dd, ii, state);
@@ -1210,7 +1216,7 @@ function legend () {
         $$.setEmpty(d, i, !$$.empty(d, i));
         if (!allowEmptied && allEmpty()) setAllEmpty(false);
         selection.call(legend);
-        d3.select(this.parentNode).dispatch('change', {
+        d3Selection.select(this.parentNode).dispatch('change', {
           bubbles: true
         });
       },
@@ -1218,7 +1224,7 @@ function legend () {
         setAllEmpty(true);
         $$.setEmpty(d, i, false);
         selection.call(legend);
-        d3.select(this.parentNode).dispatch('change', {
+        d3Selection.select(this.parentNode).dispatch('change', {
           bubbles: true
         });
       };
@@ -1226,7 +1232,7 @@ function legend () {
       items.each(function (d, i) {
         var clickable = $$.clickable(d, i),
             dblclickable = $$.dblclickable(d, i);
-        d3.select(this).on('click', clickable ? click : null).on('dblclick', dblclickable ? dblclick : null);
+        d3Selection.select(this).on('click', clickable ? click : null).on('dblclick', dblclickable ? dblclick : null);
       });
     });
     selection.dispatch('legend-updated', {
@@ -1245,7 +1251,7 @@ function legend () {
     return color(d.html);
   }).addPropFunctor('html', function (d) {
     return d.html;
-  }).addPropFunctor('icon', d3.symbolCircle).addPropFunctor('vertical', false).addPropFunctor('allowEmptied', false).addPropFunctor('clickable', false).addPropFunctor('dblclickable', false).addPropFunctor('empty', function (d) {
+  }).addPropFunctor('icon', d3Shape.symbolCircle).addPropFunctor('vertical', false).addPropFunctor('allowEmptied', false).addPropFunctor('clickable', false).addPropFunctor('dblclickable', false).addPropFunctor('empty', function (d) {
     return d.empty;
   }).addPropFunctor('setEmpty', function (d, i, state) {
     return d.empty = state;
@@ -1295,7 +1301,7 @@ function chartFrame () {
         frameEnter = frame.enter().append('div').attr('class', 'd2b-chart-frame');
     frame = frame.merge(frameEnter);
     selection.each(function (d) {
-      var frame = d3.select(this).select('.d2b-chart-frame'),
+      var frame = d3Selection.select(this).select('.d2b-chart-frame'),
           frameUpdate = frame,
           padding = cleanPadding($$.padding(d)),
           chartPadding = cleanPadding($$.chartPadding(d)),
@@ -1444,9 +1450,9 @@ function median(arr, value, weight) {
   var newArray = arr.filter(function (a) {
     return weight(a) !== 0 && !isNaN(number(weight(a))) && !isNaN(number(value(a)));
   }).sort(function (a, b) {
-    return d3.ascending(value(a), value(b));
+    return d3Array.ascending(value(a), value(b));
   });
-  midWeight = Math.round(d3.sum(newArray, function (item) {
+  midWeight = Math.round(d3Array.sum(newArray, function (item) {
     return weight(item);
   }) / 2 * 1e12) / 1e12;
   var currentPosition = 0;
@@ -1503,8 +1509,8 @@ function range(arr, value) {
   value = functor(value || function (d) {
     return d;
   });
-  var extent = d3.extent(arr, value);
-  if (arr.length) return extent[1] - extent[0];
+  var valueExtent = d3Array.extent(arr, value);
+  if (arr.length) return valueExtent[1] - valueExtent[0];
 }
 
 range.tendancy = 'range';
@@ -1513,7 +1519,7 @@ function midpoint(arr, value) {
   value = functor(value || function (d) {
     return d;
   });
-  if (arr.length) return d3.mean(d3.extent(arr, value));
+  if (arr.length) return d3Array.mean(d3Array.extent(arr, value));
 }
 
 midpoint.tendancy = 'midpoint';
@@ -1525,8 +1531,6 @@ function toDegrees (angle) {
 function toRadians (angle) {
   return angle * (Math.PI / 180);
 }
-
-// export {default as modelChart} from './chart';
 
 var pi = Math.PI;
 var sqrt8 = Math.sqrt(8);
@@ -1605,7 +1609,7 @@ function point () {
 
     selection.each(function (d, i) {
       var active = $$.active.call(this, d, i);
-      d3.select(this).on('mouseover.d2b-point', active ? mouseover : null).on('mouseout.d2b-point', active ? mouseout : null);
+      d3Selection.select(this).on('mouseover.d2b-point', active ? mouseover : null).on('mouseout.d2b-point', active ? mouseout : null);
     });
     selection.dispatch('point-updated', {
       bubbles: true
@@ -1613,15 +1617,15 @@ function point () {
     return point;
   };
 
-  var symbol = d3.symbol();
+  var symbol = d3Shape.symbol();
   /* Inherit from base model */
 
   base(point, $$).addPropFunctor('size', 150, null, function (d) {
     return symbol.size(d);
-  }).addPropFunctor('type', d3.symbolCircle, null, function (d) {
+  }).addPropFunctor('type', d3Shape.symbolCircle, null, function (d) {
     return symbol.type(d);
   }).addPropFunctor('active', false).addPropFunctor('empty', false).addPropFunctor('fill', 'steelblue').addPropFunctor('stroke', function (d, i) {
-    return d3.rgb($$.fill.call(this, d, i)).darker(0.3);
+    return d3Color.rgb($$.fill.call(this, d, i)).darker(0.3);
   }).addPropFunctor('strokeWidth', '1px');
 
   function frontOpacity(d, i) {
@@ -1647,14 +1651,14 @@ function point () {
 
   function mouseover(d, i) {
     var empty = $$.empty.call(this, d, i);
-    d3.select(this).select('path.d2b-point-back').transition().duration(100).attr('d', symbolBig);
-    d3.select(this).select('path.d2b-point-front').transition().duration(100).style('opacity', empty ? 0.5 : 1).attr('d', symbolSmall);
+    d3Selection.select(this).select('path.d2b-point-back').transition().duration(100).attr('d', symbolBig);
+    d3Selection.select(this).select('path.d2b-point-front').transition().duration(100).style('opacity', empty ? 0.5 : 1).attr('d', symbolSmall);
   }
 
   function mouseout(d, i) {
     var empty = $$.empty.call(this, d, i);
-    d3.select(this).select('path.d2b-point-back').transition().duration(100).attr('d', symbolNormal);
-    d3.select(this).select('path.d2b-point-front').transition().duration(100).style('opacity', empty ? 0 : 1).attr('d', symbolSmall);
+    d3Selection.select(this).select('path.d2b-point-back').transition().duration(100).attr('d', symbolNormal);
+    d3Selection.select(this).select('path.d2b-point-front').transition().duration(100).style('opacity', empty ? 0 : 1).attr('d', symbolSmall);
   }
 
   return point;
@@ -1680,7 +1684,7 @@ function svgPie () {
         pieSvgEnter = pieSvg.enter().append('g').attr('class', 'd2b-pie');
     pieSvg = pieSvg.merge(pieSvgEnter);
     pieSvg.each(function (values) {
-      var el = d3.select(this); // select arc group and get their old data
+      var el = d3Selection.select(this); // select arc group and get their old data
 
       var arc = el.selectAll('.d2b-pie-arc');
       var oldData = arc.data();
@@ -1727,7 +1731,7 @@ function svgPie () {
   /* Inherit from base model */
 
 
-  base(pie, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addPropFunctor('values', function (d) {
+  base(pie, $$).addProp('arc', d3Shape.arc()).addProp('pie', d3Shape.pie().sort(null)).addPropFunctor('values', function (d) {
     return d;
   }).addPropFunctor('key', function (d) {
     return d.label;
@@ -1832,7 +1836,7 @@ var update = function update(context, annotation, selectorClass) {
   var getTransformEnter = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'translate(0, 0)';
   var selection = context.selection ? context.selection() : context;
   context.each(function (d) {
-    var el = d3.select(this),
+    var el = d3Selection.select(this),
         data = functor(getData)(d),
         annotationSvg = el.selectAll('g.' + selectorClass).data(data),
         annotationEnter = annotationSvg.enter().append('g');
@@ -1959,7 +1963,7 @@ var updateAxis = function updateAxis(context, annotation, data, scales) {
   }).style('opacity', 0).remove();
   aSvg.each(function (a) {
     var aCopy = clone(a.data),
-        aSvg = d3.select(this),
+        aSvg = d3Selection.select(this),
         annotationCopy = copy(annotation);
     aCopy.x = 0;
     aCopy.y = 0;
@@ -1972,7 +1976,7 @@ var updateAxis = function updateAxis(context, annotation, data, scales) {
       aSvg.transition(context).tween('annotation-tween', function () {
         var _this = this;
 
-        var i = d3.interpolateObject(this.__subject || getSubject(a, scales), aCopy.subject);
+        var i = d3Interpolate.interpolateObject(this.__subject || getSubject(a, scales), aCopy.subject);
         return function (t) {
           _this.__subject = aCopy.subject = i(t);
           aCopy.dx = (aCopy.subject.dx || 0) + (a.data.dx || 0);
@@ -2061,10 +2065,10 @@ function svgLine () {
 
       var tweenD = function tweenD(d) {
         var setupTooltip = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-        var maxX = d3.max(d.values, function (dd) {
+        var maxX = d3Array.max(d.values, function (dd) {
           return dd.x;
         });
-        var minX = d3.min(d.values, function (dd) {
+        var minX = d3Array.min(d.values, function (dd) {
           return dd.x;
         });
         return d3InterpolatePath.interpolatePath(this.getAttribute('d'), getPath.call(this, d, $$.x, $$.y, setupTooltip), function (a) {
@@ -2098,7 +2102,7 @@ function svgLine () {
 
     graphUpdate.each(function (d) {
       var graphsNode = this.parentNode,
-          graph = d3.select(this),
+          graph = d3Selection.select(this),
           align = d.align,
           x = graphsNode.__scaleX || $$.x,
           y = graphsNode.__scaleY || $$.y,
@@ -2177,15 +2181,15 @@ function svgLine () {
   }).x(function (d) {
     return d.x;
   });
-  var stackNest = d3.nest().key(function (d) {
+  var stackNest = d3Collection.nest().key(function (d) {
     var key = d.stackBy;
     return key !== false && key !== null ? key : d2bid();
   });
   /* Inherit from base model */
 
-  base(line, $$).addProp('line', d3.line()).addProp('stack', stacker.stack(), null, function (d) {
+  base(line, $$).addProp('line', d3Shape.line()).addProp('stack', stacker.stack(), null, function (d) {
     return stacker.stack(d);
-  }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'line').addPropFunctor('graphs', function (d) {
+  }).addProp('x', d3Scales.scaleLinear()).addProp('y', d3Scales.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'line').addPropFunctor('graphs', function (d) {
     return d;
   }) // graph props
   .addPropFunctor('align', 'y1').addPropFunctor('tooltipGraph', function (d) {
@@ -2302,10 +2306,10 @@ function svgArea () {
 
       var tweenD = function tweenD(d) {
         var setupTooltip = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-        var maxX = d3.max(d.values, function (dd) {
+        var maxX = d3Array.max(d.values, function (dd) {
           return dd.x;
         });
-        var minX = d3.min(d.values, function (dd) {
+        var minX = d3Array.min(d.values, function (dd) {
           return dd.x;
         });
         return d3InterpolatePath.interpolatePath(this.getAttribute('d'), getPath.call(this, d, $$.x, $$.y, setupTooltip), function (a) {
@@ -2339,7 +2343,7 @@ function svgArea () {
 
     graphUpdate.each(function (d) {
       var graphsNode = this.parentNode,
-          graph = d3.select(this),
+          graph = d3Selection.select(this),
           x = graphsNode.__scaleX || $$.x,
           y = graphsNode.__scaleY || $$.y;
       ['y0', 'y1'].forEach(function (align) {
@@ -2431,15 +2435,15 @@ function svgArea () {
   }).x(function (d) {
     return d.x;
   });
-  var stackNest = d3.nest().key(function (d) {
+  var stackNest = d3Collection.nest().key(function (d) {
     var key = d.stackBy;
     return key !== false && key !== null ? key : d2bid();
   });
   /* Inherit from base model */
 
-  base(area, $$).addProp('area', d3.area()).addProp('stack', stacker.stack(), null, function (d) {
+  base(area, $$).addProp('area', d3Shape.area()).addProp('stack', stacker.stack(), null, function (d) {
     return stacker.stack(d);
-  }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'area').addPropFunctor('graphs', function (d) {
+  }).addProp('x', d3Scales.scaleLinear()).addProp('y', d3Scales.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'area').addPropFunctor('graphs', function (d) {
     return d;
   }) // graph props
   .addPropFunctor('tooltipGraph', function (d) {
@@ -2558,7 +2562,7 @@ function svgScatter () {
       graphExit.style('opacity', 0) // points needs to be transitioned to where there new locations "would be"
       // if the graphs had been included
       .each(function (d) {
-        var el = d3.select(this),
+        var el = d3Selection.select(this),
             x = $$.x,
             y = $$.y;
         var pointExit = el.selectAll('.d2b-scatter-point');
@@ -2572,7 +2576,7 @@ function svgScatter () {
     graphUpdate.style('opacity', 1);
     graphExit.remove();
     graphUpdate.each(function (d) {
-      var el = d3.select(this),
+      var el = d3Selection.select(this),
           x = $$.x,
           y = $$.y,
           graphsNode = this.parentNode,
@@ -2648,7 +2652,7 @@ function svgScatter () {
   }).x(function (d) {
     return d.x;
   });
-  var stackNest = d3.nest().key(function (d) {
+  var stackNest = d3Collection.nest().key(function (d) {
     var key = d.stackBy;
     return key !== false && key !== null ? key : d2bid();
   });
@@ -2656,7 +2660,7 @@ function svgScatter () {
 
   base(scatter, $$).addProp('point', point().active(true)).addProp('stack', stacker.stack(), null, function (d) {
     return stacker.stack(d);
-  }).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'scatter').addPropFunctor('graphs', function (d) {
+  }).addProp('x', d3Scales.scaleLinear()).addProp('y', d3Scales.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'scatter').addPropFunctor('graphs', function (d) {
     return d;
   }) // graph props
   .addPropFunctor('align', 'y1').addPropFunctor('tooltipGraph', function (d) {
@@ -2668,7 +2672,7 @@ function svgScatter () {
   }).addPropFunctor('color', function (d) {
     return color(d.label);
   }).addPropFunctor('symbol', function () {
-    return d3.symbolCircle;
+    return d3Shape.symbolCircle;
   }) // points props
   .addPropFunctor('px', function (d) {
     return d.x;
@@ -2699,8 +2703,6 @@ function svgScatter () {
   });
   return scatter;
 }
-
-// TODO: Clean up bar graph code flow a bit
 
 function svgBar () {
   var $$ = {};
@@ -2795,7 +2797,7 @@ function svgBar () {
       var base = getBaseScale(x, bandwidth, barWidth, groupPadding),
           extent = getExtentScale(_y);
       barWidth -= groupPadding * 2;
-      var graphsSVG = d3.select(this).selectAll('.d2b-bar-graphs').data(function (d) {
+      var graphsSVG = d3Selection.select(this).selectAll('.d2b-bar-graphs').data(function (d) {
         return [d];
       });
       graphsSVG = graphsSVG.merge(graphsSVG.enter().append('g').attr('class', 'd2b-bar-graphs'));
@@ -2817,7 +2819,7 @@ function svgBar () {
         graphExit.each(function (d) {
           var shift = d.shift;
           if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0;
-          var barExit = d3.select(this).selectAll('.d2b-bar-group').transition(context);
+          var barExit = d3Selection.select(this).selectAll('.d2b-bar-group').transition(context);
 
           if (preX.bandwidth || preY.bandwidth || x.bandwidth || _y.bandwidth) {
             // exit
@@ -2846,7 +2848,7 @@ function svgBar () {
       graphExit.remove(); // iterate through graph containers
 
       graphUpdate.each(function (d) {
-        var graph = d3.select(this);
+        var graph = d3Selection.select(this);
         var shift = d.shift;
         if (shift === null) shift = x.bandwidth ? x.bandwidth() / 2 : 0; // enter update exit bars
 
@@ -2960,7 +2962,7 @@ function svgBar () {
   var stacker = stack().values(function (d) {
     return d.values;
   });
-  var stackNest = d3.nest().key(function (d) {
+  var stackNest = d3Collection.nest().key(function (d) {
     return d.stackBy;
   }); // custom stacker build out that separates the negative and possitive bars
 
@@ -3015,7 +3017,7 @@ function svgBar () {
     };
 
     scale.sorted = function (point) {
-      return scale(point).slice().sort(d3.ascending);
+      return scale(point).slice().sort(d3Array.ascending);
     };
 
     return scale;
@@ -3033,7 +3035,7 @@ function svgBar () {
         xVals.push(x(point[orientMap.x]));
       });
     });
-    xVals.sort(d3.ascending);
+    xVals.sort(d3Array.ascending);
 
     for (var i = 0; i < xVals.length - 1; i++) {
       if (xVals[i + 1] === xVals[i]) continue;
@@ -3049,7 +3051,7 @@ function svgBar () {
       var values = [].concat.apply([], graphs.map(function (d) {
         return d.values;
       }));
-      var range = d3.extent(values.map(function (d) {
+      var range = d3Array.extent(values.map(function (d) {
         return d.extent[1];
       }));
       if (range[1] < 0) baseline = range[1];else if (range[0] > 0) baseline = range[0];else baseline = 0;
@@ -3066,7 +3068,7 @@ function svgBar () {
   /* Inherit from base model */
 
 
-  base(bar, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bar').addPropFunctor('graphs', function (d) {
+  base(bar, $$).addProp('x', d3Scales.scaleLinear()).addProp('y', d3Scales.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bar').addPropFunctor('graphs', function (d) {
     return d;
   }).addPropFunctor('padding', 0.5).addPropFunctor('groupPadding', 0).addPropFunctor('bandwidth', null).addPropFunctor('baseline', 0) // graph props
   .addPropFunctor('tooltipGraph', function (d) {
@@ -3369,7 +3371,7 @@ function box () {
   /* Inherit from base model */
 
 
-  base(box, $$).addProp('scale', d3.scaleLinear()).addProp('enterScale', null).addProp('valueFormat', d3.format(',')).addProp('orient', 'vertical').addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropFunctor('data', function (d) {
+  base(box, $$).addProp('scale', d3Scales.scaleLinear()).addProp('enterScale', null).addProp('valueFormat', d3Format.format(',')).addProp('orient', 'vertical').addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropFunctor('data', function (d) {
     return d;
   }).addPropFunctor('median', function (d) {
     return d.median;
@@ -3447,7 +3449,7 @@ function svgBoxPlot () {
       graphExit.style('opacity', 0) // boxes needs to be transitioned to where their new locations
       // "would be" if the graphs had been included
       .each(function (d) {
-        var el = d3.select(this),
+        var el = d3Selection.select(this),
             vertical = d.orient === 'vertical',
             orient = vertical ? {
           x: 'x',
@@ -3474,7 +3476,7 @@ function svgBoxPlot () {
     graphUpdate.style('opacity', 1);
     graphExit.remove();
     graphUpdate.each(function (d) {
-      var el = d3.select(this),
+      var el = d3Selection.select(this),
           vertical = d.orient === 'vertical',
           orient = vertical ? {
         x: 'x',
@@ -3553,7 +3555,7 @@ function svgBoxPlot () {
   /* Inherit from base model */
 
 
-  base(boxPlot, $$).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('box', box()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'boxPlot').addPropFunctor('graphs', function (d) {
+  base(boxPlot, $$).addProp('x', d3Scales.scaleLinear()).addProp('y', d3Scales.scaleLinear()).addProp('box', box()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'boxPlot').addPropFunctor('graphs', function (d) {
     return d;
   }) // graph props
   .addPropFunctor('tooltipGraph', function (d) {
@@ -3617,7 +3619,7 @@ function svgBoxPlot () {
 
 function svgBubblePack () {
   var $$ = {};
-  var indicatorSymbol = d3.symbol().size(80);
+  var indicatorSymbol = d3Shape.symbol().size(80);
 
   function getPoint(point, i, graph) {
     return {
@@ -3699,7 +3701,7 @@ function svgBubblePack () {
     graphExit.style('opacity', 0).remove(); // iterate through each context element
 
     context.each(function (d, i) {
-      var selection = d3.select(this),
+      var selection = d3Selection.select(this),
           duration = $$.duration(d, i),
           graph = selection.selectAll('.d2b-bubble-pack-graph'),
           graphsNode = selection.selectAll('.d2b-bubble-pack-graphs').node(),
@@ -3711,7 +3713,7 @@ function svgBubblePack () {
       var maxWidth = 0; // render the bubble packs for each graph
 
       graph.each(function (graph) {
-        var el = d3.select(this),
+        var el = d3Selection.select(this),
             xRange = $$.x.range();
         maxWidth = Math.max(maxWidth, Math.abs(xRange[0] - xRange[1]));
         var shift = graph.shift;
@@ -3782,7 +3784,7 @@ function svgBubblePack () {
 
   function renderPoint(el, trans, x, y, shift) {
     el.each(function (d) {
-      var el = d3.select(this);
+      var el = d3Selection.select(this);
       var transform = el.attr('transform');
 
       if (!transform) {
@@ -3791,7 +3793,7 @@ function svgBubblePack () {
 
       if (d.children.length && !d.data.expanded) {
         el.attr('cursor', 'pointer').on('click', function () {
-          d3.select(this).dispatch('change', {
+          d3Selection.select(this).dispatch('change', {
             bubbles: true,
             cancelable: true
           });
@@ -3819,7 +3821,7 @@ function svgBubblePack () {
 
   function renderIndicator(el) {
     el.each(function (d) {
-      var el = d3.select(this).classed('d2b-active', d.data.expanded);
+      var el = d3Selection.select(this).classed('d2b-active', d.data.expanded);
       if (!d.data.expanded) return el.selectAll('rect, text, path').remove();
       var rect = el.select('rect'),
           text = el.select('text'),
@@ -3833,7 +3835,7 @@ function svgBubblePack () {
       var textBox = text.node().getBBox();
       text.attr('y', textBox.height / 1.35);
       rect.on('click', function () {
-        d3.select(this).dispatch('change', {
+        d3Selection.select(this).dispatch('change', {
           bubbles: true,
           cancelable: true
         });
@@ -3879,7 +3881,7 @@ function svgBubblePack () {
     renderIndicator(packUpdate.select('.d2b-bubble-indicator')); // update children bubbles if expanded
 
     packUpdate.each(function (point) {
-      var el = d3.select(this);
+      var el = d3Selection.select(this);
       var subPacks = el.selectAll('.d2b-bubble-pack');
       subPacks = trans ? subPacks.transition(trans) : subPacks;
 
@@ -3910,7 +3912,7 @@ function svgBubblePack () {
       });
     }
 
-    d.size = oreq(d.size, d3.sum(d.leaves, function (d) {
+    d.size = oreq(d.size, d3Array.sum(d.leaves, function (d) {
       return d.size;
     }));
     d.x = oreq(d.x, (tendancy.x || tendancy)(d.leaves, function (d) {
@@ -3929,7 +3931,7 @@ function svgBubblePack () {
 
   base(bubblePack, $$).addProp('point', point().size(function (d) {
     return d.size * 100;
-  })).addProp('x', d3.scaleLinear()).addProp('y', d3.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bubblePack').addPropFunctor('duration', 250).addPropFunctor('graphs', function (d) {
+  })).addProp('x', d3Scales.scaleLinear()).addProp('y', d3Scales.scaleLinear()).addProp('annotation', d3SvgAnnotation.annotation ? d3SvgAnnotation.annotation() : null).addPropGet('type', 'bubblePack').addPropFunctor('duration', 250).addPropFunctor('graphs', function (d) {
     return d;
   }) // graph props
   .addPropFunctor('tendancy', mean, function (_) {
@@ -3947,7 +3949,7 @@ function svgBubblePack () {
   }).addPropFunctor('color', function (d) {
     return color(d.label);
   }).addPropFunctor('symbol', function () {
-    return d3.symbolCircle;
+    return d3Shape.symbolCircle;
   }) // point props
   .addPropFunctor('px', function (d) {
     return d.x;
@@ -3998,10 +4000,8 @@ function svgBubblePack () {
   return bubblePack;
 }
 
-// TODO : Clean up node updater code.
-
 function svgSunburst () {
-  var $$ = {}; // const arc = d3.arc().cornerRadius(5);
+  var $$ = {}; // const arc = arc().cornerRadius(5);
 
   /* Update Function */
 
@@ -4011,7 +4011,7 @@ function svgSunburst () {
       return d.value;
     });
     selection.each(function (d, i) {
-      var el = d3.select(this),
+      var el = d3Selection.select(this),
           zoomable = $$.zoomable(d, i),
           highlight = $$.highlight(d, i),
           innerRadius = $$.innerRadius(d, i),
@@ -4077,7 +4077,7 @@ function svgSunburst () {
   /* Inherit from base model */
 
 
-  base(sunburst, $$).addProp('arc', d3.arc()).addProp('pie', d3.pie().sort(null)).addProp('ancestorBanding', d3.scaleLinear()).addProp('descendantBanding', d3.scalePow().exponent(0.85)) // Datum Level Accessors
+  base(sunburst, $$).addProp('arc', d3Shape.arc()).addProp('pie', d3Shape.pie().sort(null)).addProp('ancestorBanding', d3Scales.scaleLinear()).addProp('descendantBanding', d3Scales.scalePow().exponent(0.85)) // Datum Level Accessors
   .addPropFunctor('duration', 250).addPropFunctor('innerRadius', 30).addPropFunctor('outerRadius', 200).addPropFunctor('ancestorPadding', 10).addPropFunctor('ancestorRatio', 0.2).addPropFunctor('descendantLevels', Infinity).addPropFunctor('startAngle', 0).addPropFunctor('endAngle', 2 * Math.PI).addPropFunctor('showLabels', false).addPropFunctor('zoomable', true).addPropFunctor('highlight', true).addPropFunctor('root', function (d) {
     return d;
   }) // Node Level Accessors
@@ -4095,10 +4095,10 @@ function svgSunburst () {
 
   function getHierarchy(d) {
     // compute a hierarchy based on the root, only use sizes for leaf nodes.
-    return updateDescendants(d3.hierarchy(d, $$.children).sum(function (d) {
+    return updateDescendants(d3Hierarchy.hierarchy(d, $$.children).sum(function (d) {
       var children = $$.children(d);
       if (!children || !children.length) return $$.size(d);
-    })); // return updateDescendants(d3.hierarchy(d, $$.children).sum($$.size));
+    })); // return updateDescendants(hierarchy(d, $$.children).sum($$.size));
   }
 
   function updateDescendants(node) {
@@ -4115,7 +4115,7 @@ function svgSunburst () {
   }
 
   function getValue(node) {
-    return oreq(node.size, node.children ? d3.sum(node.children, getValue) : 0);
+    return oreq(node.size, node.children ? d3Array.sum(node.children, getValue) : 0);
   }
 
   function getSelected(root) {
@@ -4204,7 +4204,7 @@ function svgSunburst () {
       d.data.labelOffset = getLabelOffset(d.data.centerAngle, radii);
       d.data.labelAnchor = getLabelAnchor(d.data.centerAngle);
     });
-    var el = d3.select(this),
+    var el = d3Selection.select(this),
         levelClass = "d2b-sunburst-level-".concat(depth);
     var arcUpdate = el.selectAll(".d2b-sunburst-".concat(type, "-group.").concat(levelClass));
     var oldData = arcUpdate.data();
@@ -4240,7 +4240,7 @@ function svgSunburst () {
     if (tools.transition) {
       arcExit.each(function (d, i) {
         var data = findNeighborArc(i, newData, oldData);
-        var el = d3.select(this);
+        var el = d3Selection.select(this);
         var pathExit = el.selectAll(".d2b-sunburst-".concat(type)).datum(function (d) {
           var radii = tools.radii(d.depth);
           d.innerRadius = radii.inner;
@@ -4282,7 +4282,7 @@ function svgSunburst () {
 
     arcUpdate.select(".d2b-sunburst-".concat(type, "-children.").concat(levelClass)).each(function (d) {
       var children = d.children || [];
-      var childrenTotal = d3.sum(children, function (c) {
+      var childrenTotal = d3Array.sum(children, function (c) {
         return c.value;
       });
       var childrenEndAngle = d.startAngle + (d.endAngle - d.startAngle) * childrenTotal / d.value;
@@ -4351,7 +4351,7 @@ function sankey () {
     var selection = context.selection ? context.selection() : context;
     selection.each(function (datum) {
       var transition = context === selection ? null : context;
-      var el = d3.select(this),
+      var el = d3Selection.select(this),
           size = $$.size(datum),
           sankeyLink = d3Sankey.sankeyLinkHorizontal(); // map node data wrapper
 
@@ -4477,9 +4477,9 @@ function sankey () {
 
       node.each(function (d) {
         if (d.draggableX || d.draggableY) {
-          d3.select(this).classed('d2b-draggable', true).call(d3.drag().on('drag', drag));
+          d3Selection.select(this).classed('d2b-draggable', true).call(d3Drag.drag().on('drag', drag));
         } else {
-          d3.select(this).classed('d2b-draggable', false).on('.drag', null);
+          d3Selection.select(this).classed('d2b-draggable', false).on('.drag', null);
         }
 
         if (d.preserveDragging) {
@@ -4526,14 +4526,14 @@ function sankey () {
 
       function drag(d) {
         if (d.draggableX) {
-          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + d3.event.dx));
+          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + d3Selection.event.dx));
           d.x1 = d.x0 + nodeWidth;
           this.__dragX0 = d.x0 / size.width; // save drag position as a percent of the width
         }
 
         if (d.draggableY) {
           var height = d.y1 - d.y0;
-          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + d3.event.dy));
+          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + d3Selection.event.dy));
           d.y1 = d.y0 + height;
           this.__dragY0 = d.y0 / size.height; // save drag position as a percent of the height
         }
@@ -4564,7 +4564,7 @@ function sankey () {
         }); // fix for rectangular link gradients
 
         l.each(function (d) {
-          var l = d3.select(this); // special case draw a rect
+          var l = d3Selection.select(this); // special case draw a rect
 
           if (Math.abs(d.y1 - d.y0) < 0.00001) {
             var rect = l.selectAll('rect').data([d]),
@@ -4648,7 +4648,7 @@ function plane () {
           x2 = $$.x2.call(this, d, i),
           y = $$.y.call(this, d, i),
           y2 = $$.y2.call(this, d, i),
-          el = d3.select(this),
+          el = d3Selection.select(this),
           axes = {
         x: {
           type: 'x',
@@ -4985,7 +4985,7 @@ function plane () {
     var length = axis.info.wrapLength,
         anchor = axis.info.wrapAnchor;
     el.selectAll('.tick text').each(function () {
-      var tick = d3.select(this);
+      var tick = d3Selection.select(this);
       if (oreq(tick.html(), '').indexOf('tspan') === -1) this.storeText = tick.text();
       tick.text('');
     }).call(textWrap, function () {
@@ -5021,19 +5021,19 @@ function chartPieAdvanced (chart, datum) {
     return d.label;
   }).value(function (d) {
     return d.value;
-  }).values(function (d) {
-    return d.values;
   }).duration.conditionally(datum.duration).donutRatio.conditionally(datum.donutRatio).radius.conditionally(datum.radius, function (d, w, h) {
     return datum.radius(w, h);
   }).at.conditionally(datum.at, function (d, w, h, r) {
     return functor(datum.at)(w, h, r);
   }).color.proxy(function (d) {
     return d.color || functor(datum.color)(d);
+  }).values.proxy(function (d) {
+    return Array.isArray(d.values) ? d.values : undefined;
   }); // Chart Frame Config
 
   chart.chartFrame().size.conditionally(datum.size).chartPadding.conditionally(datum.chartPadding).padding.conditionally(datum.padding).legendEnabled.conditionally(legendConfig.enabled).legendOrient.conditionally(legendConfig.orient); // Legend Config
 
-  chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.proxy(function (d) {
+  chart.legend().vertical.conditionally(legendConfig.orient, ['right', 'left'].includes(legendConfig.orient)).clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.proxy(function (d) {
     return d.legendIcon || functor(legendConfig.icon)(d);
   }); // Tooltip Config
   // const percentFormat = format('.0%');
@@ -5078,7 +5078,7 @@ function pie () {
     $$.pie.value($$.value).color($$.color).key($$.key);
     $$.legend.html($$.label).key($$.key).color($$.color);
     $$.tooltip.color(function (d) {
-      return d3.rgb($$.color(d.data)).darker(0.3);
+      return d3Color.rgb($$.color(d.data)).darker(0.3);
     });
     var selection = context.selection ? context.selection() : context;
     selection.each(function (datum) {
@@ -5094,7 +5094,7 @@ function pie () {
   }; // percent formater
 
 
-  var percent = d3.format('.0%'); // configure model properties
+  var percent = d3Format.format('.0%'); // configure model properties
 
   base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(true).breadcrumbsEnabled(false)).addProp('legend', legend().clickable(true).dblclickable(true)).addProp('key', function (d) {
     return d.label;
@@ -5130,7 +5130,7 @@ function pie () {
   // update chart
 
   function update(datum, transition) {
-    var el = d3.select(this),
+    var el = d3Selection.select(this),
         selection = el.select('.d2b-chart-container'),
         size = selection.node().__size__,
         radius = $$.radius(datum, size.width, size.height),
@@ -5144,7 +5144,9 @@ function pie () {
     $$.pie.values(filtered);
     $$.legend.values(values); // legend functionality
 
-    el.select('.d2b-legend-container').call($$.legend).on('change', function () {
+    var legend = el.select('.d2b-legend-container');
+    (transition ? legend.transition(transition) : legend).call($$.legend);
+    legend.on('change', function () {
       return el.transition().duration($$.duration(datum)).call(chart);
     }).selectAll('.d2b-legend-item').on('mouseover', function (d) {
       arcGrow.call(this, el, d, 1.03);
@@ -5152,7 +5154,7 @@ function pie () {
       arcGrow.call(this, el, d);
     }); // get pie total
 
-    var total = d3.sum(filtered, function (d) {
+    var total = d3Array.sum(filtered, function (d) {
       return $$.value(d);
     }); // select and enter pie chart 'g' element.
 
@@ -5179,7 +5181,7 @@ function pie () {
     });
     arcPercent.enter().append('g').attr('class', 'd2b-pie-arc-percent').append('text').attr('y', 6);
     arcGroup.each(function () {
-      var elem = d3.select(this),
+      var elem = d3Selection.select(this),
           current = elem.select('.d2b-pie-arc path').node().current,
           percentGroup = elem.select('.d2b-pie-arc-percent'),
           percentText = percentGroup.select('text').node();
@@ -5198,7 +5200,7 @@ function pie () {
     var arcText = arcGroup.select('.d2b-pie-arc-percent').call(tweenCentroid, $$.pie.arc()).select('text');
     arcText.each(function (d) {
       var arcLabel = $$.arcLabel(d.data);
-      var text = d3.select(this);
+      var text = d3Selection.select(this);
       if (transition) text = text.transition(transition); // if arc label is non-null use percents
 
       if (arcLabel) {
@@ -5299,11 +5301,12 @@ function chartAxisAdvanced (chart, datum) {
 
   chart.plane().margin.conditionally(datum.planeMargin).padding.conditionally(datum.planePadding); // Legend Config
 
-  chart.legend().clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.proxy(function (d) {
+  chart.legend().vertical.conditionally(legendConfig.orient, ['right', 'left'].includes(legendConfig.orient)).clickable.conditionally(legendConfig.clickable).dblclickable.conditionally(legendConfig.dblclickable).allowEmptied.conditionally(legendConfig.allowEmptied).icon.proxy(function (d) {
     return d.data.legendIcon || functor(legendConfig.icon)(d.data);
   }); // Tooltip Config
 
-  chart.tooltipConfig(function (tooltipAxis) {
+  chart.tooltipConfig.proxy(function (tooltipAxis) {
+    if (!datum.tooltip) return undefined;
     tooltipAxis.trackX.conditionally(tooltipConfig.trackX).trackY.conditionally(tooltipConfig.trackY).threshold.conditionally(tooltipConfig.threshold).title.conditionally(tooltipConfig.title, function (rows) {
       return tooltipConfig.title(rows.map(function (row) {
         return {
@@ -5314,7 +5317,8 @@ function chartAxisAdvanced (chart, datum) {
     });
   }); // Tooltip Row Config
 
-  chart.graphTooltipConfig(function (graph) {
+  chart.graphTooltipConfig.proxy(function (graph) {
+    if (!graph.tooltip) return undefined;
     return function (tooltipGraph) {
       tooltipGraph.row.proxy(function (row) {
         var value = row.data;
@@ -5367,14 +5371,15 @@ function chartAxisAdvanced (chart, datum) {
 
   ['x', 'x2', 'y', 'y2'].forEach(function (axis) {
     var axisConfig = datum[axis] || {};
-    chart[axis](function (d, points) {
+    chart[axis].proxy(function (d, points) {
+      if (!datum[axis]) return undefined;
       if (!points.length) return {};
       var scaleConfig = axisConfig.scale || {};
       var config = {}; // Unique set of values.
 
       var values = points.filter(function (value, index, self) {
         return self.indexOf(value) === index;
-      }).sort(d3.ascending);
+      }).sort(d3Array.ascending);
       config.orient = axisConfig.orient || 'outer';
       if (axisConfig.wrapLength !== undefined) config.wrapLength = axisConfig.wrapLength;
       if (axisConfig.tickSize !== undefined) config.tickSize = axisConfig.tickSize;
@@ -5389,35 +5394,35 @@ function chartAxisAdvanced (chart, datum) {
       } else {
         switch ("".concat(axis, "-").concat(config.orient)) {
           case 'x-outer':
-            config.axis = d3.axisBottom();
+            config.axis = d3Axis.axisBottom();
             break;
 
           case 'y-outer':
-            config.axis = d3.axisLeft();
+            config.axis = d3Axis.axisLeft();
             break;
 
           case 'x2-outer':
-            config.axis = d3.axisTop();
+            config.axis = d3Axis.axisTop();
             break;
 
           case 'y2-outer':
-            config.axis = d3.axisRight();
+            config.axis = d3Axis.axisRight();
             break;
 
           case 'x-inner':
-            config.axis = d3.axisTop();
+            config.axis = d3Axis.axisTop();
             break;
 
           case 'y-inner':
-            config.axis = d3.axisRight();
+            config.axis = d3Axis.axisRight();
             break;
 
           case 'x2-inner':
-            config.axis = d3.axisBottom();
+            config.axis = d3Axis.axisBottom();
             break;
 
           case 'y2-inner':
-            config.axis = d3.axisLeft();
+            config.axis = d3Axis.axisLeft();
             break;
         }
       }
@@ -5441,7 +5446,7 @@ function chartAxisAdvanced (chart, datum) {
         }
 
         type = type.toLowerCase();
-        var scaleGenerator = d3["scale".concat(type.charAt(0).toUpperCase() + type.slice(1))];
+        var scaleGenerator = d3Scales["scale".concat(type.charAt(0).toUpperCase() + type.slice(1))];
         config.scale = scaleGenerator();
 
         switch (type) {
@@ -5451,7 +5456,7 @@ function chartAxisAdvanced (chart, datum) {
             break;
 
           default:
-            domain = d3.extent(values.map(Number));
+            domain = d3Array.extent(values.map(Number));
         }
       }
 
@@ -5630,7 +5635,7 @@ function axis () {
   });
 
   function update(datum, transition) {
-    var container = d3.select(this),
+    var container = d3Selection.select(this),
         chartContainer = container.select('.d2b-chart-container'),
         chartNode = chartContainer.node(),
         legendContainer = container.select('.d2b-legend-container'),
@@ -5665,6 +5670,7 @@ function axis () {
     }).clear(); // update functionality
 
     $$.legend.values(groups);
+    (transition ? legendContainer.transition(transition) : legend).call($$.legend);
     legendContainer.call($$.legend).on('change', function () {
       return container.transition().duration(duration).call(chart);
     }).selectAll('.d2b-legend-item').on('mouseover', function (d) {
@@ -5713,7 +5719,7 @@ function axis () {
       y2: []
     };
     set.each(function (s) {
-      var el = d3.select(this),
+      var el = d3Selection.select(this),
           graphs = s.graphs.filter(function (g) {
         return !g.data.hidden;
       }),
@@ -5746,7 +5752,7 @@ function axis () {
       this.gen = this.genUpdate.merge(this.genEnter).order();
       var size = this.gen.size();
       this.gen.each(function (d, i) {
-        var gen = d3.select(this),
+        var gen = d3Selection.select(this),
             visiblePoints = d.generator.tooltipGraph(function (graph) {
           if (i < size - 1) return null;
           var tooltipGraph = tooltip.graph(d2bid());
@@ -5793,12 +5799,12 @@ function axis () {
 
       this.genExit.remove();
       this.gen.each(function (d) {
-        var el = d3.select(this);
+        var el = d3Selection.select(this);
         if (transition) el = el.transition(transition);
         d.generator.x(xAxis.scale()).y(yAxis.scale());
         el.style('opacity', 1).call(d.generator);
       });
-      d3.select(this).on('change', function () {
+      d3Selection.select(this).on('change', function () {
         return container.transition().duration(duration).call(chart);
       });
     }); // remaining transitions and exits
@@ -5833,28 +5839,28 @@ function axis () {
   } // defaultz axis components
 
 
-  var bandDefault = d3.scaleBand(),
-      linearDefault = d3.scaleLinear(),
+  var bandDefault = d3Scales.scaleBand(),
+      linearDefault = d3Scales.scaleLinear(),
       axisDefaults = {
     x: {
       band: bandDefault.copy(),
       linear: linearDefault.copy(),
-      axis: d3.axisBottom()
+      axis: d3Axis.axisBottom()
     },
     y: {
       band: bandDefault.copy(),
       linear: linearDefault.copy(),
-      axis: d3.axisLeft()
+      axis: d3Axis.axisLeft()
     },
     x2: {
       band: bandDefault.copy(),
       linear: linearDefault.copy(),
-      axis: d3.axisTop()
+      axis: d3Axis.axisTop()
     },
     y2: {
       band: bandDefault.copy(),
       linear: linearDefault.copy(),
-      axis: d3.axisRight()
+      axis: d3Axis.axisRight()
     }
   };
 
@@ -5988,7 +5994,7 @@ function axis () {
     var band = points.some(function (d) {
       return isNaN(d);
     }),
-        domain = band ? d3.set(points).values() : d3.extent(points).map(function (d) {
+        domain = band ? d3Collection.set(points).values() : d3Array.extent(points).map(function (d) {
       return d || 0;
     }),
         scale = band ? defaults.band : defaults.linear;
@@ -6018,7 +6024,7 @@ function chartSunburstAdvanced (chart, datum) {
 
   chart.chartFrame().size.conditionally(datum.size).padding.conditionally(datum.padding).chartPadding.conditionally(datum.chartPadding).breadcrumbsEnabled.conditionally(breadcrumbsConfig.enabled).breadcrumbsOrient.conditionally(breadcrumbsConfig.orient); // Breadcrumbs Config
 
-  chart.breadcrumbs().html.proxy(function (d) {
+  chart.breadcrumbs().vertical.conditionally(breadcrumbsConfig.orient, ['right', 'left'].includes(breadcrumbsConfig.orient)).html.proxy(function (d) {
     var data = d.data;
     var value = d.value;
     var percent = d.value / d.selected.value;
@@ -6042,11 +6048,11 @@ function chartSunburstAdvanced (chart, datum) {
     }
   }); // Sunburst Config
 
-  var sunburst = chart.sunburst().root(function (d) {
+  var sunburst = chart.sunburst().root.proxy(function (d) {
     return d.root;
-  }).size(function (d) {
+  }).size.proxy(function (d) {
     return d.size;
-  }).duration.conditionally(datum.duration).ancestorPadding.conditionally(datum.ancestorPadding).ancestorRatio.conditionally(datum.ancestorRatio).descendantLevels.conditionally(datum.descendantLevels).startAngle.conditionally(datum.startAngle).endAngle.conditionally(datum.endAngle).showLabels.conditionally(datum.showLabels).zoomable.conditionally(datum.zoomable).highlight.conditionally(datum.highlight).ancestorBanding.conditionally(datum.ancestorBandingExponent, d3.scalePow().exponent(datum.ancestorBandingExponent)).descendantBanding.conditionally(datum.descendantBandingExponent, d3.scalePow().exponent(datum.descendantBandingExponent)); // D3 Pie Config
+  }).duration.conditionally(datum.duration).ancestorPadding.conditionally(datum.ancestorPadding).ancestorRatio.conditionally(datum.ancestorRatio).descendantLevels.conditionally(datum.descendantLevels).startAngle.conditionally(datum.startAngle).endAngle.conditionally(datum.endAngle).showLabels.conditionally(datum.showLabels).zoomable.conditionally(datum.zoomable).highlight.conditionally(datum.highlight).ancestorBanding.conditionally(datum.ancestorBandingExponent, d3Scales.scalePow().exponent(datum.ancestorBandingExponent)).descendantBanding.conditionally(datum.descendantBandingExponent, d3Scales.scalePow().exponent(datum.descendantBandingExponent)); // D3 Pie Config
 
   var d3Pie = sunburst.pie();
   if (datum.padAngle !== undefined) d3Pie.padAngle(datum.padAngle);
@@ -6109,13 +6115,13 @@ function sunburst () {
     return Math.min(50, Math.min(w, h) / 4);
   }).addAdvancedConfig(chartSunburstAdvanced); // helpers
 
-  var format = d3.format(',.0f'),
-      formatPercent = d3.format('.1%');
+  var formatValue = d3Format.format(',.0f'),
+      formatPercent = d3Format.format('.1%');
 
   var tipTemplate = function tipTemplate(d) {
     var percent = d.value / d.selected.value;
     var percentText = percent > 1 ? '' : "<div class = 'd2b-sunburst-percent'>\n        ".concat(formatPercent(d.value / d.selected.value), "\n      </div>");
-    return "\n      <div class = 'd2b-sunburst-label'>\n        ".concat($$.label(d.data), "\n      </div>\n      <div class = 'd2b-sunburst-value'>\n        ").concat(format(d.value), "\n        ").concat(percentText, "\n      </div>\n    ");
+    return "\n      <div class = 'd2b-sunburst-label'>\n        ".concat($$.label(d.data), "\n      </div>\n      <div class = 'd2b-sunburst-value'>\n        ").concat(formatValue(d.value), "\n        ").concat(percentText, "\n      </div>\n    ");
   }; // update breadcrumbs
 
 
@@ -6145,7 +6151,7 @@ function sunburst () {
 
 
   function update(datum, transition) {
-    var el = d3.select(this),
+    var el = d3Selection.select(this),
         selection = el.select('.d2b-chart-container'),
         size = selection.node().__size__,
         transform = "translate(".concat(size.width / 2, ", ").concat(size.height / 2, ")");
@@ -6264,7 +6270,7 @@ function sankey$1 () {
   }
 
   function update(datum, transition) {
-    var el = d3.select(this),
+    var el = d3Selection.select(this),
         selection = el.select('.d2b-chart-container'),
         size = selection.node().__size__;
 
@@ -6290,7 +6296,7 @@ function sankey$1 () {
     return d.color;
   }).followMouse(true);
   var defaultLinkTooltip = tooltip().html(function (d) {
-    return "\n          <b>".concat(d.source.key, "</b>\n          <i class='fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>\n          <b>").concat(d.target.key, "</b>:\n          ").concat(d.value, "\n        ");
+    return "\n          <b>".concat(d.source.key, "</b>\n          <i class='fas fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>\n          <b>").concat(d.target.key, "</b>:\n          ").concat(d.value, "\n        ");
   }).color('#444').followMouse(true); // configure the model
 
   base(chart, $$).addProp('chartFrame', chartFrame().legendEnabled(false).breadcrumbsEnabled(false)).addProp('sankey', sankey()).addProp('nodeTooltip', defaultNodeTooltip).addProp('linkTooltip', defaultLinkTooltip).addAdvancedConfig(chartSankeyAdvanced);

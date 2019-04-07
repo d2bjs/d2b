@@ -1,5 +1,8 @@
+import { axisBottom, axisLeft, axisTop, axisRight } from 'd3-axis';
+import { ascending, extent } from 'd3-array';
+import * as d3Scales from 'd3-scale';
+
 import functor from '../util/functor';
-import * as d3 from 'd3';
 import oreq from '../util/oreq';
 import oreqUndefined from '../util/oreqUndefined';
 import { svgBar, svgLine, svgBubblePack, svgBoxPlot, svgArea, svgScatter } from '../svg/svg';
@@ -32,13 +35,15 @@ export default function (chart, datum) {
 
   // Legend Config
   chart.legend()
+    .vertical.conditionally(legendConfig.orient, ['right', 'left'].includes(legendConfig.orient))
     .clickable.conditionally(legendConfig.clickable)
     .dblclickable.conditionally(legendConfig.dblclickable)
     .allowEmptied.conditionally(legendConfig.allowEmptied)
     .icon.proxy(d => d.data.legendIcon || functor(legendConfig.icon)(d.data));
 
   // Tooltip Config
-  chart.tooltipConfig(tooltipAxis => {
+  chart.tooltipConfig.proxy(tooltipAxis => {
+    if (!datum.tooltip) return undefined;
     tooltipAxis
       .trackX.conditionally(tooltipConfig.trackX)
       .trackY.conditionally(tooltipConfig.trackY)
@@ -51,7 +56,8 @@ export default function (chart, datum) {
   });
 
   // Tooltip Row Config
-  chart.graphTooltipConfig(graph => {
+  chart.graphTooltipConfig.proxy(graph => {
+    if (!graph.tooltip) return undefined;
     return tooltipGraph => {
       tooltipGraph
         .row.proxy(row => {
@@ -97,13 +103,14 @@ export default function (chart, datum) {
   // Axis Config
   ['x', 'x2', 'y', 'y2'].forEach(axis => {
     const axisConfig = datum[axis] || {};
-    
-    chart[axis]((d, points) => {
+
+    chart[axis].proxy((d, points) => {
+      if (!datum[axis]) return undefined;
       if (!points.length) return {};
       const scaleConfig = axisConfig.scale || {};
       const config = {};
       // Unique set of values.
-      const values = points.filter((value, index, self) => self.indexOf(value) === index).sort(d3.ascending);
+      const values = points.filter((value, index, self) => self.indexOf(value) === index).sort(ascending);
       config.orient = axisConfig.orient || 'outer';
       if (axisConfig.wrapLength !== undefined) config.wrapLength = axisConfig.wrapLength;
       if (axisConfig.tickSize !== undefined) config.tickSize = axisConfig.tickSize;
@@ -120,28 +127,28 @@ export default function (chart, datum) {
       } else {
         switch (`${axis}-${config.orient}`) {
           case 'x-outer':
-            config.axis = d3.axisBottom();
+            config.axis = axisBottom();
             break;
           case 'y-outer':
-            config.axis = d3.axisLeft();
+            config.axis = axisLeft();
             break;
           case 'x2-outer':
-            config.axis = d3.axisTop();
+            config.axis = axisTop();
             break;
           case 'y2-outer':
-            config.axis = d3.axisRight();
+            config.axis = axisRight();
             break;
           case 'x-inner':
-            config.axis = d3.axisTop();
+            config.axis = axisTop();
             break;
           case 'y-inner':
-            config.axis = d3.axisRight();
+            config.axis = axisRight();
             break;
           case 'x2-inner':
-            config.axis = d3.axisBottom();
+            config.axis = axisBottom();
             break;
           case 'y2-inner':
-            config.axis = d3.axisLeft();
+            config.axis = axisLeft();
             break;
         }
       }
@@ -169,7 +176,7 @@ export default function (chart, datum) {
         }
 
         type = type.toLowerCase();
-        const scaleGenerator = d3[`scale${type.charAt(0).toUpperCase() + type.slice(1)}`];
+        const scaleGenerator = d3Scales[`scale${type.charAt(0).toUpperCase() + type.slice(1)}`];
         config.scale = scaleGenerator();
 
         switch (type) {
@@ -178,7 +185,7 @@ export default function (chart, datum) {
             domain = values;
             break;
           default:
-            domain = d3.extent(values.map(Number));
+            domain = extent(values.map(Number));
         }
       }
 

@@ -1,4 +1,6 @@
-import * as d3 from 'd3';
+import { select, event as d3Event } from 'd3-selection';
+import { ascending } from 'd3-array';
+import 'd3-transition';
 
 import base from '../model/base';
 import oreq from '../util/oreq';
@@ -40,10 +42,10 @@ export default function () {
         y += info.y + pad;
       }
     } else {
-      if (d3.event.clientY - base.y > $$.size.height / 2) {
-        y = d3.event.clientY - pad - tooltipBox.height;
+      if (d3Event.clientY - base.y > $$.size.height / 2) {
+        y = d3Event.clientY - pad - tooltipBox.height;
       } else {
-        y = d3.event.clientY + pad;
+        y = d3Event.clientY + pad;
       }
     }
 
@@ -54,10 +56,10 @@ export default function () {
         x += info.x + pad;
       }
     } else {
-      if (d3.event.clientX - base.x > $$.size.width / 2) {
-        x = d3.event.clientX - pad - tooltipBox.width;
+      if (d3Event.clientX - base.x > $$.size.width / 2) {
+        x = d3Event.clientX - pad - tooltipBox.width;
       } else {
-        x = d3.event.clientX + pad;
+        x = d3Event.clientX + pad;
       }
     }
 
@@ -90,7 +92,7 @@ export default function () {
   // Finds the x, y coordinates associated with the points 'closest' to the cursor.
   // Also returns the set of points that meet the 'closest' configuration.
   const findPointInfo = function (base) {
-    const cursor = {x: d3.event.clientX - base.x, y: d3.event.clientY - base.y};
+    const cursor = {x: d3Event.clientX - base.x, y: d3Event.clientY - base.y};
     let x = Infinity, y = Infinity, points = [];
     for (let groupName in groups) {
       if (!groups.hasOwnProperty(groupName)) continue;
@@ -150,7 +152,7 @@ export default function () {
     }
 
     points = points.sort((a, b) => {
-      return d3.ascending(a.x, b.x) || d3.ascending(a.y, b.y);
+      return ascending(a.x, b.x) || ascending(a.y, b.y);
     });
 
     return {x: x, y: y, points: points};
@@ -257,9 +259,9 @@ export default function () {
 
   // setup tooltip model
   base(tooltip, $$)
-    .addProp('htmlContainer', d3.select('body'))
+    .addProp('htmlContainer', select('body'))
     .addProp('svgContainer', null)
-    .addProp('tracker', d3.select('body'), null, updateTracker)
+    .addProp('tracker', select('body'), null, updateTracker)
     .addProp('size', {height: 0, width: 0})
     .addProp('trackX', true)
     .addProp('trackY', false)

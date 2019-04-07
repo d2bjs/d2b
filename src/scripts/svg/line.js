@@ -1,6 +1,11 @@
-import { select, max, min, nest, scaleLinear, line as d3Line } from 'd3';
 import { annotation } from 'd3-svg-annotation';
 import { interpolatePath } from 'd3-interpolate-path';
+import { select } from 'd3-selection';
+import { max, min } from 'd3-array';
+import { scaleLinear } from 'd3-scale';
+import { line as d3Line } from 'd3-shape';
+import { nest } from 'd3-collection';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';

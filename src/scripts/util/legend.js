@@ -65,6 +65,11 @@ export default function () {
 
           let svgIconEnter = svgIcon.enter().append('svg');
 
+          svgIconEnter
+              .attr('class', 'd2b-legend-svg-icon')
+              .attr('width', size.width)
+              .attr('height', size.height);
+
           svgIcon = svgIcon.merge(svgIconEnter);
 
           let svgFa = svgIcon.selectAll('text').data(fa),
@@ -72,28 +77,20 @@ export default function () {
           svgFa.exit().remove();
           svgFaEnter.append('tspan');
           svgFa = svgFa.merge(svgFaEnter);
-
           svgFa.select('tspan').text(d => d);
 
           let svgShape = svgIcon.selectAll('path').data(shape);
           svgShape.exit().remove();
           svgShape = svgShape.merge(svgShape.enter().append('path'));
-
           svgShape.attr('d', d => symbol.type(d)());
 
           if (context !== selection) {
             item = item.transition(context);
-            svgIconEnter = svgIconEnter.transition(context);
             svgFa = svgFa.transition(context);
             svgShape = svgShape.transition(context);
           }
 
           item.style('border-color', color);
-
-          svgIconEnter
-              .attr('class', 'd2b-legend-svg-icon')
-              .attr('width', size.width)
-              .attr('height', size.height);
 
           svgFa
               .style('stroke', color)

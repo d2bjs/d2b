@@ -180,7 +180,7 @@ export default function () {
       .append('line')
         .attr('class', 'd2b-tooltip-marker-y d2b-tooltip-marker');
 
-    const tooltipEl = $$.htmlContainer.selectAll('.d2b-tooltip').data([tooltip]);
+    const tooltipEl = $$.htmlContainer.selectAll('.d2b-tooltip-axis').data([tooltip]);
 
     const tooltipEnter = tooltipEl.enter()
       .append('div')
@@ -200,14 +200,14 @@ export default function () {
   const exit = function () {
     $$.svgContainer.selectAll('.d2b-tooltip-marker-x').data([]).exit().call(exitElement);
     $$.svgContainer.selectAll('.d2b-tooltip-marker-y').data([]).exit().call(exitElement);
-    $$.htmlContainer.selectAll('.d2b-tooltip').data([]).exit().call(exitElement);
+    $$.htmlContainer.selectAll('.d2b-tooltip-axis').data([]).exit().call(exitElement);
   };
 
   // Tracker mousemove event.
   const mousemove = function (d, i) {
     let base = $$.svgContainer.selectAll('.d2b-tooltip-base').data([d]);
-    base = base.merge(base.enter().append('rect').attr('class', 'd2b-tooltip-base'));
-    let baseBox = base.node().getBoundingClientRect();
+    base.enter().append('rect').attr('class', 'd2b-tooltip-base');
+    let baseBox = $$.svgContainer.node().getBoundingClientRect();
     baseBox = {x: baseBox.left, y: baseBox.top};
 
     const pointInfo = findPointInfo(baseBox);
@@ -224,7 +224,7 @@ export default function () {
         .call(positionMarker, pointInfo, 'y');
 
     $$.htmlContainer
-      .select('.d2b-tooltip')
+      .select('.d2b-tooltip-axis')
         .call(populateTooltip, pointInfo)
         .call(positionTooltip, pointInfo, baseBox);
 

@@ -1,5 +1,5 @@
 export var name = "d2b";
-export var version = "1.0.0-beta.1";
+export var version = "1.0.0-beta.2";
 export var author = {"name":"Kevin Warne"};
 export var description = "A d3-based reusable chart library.";
 export var keywords = ["d3","d3-module","chart","charts","pie","axis","line","area","bar","stacked","tooltip"];

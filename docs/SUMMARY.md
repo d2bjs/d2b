@@ -7,13 +7,43 @@
 * [Advanced Charts](chartsAdvanced/charts.md)
 
   * [d2b.chartAxis](chartsAdvanced/axis.md)
-
     * [Line Chart](chartsAdvanced/axis.md#basic_line)
-    * **[Properties](chartsAdvanced/axis.md#properties)**
+    * [Annotation](charAdvanced/axis.md#annotation)
+    * [Basic](chartAdvanced/axis.md#basic)
+    * [Groups](chartAdvanced/axis.md#groups) 
+    * [Legend](chartAdvanced/axis.md#legend)
+    * [Padding](chartAdvanced/axis.md#padding)
+    * [Scale](chartAdvanced/axis.md#scale)
+    * [Typescript](chartsAdvanced/axis.md#typescript)
+    * [Properties](chartsAdvanced/axis.md#properties)
 
   * [d2b.chartPie](chartsAdvanced/pie.md)
+    * [Pie Chart](chartsAdvanced/pie.md#pie_default)
+    * [Basic](chartsAdvanced/pie.md#basic)
+    * [Donut](chartsAdvanced/pie.md#donut)
+    * [Legend](chartsAdvanced/pie.md#legend)
+    * [Tooltip](chartsAdvanced/pie.md#tooltip)
+    * [Typescript](chartsAdvanced/pie.md#typescript)
+    * [Properties](chartsAdvanced/pie.md#properties)
+
   * [d2b.chartSankey](chartsAdvanced/sankey.md)
+    * [Sankey Chart](chartsAdvanced/sankey.md#sankey_default)
+    * [Basic](chartsAdvanced/sankey.md#basic)
+    * [Links & Nodes](chartsAdvanced/sankey.md#links_nodes)
+    * [Typescript](chartsAdvanced/sankey.md#typescript)
+    * [Properties](chartsAdvanced/sankey.md#properties)
+
   * [d2b.chartSunburst](chartsAdvanced/sunburst.md)
+    * [Sunburst Chart](chartsAdvanced/sunburst.md#sunburst_default)
+    * [Basic](chartsAdvanced/sunburst.md#basic)
+    * [Breadcrumbs](chartsAdvanced/sunburst.md#breadcrumbs)
+    * [Padding](chartsAdvanced/sunburst.md#padding)
+    * [Radius](chartsAdvanced/sunburst.md#radius)
+    * [Root](chartsAdvanced/sunburst.md#root)
+    * [Sort](chartsAdvanced/sunburst.md#sort)
+    * [Tooltip](chartsAdvanced/sunburst.md#tooltip)
+    * [Typescript](chartsAdvanced/sunburst.md#typescript)
+    * [Properties](chartsAdvanced/sunburst.md#properties)
 
 ---
 <!--

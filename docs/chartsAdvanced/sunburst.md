@@ -2,6 +2,10 @@
 
 ![Local Image](../gifs/chart-sunburst.gif)
 
+<figure class="axis_basic">
+<iframe src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/default?runonclick=0" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</figure>
+
 # {#generator}
 [#](#generator) d2b.**chartSunburst**()
 

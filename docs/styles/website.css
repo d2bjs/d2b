@@ -2,6 +2,11 @@
   display: none !important;
 }
 
+iframe {
+  width: 100%;
+  height: 500px;
+}
+
 /*maybe add image to sidebar in future*/
 /*.book-summary:before {
   position: absolute;

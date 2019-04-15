@@ -11,12 +11,12 @@ export default function (chart, datum) {
   chart
     .label(d => d.label)
     .value(d => d.value)
-    .values(d => d.values)
     .duration.conditionally(datum.duration)
     .donutRatio.conditionally(datum.donutRatio)
     .radius.conditionally(datum.radius, (d, w, h) => datum.radius(w, h))
     .at.conditionally(datum.at, (d, w, h, r) => functor(datum.at)(w, h, r))
-    .color.proxy(d => d.color || functor(datum.color)(d));
+    .color.proxy(d => d.color || functor(datum.color)(d))
+    .values.proxy(d => Array.isArray(d.values) ? d.values : undefined);
 
   // Chart Frame Config
   chart.chartFrame()
@@ -28,6 +28,7 @@ export default function (chart, datum) {
 
   // Legend Config
   chart.legend()
+    .vertical.conditionally(legendConfig.orient, ['right', 'left'].includes(legendConfig.orient))
     .clickable.conditionally(legendConfig.clickable)
     .dblclickable.conditionally(legendConfig.dblclickable)
     .allowEmptied.conditionally(legendConfig.allowEmptied)

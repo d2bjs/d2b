@@ -1,5 +1,9 @@
-import { select, sum, scaleLinear, symbolCircle, symbol } from 'd3';
 import { annotation } from 'd3-svg-annotation';
+import { scaleLinear } from 'd3-scale';
+import { select } from 'd3-selection';
+import { symbolCircle, symbol } from 'd3-shape';
+import { sum } from 'd3-array';
+import 'd3-transition';
 
 import functor from '../util/functor';
 import base from '../model/base';

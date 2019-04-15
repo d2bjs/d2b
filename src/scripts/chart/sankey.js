@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 import chartFrame from '../util/chartFrame';
@@ -26,7 +27,7 @@ export default function () {
   }
 
   function update (datum, transition) {
-    const el = d3.select(this),
+    const el = select(this),
           selection = el.select('.d2b-chart-container'),
           size = selection.node().__size__;
 
@@ -64,7 +65,7 @@ export default function () {
       .html(d => {
         return `
           <b>${d.source.key}</b>
-          <i class='fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>
+          <i class='fas fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>
           <b>${d.target.key}</b>:
           ${d.value}
         `;

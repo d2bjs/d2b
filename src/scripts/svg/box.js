@@ -1,5 +1,7 @@
-import { scaleLinear, format } from 'd3';
 import { annotation } from 'd3-svg-annotation';
+import { scaleLinear } from 'd3-scale';
+import { format } from 'd3-format';
+import 'd3-transition';
 
 import base from '../model/base';
 import updateAnnotations from '../util/annotation';

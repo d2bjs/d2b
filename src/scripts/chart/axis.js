@@ -1,5 +1,10 @@
-import * as d3 from 'd3';
 import { annotation } from 'd3-svg-annotation';
+import { scaleBand, scaleLinear } from 'd3-scale';
+import { axisBottom, axisLeft, axisTop, axisRight } from 'd3-axis';
+import { select } from 'd3-selection';
+import { set } from 'd3-collection';
+import { extent } from 'd3-array';
+import 'd3-transition';
 
 import base from '../model/base';
 import chartFrame from '../util/chartFrame';
@@ -82,7 +87,7 @@ export default function () {
     .addPropFunctor('annotationColor', d => d.color);
 
   function update (datum, transition) {
-    const container = d3.select(this),
+    const container = select(this),
           chartContainer = container.select('.d2b-chart-container'),
           chartNode = chartContainer.node(),
           legendContainer = container.select('.d2b-legend-container'),
@@ -121,6 +126,9 @@ export default function () {
 
     // update functionality
     $$.legend.values(groups);
+
+    (transition ? legendContainer.transition(transition) : legend).call($$.legend);
+
     legendContainer
         .call($$.legend)
         .on('change', () => container.transition().duration(duration).call(chart))
@@ -178,7 +186,7 @@ export default function () {
     };
 
     set.each(function (s) {
-      const el = d3.select(this),
+      const el = select(this),
             graphs = s.graphs.filter(g => !g.data.hidden),
             graphsRaw = graphs.map(g => g.data);
 
@@ -215,7 +223,7 @@ export default function () {
       const size = this.gen.size();
 
       this.gen.each(function (d, i) {
-        const gen = d3.select(this),
+        const gen = select(this),
               visiblePoints = d.generator
                 .tooltipGraph(graph => {
                   if (i < size - 1) return null;
@@ -280,7 +288,7 @@ export default function () {
       this.genExit.remove();
 
       this.gen.each(function (d) {
-        let el = d3.select(this);
+        let el = select(this);
         if (transition) el = el.transition(transition);
 
         d.generator
@@ -290,7 +298,7 @@ export default function () {
         el.style('opacity', 1).call(d.generator);
       });
 
-      d3.select(this).on('change', () => container.transition().duration(duration).call(chart));
+      select(this).on('change', () => container.transition().duration(duration).call(chart));
     });
 
     // remaining transitions and exits
@@ -350,28 +358,28 @@ export default function () {
   }
 
   // defaultz axis components
-  const bandDefault = d3.scaleBand(),
-        linearDefault = d3.scaleLinear(),
+  const bandDefault = scaleBand(),
+        linearDefault = scaleLinear(),
         axisDefaults = {
           x: {
             band: bandDefault.copy(),
             linear: linearDefault.copy(),
-            axis: d3.axisBottom()
+            axis: axisBottom()
           },
           y: {
             band: bandDefault.copy(),
             linear: linearDefault.copy(),
-            axis: d3.axisLeft()
+            axis: axisLeft()
           },
           x2: {
             band: bandDefault.copy(),
             linear: linearDefault.copy(),
-            axis: d3.axisTop()
+            axis: axisTop()
           },
           y2: {
             band: bandDefault.copy(),
             linear: linearDefault.copy(),
-            axis: d3.axisRight()
+            axis: axisRight()
           }
         };
 
@@ -507,7 +515,7 @@ export default function () {
 
   function getScale(points, defaults) {
     const band = points.some(d => isNaN(d)),
-          domain = band ? d3.set(points).values() : d3.extent(points).map(d => d || 0),
+          domain = band ? set(points).values() : extent(points).map(d => d || 0),
           scale = band ? defaults.band : defaults.linear;
 
     return scale.domain(domain);

@@ -1,3 +1,4 @@
-import * as d3 from 'd3';
+import { scaleOrdinal } from 'd3-scale';
+import { schemeCategory10 } from 'd3-scale-chromatic';
 
-export default d3.scaleOrdinal(d3.schemeCategory10);
+export default scaleOrdinal(schemeCategory10);

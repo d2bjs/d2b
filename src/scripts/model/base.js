@@ -1,4 +1,6 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import { dispatch } from 'd3-dispatch';
+import 'd3-transition';
 
 import functor from '../util/functor';
 /**
@@ -12,7 +14,7 @@ import functor from '../util/functor';
   * @return {Object} model - object with properties and methods
   */
 
-export default function (base = {}, $$ = {}, protect) {
+export default function (base = {}, $$ = {}) {
 
   // Define an emitter updater that will fire events around the base updater
   // if (typeof base === 'function') {
@@ -99,11 +101,6 @@ export default function (base = {}, $$ = {}, protect) {
       * @return {Object} model  - returns model to allow for method chaining
       */
     removeProp: (prop) => {
-      if (protect.indexOf(prop) !== -1) {
-        // console.log(`Cannot remove ${prop} property or value`);
-        return model;
-      }
-
       $$[prop] = null;
       base[prop] = null;
       return model;
@@ -246,7 +243,7 @@ export default function (base = {}, $$ = {}, protect) {
       };
       methodAdded(base[prop]);
 
-      $$[store] = d3.dispatch.apply(this, events);
+      $$[store] = dispatch.apply(this, events);
 
       return model;
     },
@@ -262,8 +259,8 @@ export default function (base = {}, $$ = {}, protect) {
         const transition = selection !== context;
 
         selection.each(function (datum) {
-          if (datum.updated !== undefined) d3.select(this).on('chart-updated.advanced', datum.updated);
-          let el = d3.select(this).selectAll('.d2b-chart-advanced').data([config(base, datum)]);
+          if (datum.updated !== undefined) select(this).on('chart-updated.advanced', datum.updated);
+          let el = select(this).selectAll('.d2b-chart-advanced').data([config(base, datum)]);
           const elEnter = el.enter().append('div').attr('class', 'd2b-chart-advanced');
           el = elEnter.merge(el);
           const elTransition = transition ? el.transition(context) : el;

@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import { ascending, sum } from 'd3-array';
 
 import functor from '../util/functor';
 import number from '../util/number';
@@ -15,10 +15,10 @@ function median(arr, value, weight){
       return weight(a) !== 0 && !isNaN(number(weight(a))) && !isNaN(number(value(a)));
     })
     .sort(function(a,b){
-      return d3.ascending(value(a), value(b));
+      return ascending(value(a), value(b));
     });
 
-  midWeight = Math.round(d3.sum(newArray, function(item){return weight(item);})/2 * 1e12) / 1e12;
+  midWeight = Math.round(sum(newArray, function(item){return weight(item);})/2 * 1e12) / 1e12;
 
   var currentPosition = 0;
   var getNext = false;

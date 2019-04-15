@@ -89,10 +89,16 @@ export interface ChartAxisGeneralGeneratorConfig {
 interface ChartAxisSharedGeneralGeneratorData extends ChartAxisGeneralGeneratorConfig {}
 
 interface ChartAxisTypeGeneralGeneratorData extends ChartAxisSharedGeneralGeneratorData {
+  /**
+   * The generator type, either this or the generator "types" must be provided.
+   */
   type: GeneralType
 }
 
 interface ChartAxisTypesGeneralGeneratorData extends ChartAxisSharedGeneralGeneratorData {
+  /**
+   * The generator types, either this or the generator "type" must be provided.
+   */
   types: Array<GeneralType>
 }
 
@@ -133,11 +139,17 @@ export interface ChartAxisBubblePackGeneratorConfig {
 interface ChartAxisSharedBubblePackGeneratorData extends ChartAxisBubblePackGeneratorConfig {}
 
 interface ChartAxisTypeBubblePackGeneratorData extends ChartAxisSharedBubblePackGeneratorData {
+  /**
+   * The generator type, either this or the generator "types" must be provided.
+   */
   type: 'bubblePack'
 }
 
 interface ChartAxisTypesBubblePackGeneratorData extends ChartAxisSharedBubblePackGeneratorData {
-  types: ['bubblePack']
+  // /**
+  //  * The generator types, either this or the generator "type" must be provided.
+  //  */
+  // types: ['bubblePack']
 }
 
 /**
@@ -176,11 +188,17 @@ export interface ChartAxisBoxPlotGeneratorConfig {
 interface ChartAxisSharedBoxPlotGeneratorData extends ChartAxisBoxPlotGeneratorConfig {}
 
 interface ChartAxisTypeBoxPlotGeneratorData extends ChartAxisSharedBoxPlotGeneratorData {
+  /**
+   * The generator type, either this or the generator "types" must be provided.
+   */
   type: 'boxPlot'
 }
 
 interface ChartAxisTypesBoxPlotGeneratorData extends ChartAxisSharedBoxPlotGeneratorData {
-  types: ['boxPlot']
+  // /**
+  //  * The generator types, either this or the generator "type" must be provided.
+  //  */
+  // types: ['boxPlot']
 }
 
 /**

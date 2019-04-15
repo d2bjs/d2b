@@ -1,6 +1,6 @@
 import { ChartSunburstData } from '../../..';
 
-import { select } from 'd3';
+import { select } from 'd3-selection';
 import { chartSunburst } from '../../../dist/d2b.cjs.js';
 
 const sunburst = chartSunburst();

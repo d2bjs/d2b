@@ -1,5 +1,7 @@
-import * as d3 from 'd3';
-import {sankey as sankeyGenerator, sankeyLinkHorizontal} from 'd3-sankey';
+import { sankey as sankeyGenerator, sankeyLinkHorizontal } from 'd3-sankey';
+import { select, event } from 'd3-selection';
+import { drag as d3Drag } from 'd3-drag';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -17,7 +19,7 @@ export default function () {
     selection.each (function (datum) {
       const transition = context === selection ? null : context;
 
-      const el = d3.select(this),
+      const el = select(this),
             size = $$.size(datum),
             sankeyLink = sankeyLinkHorizontal();
 
@@ -151,11 +153,11 @@ export default function () {
       // setup node dragging and preserve previous dragging
       node.each(function (d) {
         if (d.draggableX || d.draggableY) {
-          d3.select(this)
+          select(this)
             .classed('d2b-draggable', true)
-            .call(d3.drag().on('drag', drag));
+            .call(d3Drag().on('drag', drag));
         } else {
-          d3.select(this)
+          select(this)
             .classed('d2b-draggable', false)
             .on('.drag', null);
         }
@@ -221,13 +223,13 @@ export default function () {
 
       function drag(d) {
         if (d.draggableX) {
-          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + d3.event.dx));
+          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + event.dx));
           d.x1 = d.x0 + nodeWidth;
           this.__dragX0 = d.x0 / size.width; // save drag position as a percent of the width
         }
         if (d.draggableY) {
           const height = d.y1 - d.y0;
-          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + d3.event.dy));
+          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + event.dy));
           d.y1 = d.y0 + height;
           this.__dragY0 = d.y0 / size.height; // save drag position as a percent of the height
         }
@@ -255,7 +257,7 @@ export default function () {
 
         // fix for rectangular link gradients
         l.each(function(d) {
-          const l = d3.select(this);
+          const l = select(this);
 
           // special case draw a rect
           if (Math.abs(d.y1 - d.y0) < 0.00001) {

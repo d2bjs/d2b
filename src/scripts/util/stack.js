@@ -1,4 +1,6 @@
-import * as d3 from 'd3';
+import { range } from 'd3-array';
+import { set } from 'd3-collection';
+import { stack as d3Stack } from 'd3-shape';
 
 import base from '../model/base';
 // d2b.stack will stack the x and y values in place for
@@ -31,7 +33,7 @@ export default function () {
     });
 
     // find unique set of x values
-    xset = d3.set(xset).values();
+    xset = set(xset).values();
 
     // value => index mapping of x values
     let xmap = xset.reduce(function(o, v, i) {
@@ -40,7 +42,7 @@ export default function () {
     }, {});
 
     // graph keys (just use index)
-    let keys = d3.range(0, datum.length);
+    let keys = range(0, datum.length);
 
     // transpose values for d3.stack
     let tvals = xset.map(col => vals.map(row => row[col] || 0));
@@ -65,7 +67,7 @@ export default function () {
 
   /* Inherit from base model */
   base(stack, $$)
-    .addProp('stack', d3.stack())
+    .addProp('stack', d3Stack())
     .addPropFunctor('values', d => d)
     .addPropFunctor('x', d => d.x)
     .addPropFunctor('y', d => d.y)

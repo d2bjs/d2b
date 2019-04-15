@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 
@@ -38,7 +39,7 @@ export default function () {
     frame = frame.merge(frameEnter);
 
     selection.each(function (d) {
-      let frame = d3.select(this).select('.d2b-chart-frame'),
+      let frame = select(this).select('.d2b-chart-frame'),
           frameUpdate = frame,
           padding = cleanPadding($$.padding(d)),
           chartPadding = cleanPadding($$.chartPadding(d)),

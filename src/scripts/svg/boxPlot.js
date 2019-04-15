@@ -1,5 +1,7 @@
-import { select, scaleLinear } from 'd3';
 import { annotation } from 'd3-svg-annotation';
+import { select } from 'd3-selection';
+import { scaleLinear } from 'd3-scale';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';

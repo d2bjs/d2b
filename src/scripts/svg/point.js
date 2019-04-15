@@ -1,4 +1,8 @@
-import * as d3 from 'd3';
+
+import { symbol as d3Symbol, symbolCircle } from 'd3-shape';
+import { rgb } from 'd3-color';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 
@@ -57,7 +61,7 @@ export default function () {
     selection
       .each(function (d, i) {
         const active = $$.active.call(this, d, i);
-        d3.select(this)
+        select(this)
           .on('mouseover.d2b-point', (active)? mouseover : null )
           .on('mouseout.d2b-point', (active)? mouseout : null );
       });
@@ -67,17 +71,17 @@ export default function () {
     return point;
   };
 
-  const symbol = d3.symbol();
+  const symbol = d3Symbol();
 
   /* Inherit from base model */
   base(point, $$)
     .addPropFunctor('size', 150, null, d => symbol.size(d))
-    .addPropFunctor('type', d3.symbolCircle, null, d => symbol.type(d))
+    .addPropFunctor('type', symbolCircle, null, d => symbol.type(d))
     .addPropFunctor('active', false)
     .addPropFunctor('empty', false)
     .addPropFunctor('fill', 'steelblue')
     .addPropFunctor('stroke', function (d, i) {
-      return d3.rgb($$.fill.call(this, d, i)).darker(0.3);
+      return rgb($$.fill.call(this, d, i)).darker(0.3);
     })
     .addPropFunctor('strokeWidth', '1px');
 
@@ -106,12 +110,12 @@ export default function () {
   function mouseover (d, i) {
     const empty = $$.empty.call(this, d, i);
 
-    d3.select(this).select('path.d2b-point-back')
+    select(this).select('path.d2b-point-back')
       .transition()
         .duration(100)
         .attr('d', symbolBig);
 
-    d3.select(this).select('path.d2b-point-front')
+    select(this).select('path.d2b-point-front')
       .transition()
         .duration(100)
         .style('opacity', (empty)? 0.5 : 1)
@@ -121,12 +125,12 @@ export default function () {
   function mouseout(d, i) {
     const empty = $$.empty.call(this, d, i);
 
-    d3.select(this).select('path.d2b-point-back')
+    select(this).select('path.d2b-point-back')
       .transition()
         .duration(100)
         .attr('d', symbolNormal);
 
-    d3.select(this).select('path.d2b-point-front')
+    select(this).select('path.d2b-point-front')
       .transition()
         .duration(100)
         .style('opacity', (empty)? 0 : 1)

@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select, event as d3Event } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 import { isTouchDevice } from '../util/browser';
@@ -26,7 +27,7 @@ export default function () {
     let coords = {};
 
     // construct at object, if null automatically set it based on cursor event position
-    let at = ($$.at.call(this, d, i) || ((d3.event.clientX > window.innerWidth / 2)? 'center left' : 'center right')).split(' ');
+    let at = ($$.at.call(this, d, i) || ((d3Event.clientX > window.innerWidth / 2)? 'center left' : 'center right')).split(' ');
     at = {x: at[1], y: at[0]};
 
     // switch for horizontal coordinate
@@ -87,7 +88,7 @@ export default function () {
           color = $$.color.call(this, d, i),
           targetNode = (target)? target.node() : this,
           coords = ($$.followMouse.call(this, d, i))?
-                    {x: d3.event.clientX, y: d3.event.clientY} :
+                    {x: d3Event.clientX, y: d3Event.clientY} :
                     getCoords.call(targetNode, d, i);
 
     if (!html) return;
@@ -95,7 +96,7 @@ export default function () {
 
     let tooltipUpdate = $$.container.selectAll('.d2b-tooltip').data(d => [d]);
 
-    let my = ($$.my.call(this, d, i) || ((d3.event.clientX > window.innerWidth / 2)? 'left' : 'right'));
+    let my = ($$.my.call(this, d, i) || ((d3Event.clientX > window.innerWidth / 2)? 'left' : 'right'));
 
     tooltipUpdate
         .attr('class', `d2b-tooltip d2b-tooltip-${my}`)
@@ -126,7 +127,7 @@ export default function () {
 
   /* Inherit from base model */
   base(tooltip, $$)
-    .addProp('container', d3.select('body'))//, null, updateContainer)
+    .addProp('container', select('body'))//, null, updateContainer)
     .addMethod('clear', function (context) {
       ((context.selection)? context.selection() : context)
         .on(event('mouseover'), null)

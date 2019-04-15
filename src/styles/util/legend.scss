@@ -27,7 +27,9 @@
       pointer-events: none;
 
       text, path {
-        font-family: FontAwesome;
+        font-family: FontAwesome, 'Font Awesome 5 Free';
+        font-weight: bold;
+
         text-anchor: middle;
         stroke-width: 1px;
         fill-opacity: 0.8;

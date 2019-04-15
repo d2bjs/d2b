@@ -1,4 +1,6 @@
-import * as d3 from 'd3';
+import { symbol as d3Symbol, symbolCircle } from 'd3-shape';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -6,7 +8,7 @@ import color from '../util/color';
 export default function () {
   const $$ = {};
 
-  const symbol = d3.symbol().size(80);
+  const symbol = d3Symbol().size(80);
 
   const legend = function (context) {
     const selection = context.selection? context.selection() : context;
@@ -43,12 +45,9 @@ export default function () {
         .style('opacity', 1)
         .each(function (d, i) {
           // legend item customization
-          const item      = d3.select(this),
-                color     = $$.color(d, i),
+          let item      = select(this);
+          const color     = $$.color(d, i),
                 empty     = $$.empty(d, i);
-
-          item
-              .style('border-color', color);
 
           // legend icon customization
           const icon      = $$.icon(d, i),
@@ -64,7 +63,8 @@ export default function () {
 
           let svgIcon = iconDiv.selectAll('.d2b-legend-svg-icon').data(d => [d]);
 
-          const svgIconEnter = svgIcon.enter().append('svg');
+          let svgIconEnter = svgIcon.enter().append('svg');
+
           svgIconEnter
               .attr('class', 'd2b-legend-svg-icon')
               .attr('width', size.width)
@@ -77,28 +77,36 @@ export default function () {
           svgFa.exit().remove();
           svgFaEnter.append('tspan');
           svgFa = svgFa.merge(svgFaEnter);
-          svgFa
-              .style('stroke', color)
-              .style('fill', empty? 'white' : color)
-              .attr('transform', `translate(${center.x},${center.y * 1.65})`)
-            .select('tspan')
-              .text(d => d);
+          svgFa.select('tspan').text(d => d);
 
           let svgShape = svgIcon.selectAll('path').data(shape);
           svgShape.exit().remove();
           svgShape = svgShape.merge(svgShape.enter().append('path'));
+          svgShape.attr('d', d => symbol.type(d)());
+
+          if (context !== selection) {
+            item = item.transition(context);
+            svgFa = svgFa.transition(context);
+            svgShape = svgShape.transition(context);
+          }
+
+          item.style('border-color', color);
+
+          svgFa
+              .style('stroke', color)
+              .style('fill', empty? 'white' : color)
+              .attr('transform', `translate(${center.x},${center.y * 1.65})`);
+
           svgShape
               .style('stroke', color)
               .style('fill', empty? 'white' : color)
-              .attr('d', d => symbol.type(d)())
               .attr('transform', `translate(${center.x},${center.y})`);
-
         });
 
     // bind events
     leg.each(function (d, i) {
       const allowEmptied  = $$.allowEmptied(d, i),
-            items         = d3.select(this).selectAll('.d2b-legend-item'),
+            items         = select(this).selectAll('.d2b-legend-item'),
             setAllEmpty   = function (state) {
               items.each(function(dd, ii) {
                 $$.setEmpty(dd, ii, state);
@@ -117,20 +125,20 @@ export default function () {
               $$.setEmpty(d, i, !$$.empty(d, i));
               if (!allowEmptied && allEmpty()) setAllEmpty(false);
               selection.call(legend);
-              d3.select(this.parentNode).dispatch('change', {bubbles: true});
+              select(this.parentNode).dispatch('change', {bubbles: true});
             },
             dblclick      = function (d, i) {
               setAllEmpty(true);
               $$.setEmpty(d, i, false);
               selection.call(legend);
-              d3.select(this.parentNode).dispatch('change', {bubbles: true});
+              select(this.parentNode).dispatch('change', {bubbles: true});
             };
 
       items.each(function (d, i) {
         const clickable     = $$.clickable(d, i),
               dblclickable  = $$.dblclickable(d, i);
 
-        d3.select(this)
+        select(this)
             .on('click', clickable? click: null)
             .on('dblclick', dblclickable? dblclick: null);
       });
@@ -148,7 +156,7 @@ export default function () {
     .addPropFunctor('key', (d, i) => i)
     .addPropFunctor('color', d => color(d.html))
     .addPropFunctor('html', d => d.html)
-    .addPropFunctor('icon', d3.symbolCircle)
+    .addPropFunctor('icon', symbolCircle)
     .addPropFunctor('vertical', false)
     .addPropFunctor('allowEmptied', false)
     .addPropFunctor('clickable', false)

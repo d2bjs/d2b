@@ -1,5 +1,5 @@
 import functor from '../util/functor';
-import { scalePow } from 'd3';
+import { scalePow } from 'd3-scale';
 
 /**
  * d2b.chartSankeyAdvanced(chart, datum) configures the input chart and formats a returned datum set
@@ -25,6 +25,7 @@ export default function (chart, datum) {
 
   // Breadcrumbs Config
   chart.breadcrumbs()
+    .vertical.conditionally(breadcrumbsConfig.orient, ['right', 'left'].includes(breadcrumbsConfig.orient))
     .html.proxy(d => {
       const data = d.data;
       const value = d.value;
@@ -54,8 +55,8 @@ export default function (chart, datum) {
 
   // Sunburst Config
   const sunburst = chart.sunburst()
-    .root(d => d.root)
-    .size(d => d.size)
+    .root.proxy(d => d.root)
+    .size.proxy(d => d.size)
     .duration.conditionally(datum.duration)
     .ancestorPadding.conditionally(datum.ancestorPadding)
     .ancestorRatio.conditionally(datum.ancestorRatio)

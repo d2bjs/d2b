@@ -17,13 +17,13 @@ interface ChartAxisSharedSetConfig {
 
 export interface ChartAxisGeneralSetConfig extends ChartAxisSharedSetConfig {
   /**
-   * General generators data.
+   * Set generator data.
    * @generators bar, area, line, scatter
    */
   generators?: Array<ChartAxisGeneralGeneratorConfig>
 
   /**
-   * General graphs config.
+   * Set graph config.
    * @generators bar, area, line, scatter
    */
   graphs?: Array<ChartAxisGeneralGraphConfig>
@@ -31,13 +31,13 @@ export interface ChartAxisGeneralSetConfig extends ChartAxisSharedSetConfig {
 
 export interface ChartAxisGeneralSetData extends ChartAxisSharedSetConfig {
   /**
-   * General generators data.
+   * Set generator data.
    * @generators bar, area, line, scatter
    */
   generators: Array<ChartAxisGeneralGeneratorData>
 
   /**
-   * General graphs data.
+   * Set graph data.
    * @generators bar, area, line, scatter
    */
   graphs: Array<ChartAxisGeneralGraphData>
@@ -45,13 +45,13 @@ export interface ChartAxisGeneralSetData extends ChartAxisSharedSetConfig {
 
 export interface ChartAxisBubblePackSetConfig extends ChartAxisSharedSetConfig {
   /**
-   * Bubble pack generators config.
+   * Set generator config.
    * @generators bubblePack
    */
   generators?: Array<ChartAxisBubblePackGeneratorConfig>
   
   /**
-   * Bubble pack graphs config.
+   * Set graph config.
    * @generators bubblePack
    */
   graphs?: Array<ChartAxisBubblePackGraphConfig>
@@ -59,13 +59,13 @@ export interface ChartAxisBubblePackSetConfig extends ChartAxisSharedSetConfig {
 
 export interface ChartAxisBubblePackSetData extends ChartAxisSharedSetConfig {
   /**
-   * Bubble pack generators data.
+   * Set generator data.
    * @generators bubblePack
    */
   generators: Array<ChartAxisBubblePackGeneratorData>
 
   /**
-   * Bubble pack graphs data.
+   * Set graph data.
    * @generators bubblePack
    */
   graphs: Array<ChartAxisBubblePackGraphData>
@@ -73,13 +73,13 @@ export interface ChartAxisBubblePackSetData extends ChartAxisSharedSetConfig {
 
 export interface ChartAxisBoxPlotSetConfig extends ChartAxisSharedSetConfig {
   /**
-   * Box plot generators config.
+   * Set generator config.
    * @generators boxPlot
    */
   generators?: Array<ChartAxisBoxPlotGeneratorConfig>
 
   /**
-   * Box plot graphs config.
+   * Set graph config.
    * @generators boxPlot
    */
   graphs?: Array<ChartAxisBoxPlotGraphConfig>
@@ -87,13 +87,13 @@ export interface ChartAxisBoxPlotSetConfig extends ChartAxisSharedSetConfig {
 
 export interface ChartAxisBoxPlotSetData extends ChartAxisSharedSetConfig {
   /**
-   * Box plot generators data.
+   * Set generator data.
    * @generators boxPlot
    */
   generators: Array<ChartAxisBoxPlotGeneratorData>
 
   /**
-   * Box plot graphs data.
+   * Set graph data.
    * @generators boxPlot
    */
   graphs: Array<ChartAxisBoxPlotGraphData>

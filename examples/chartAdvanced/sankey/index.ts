@@ -1,6 +1,6 @@
 import { ChartSankeyData } from '../../..';
 
-import { select } from 'd3';
+import { select } from 'd3-selection';
 import { chartSankey } from '../../../dist/d2b.cjs.js';
 
 const sankey = chartSankey();

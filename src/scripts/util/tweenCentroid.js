@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import { interpolate } from 'd3-interpolate';
 
 import functor from '../util/functor';
 
@@ -29,7 +29,7 @@ export default function (context, arc, rotate = d => d.rotate) {
   context.attrTween('transform', function (d) {
     d = getProperties(d);
     this.current = this.current || d;
-    const i = d3.interpolate(this.current, d);
+    const i = interpolate(this.current, d);
     return t => {
       this.current = i(t);
       return `translate(${arc.centroid(this.current)}) `+

@@ -1,4 +1,8 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import { rgb } from 'd3-color';
+import { sum } from 'd3-array';
+import { format } from 'd3-format';
+import 'd3-transition';
 
 import base from '../model/base';
 import chartFrame from '../util/chartFrame';
@@ -32,7 +36,7 @@ export default function () {
       .key($$.key)
       .color($$.color);
 
-    $$.tooltip.color(d => d3.rgb($$.color(d.data)).darker(0.3));
+    $$.tooltip.color(d => rgb($$.color(d.data)).darker(0.3));
 
     const selection = (context.selection)? context.selection() : context;
 
@@ -47,7 +51,7 @@ export default function () {
   };
 
   // percent formater
-  const percent = d3.format('.0%');
+  const percent = format('.0%');
 
   // configure model properties
   base(chart, $$)
@@ -91,7 +95,7 @@ export default function () {
 
   // update chart
   function update (datum, transition) {
-    const el = d3.select(this),
+    const el = select(this),
           selection = el.select('.d2b-chart-container'),
           size = selection.node().__size__,
           radius = $$.radius(datum, size.width, size.height),
@@ -104,16 +108,18 @@ export default function () {
     $$.legend.values(values);
 
     // legend functionality
-    el
-      .select('.d2b-legend-container')
-        .call($$.legend)
+    const legend = el.select('.d2b-legend-container');
+    
+    (transition ? legend.transition(transition) : legend).call($$.legend);
+
+    legend
         .on('change', () => el.transition().duration($$.duration(datum)).call(chart))
       .selectAll('.d2b-legend-item')
         .on('mouseover', function (d) { arcGrow.call(this, el, d, 1.03); })
         .on('mouseout', function (d) { arcGrow.call(this, el, d); });
 
     // get pie total
-    const total = d3.sum(filtered, d => $$.value(d));
+    const total = sum(filtered, d => $$.value(d));
 
     // select and enter pie chart 'g' element.
     let chartGroup = selection.selectAll('.d2b-pie-chart').data([filtered]);
@@ -156,7 +162,7 @@ export default function () {
 
     arcGroup
         .each(function () {
-          const elem = d3.select(this),
+          const elem = select(this),
                 current = elem.select('.d2b-pie-arc path').node().current,
                 percentGroup = elem.select('.d2b-pie-arc-percent'),
                 percentText = percentGroup.select('text').node();
@@ -179,7 +185,7 @@ export default function () {
 
     arcText.each(function (d) {
       const arcLabel = $$.arcLabel(d.data);
-      let text = d3.select(this);
+      let text = select(this);
 
       if (transition) text = text.transition(transition);
       

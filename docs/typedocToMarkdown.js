@@ -10,64 +10,61 @@ const root = require('./typedoc.json');
 // console.log(getRows(findNode('ChartPieData')));
 
 // Generate pieProperties
-toMarkdown(getRows(findNode('ChartPieData')), {
+toMarkdown(cleanRows(getRows(findNode('ChartPieData'))), {
   filePath: '/chartsAdvanced/pieProperties.md',
   columns: [
-    { key: 'chain', name: 'Property' },
-    { key: 'description', name: 'Details', format: (cell, row) => {
-      // console.log(cell, row)
-      return generalDetails(row);
-    } }
+    { key: 'chain', name: 'Property', format: generalProperty },
+    { key: 'description', name: 'Details', format: generalDetails }
   ]
 });
 
 // Generate sankeyProperties
-toMarkdown(getRows(findNode('ChartSankeyData')), {
+toMarkdown(cleanRows(getRows(findNode('ChartSankeyData'))), {
   filePath: '/chartsAdvanced/sankeyProperties.md',
   columns: [
-    { key: 'chain', name: 'Property' },
-    { key: 'description', name: 'Details', format: (cell, row) => {
-      // console.log(cell, row)
-      return generalDetails(row);
-    } }
+    { key: 'chain', name: 'Property', format: generalProperty },
+    { key: 'description', name: 'Details', format: generalDetails }
   ]
 });
 
 // Generate sunburstProperties
-toMarkdown(getRows(findNode('ChartSunburstData')), {
+toMarkdown(cleanRows(getRows(findNode('ChartSunburstData'))), {
   filePath: '/chartsAdvanced/sunburstProperties.md',
   columns: [
-    { key: 'chain', name: 'Property' },
-    { key: 'description', name: 'Details', format: (cell, row) => {
-      // console.log(cell, row)
-      return generalDetails(row);
-    } }
+    { key: 'chain', name: 'Property', format: generalProperty },
+    { key: 'description', name: 'Details', format: generalDetails }
   ]
 });
 
 // Generate axisProperties
-toMarkdown(getRows(findNode('ChartAxisData')), {
+toMarkdown(cleanRows(getRows(findNode('ChartAxisData'))), {
   filePath: '/chartsAdvanced/axisProperties.md',
   columns: [
-    { key: 'chain', name: 'Property' },
+    { key: 'chain', name: 'Property', format: generalProperty },
     { key: 'description', name: 'Details', format: (cell, row) => {
-      let str = generalDetails(row);
+      let str = generalDetails(cell, row);
       if (row.generators) str += `<strong>Generators:</strong> ${row.generators}`;
       return str;
     } }
   ]
 });
 
-function generalDetails (row) {
+function generalDetails (cell, row) {
   // if (row.name === 'legendIcon') console.log(row.description.replace(/[\n\r]/g, ''));
   let types = row.types.filter(t => t !== 'undefined').join(', ');
   let str = '';
   if (row.description) str += `${row.description}<br><br>`;
-  if (types) str += `<strong>Type:</strong> ${types}<br>`;
-  if (row.default) str += `<strong>Default:</strong> \`${row.default}\`<br>`;
+  if (types) str += `<strong>Type:</strong> <code>${types}</code><br>`;
+  if (row.default) str += `<strong>Default:</strong> <code>${row.default.trim()}</code><br>`;
+  if (row.required) str += `<strong>Required:</strong> true<br>`;
   if (row.optional) str += `<strong>Optional:</strong> true<br>`;
   // if (row.level) str += `<strong>level:<strong> ${row.level}<br>`;
   return str.replace(/\n/g, ' ');
+}
+
+function generalProperty (cell, row) {
+  const property = row.chain.split('.').slice(-2).join('.').replace('s[]', '').replace('children[]', 'child');
+  return `<div style="margin-left:${row.level * 15}px;" class="${row.optional ? 'optional' : 'required'}">${property}</div>`;
 }
 
 // Find specific node within a root node by name.
@@ -184,7 +181,26 @@ function getRows(node, rows = [], visited = [], chain = 'data') {
       getRows(childNode, rows, visited.slice(0), chain);
     }
   }
-  return _.uniqWith(_.orderBy(rows, ['optional', 'chain'], ['desc', 'asc']), _.isEqual);
+  return rows;
+  // return mergeSimilarRows(_.uniqWith(_.orderBy(rows, ['optional', row => row.children.length > 0 , 'chain'], ['desc', 'asc', 'asc']), _.isEqual));
+}
+
+// Join similar rows together and sort them by optional flag, then children existence, then chain
+function cleanRows(rows) {
+  return _.uniqWith(_.orderBy(Object.values(_.groupBy(rows, row => `${row.chain}:${row.description}`)).map(group => {
+    return {
+      chain: group[0].chain,
+      level: group[0].level,
+      optional: group[0].optional,
+      required: group[0].required,
+      description: group[0].description,
+      name: group[0].name,
+      default: group[0].default,
+      children: cleanRows(_.flatten(group.map(row => row.children || []))),
+      generators: _.uniq(_.flatten(group.map(row => (row.generators || '').split(',').map(gen => gen.trim())))).join(', ').replace(/\n/g, ' '),
+      types: _.uniq(_.flatten(group.map(row => row.types)))
+    };
+  }), ['optional', row => row.children.length > 0 , 'chain'], ['desc', 'asc', 'asc']), _.isEqual);
 }
 
 function toMarkdown(rows, options) {
@@ -199,14 +215,22 @@ function toMarkdown(rows, options) {
 </script>
 
 <style>
-  .parent td:first-child::before {
+  .optional {
+    opacity: 0.8;
+  }
+
+  .required {
+    font-weight: bold;
+  }
+
+  .parent td:first-child > div::before {
     position: absolute;
-    left: 8px;
+    left: -12px;
     content: '\\f0da';
     font-family: FontAwesome;
   }
 
-  .expanded td:first-child::before {
+  .expanded td:first-child > div::before {
     content: '\\f0d7';
     font-family: FontAwesome;
   }
@@ -225,6 +249,14 @@ function toMarkdown(rows, options) {
     min-width: 250px;
     max-width: 250px;
     width: 250px;
+  }
+
+  tr td:first-child > div {
+    position: relative;
+  }
+
+  tr {
+    background-color: white !important;
   }
 
   tr.hidden {
@@ -249,19 +281,21 @@ function toMarkdown(rows, options) {
 
   markdown += `</tr></thead><tbody>`;
 
-  for (const row of rows) {
-    markdown += `<tr ${row.children.length ? 'class="parent" onclick="toggleNextRow(this)"' : null}>`;
-    for (const column of options.columns) {
-      markdown += cellMarkdown(row, column);
-    }
-    markdown += `</tr>`;
+  markdown += rowsMarkdown(rows, options);
 
-    if (row.children.length) {
-      markdown += `<tr class="child hidden">
-        <td colspan="2"><table><tbody>${childrenMarkdown(row, options)}</tbody></table></td>
-      </tr>`;
-    }
-  }
+  // for (const row of rows) {
+  //   markdown += `<tr ${row.children.length ? 'class="parent" onclick="toggleNextRow(this)"' : null}>`;
+  //   for (const column of options.columns) {
+  //     markdown += cellMarkdown(row, column);
+  //   }
+  //   markdown += `</tr>`;
+
+  //   if (row.children.length) {
+  //     markdown += `<tr class="child hidden">
+  //       <td colspan="2"><table><tbody>${childrenMarkdown(row, options)}</tbody></table></td>
+  //     </tr>`;
+  //   }
+  // }
   markdown += `</tbody></table>`;
 
   fs.writeFile(__dirname + options.filePath, markdown, function(err) {
@@ -271,17 +305,36 @@ function toMarkdown(rows, options) {
   });
 }
 
-function childrenMarkdown(row, options) {
+function rowsMarkdown (rows, options) {
   let markdown = '';
-  for (const childRow of (row.children || [])) {
-    markdown += `<tr>`;
+
+  for (const row of (rows || [])) {
+    markdown += `<tr ${row.children.length ? 'class="parent" onclick="toggleNextRow(this)"' : null}>`;
     for (const column of options.columns) {
-      markdown += cellMarkdown(childRow, column);
+      markdown += cellMarkdown(row, column);
     }
-    markdown += `</tr>${childrenMarkdown(childRow, options)}`;
+    markdown += `</tr>`;
+
+    if (row.children.length) {
+      markdown += `<tr class="child hidden">
+        <td colspan="2"><table><tbody>${rowsMarkdown(row.children, options)}</tbody></table></td>
+      </tr>`;
+    }
   }
   return markdown;
 }
+
+// function childrenMarkdown(row, options) {
+//   let markdown = '';
+//   for (const childRow of (row.children || [])) {
+//     markdown += `<tr>`;
+//     for (const column of options.columns) {
+//       markdown += cellMarkdown(childRow, column);
+//     }
+//     markdown += `</tr>${rowsMarkdown(childRow.children, options)}`;
+//   }
+//   return markdown;
+// }
 
 function cellMarkdown(row, column) {
   return `<td>${((column.format || (cell => cell))(row[column.key], row) || '').replace(/\n/g, '<br>')}</td>`;

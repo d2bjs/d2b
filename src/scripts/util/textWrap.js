@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
 
 import functor from '../util/functor';
 import oreq from '../util/oreq';
@@ -11,7 +11,7 @@ export default function (text, getText = d => d.label, getCount = Infinity, getA
   getAnchor = functor(getAnchor);
 
   text.each( function(d, i) {
-    let text = d3.select(this),
+    let text = select(this),
         words = `${getText.call(this, d, i)}`.split(/\s+/).reverse(),
         word,
         lines = [],

@@ -1,6 +1,9 @@
 {
   "name": "d2b",
-  "version": "0.5.6",
+  "version": "1.0.0-beta.2",
+  "author": {
+    "name": "Kevin Warne"
+  },
   "description": "A d3-based reusable chart library.",
   "keywords": [
     "d3",
@@ -26,14 +29,15 @@
     "url": "https://github.com/d2bjs/d2b"
   },
   "scripts": {
-    "rollup": "npm run test",
-    "build:dev": "npm run build:package && rollup -c -g d3:d3,d3-sankey:d3,d3-interpolate-path:d3,d3-svg-annotation:d3 && npm run test",
-    "build:prod": "npm run build:package && NODE_ENV=production rollup -c -g d3:d3,d3-sankey:d3,d3-interpolate-path:d3,d3-svg-annotation:d3",
+    "rollup": "rollup -c -g d3:d3,d3-transition:d3,d3-sankey:d3,d3-interpolate-path:d3,d3-scale-chromatic:d3,d3-hierarchy:d3,d3-svg-annotation:d3,d3-format:d3,d3-selection:d3,d3-drag:d3,d3-scale:d3,d3-axis:d3,d3-collection:d3,d3-array:d3,d3-color:d3,d3-shape:d3,d3-dispatch:d3,d3-interpolate:d3",
+    "build:dev": "npm run build:package && npm run rollup",
+    "build:prod": "npm run build:package && NODE_ENV=production npm run rollup",
+    "build": "npm run build:dev && npm run build:prod",
     "build:server": "http-server -a 0.0.0.0 -p 8000",
     "build:watcher": "npm-watch",
     "build:package": "json2module package.json > dist/package.js",
     "build:tsdemo": "watchify ./examples/chartAdvanced/index.ts -p [ tsify ] -o ./examples/chartAdvanced/index.js",
-    "build:watch": "npm-run-all --parallel build:watcher build:server build:tsdemo",
+    "build:watch": "npm-run-all --parallel build:watcher build:server",
     "build:tsdocs": "typedoc ./src/types/index.ts --json ./docs/typedoc.json && node ./docs/typedocToMarkdown.js",
     "start": "npm run build:server",
     "test": "jasmine",
@@ -43,22 +47,24 @@
     "docs:publish": "npm run docs:build && cp docs/cname _book && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout master && git add . && git commit -am 'Update docs' && git push git@github.com:d2bjs/d2bjs.github.io master --force"
   },
   "dependencies": {
-    "d3": ">5.9.1",
+    "d3-array": "^2.0.3",
+    "d3-axis": "^1.0.12",
+    "d3-collection": "^1.0.7",
+    "d3-color": "^1.2.3",
+    "d3-dispatch": "^1.0.5",
+    "d3-drag": "^1.2.3",
+    "d3-format": "^1.3.2",
+    "d3-hierarchy": "^1.1.8",
+    "d3-interpolate": "^1.3.2",
     "d3-interpolate-path": ">2.0.0",
-    "d3-sankey": ">0.7.1",
-    "d3-svg-annotation": "^2.4.0"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "@babel/preset-env"
-          ]
-        }
-      ]
-    ]
+    "d3-queue": "^3.0.7",
+    "d3-sankey": "^0.12.1",
+    "d3-scale": "^3.0.0",
+    "d3-scale-chromatic": "^1.3.3",
+    "d3-selection": "^1.4.0",
+    "d3-shape": "^1.3.5",
+    "d3-svg-annotation": "^2.4.0",
+    "d3-transition": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -68,6 +74,7 @@
     "babelify": "^10.0.0",
     "browserify": "^16.2.3",
     "cssnano": "^4.1.10",
+    "d3": "^5.9.2",
     "gitbook": "^3.2.3",
     "gitbook-plugin-custom-favicon": "0.0.4",
     "gitbook-plugin-ga": "^1.0.1",
@@ -75,6 +82,7 @@
     "http-server": "^0.11.1",
     "jasmine": "2.5.3",
     "jsdom-no-contextify": "^3.1.0",
+    "json2module": "^0.0.3",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "npm-watch": "^0.1.8",
@@ -86,12 +94,14 @@
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-eslint": "^5.1.0",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-uglify": "^6.0.2",
     "styled-jsx": "^3.2.1",
     "styled-jsx-plugin-postcss": "^2.0.0",
     "tsify": "^4.0.1",
     "typescript": "^3.3.4000",
-    "uglify-js": "^3.5.2"
+    "uglify-js": "^3.5.2",
+    "gitbook-cli": "^2.3.2"
   },
   "files": [
     "/dist",

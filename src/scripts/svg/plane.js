@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 import textWrap from '../util/textWrap';
@@ -25,7 +26,7 @@ export default function () {
             x2 = $$.x2.call(this, d, i),
             y = $$.y.call(this, d, i),
             y2 = $$.y2.call(this, d, i),
-            el = d3.select(this),
+            el = select(this),
             axes = {
               x: {type: 'x', data: x},
               x2: {type: 'x2', data: x2},
@@ -410,7 +411,7 @@ export default function () {
           anchor = axis.info.wrapAnchor;
     el.selectAll('.tick text')
       .each(function () {
-        const tick = d3.select(this);
+        const tick = select(this);
         if ((oreq(tick.html(), '')).indexOf('tspan') === -1) this.storeText = tick.text();
         tick.text('');
       })

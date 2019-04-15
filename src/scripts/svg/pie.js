@@ -1,4 +1,6 @@
-import * as d3 from 'd3';
+import { arc, pie as d3Pie } from 'd3-shape';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -26,7 +28,7 @@ export default function () {
     pieSvg = pieSvg.merge(pieSvgEnter);
 
     pieSvg.each( function (values) {
-      const el = d3.select(this);
+      const el = select(this);
 
       // select arc group and get their old data
       let arc = el.selectAll('.d2b-pie-arc');
@@ -89,8 +91,8 @@ export default function () {
 
   /* Inherit from base model */
   base(pie, $$)
-    .addProp('arc', d3.arc())
-    .addProp('pie', d3.pie().sort(null))
+    .addProp('arc', arc())
+    .addProp('pie', d3Pie().sort(null))
     .addPropFunctor('values', d => d)
     .addPropFunctor('key', d => d.label)
     .addPropFunctor('value', d => d.value)

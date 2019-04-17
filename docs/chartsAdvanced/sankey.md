@@ -29,6 +29,31 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
     ></iframe>
 </figure>
 
+# {#links_nodes}
+### [#](#links_nodes) Links and Nodes
+
+<figure class="sankey_links_nodes">
+    <iframe
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/links_nodes?runonclick=0" frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
+</figure>
+
+# {#typescript}
+### [#](#typescript) Typescript
+
+<figure class="sankey_typescript">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/typescript?runonclick=0" frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
+</figure>
+
+
 # {#properties}
 # [#](#properties) Properties
 

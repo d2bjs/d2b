@@ -1,6 +1,6 @@
 > [d2b](../README.md) › **Chart Pie**
 
-![Local Image](../gifs/chart-pie.gif)
+<!-- ![Local Image](../gifs/chart-pie.gif) -->
 
 
 # {#generator}
@@ -26,6 +26,71 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
     allowfullscreen="true" 
     mozallowfullscreen="true" 
     webkitallowfullscreen="true"></iframe>
+</figure>
+
+# {#basic}
+### [#](#basic) Basic
+
+<figure class="pie_basic">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/basic?runonclick=0" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
+</figure>
+
+# {#donut}
+### [#](#donut) Donut Chart
+
+<figure class="pie_default_donut">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default-donut?runonclick=0"
+        frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
+</figure>
+
+# {#legend}
+### [#](#Legend) Legend
+
+<figure class="pie_legend">
+    <iframe
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/legend?runonclick=0" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
+</figure>
+
+# {#tooltip}
+### [#](#tooltip) Tooltip
+
+<figure class="pie_tooltip">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/tooltip?runonclick=0" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
+</figure>
+
+# {#typescript}
+### [#](#typescript) Typescript
+
+<figure class="pie_typescript">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/typescript?runonclick=0" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true"
+    ></iframe>
 </figure>
 
 # {#properties}

@@ -8,12 +8,12 @@
 
   * [d2b.chartAxis](chartsAdvanced/axis.md)
     * [Line Chart](chartsAdvanced/axis.md#basic_line)
-    * [Annotation](charAdvanced/axis.md#annotation)
-    * [Basic](chartAdvanced/axis.md#basic)
-    * [Groups](chartAdvanced/axis.md#groups) 
-    * [Legend](chartAdvanced/axis.md#legend)
-    * [Padding](chartAdvanced/axis.md#padding)
-    * [Scale](chartAdvanced/axis.md#scale)
+    * [Annotation](chartsAdvanced/axis.md#annotation)
+    * [Basic](chartsAdvanced/axis.md#basic)
+    * [Groups](chartsAdvanced/axis.md#groups) 
+    * [Legend](chartsAdvanced/axis.md#legend)
+    * [Padding](chartsAdvanced/axis.md#padding)
+    * [Scale](chartsAdvanced/axis.md#scale)
     * [Typescript](chartsAdvanced/axis.md#typescript)
     * [Properties](chartsAdvanced/axis.md#properties)
 
@@ -28,7 +28,6 @@
 
   * [d2b.chartSankey](chartsAdvanced/sankey.md)
     * [Sankey Chart](chartsAdvanced/sankey.md#sankey_default)
-    * [Basic](chartsAdvanced/sankey.md#basic)
     * [Links & Nodes](chartsAdvanced/sankey.md#links_nodes)
     * [Typescript](chartsAdvanced/sankey.md#typescript)
     * [Properties](chartsAdvanced/sankey.md#properties)

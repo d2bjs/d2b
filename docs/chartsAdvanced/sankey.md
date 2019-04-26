@@ -22,7 +22,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 
 <figure class="sankey_default">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/default?runonclick=1" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/default?runonclick=1&codemirror=1&module=/index.js" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -35,7 +35,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 
 <figure class="sankey_links_nodes">
     <iframe
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/links_nodes?runonclick=1" frameborder="0" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/links_nodes?runonclick=1&codemirror=1&module=/index.js" frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
         webkitallowfullscreen="true"
@@ -47,7 +47,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 
 <figure class="sankey_typescript">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/typescript?runonclick=1" frameborder="0" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/typescript?runonclick=1&codemirror=1&module=/index.js" frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
         webkitallowfullscreen="true"

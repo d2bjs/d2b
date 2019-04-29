@@ -27,7 +27,6 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
   ></iframe>
 </figure>
 
-<!--
 # {#annotation}
 ### [#](#annotation) Annotation
 
@@ -41,6 +40,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
   ></iframe>
 </figure>
 
+<!-- >
 # {#basic}
 ### [#](#basic) Basic
 
@@ -113,17 +113,17 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
   <iframe 
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/legend?runonclick=1&codemirror=1&module=/index.js" 
     frameborder="0" 
-    allowf    codemirror = 1
-    mozall    codemirror = 1
-    webkit    codemirror = 1
-  ></ifram    codemirror = 1
+    allowf    
+    mozall    
+    webkit    
+  ></ifram    
 </figure>
 
-# {#paddin    codemirror = 1
-### [#](#p    codemirror = 1
+# {#padding
+### [#](#padding) Padding
 
-<figure cl    codemirror = 1
-  <iframe     codemirror = 1
+<figure class="axis_padding>   
+  <iframe     
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/basic-line?runonclick=1&codemirror=1&module=/index.js" 
     frameborder="0" 
     allowfullscreen="true" 

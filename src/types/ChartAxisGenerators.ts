@@ -65,13 +65,6 @@ export interface ChartAxisGeneralGeneratorConfig {
   align?: 'y1' | 'y0'
 
   /**
-   * The pixel area for scatter graphs. This can also be given as a value accessor.
-   * @generators scatter
-   * @default 25
-   */
-  size?: number | ((data: ChartAxisGeneralValueData) => number)
-
-  /**
    * Forces bar chart bars to the center of their respective group position.
    * @generators bar
    * @default false
@@ -116,7 +109,7 @@ export type ChartAxisGeneralGeneratorData = ChartAxisTypeGeneralGeneratorData | 
 export interface ChartAxisBubblePackGeneratorConfig {
   /**
    * Pixel size multiplier for bubbles.
-   * @generators bubblePack
+   * @generators bubblePack, scatter
    * @default 100
    */
   size?: number

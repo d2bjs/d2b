@@ -92,7 +92,7 @@ export default function (chart, datum) {
         if (newGen.box) newGen.box().width.proxy(point => oreq(point.width, gen.width));
         if (newGen.symbol) newGen.symbol.proxy(graph => oreq(graph.symbol, typeof gen === 'function' ? undefined : gen.symbol));
         if (newGen.psymbol) newGen.psymbol.proxy(point => point.symbol);
-        if (newGen.psize) newGen.psize.proxy(point => point.size);
+        if (newGen.psize) newGen.psize.proxy(point => point.size !== undefined || gen.size !== undefined ? (oreq(point.size, 1)) * oreq(gen.size, 25) : undefined);
         if (newGen.stackBy) newGen.stackBy.proxy(graph => oreqUndefined(graph.stack, typeof gen === 'function' ? undefined : gen.stack));  
       });
     });
@@ -252,8 +252,8 @@ function buildGenerator (type, gen) {
       break;
 
     case 'scatter':
-      newGen = svgScatter()
-        .psize.conditionally(gen.size);
+      newGen = svgScatter();
+        // .psize.conditionally(gen.size);
       configureStack(newGen);
       configureAlign(newGen);
       break;

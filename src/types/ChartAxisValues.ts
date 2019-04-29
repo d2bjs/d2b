@@ -110,6 +110,13 @@ export interface ChartAxisGeneralValueData extends ChartAxisGeneralValueConfig, 
    * @default 0
    */
   y0?: number | string
+
+  /**
+   * Scatter size. This is optional to provide individual scatter point sizing.
+   * @generators size
+   * @default 1
+   */
+  size?: number
 }
 
 /**

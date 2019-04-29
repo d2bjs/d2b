@@ -5358,7 +5358,7 @@ function chartAxisAdvanced (chart, datum) {
           return point.symbol;
         });
         if (newGen.psize) newGen.psize.proxy(function (point) {
-          return point.size;
+          return point.size !== undefined || gen.size !== undefined ? oreq(point.size, 1) * oreq(gen.size, 25) : undefined;
         });
         if (newGen.stackBy) newGen.stackBy.proxy(function (graph) {
           return oreqUndefined(graph.stack, typeof gen === 'function' ? undefined : gen.stack);
@@ -5524,7 +5524,8 @@ function buildGenerator(type, gen) {
       break;
 
     case 'scatter':
-      newGen = svgScatter().psize.conditionally(gen.size);
+      newGen = svgScatter(); // .psize.conditionally(gen.size);
+
       configureStack(newGen);
       configureAlign(newGen);
       break;

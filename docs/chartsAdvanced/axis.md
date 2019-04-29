@@ -40,7 +40,6 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
   ></iframe>
 </figure>
 
-<!-- >
 # {#basic}
 ### [#](#basic) Basic
 
@@ -52,9 +51,9 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
     mozallowfullscreen="true" 
     webkitallowfullscreen="true"
   ></iframe>
-</figure> -->
+</figure>
 
-<!-- # {#Bar}
+# {#Bar}
 ### [#](#bar) Bar
 
 <figure class="axis_bar">
@@ -91,9 +90,9 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
     mozallowfullscreen="true" 
     webkitallowfullscreen="true"
   ></iframe>
-</figure> -->
+</figure>
 
-<!-- # {#groups}
+# {#groups}
 ### [#](#groups) Groups
 
 <figure class="axis_groups">
@@ -143,9 +142,9 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
     mozallowfullscreen="true" 
     webkitallowfullscreen="true"
   ></iframe>
-</figure> -->
+</figure>
 
-<!-- # {#scatter}
+# {#scatter}
 ### [#](#scatter) Scatter
 
 <figure class="axis_scatter">
@@ -156,7 +155,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
     mozallowfullscreen="true" 
     webkitallowfullscreen="true"
   ></iframe>
-</figure> -->
+</figure>
 
 # {#scatter_sizes}
 ### [#](#scatter_sizes) Scatter Varying Sizes

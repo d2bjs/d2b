@@ -21,18 +21,18 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_basic">
   <iframe
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/basic-line?runonclick=0&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/basic-line?runonclick=0&codemirror=1&module=/index.js&view=preview" 
     view="split"
     frameborder="110" 
   ></iframe>
 </figure>
 
-# {#annotation}
+<!-- # {#annotation}
 ### [#](#annotation) Annotation
 
 <figure class="axis_annotation">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/annotation?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/annotation?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -45,7 +45,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_basic">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/area-basic?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/area-basic?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -58,7 +58,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_bar">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-bar?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-bar?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -71,7 +71,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_boxplot">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-boxplot?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-boxplot?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -84,7 +84,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_bubble">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-bubble?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-bubble?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -97,7 +97,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_groups">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/groups?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/groups?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -110,7 +110,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_legend">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/legend?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/legend?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowf    
     mozall    
@@ -123,7 +123,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_padding>   
   <iframe     
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/basic-line?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/basic-line?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -136,7 +136,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_scale">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/area-scale?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/area-scale?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -149,7 +149,7 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_scatter">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-scatter?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-scatter?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -162,20 +162,20 @@ Render the axis chart(s) to the given *context*, which may be either a [d3-selec
 
 <figure class="axis_scatter_sizes">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-scatter-sizes?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-scatter-sizes?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="10" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
     webkitallowfullscreen="true"
   ></iframe>
-</figure>
+</figure> -->
 
 <!-- # {#typescript}
 ### [#](#typescript) Typescript
 
 <figure class="axis_typescript">
   <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/typescript?runonclick=1&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/typescript?runonclick=1&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 

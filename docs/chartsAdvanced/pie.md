@@ -22,7 +22,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 <figure class="pie_default">
     <iframe 
-    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default?runonclick=0&codemirror=1&module=/index.js" 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default?runonclick=0&codemirror=1&module=/index.js&view=preview" 
     frameborder="0" 
     allowfullscreen="true" 
     mozallowfullscreen="true" 
@@ -34,7 +34,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 <figure class="pie_basic">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/basic?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/basic?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -47,7 +47,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 <figure class="pie_default_donut">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default-donut?runonclick=1&codemirror=1&module=/index.js"
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default-donut?runonclick=1&codemirror=1&module=/index.js&view=preview"
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -60,7 +60,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 <figure class="pie_legend">
     <iframe
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/legend?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/legend?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -73,7 +73,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 <figure class="pie_tooltip">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/tooltip?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/tooltip?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -86,7 +86,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 <figure class="pie_typescript">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/typescript?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/typescript?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 

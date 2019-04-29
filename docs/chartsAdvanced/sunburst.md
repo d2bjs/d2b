@@ -21,7 +21,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_default">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/default?runonclick=0&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/default?runonclick=0&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -35,7 +35,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_basic">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/basic?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/basic?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -48,7 +48,8 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_breadcrumbs">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/breadcrumbs?runonclick=1&codemirror=1&module=/index.js" frameborder="0" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/breadcrumbs?runonclick=1&codemirror=1&module=/index.js&view=preview"
+        frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
         webkitallowfullscreen="true"
@@ -60,7 +61,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_padding">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/padding?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/padding?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0"
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -73,7 +74,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_radius">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/radius?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/radius?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -87,7 +88,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_root">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/root?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/root?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -100,7 +101,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_sort">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/sort?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/sort?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -114,7 +115,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_tooltip">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/tooltip?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/tooltip?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 
@@ -128,7 +129,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 
 <figure class="sunburst_typescript">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/typescript?runonclick=1&codemirror=1&module=/index.js" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/typescript?runonclick=1&codemirror=1&module=/index.js&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 

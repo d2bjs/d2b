@@ -19,7 +19,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 # {#pie_default}
 ### [#](#pie_default) Default Pie Chart
-
+Here is where the bried description of the pie chart will go.
 <figure class="pie_default">
     <iframe 
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default?runonclick=0&codemirror=1&module=/index.js&view=preview" 

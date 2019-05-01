@@ -19,7 +19,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 
 # {#sankey_default}
 ### [#](#sankey_default) Default Sankey Chart
-
+Here is a live interactive demo of the default sankey chart without any extra configurations. A sankey chart is made up of nodes and links. The nodes being endpoints connected by links. The nodes array is simply comprised of node objects containing the node name. The links array (of link objects) is where the nodes are actually connected together, using the `source` and `target` properties, along with a value which represents the size of the link. 
 <figure class="sankey_default">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/default?runonclick=1&codemirror=1&module=/index.js&view=preview" 
@@ -32,7 +32,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 
 # {#links_nodes}
 ### [#](#links_nodes) Links and Nodes
-
+Here is a live interactive demo of the default sankey chart with link and node property configurations. As previously mentioned, a sankey chart is made up of nodes (endpoints) and links (connections). These configurations include color and tooltip (popup textboxes) properties.
 <figure class="sankey_links_nodes">
     <iframe
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/links_nodes?runonclick=1&codemirror=1&module=/index.js&view=preview" frameborder="0" 
@@ -44,7 +44,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 
 # {#typescript}
 ### [#](#typescript) Typescript
-
+Here is a live interactive demo of the default sankey chart without any extra configurations using typescript. Typescript ensures proper types and properties are used when creating objects, arrays, etc.
 <figure class="sankey_typescript">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/typescript?runonclick=1&codemirror=1&module=/index.js&view=preview" frameborder="0" 

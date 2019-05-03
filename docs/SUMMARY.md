@@ -7,6 +7,7 @@
 * [Advanced Charts](chartsAdvanced/charts.md)
 
   * [d2b.chartAxis](chartsAdvanced/axis.md)
+    * [Multi Chart](chartsAdvanced/axis.md#multiple_chart)
     * [Annotation](chartsAdvanced/axis.md#annotation)
     * [Area Basic](chartsAdvanced/axis.md#area_basic)
     * [Area Chart](chartsAdvanced/axis.md#area_default)
@@ -14,6 +15,7 @@
     * [Boxplot Chart](chartsAdvanced/axis.md#boxplot)
     * [Bubble Chart](chartsAdvanced/axis.md#bubble)
     * [Groups](chartsAdvanced/axis.md#groups) 
+    * [Horizontal Bar Chart](chartsAdvanced/axis.md#horizontal_bar)
     * [Legend](chartsAdvanced/axis.md#legend)
     * [Line Chart](chartsAdvanced/axis.md#line(line_default))
     * [Padding](chartsAdvanced/axis.md#padding)

@@ -19,7 +19,7 @@ Before applying the d2b-pie-chart generator, you should join the data to the sel
 
 # {#pie_default}
 ### [#](#pie_default) Default Pie Chart
-Here is a live interactive demo of the default pie chart without any extra configurations. Unlike the axis charts, pie charts do not need any generators since it is always going to be one type of chart. Each element in the datum array holds the information of each pie slice, such as the label (name) and value (size) of the slice.
+Here is a live interactive demo of the default pie chart without any extra configurations. Unlike the axis charts, pie charts do not need any generators since it is always going to be one type of chart. Each element in the `datum` array holds the information of each pie slice, such as the `label` (name) and `value` (size) of the slice.
 <figure class="pie_default">
     <iframe 
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default?runonclick=1&codemirror=1&module=/index.js&view=preview" 
@@ -70,7 +70,7 @@ Here is a live interactive demo of the pie chart with legend property configurat
 
 # {#tooltip}
 ### [#](#tooltip) Tooltip
-Here is a live interactive demo of the pie chart with tooltip property configurations. The tooltip is the textbox that appears when hovering over a pie slice. Each pie slice can have its own tooltip and there is also a global tooltip object that gets applied to all the tooltips in the chart.
+Here is a live interactive demo of the pie chart with tooltip property configurations. The tooltip is the textbox that appears when hovering over a pie slice. Each pie slice can have its own `tooltip` property. There is also a global `tooltip` object that gets applied to all the tooltips in the chart.
 <figure class="pie_tooltip">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/tooltip?runonclick=1&codemirror=1&module=/index.js&view=preview" 
@@ -86,7 +86,7 @@ Here is a live interactive demo of the pie chart with tooltip property configura
 Here is a live interactive demo of the default pie chart without any extra configurations using typescript. Typescript ensures proper types and properties are used when creating objects, arrays, etc. 
 <figure class="pie_typescript">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/typescript?runonclick=1&codemirror=1&module=/index.js&view=preview" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/typescript?runonclick=1&codemirror=1&module=/index.ts&view=preview" 
         frameborder="0" 
         allowfullscreen="true" 
         mozallowfullscreen="true" 

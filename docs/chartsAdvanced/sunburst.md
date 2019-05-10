@@ -21,11 +21,7 @@ Before applying the d2b-sunburst-chart generator, you should join the data to th
 Here is a live interactive demo of the default sunburst chart without any extra configurations. A sunburst chart is very similar to a tree data structure. It starts off with a `root` and branches out into its `children` until it reaches the leaf nodes. Each ring around the center represents a level of the sunburst (or tree), the most inner ring representing the root. Each ring is instatiated with the `children` array. Each segment of a ring represents a child, which is instatiated with the `label` and if the `child` is a node, then it also has the `size` properties. The `child`'s ancestors retrieve their `size` data by adding all the `size`s of their childrend.
 <figure class="sunburst_default">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/default?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/default?runonclick=0&codemirror=1&module=/index.js&view=preview" 
     ></iframe>
 </figure>
 
@@ -35,10 +31,6 @@ Here is a live interactive demo of the sunburst chart with basic property config
 <figure class="sunburst_basic">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/basic?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
@@ -48,10 +40,6 @@ Here is a live interactive demo of the sunburst chart with breadcrumb property c
 <figure class="sunburst_breadcrumbs">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/breadcrumbs?runonclick=1&codemirror=1&module=/index.js&view=preview"
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
@@ -61,10 +49,6 @@ Here is a live interactive demo of the sunburst chart with padding property conf
 <figure class="sunburst_padding">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/padding?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0"
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
@@ -74,10 +58,6 @@ Here is a live interactive demo of the sunburst chart with radius property confi
 <figure class="sunburst_radius">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/radius?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
@@ -88,10 +68,6 @@ Here is a live interactive demo of the sunburst chart with root property configu
 <figure class="sunburst_root">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/root?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
@@ -101,10 +77,6 @@ Here is a live interactive demo of the sunburst chart with sort property configu
 <figure class="sunburst_sort">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/sort?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
@@ -115,13 +87,18 @@ Here is a live interactive demo of the sunburst chart with tooltip property conf
 <figure class="sunburst_tooltip">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/tooltip?runonclick=1&codemirror=1&module=/index.js&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 
+
+# {#transition}
+### [#](#transition) Transition
+Here is a live interactive demo of the sunburst chart with a transition configuration. If the button "Change Data!" is clicked, the sunburst chart will toggle between different data to demonstrate the transition animations. `.transition()` is used on the chart and chained with the desired `.duration(2000)` of microseconds. 
+<figure class="pie_tooltip">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/transition?runonclick=1&codemirror=1&module=/index.js&view=preview" 
+    ></iframe>
+</figure>
 
 # {#typescript}
 ### [#](#typescript) Typescript
@@ -129,10 +106,6 @@ Here is a live interactive demo of the default sunburst chart without any extra 
 <figure class="sunburst_typescript">
     <iframe 
         src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sunburst/typescript?runonclick=1&codemirror=1&module=/index.ts&view=preview" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        mozallowfullscreen="true" 
-        webkitallowfullscreen="true"
     ></iframe>
 </figure>
 

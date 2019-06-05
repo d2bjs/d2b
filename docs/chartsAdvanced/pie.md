@@ -1,7 +1,11 @@
 > [d2b](../README.md) › **Chart Pie**
 
 <!-- ![Local Image](../gifs/chart-pie.gif) -->
-
+<figure class="pie_default_donut">
+    <iframe 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/pie/default-donut?runonclick=0&codemirror=1&module=/index.js&view=preview"
+    ></iframe>
+</figure>
 
 # {#generator}
 [#](#generator) d2b.**chartPie**()

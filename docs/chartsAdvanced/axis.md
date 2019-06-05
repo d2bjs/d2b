@@ -2,6 +2,12 @@
 
 <!-- ![Local Image](../gifs/chart-axis.gif) -->
 
+<figure class="axis_area_default">
+  <iframe 
+    src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/default-area?runonclick=0&codemirror=1&module=/index.js&view=preview" 
+  ></iframe>
+</figure>
+
 # {#generator}
 [#](#generator) d2b.**chartAxis**()
 

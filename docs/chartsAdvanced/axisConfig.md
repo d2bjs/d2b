@@ -1,20 +1,6 @@
-> [d2b](../README.md) › **Chart Axis**
+> [d2b](../README.md) › **Axis Configured Demos**
 
 <!-- ![Local Image](../gifs/chart-axis.gif) -->
-
-# {#generator}
-[#](#generator) d2b.**chartAxis**()
-
-Constructs a new axis chart generator with the default settings.
-
-When using the d2b-axis generator you can draw an axis chart onto each element in the selection.
-
-# {#apply}
-[#](#apply) *axis.advanced*(*context*)
-
-Render the axis chart(s) to the given *context*, which may be either a [d3-selection](https://github.com/d3/d3-selection) of html containers (e.g. div) or a corresponding [d3-transition](https://github.com/d3/d3-transition). 
-
-> Note: The *advanced* mode is new in d2b > 1.0.0. In *advanced* mode all of axis chart [configuration properties](#properties) will be available with the input datum.
 
  # {#multiple_chart}
 ### [#](multiple_chart) Multi Chart
@@ -45,9 +31,6 @@ Here is a live interactive demo of the default area axis chart with basic proper
   ></iframe>
 </figure>
 
-
-
-
  # {#area_curve}
 ### [#](#area_curve) Area Curve
 Here is a live interactive demo of the curved area axis chart without any extra configurations. 
@@ -56,9 +39,6 @@ Here is a live interactive demo of the curved area axis chart without any extra 
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/curve-area?runonclick=1&codemirror=1&module=/index.js&view=preview" 
   ></iframe>
 </figure>
-
-
-
 
 # {#groups}
 ### [#](#groups) Groups
@@ -88,9 +68,6 @@ Here is a live interactive demo of the area axis chart combo with legend propert
   ></iframe>    
 </figure>
 
-
-
-
 # {#padding}
 ### [#](#padding) Padding
 Here is a live interactive demo of the default area axis chart with padding configurations. Some of these configurations include chart padding, plane padding, and margins. These properties makes the charts and graphs easier to look at if the graphs start to look clustered within the chart.
@@ -100,7 +77,6 @@ Here is a live interactive demo of the default area axis chart with padding conf
   ></iframe>
 </figure>
 
-
 # {#scale}
 ### [#](#scale) Scale
 Here is a live interactive demo of the default area axis chart with axis scaling configurations. The scaling object is within the `x`-axis and/or the `y`-axis object. The type of axis declared will allow for different properties to be used. Certain properties are not interchangeable with all types. Like in the example below, a `type:"log"` axis is set and this allows the `base` property to be used. If `type:"log"` is set and a property from another type is used, for example the `exponent` property from `type:"pow"`, the graph will not render properly.
@@ -109,9 +85,6 @@ Here is a live interactive demo of the default area axis chart with axis scaling
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/area-scale?runonclick=1&codemirror=1&module=/index.js&view=preview" 
   ></iframe>
 </figure>
-
-
-
 
 # {#scatter_sizes}
 ### [#](#scatter_sizes) Scatter Varying Sizes
@@ -149,10 +122,3 @@ Here is a live interactive demo of the default area axis chart without any extra
     src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/axis/typescript?runonclick=1&codemirror=1&module=/index.ts&view=preview" 
   ></iframe>
 </figure> 
-
-# {#properties}
-### [#](#properties) Properties
-
-This is a complete list of properties may be supplied to the axis chart datum. **Bold** properties are required.
-
-{% include "./axisProperties.md" %}

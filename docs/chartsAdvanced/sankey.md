@@ -22,7 +22,7 @@ Before applying the d2b-sankey-chart generator, you should join the data to the 
 Here is a live interactive demo of the default sankey chart without any extra configurations. A sankey chart is made up of nodes and links. The nodes being endpoints connected by links. The `nodes` array is simply comprised of node objects containing the node `name`. The `links` array (of link objects) is where the nodes are actually connected together, using the `source` and `target` properties, along with a `value` which represents the size of the link. 
 <figure class="sankey_default">
     <iframe 
-        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/default?runonclick=1&codemirror=1&module=/index.js&view=preview&hidenavigation=1" 
+        src="https://codesandbox.io/embed/github/d2bjs/demos/tree/master/charts/sankey/default?runonclick=0&codemirror=1&module=/index.js&view=preview&hidenavigation=1" 
     ></iframe>
 </figure>
 

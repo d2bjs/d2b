@@ -1,7 +1,9 @@
-// TODO: Clean up bar graph code flow a bit
-
-import { select, scaleLinear, ascending, extent, nest } from 'd3';
+import { select } from 'd3-selection';
+import { nest } from 'd3-collection';
+import { scaleLinear } from 'd3-scale';
+import { ascending, extent } from 'd3-array';
 import { annotation } from 'd3-svg-annotation';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -28,7 +30,7 @@ export default function () {
         index:          i,
         tooltipGraph:   $$.tooltipGraph(graph, i),
         shift:          $$.shift(graph, i),
-        stackBy:        $$.stackBy(graph, i),
+        stackBy:        oreq($$.stackBy(graph, i), i),
         key:            $$.key(graph, i),
         color:          $$.color(graph, i)
       };
@@ -369,7 +371,7 @@ export default function () {
     .addPropFunctor('tooltipGraph', d => d.tooltipGraph)
     .addPropFunctor('orient', 'vertical')
     .addPropFunctor('shift', null)
-    .addPropFunctor('stackBy', (d, i) => i)
+    .addPropFunctor('stackBy', null)
     .addPropFunctor('key', d => d.label)
     .addPropFunctor('values', d => d.values, null)
     .addPropFunctor('color', d => color(d.label))

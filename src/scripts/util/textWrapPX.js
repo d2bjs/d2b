@@ -1,11 +1,11 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
 
 // Wrap text based on pixel length.
 // This isn't used very frequently because it causes problems with event
 // rebinding namely double click events.
 export default function (text, width = Infinity) {
   text.each( function() {
-    let text = d3.select(this),
+    let text = select(this),
         words = text.text().split(/\s+/).reverse(),
         word,
         line = [],

@@ -1,5 +1,7 @@
-import { scaleLinear, format } from 'd3';
 import { annotation } from 'd3-svg-annotation';
+import { scaleLinear } from 'd3-scale';
+import { format } from 'd3-format';
+import 'd3-transition';
 
 import base from '../model/base';
 import updateAnnotations from '../util/annotation';
@@ -153,7 +155,7 @@ export default function () {
         labelUpdate
             .attr('transform', d => orient.translate(0, scale(d[textType])))
             .call(updateAnnotations, $$.annotation, 'd2b-box-annotation', d => {
-              return (d.annotations || []).filter(a => a.location === textType);
+              return (d.annotations || []).filter(a => (a.location || 'median') === textType);
             });
 
         const labelText = labelUpdate

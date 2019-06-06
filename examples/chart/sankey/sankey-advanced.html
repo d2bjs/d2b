@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="../../../node_modules/d3/dist/d3.min.js"></script>
+<script src="../../../node_modules/d3-sankey/dist/d3-sankey.min.js"></script>
+<script src="../../../dist/d2b.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div id = 'sankey-chart'></div>
+
+  <script>
+    var sankey = d2b.chartSankey();
+
+    var chart = d3.select('#sankey-chart');
+
+    chart
+        .datum({
+          // nodes: (required) [{name: string}]
+          // Array of sankey nodes.
+          nodes: [
+            {
+              // name: (required) string
+              // The node name.
+              name: 'Node A',
+
+              // color: (optional) color
+              // The node color.
+              // default: Color set dynamically based on the node name. If set, this will override the node color accessor.
+              color: 'purple',
+
+              // tooltip: (optional) tooltip
+              // The node tooltip content. If set, this will override the node tooltip accessor.
+              tooltip: 'Some custom tooltip content',
+            },
+            {name: 'Node B'},
+            {name: 'Node C'},
+            {name: 'Node D'},
+            {name: 'Node E'},
+          ],
+
+          // links: (required) [{source: string, target: string, value: number}]
+          // Array of sankey links.
+          links: [
+            {
+              // source: (required) string
+              // The source node name.
+              source: 'Node A',
+
+              // target: (required) string
+              // The target node name.
+              target: 'Node E',
+
+              // value: (required) number
+              // The link value.
+              value: 2,
+
+              // sourceColor: (optional) color
+              // The link source color.
+              // default: Color set dynamically based on the source node color. If set, this will override the link source color accessor.
+              sourceColor: 'steelblue',
+
+              // targetColor: (optional) color
+              // The link target color.
+              // default: Color set dynamically based on the target node color. If set, this will override the link target color accessor.
+              targetColor: 'red',
+
+              // tooltip: (optional) tooltip
+              // The link tooltip content. If set, this will override the link tooltip accessor.
+              tooltip: 'Some more custom tooltip content',
+            },
+            {source: 'Node A', target: 'Node C', value: 2},
+            {source: 'Node B', target: 'Node C', value: 2},
+            {source: 'Node B', target: 'Node D', value: 2},
+            {source: 'Node C', target: 'Node D', value: 2},
+            {source: 'Node C', target: 'Node E', value: 2},
+            {source: 'Node D', target: 'Node E', value: 4},
+          ],
+
+          // Event hook for d2b charts. Will be fired whenever the chart is rendered either externally or internally.
+          // Note: Transitions may still occur after this lifecycle hook fires.
+          // updated (datum) {
+          //   console.log(datum) // event will be passed the chart datum
+          //   console.log(this) // context will be chart container DOM element
+          // },
+
+          // size: (optional) {height: number, width: number}
+          // The pixel size of the chart.
+          // default: width and height will size according to the container size if not provided
+          size: {
+            height: 400
+          },
+          
+          // iterations: (optional) number
+          // Number of relaxation iterations used while generating the layout.
+          // default: 6
+
+          // padding: (optional) number or { top: number, left: number, right: number, bottom: number }
+          // The outer chart padding.
+          // default: 10
+
+          // node: (optional)
+          // Node configuration options
+          node: {
+            // align: (optional) one of 'left', 'right', 'center', 'justify'
+            // How to align sankey nodes.
+            // default: 'justify'
+
+            // padding: (optional) number
+            // Vertical separation between nodes.
+            // default: 8
+          
+            // sort: (optional) null or function (a, b)
+            // Sort comparator for sankey node columns.
+            // default: null
+
+            // labelWrapLength: (optional) number
+            // The number of characters to start wrapping the node label.
+            // default: Infinity
+
+            // draggableX: (optional) boolean
+            // Enable / disable node dragging in the horizontal direction.
+            // default: false
+
+            // draggableY: (optional) boolean
+            // Enable / disable node dragging in the vertical direction.
+            // default: false
+
+            // color: (optional) function (d)
+            // Color accessor for the node.
+            // default: dynamically colored based on the datum name, e.g. (d) => color(d.name)
+            // color: function (d) {
+            //   return 'tomato'
+            // }
+
+            // tooltip: (optional)
+            // Tooltip configuration options for nodes
+            // default: none
+            tooltip: {
+              // followMouse: (optional) boolean
+              // Tooltip will follow mouse instead of being placed in a static position relative to the node.
+              // default: true
+
+              // my: (optional) one of ('left', 'right', 'top', 'bottom')
+              // Orientation of the tooltip
+              // default: alternates between left and right depending on the position of the cursor relative to the viewport
+
+              // at: (optional) one of ('top left', 'top center', 'top right', 'center left', 'center center', 'center right', 'bottom center', 'bottom right'
+              // Orientation of the tooltip relative to the hovered item box.
+              // default: alternates between 'center left' and 'center right' depending on the position of the cursor relative to the viewport.
+
+              // html: (optional) null or string or function (d, value)
+              // Html content to be displayed in the node's tooltip. If null is used, no tooltip will be visible.
+              // default: function (d, value) { return `<b>${d.name}</b>: ${value}`; }
+            },
+          },
+
+          // link: (optional)
+          // Link configuration options
+          link: {
+            // sourceColor: (optional) function (d)
+            // Color accessor for the link.
+            // default: colored according to the source color, e.g. (d, sourceColor) => sourceColor
+            // sourceColor: function (d, sourceColor) {
+            //   return 'tomato'
+            // },
+
+            // targetColor: (optional) function (d)
+            // Color accessor for the link.
+            // default: colored according to the target color, e.g. (d, targetColor) => targetColor
+            // targetColor: function (d, targetColor) {
+            //   return 'tomato'
+            // },
+
+            // tooltip: (optional)
+            // Tooltip configuration options for links
+            // default: none
+            tooltip: {
+              // followMouse: (optional) boolean
+              // Tooltip will follow mouse instead of being placed in a static position relative to the link.
+              // default: true
+
+              // my: (optional) one of ('left', 'right', 'top', 'bottom')
+              // Orientation of the tooltip
+              // default: alternates between left and right depending on the position of the cursor relative to the viewport
+
+              // at: (optional) one of ('top left', 'top center', 'top right', 'center left', 'center center', 'center right', 'bottom center', 'bottom right'
+              // Orientation of the tooltip relative to the hovered item box.
+              // default: alternates between 'center left' and 'center right' depending on the position of the cursor relative to the viewport.
+
+              // html: (optional) null or string or function (d, source, target)
+              // Html content to be displayed in the link's tooltip. If null is used, no tooltip will be visible.
+              // default: function (d, source, target) { 
+              //   return `
+              //     <b>${source.name}</b>
+              //     <i class='fa fa-arrow-right d2b-sankey-link-arrow' aria-hidden='true'></i>
+              //     <b>${target.name}</b>:
+              //     ${d.value}
+              //   `;
+              // }
+            },
+          },
+        })
+      .transition()
+        .call(sankey.advanced);
+
+    window.onresize = function () { chart.call(sankey.advanced); };
+  </script>
+</body>
+</html>

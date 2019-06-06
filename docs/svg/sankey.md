@@ -155,12 +155,12 @@ If *color* is specified, sets the link-source-color-accessor to the specified fu
 // define d3 color scale that will be used in the accessor
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-function (d, i, sourceKey) {
-  return color(sourceKey);
+function (d, i, sourceColor) {
+  return sourceColor;
 }
 ```
 
-Note: The link source color accessor function received a third argument which is the determined source [nodeKey](#node_key).
+Note: The link source color accessor function receives a third argument which is the determined source color [nodeColor](#node_color).
 
 # {#link_target}
 [#](#link_target) sankey.**linkTarget**([*target*])
@@ -181,7 +181,7 @@ function (d, i, targetKey) {
 }
 ```
 
-Note: The link source color accessor function received a third argument which is the determined source [nodeKey](#node_key).
+Note: The link source color accessor function receives a third argument which is the determined target color [nodeColor](#node_color).
 
 # {#link_key}
 [#](#link_key) sankey.**linkKey**([*key*])

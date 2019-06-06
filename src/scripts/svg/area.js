@@ -1,6 +1,12 @@
-import { select, max, min, nest, scaleLinear, area as d3Area } from 'd3';
+
+import { select } from 'd3-selection';
+import { nest } from 'd3-collection';
+import { scaleLinear } from 'd3-scale';
+import { area as d3Area } from 'd3-shape';
+import { max, min } from 'd3-array';
 import { annotation } from 'd3-svg-annotation';
 import { interpolatePath } from 'd3-interpolate-path';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -21,7 +27,7 @@ export default function () {
         index:         i,
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
-        stackBy:       $$.stackBy(graph, i),
+        stackBy:       oreq($$.stackBy(graph, i), i),
         key:           $$.key(graph, i),
         color:         $$.color(graph, i)
       };
@@ -125,7 +131,7 @@ export default function () {
               y = graphsNode.__scaleY || $$.y;
 
         ['y0', 'y1'].forEach(function (align) {
-          const annotationValues = d.values.filter(v => (v.annotations || []).filter(a => a.location === align).length);
+          const annotationValues = d.values.filter(v => (v.annotations || []).filter(a => (a.location || 'y1') === align).length);
 
           const a = graph.selectAll('.d2b-area-annotation-group-' + align).data(annotationValues, v => v.key),
                 aEnter = a.enter().append('g');
@@ -146,7 +152,7 @@ export default function () {
               .style('opacity', 1)
               .attr('transform', v => `translate(${$$.x(v.x) + d.shift}, ${$$.y(v[align])})`)
               .call(updateAnnotations, $$.annotation, 'd2b-area-annotation', v => {
-                return v.annotations.filter(a => a.location === align);
+                return v.annotations.filter(a => (a.location || 'y1') === align);
               });
 
           aExit

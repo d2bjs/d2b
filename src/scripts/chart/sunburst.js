@@ -1,4 +1,6 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import { format } from 'd3-format';
+import 'd3-transition';
 
 import base from '../model/base';
 import chartFrame from '../util/chartFrame';
@@ -6,6 +8,7 @@ import tooltip from '../util/tooltip';
 import breadcrumbs from '../util/breadcrumbs';
 import svgSunburst from '../svg/sunburst';
 import color from '../util/color';
+import chartSunburstAdvanced from '../chartAdvanced/sunburst';
 
 /**
  * d2b.chartSunburst() returns a d2b
@@ -33,6 +36,7 @@ export default function () {
     });
 
     selection.dispatch('chart-sunburst-updated', {bubbles: true});
+    selection.dispatch('chart-updated', {bubbles: true});
 
     return chart;
   };
@@ -46,11 +50,12 @@ export default function () {
     .addPropFunctor('label', d => d.label)
     .addPropFunctor('color', d => color($$.label(d)))
     .addPropFunctor('outerRadius', (d, w, h) => Math.min(w, h) / 2)
-    .addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4));
+    .addPropFunctor('innerRadius', (d, w, h) => Math.min(50, Math.min(w, h) / 4))
+    .addAdvancedConfig(chartSunburstAdvanced);
 
   // helpers
-  const format = d3.format(',.0f'),
-        formatPercent = d3.format('.1%');
+  const formatValue = format(',.0f'),
+        formatPercent = format('.1%');
 
   const tipTemplate = function (d) {
     const percent = d.value / d.selected.value;
@@ -65,7 +70,7 @@ export default function () {
         ${$$.label(d.data)}
       </div>
       <div class = 'd2b-sunburst-value'>
-        ${format(d.value)}
+        ${formatValue(d.value)}
         ${percentText}
       </div>
     `;
@@ -104,7 +109,7 @@ export default function () {
 
   // update sunburst
   function update (datum, transition) {
-    const el = d3.select(this),
+    const el = select(this),
           selection = el.select('.d2b-chart-container'),
           size = selection.node().__size__,
           transform = `translate(${size.width / 2}, ${size.height / 2})`;

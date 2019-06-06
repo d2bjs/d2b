@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+import { select } from 'd3-selection';
+import 'd3-transition';
 
 import base from '../model/base';
 
@@ -38,20 +39,11 @@ export default function () {
     frame = frame.merge(frameEnter);
 
     selection.each(function (d) {
-      let frame = d3.select(this).select('.d2b-chart-frame'),
+      let frame = select(this).select('.d2b-chart-frame'),
           frameUpdate = frame,
           padding = cleanPadding($$.padding(d)),
           chartPadding = cleanPadding($$.chartPadding(d)),
           size = cleanSize($$.size(d), this.getBoundingClientRect());
-
-      enterUpdate(frame, frameUpdate, d => {
-        d
-            .style('width', size.width + 'px')
-            .style('height', size.height + 'px');
-      });
-
-      size.width -= padding.left + padding.right;
-      size.height -= padding.top + padding.bottom;
 
       const legendDatum = $$.legendEnabled(d) ? [d] : [];
 
@@ -102,6 +94,13 @@ export default function () {
         breadcrumbsUpdate = breadcrumbsUpdate.transition(context);
         chartUpdate = chartUpdate.transition(context);
       }
+
+      frameUpdate
+          .style('width', size.width + 'px')
+          .style('height', size.height + 'px');
+
+      size.width -= padding.left + padding.right;
+      size.height -= padding.top + padding.bottom;
 
       placeComponent(breadcrumbs, breadcrumbsEnter, breadcrumbsUpdate, $$.breadcrumbsOrient(d), padding, size);
       placeComponent(legend, legendEnter, legendUpdate, $$.legendOrient(d), padding, size);
@@ -165,7 +164,6 @@ export default function () {
       } else if (orient === 'top' || orient === 'bottom') {
         el.classed('d2b-vertical', false);
         box = node.getBoundingClientRect();
-
 
         enterUpdate(enter, update, d => {
           d

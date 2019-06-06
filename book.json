@@ -2,8 +2,8 @@
   "root": "./docs",
   "output": "public",
   "title": "d2b",
-  "description": "Agave reference documentation.",
-  "author": "Damour Team",
+  "description": "d2b reference documentation.",
+  "author": "Kevin Warne",
 
   "plugins": ["-sharing", "custom-favicon", "toggle-chapters", "ga"],
 
@@ -16,10 +16,5 @@
 
   "styles": {
     "website": "styles/website.css"
-  },
-
-  "variables": {
-    "title": "Damour",
-    "file_types": "* **CSV** (comma-separated values)\n* **TSV** (tab-separated values)"
   }
 }

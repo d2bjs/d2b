@@ -172,7 +172,7 @@ If *icon* is specified, sets the *icon* function to the specified accessor funct
 
 ```javascript
 function () {
-  return '\uf111';
+  return d3.symbolCircle;
 }
 ```
 

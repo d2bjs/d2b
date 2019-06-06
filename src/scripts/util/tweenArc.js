@@ -1,12 +1,28 @@
-import * as d3 from 'd3';
+import { interpolate } from 'd3-interpolate';
 
-export default function (context, arc) {
+export default function (context, arc, reform = true) {
+  // Reform the arc config methods so that they will first look at the arc datum
+  // for the config property and otherwise they will fallback to the arcs methods
+  // original callback
+  if (reform) {
+    ['cornerRadius', 'innerRadius', 'outerRadius', 'startAngle', 'endAngle', 'cornerRadius', 'padAngle'].forEach(method => {
+      const methodSave = arc[method]();
+      if (methodSave && !methodSave.reformed) {
+        const methodReformed = d => d[method] || methodSave(d);
+        methodReformed.reformed = true;
+        arc[method](methodReformed);
+      }
+    });
+  }
+
   function getProperties(d) {
     return {
       innerRadius: arc.innerRadius()(d),
       outerRadius: arc.outerRadius()(d),
       startAngle: arc.startAngle()(d),
       endAngle: arc.endAngle()(d),
+      cornerRadius: arc.cornerRadius()(d),
+      padAngle: arc.padAngle()(d),
     };
   }
 
@@ -24,7 +40,7 @@ export default function (context, arc) {
     // omit data attribute incase of a pie chart with nested associations
     d = getProperties(d);
     this.current = this.current || d;
-    const i = d3.interpolate(this.current, d);
+    const i = interpolate(this.current, d);
     return t => {
       this.current = i(t);
       return arc(this.current);

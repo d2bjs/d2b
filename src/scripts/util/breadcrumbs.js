@@ -1,4 +1,5 @@
 import base from '../model/base';
+import 'd3-transition';
 
 export default function () {
   const $$ = {};
@@ -14,7 +15,8 @@ export default function () {
 
     bcs = bcs.merge(bcsEnter).classed('d2b-vertical', $$.vertical);
 
-    let bc = bcs.selectAll('.d2b-breadcrumb').data($$.values, $$.key),
+    // Set breadcrumb data from values accessor. And only show breadcrumbs that have html content.
+    let bc = bcs.selectAll('.d2b-breadcrumb').data(d => $$.values(d).filter($$.html), $$.key),
         bcExit = bc.exit();
 
     const bcEnter = bc.enter()

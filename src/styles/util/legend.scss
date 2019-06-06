@@ -1,0 +1,54 @@
+.d2b-legend {
+  color: #555;
+  font-size: 9pt;
+
+  .d2b-legend-item {
+    border: 0px solid transparent;
+
+    padding: 2px;
+    padding-left: 18px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    .d2b-legend-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 7px;
+      width: 12px;
+      height: 12px;
+    }
+
+    .d2b-legend-svg-icon {
+      margin-left: -5px;
+      margin-top: -5px;
+      pointer-events: none;
+
+      text, path {
+        font-family: FontAwesome, 'Font Awesome 5 Free';
+        font-weight: bold;
+
+        text-anchor: middle;
+        stroke-width: 1px;
+        fill-opacity: 0.8;
+      }
+    }
+
+  }
+}
+
+.d2b-legend:not(.d2b-vertical) {
+
+  .d2b-legend-item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  .d2b-legend-icon {
+    margin-top: 1.5px;
+  }
+}

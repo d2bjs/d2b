@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="../../../node_modules/d3/dist/d3.min.js"></script>
+<script src="../../../dist/d2b.js"></script>
+
+<style>
+  body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+
+<body>
+  <div class = 'pie-chart'></div>
+
+  <script>
+
+    var pie = d2b.chartPie();
+
+    var chart = d3.select('.pie-chart');
+    
+    chart
+        .datum({
+          // values: (required) [{label: string, value: number}]
+          // Array of pie chart values
+          values: [
+            {
+              // label: (required) string
+              // The arc label.
+              label: 'arc 1',
+
+              // value: (required) number
+              // The arc value.
+              value: 23,
+
+              // color: (optional) color
+              // The arc color.
+              // default: color set dynamically based on the arc label. If set, this will override the arc color accessor.
+              color: 'steelblue',
+
+              // tooltip: (optional) tooltip
+              // The arc tooltip content. If set, this will override the tooltip accessor.
+              tooltip: null,
+
+              // empty: (optional) boolean
+              // The inital arc state, this will be modified internally by the pie chart. true is hidden, false is visible.
+              // default: false
+              empty: false
+            },
+            {label: 'arc 2', value: 31},
+            {label: 'arc 3', value: 80},
+            {label: 'arc 4', value: 8}
+          ],
+
+          // Event hook for d2b charts. Will be fired whenever the chart is rendered either externally or internally.
+          // Note: Transitions may still occur after this lifecycle hook fires.
+          // updated (datum) {
+            // console.log(datum) // event will be passed the chart datum
+            // console.log(this) // context will be chart container DOM element
+          // },
+
+          // size: (optional) {height: number, width: number}
+          // The pixel size of the chart.
+          // default: width and height will size according to the container size if not provided
+          size: {
+            height: 400
+          },
+          
+          // duration: (optional) number
+          // The duration of internal chart transitions in miliseconds.
+          // default: 250
+          
+          // startAngle: (optional) number
+          // Pie chart start angle in radians.
+          // default: 0
+          
+          // endAngle: (optional) number
+          // Pie chart end angle in radians.
+          // default: 2 * Math.PI
+          
+          // padAngle: (optional) number
+          // Pie chart angle padding in radians.
+          // default: 0
+
+          // cornerRadius: (optional) number
+          // Corner radius of the pie arcs.
+          // default: 0
+          cornerRadius: 2,
+
+          // color: (optional) function (d)
+          // Color accessor for arc.
+          // default: color dynamically based on arc label
+          color: function (d) {
+            return 'orange'
+          },
+          
+          // sort: (optional) function (a, b)
+          // Sort comparator for pie arcs.
+          // default: null
+          
+          // donutRatio: (optional) number, between 0 and 1
+          // The ratio of the inner radius to the outer radius of the pie.
+          // default: 0
+          donutRatio: 0,
+          
+          // radius: (optional) function (width, height)
+          // The pixel radius of the pie chart. Usually relative to the width / height of the container.
+          // default: function (width, height) { return Math.min(width, height) / 2; },
+
+          // at: (optional) one of ('top left', 'top center', 'top right', 'center left', 'center center', 'center right', 'bottom center', 'bottom right', function (width, height, radius))
+          // The pixel position of the center of the pie chart relative to the top right corner of the chart container.
+          // default: 'center center' or function (w, h, r) { return { x: w / 2, y: h / 2 }; }
+          
+          // chartPadding: (optional) number or { top: number, left: number, right: number, bottom: number }
+          // The inner chart padding (excluding the legend)
+          // default: 10
+     
+          // padding: (optional) number or { top: number, left: number, right: number, bottom: number }
+          // The outer chart padding (including the legend)
+          // default: 10
+
+          // legend: (optional)
+          // legend configuration options
+          // legend: {
+            // enabled: (optional) boolean
+            // Enable or disable the legend
+            // default: true
+
+            // orient: (optional) one of 'left', 'right', 'top', 'bottom'
+            // Orientation of the legend
+            // default: 'bottom'
+
+            // clickable: (optional) boolean
+            // Whether the legend will hide / show arcs on click
+            // default: true
+
+            // dblclickable: (optional) boolean
+            // Whether the legend will hide / show arcs on dblclick
+            // default: true
+
+            // icon: (optional) d3 symbol or font awesome character code
+            // Legend item icon.
+            // default: d3.symbolCircle
+          // },
+
+          // tooltip: (optional)
+          // Tooltip configuration options
+          tooltip: {
+            // followMouse: (optional) boolean
+            // Tooltip will follow mouse instead of being placed in a static position relative to the arc.
+            // default: true
+
+            // my: (optional) one of 'left', 'right', 'top', 'bottom'
+            // Orientation of the tooltip
+            // default: alternates between left and right depending on the position of the cursor relative to the viewport
+
+            // at: (optional) one of 'top left', 'top center', 'top right', 'center left', 'center center', 'center right', 'bottom center', 'bottom right'
+            // Orientation of the tooltip relative to the hovered item box.
+            // default: alternates between 'center left' and 'center right' depending on the position of the cursor relative to the viewport.
+
+            // html: (optional) null or string or function (d, percent)
+            // Html content to be displayed in the arc's tooltip.
+            // default: function (d, percent) { 
+            //   return `<b>${d.label}</b>: ${d.value} (${d3.format('.0%')(percent)})`;
+            // }
+            // html: 'Somethin'
+          }
+        })
+        .call(pie.advanced);
+
+    setTimeout(() => {
+      chart
+          .datum({
+            values: [
+              {label: 'arc 1', value: 36, empty: true},
+              {label: 'arc 2', value: 11},
+              {label: 'arc 3', value: 20},
+              {label: 'arc 4', value: 18}
+            ],
+            size: {
+              height: 600
+            },
+            donutRatio: 0.5,
+            cornerRadius: 5
+          })
+          .transition()
+          .duration(2000)
+          .call(pie.advanced);
+    }, 1000)
+
+    window.onresize = function () {chart.transition().call(pie.advanced)};
+
+  </script>
+</body>
+</html>

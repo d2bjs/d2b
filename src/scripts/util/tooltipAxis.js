@@ -1,7 +1,10 @@
-import * as d3 from 'd3';
+import { select, event as d3Event } from 'd3-selection';
+import { ascending } from 'd3-array';
+import 'd3-transition';
 
 import base from '../model/base';
 import oreq from '../util/oreq';
+import oreqUndefined from './oreqUndefined';
 
 export default function () {
   const $$ = {};
@@ -39,10 +42,10 @@ export default function () {
         y += info.y + pad;
       }
     } else {
-      if (d3.event.clientY - base.y > $$.size.height / 2) {
-        y = d3.event.clientY - pad - tooltipBox.height;
+      if (d3Event.clientY - base.y > $$.size.height / 2) {
+        y = d3Event.clientY - pad - tooltipBox.height;
       } else {
-        y = d3.event.clientY + pad;
+        y = d3Event.clientY + pad;
       }
     }
 
@@ -53,10 +56,10 @@ export default function () {
         x += info.x + pad;
       }
     } else {
-      if (d3.event.clientX - base.x > $$.size.width / 2) {
-        x = d3.event.clientX - pad - tooltipBox.width;
+      if (d3Event.clientX - base.x > $$.size.width / 2) {
+        x = d3Event.clientX - pad - tooltipBox.width;
       } else {
-        x = d3.event.clientX + pad;
+        x = d3Event.clientX + pad;
       }
     }
 
@@ -89,7 +92,7 @@ export default function () {
   // Finds the x, y coordinates associated with the points 'closest' to the cursor.
   // Also returns the set of points that meet the 'closest' configuration.
   const findPointInfo = function (base) {
-    const cursor = {x: d3.event.clientX - base.x, y: d3.event.clientY - base.y};
+    const cursor = {x: d3Event.clientX - base.x, y: d3Event.clientY - base.y};
     let x = Infinity, y = Infinity, points = [];
     for (let groupName in groups) {
       if (!groups.hasOwnProperty(groupName)) continue;
@@ -104,7 +107,7 @@ export default function () {
             x: oreq(graph.config.x(d, i), $$.x(d, i)),
             y: oreq(graph.config.y(d, i), $$.y(d, i)),
             color: oreq(graph.config.color(d, i), $$.color(d, i)),
-            row: oreq(graph.config.row(d, i), $$.row(d, i))
+            row: oreqUndefined(graph.config.row(d, i), $$.row(d, i))
           };
 
           if ($$.trackX && $$.trackY) {
@@ -149,7 +152,7 @@ export default function () {
     }
 
     points = points.sort((a, b) => {
-      return d3.ascending(a.x, b.x) || d3.ascending(a.y, b.y);
+      return ascending(a.x, b.x) || ascending(a.y, b.y);
     });
 
     return {x: x, y: y, points: points};
@@ -177,7 +180,7 @@ export default function () {
       .append('line')
         .attr('class', 'd2b-tooltip-marker-y d2b-tooltip-marker');
 
-    const tooltipEl = $$.htmlContainer.selectAll('.d2b-tooltip').data([tooltip]);
+    const tooltipEl = $$.htmlContainer.selectAll('.d2b-tooltip-axis').data([tooltip]);
 
     const tooltipEnter = tooltipEl.enter()
       .append('div')
@@ -197,14 +200,14 @@ export default function () {
   const exit = function () {
     $$.svgContainer.selectAll('.d2b-tooltip-marker-x').data([]).exit().call(exitElement);
     $$.svgContainer.selectAll('.d2b-tooltip-marker-y').data([]).exit().call(exitElement);
-    $$.htmlContainer.selectAll('.d2b-tooltip').data([]).exit().call(exitElement);
+    $$.htmlContainer.selectAll('.d2b-tooltip-axis').data([]).exit().call(exitElement);
   };
 
   // Tracker mousemove event.
   const mousemove = function (d, i) {
     let base = $$.svgContainer.selectAll('.d2b-tooltip-base').data([d]);
-    base = base.merge(base.enter().append('rect').attr('class', 'd2b-tooltip-base'));
-    let baseBox = base.node().getBoundingClientRect();
+    base.enter().append('rect').attr('class', 'd2b-tooltip-base');
+    let baseBox = $$.svgContainer.node().getBoundingClientRect();
     baseBox = {x: baseBox.left, y: baseBox.top};
 
     const pointInfo = findPointInfo(baseBox);
@@ -221,7 +224,7 @@ export default function () {
         .call(positionMarker, pointInfo, 'y');
 
     $$.htmlContainer
-      .select('.d2b-tooltip')
+      .select('.d2b-tooltip-axis')
         .call(populateTooltip, pointInfo)
         .call(positionTooltip, pointInfo, baseBox);
 
@@ -256,9 +259,9 @@ export default function () {
 
   // setup tooltip model
   base(tooltip, $$)
-    .addProp('htmlContainer', d3.select('body'))
+    .addProp('htmlContainer', select('body'))
     .addProp('svgContainer', null)
-    .addProp('tracker', d3.select('body'), null, updateTracker)
+    .addProp('tracker', select('body'), null, updateTracker)
     .addProp('size', {height: 0, width: 0})
     .addProp('trackX', true)
     .addProp('trackY', false)
@@ -301,7 +304,7 @@ export default function () {
         .addPropFunctor('x', null)
         .addPropFunctor('y', null)
         .addPropFunctor('color', null)
-        .addPropFunctor('row', null);
+        .addPropFunctor('row', () => undefined);
     }
 
     return graph.interface;

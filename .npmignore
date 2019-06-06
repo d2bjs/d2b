@@ -1,2 +1,6 @@
-build/*.zip
 test/
+_book/
+docs/
+examples/
+logo/
+node_modules/

@@ -1,5 +1,7 @@
-import { select, interpolateObject } from 'd3';
+import { select } from 'd3-selection';
+import { interpolateObject } from 'd3-interpolate';
 import { annotation } from 'd3-svg-annotation';
+import 'd3-transition';
 
 import functor from './functor';
 

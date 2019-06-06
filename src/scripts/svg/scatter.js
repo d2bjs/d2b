@@ -1,10 +1,15 @@
-import { select, nest, scaleLinear, symbolCircle } from 'd3';
+import { select } from 'd3-selection';
+import { scaleLinear } from 'd3-scale';
+import { symbolCircle } from 'd3-shape';
+import { nest } from 'd3-collection';
 import { annotation } from 'd3-svg-annotation';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
 import point from '../svg/point';
 import stack from '../util/stack';
+import oreq from '../util/oreq';
 import id from '../util/id';
 import updateAnnotations from '../util/annotation';
 
@@ -20,7 +25,7 @@ export default function () {
         align:         $$.align(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
-        stackBy:       $$.stackBy(graph, i),
+        stackBy:       oreq($$.stackBy(graph, i), i),
         key:           $$.key(graph, i),
         color:         $$.color(graph, i),
         symbol:        $$.symbol(graph, i)

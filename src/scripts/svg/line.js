@@ -1,11 +1,17 @@
-import { select, max, min, nest, scaleLinear, line as d3Line } from 'd3';
 import { annotation } from 'd3-svg-annotation';
 import { interpolatePath } from 'd3-interpolate-path';
+import { select } from 'd3-selection';
+import { max, min } from 'd3-array';
+import { scaleLinear } from 'd3-scale';
+import { line as d3Line } from 'd3-shape';
+import { nest } from 'd3-collection';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
 import stack from '../util/stack';
 import id from '../util/id';
+import oreq from '../util/oreq';
 import isFinitePath from '../util/isFinitePath';
 import updateAnnotations from '../util/annotation';
 
@@ -21,7 +27,7 @@ export default function () {
         align:         $$.align(graph, i),
         tooltipGraph:  $$.tooltipGraph(graph, i),
         shift:         $$.shift(graph, i),
-        stackBy:       $$.stackBy(graph, i),
+        stackBy:       oreq($$.stackBy(graph, i), i),
         key:           $$.key(graph, i),
         color:         $$.color(graph, i)
       };

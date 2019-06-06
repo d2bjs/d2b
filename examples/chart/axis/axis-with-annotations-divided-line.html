@@ -3,8 +3,8 @@
 
 <script src="https://unpkg.com/d3-svg-annotation@2.1.0/d3-annotation.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="../../../node_modules/d3/build/d3.min.js"></script>
-<script src="../../../build/d2b.js"></script>
+<script src="../../../node_modules/d3/dist/d3.min.js"></script>
+<script src="../../../dist/d2b.js"></script>
 <script src="./divided-line.js"></script>
 
 <style>
@@ -54,84 +54,85 @@
     // annotation defaults can be set by fetching the axis annotation generator
     axis.annotation().type(d3.annotationXYThreshold);
 
-    d3.json('https://gist.githubusercontent.com/susielu/23dc3082669ee026c552b85081d90976/raw/6e9a51cfe1970c45048f9ad3c3f1120d6bf0a324/apple.json', function (data) {
-      var dLineData = dividedLine(parameters, data, 20);
+    d3.json('https://gist.githubusercontent.com/susielu/23dc3082669ee026c552b85081d90976/raw/6e9a51cfe1970c45048f9ad3c3f1120d6bf0a324/apple.json')
+      .then(function (data) {
+        var dLineData = dividedLine(parameters, data, 20);
 
-      var data = {
+        var data = {
 
-        annotations: [
-          {
-            x: new Date('7/9/1997'),
-            y: Infinity,
-            y2: Infinity,
-            dx: 5,
-            color: '#aaa',
-            note: { label: 'Steven Jobs Returns' }
-          },
-          {
-            x: new Date('8/15/1998'),
-            y: Infinity,
-            y2: Infinity,
-            dx: 5,
-            color: '#aaa',
-            note: { label: 'iMac Release' }
-          },
-          {
-            x: new Date('10/23/2001'),
-            y: Infinity,
-            y2: Infinity,
-            dx: -5,
-            color: '#aaa',
-            note: { label: 'iPod Release', align: 'right' }
-          },
-          {
-            x: new Date('6/21/2000'),
-            y: 76,
-            dx: 100,
-            dy: 0,
-            color: '#c10037',
-            type: d3.annotationCalloutCircle,
-            note: { label: 'Stock Split 2:1', wrap: 50 },
-            subject: { radius: 40 },
-            connector: { end: 'dot' }
-          },
-          {
-            x: new Date('10/1/1999'),
-            x2: new Date('8/1/2000'),
-            y: 100,
-            color: 'rgb(255, 127, 14)',
-            note: { label: 'Above $100', align: 'right' },
-            subject: { radius: 40 },
-            disable: ['connector']
-          }
-        ],
+          annotations: [
+            {
+              x: new Date('7/9/1997'),
+              y: Infinity,
+              y2: Infinity,
+              dx: 5,
+              color: '#aaa',
+              note: { label: 'Steven Jobs Returns' }
+            },
+            {
+              x: new Date('8/15/1998'),
+              y: Infinity,
+              y2: Infinity,
+              dx: 5,
+              color: '#aaa',
+              note: { label: 'iMac Release' }
+            },
+            {
+              x: new Date('10/23/2001'),
+              y: Infinity,
+              y2: Infinity,
+              dx: -5,
+              color: '#aaa',
+              note: { label: 'iPod Release', align: 'right' }
+            },
+            {
+              x: new Date('6/21/2000'),
+              y: 76,
+              dx: 100,
+              dy: 0,
+              color: '#c10037',
+              type: d3.annotationCalloutCircle,
+              note: { label: 'Stock Split 2:1', wrap: 50 },
+              subject: { radius: 40 },
+              connector: { end: 'dot' }
+            },
+            {
+              x: new Date('10/1/1999'),
+              x2: new Date('8/1/2000'),
+              y: 100,
+              color: 'rgb(255, 127, 14)',
+              note: { label: 'Above $100', align: 'right' },
+              subject: { radius: 40 },
+              disable: ['connector']
+            }
+          ],
 
-        // define graph groups because the divided line implementation will
-        // create many graphs for each line segement
-        groups: [
-          { label: 'AAPL Above $100' },
-          { label: 'AAPL' },
-          { label: 'AAPL Before Steve Jobs Returns' }
-        ],
+          // define graph groups because the divided line implementation will
+          // create many graphs for each line segement
+          groups: [
+            { label: 'AAPL Above $100' },
+            { label: 'AAPL' },
+            { label: 'AAPL Before Steve Jobs Returns' }
+          ],
 
-        sets: [
-          {
-            generators: [d2b.svgLine()],
-            graphs: dLineData.map(function (g) {
-              return {
-                label: g.key,
-                group: g.key,
-                values: g.points.map(function (p) {
-                  return {
-                    x: new Date(p.Date),
-                    y: p.Close
-                  }
-                })
-              };
-            })
-          }
-        ]
-      };
+          sets: [
+            {
+              generators: [d2b.svgLine()],
+              graphs: dLineData.map(function (g) {
+                return {
+                  label: g.key,
+                  group: g.key,
+                  values: g.points.map(function (p) {
+                    return {
+                      x: new Date(p.Date),
+                      y: p.Close
+                    }
+                  })
+                };
+              })
+            }
+          ]
+        };
 
       chart
           .data([data])

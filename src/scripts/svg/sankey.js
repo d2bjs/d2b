@@ -1,5 +1,7 @@
-import * as d3 from 'd3';
-import {sankey as sankeyGenerator, sankeyLinkHorizontal} from 'd3-sankey';
+import { sankey as sankeyGenerator, sankeyLinkHorizontal } from 'd3-sankey';
+import { select, event } from 'd3-selection';
+import { drag as d3Drag } from 'd3-drag';
+import 'd3-transition';
 
 import base from '../model/base';
 import color from '../util/color';
@@ -17,7 +19,7 @@ export default function () {
     selection.each (function (datum) {
       const transition = context === selection ? null : context;
 
-      const el = d3.select(this),
+      const el = select(this),
             size = $$.size(datum),
             sankeyLink = sankeyLinkHorizontal();
 
@@ -40,21 +42,21 @@ export default function () {
 
       // map link data wrapper
       const linksData = $$.links(datum).map((d, i) => {
-        const source = $$.linkSource(d, i),
-              target = $$.linkTarget(d, i);
+        let source = $$.linkSource(d, i),
+            target = $$.linkTarget(d, i);
 
-        const sourceKey = typeof source === 'object' ? $$.nodeKey(source) : source,
-              targetKey = typeof target === 'object' ? $$.nodeKey(target) : target;
+        if (typeof source !== 'object') source = nodesData.find(node => node.key === source);
+        if (typeof target !== 'object') target = nodesData.find(node => node.key === target);
 
-        const key = $$.linkKey(d, i, sourceKey, targetKey);
+        const key = $$.linkKey(d, i, source.key, target.key);
 
         return {
-          sourceKey: sourceKey,
-          targetKey: targetKey,
+          sourceKey: source.key,
+          targetKey: target.key,
           key: key,
           keyTrim: key.replace(/ /g, ''),
-          sourceColor: $$.linkSourceColor(d, i, sourceKey),
-          targetColor: $$.linkTargetColor(d, i, targetKey),
+          sourceColor: $$.linkSourceColor(d, i, source.color),
+          targetColor: $$.linkTargetColor(d, i, target.color),
           value: $$.linkValue(d, i),
           source: source,
           target: target,
@@ -151,11 +153,11 @@ export default function () {
       // setup node dragging and preserve previous dragging
       node.each(function (d) {
         if (d.draggableX || d.draggableY) {
-          d3.select(this)
+          select(this)
             .classed('d2b-draggable', true)
-            .call(d3.drag().on('drag', drag));
+            .call(d3Drag().on('drag', drag));
         } else {
-          d3.select(this)
+          select(this)
             .classed('d2b-draggable', false)
             .on('.drag', null);
         }
@@ -221,18 +223,19 @@ export default function () {
 
       function drag(d) {
         if (d.draggableX) {
-          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + d3.event.dx));
+          d.x0 = Math.max(0, Math.min(size.width - nodeWidth, d.x0 + event.dx));
           d.x1 = d.x0 + nodeWidth;
           this.__dragX0 = d.x0 / size.width; // save drag position as a percent of the width
         }
         if (d.draggableY) {
           const height = d.y1 - d.y0;
-          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + d3.event.dy));
+          d.y0 = Math.max(0, Math.min(size.height - (d.y1 - d.y0), d.y0 + event.dy));
           d.y1 = d.y0 + height;
           this.__dragY0 = d.y0 / size.height; // save drag position as a percent of the height
         }
         $$.sankey.update(graph);
         updater();
+        selection.dispatch('chart-updated', {bubbles: true});
       }
 
       // set attributes on defined nodes and links
@@ -254,7 +257,7 @@ export default function () {
 
         // fix for rectangular link gradients
         l.each(function(d) {
-          const l = d3.select(this);
+          const l = select(this);
 
           // special case draw a rect
           if (Math.abs(d.y1 - d.y0) < 0.00001) {
@@ -314,12 +317,12 @@ export default function () {
     .addPropFunctor('nodeColor', (d, i, key) => color(key))
     .addPropFunctor('links', d => d.links)
     .addPropFunctor('linkSource', d => d.source)
-    .addPropFunctor('linkSourceColor', (d, i, sourceKey) => {
-      return color(sourceKey);
+    .addPropFunctor('linkSourceColor', (d, i, sourceColor) => {
+      return sourceColor;
     })
     .addPropFunctor('linkTarget', d => d.target)
-    .addPropFunctor('linkTargetColor', (d, i, targetKey) => {
-      return color(targetKey);
+    .addPropFunctor('linkTargetColor', (d, i, targetColor) => {
+      return targetColor;
     })
     .addPropFunctor('linkKey', (d, i, sourceKey, targetKey) => {
       return `${sourceKey}-${targetKey}`;

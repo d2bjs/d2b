@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import { interpolate } from 'd3-interpolate';
 
 import functor from '../util/functor';
 import numberize from '../util/numberize';
@@ -18,9 +18,9 @@ export default function (context, number = d => d, format = d => d) {
   context.tween('text', function (d, i) {
     const val = numberize(number.call(this, d, i));
     this.current = numberize(this.current, val);
-    const interpolate = d3.interpolate(this.current, val);
+    const interp = interpolate(this.current, val);
     return t => {
-      this.textContent = format(this.current = interpolate(t));
+      this.textContent = format(this.current = interp(t));
     };
   });
 }

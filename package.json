@@ -22,7 +22,6 @@
   "main": "dist/d2b.cjs.js",
   "unpkg": "dist/d2b.min.js",
   "jsdelivr": "dist/d2b.min.js",
-  "module": "src/scripts/index.js",
   "homepage": "http://d2bjs.org",
   "repository": {
     "type": "git",

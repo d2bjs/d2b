@@ -62,7 +62,7 @@ export default function (chart, datum) {
   if (datum.startAngle !== undefined) d3Pie.startAngle(datum.startAngle);
   if (datum.endAngle !== undefined) d3Pie.endAngle(datum.endAngle);
   if (datum.padAngle !== undefined) d3Pie.padAngle(datum.padAngle);
-  if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : (a, b) => datum.sort(a.data, b.data));
+  if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : (a, b) => datum.slice(0).sort(a.data, b.data));
 
   return datum;
 }

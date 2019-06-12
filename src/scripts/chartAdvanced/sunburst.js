@@ -72,7 +72,7 @@ export default function (chart, datum) {
   // D3 Pie Config
   const d3Pie = sunburst.pie();
   if (datum.padAngle !== undefined) d3Pie.padAngle(datum.padAngle);
-  if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : (a, b) => datum.sort(a.data, b.data));
+  if (datum.sort !== undefined) d3Pie.sort(datum.sort === null ? null : (a, b) => datum.sort.slice(0)(a.data, b.data));
 
   // D3 Arc Config
   const d3Arc = sunburst.arc();

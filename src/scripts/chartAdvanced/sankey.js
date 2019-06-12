@@ -78,7 +78,7 @@ export default function (chart, datum) {
   }
   if (datum.iterations !== undefined) d3Sankey.iterations(datum.iterations);
   if (nodeConfig.padding !== undefined) d3Sankey.nodePadding(nodeConfig.padding);
-  if (nodeConfig.sort !== undefined) d3Sankey.nodeSort(nodeConfig.sort === null ? null : (a, b) => nodeConfig.sort(a.data, b.data));
+  if (nodeConfig.sort !== undefined) d3Sankey.nodeSort(nodeConfig.sort === null ? null : (a, b) => nodeConfig.slice(0).sort(a.data, b.data));
 
   return datum;
 }

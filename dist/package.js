@@ -1,5 +1,5 @@
 export var name = "d2b";
-export var version = "1.0.0-beta.4";
+export var version = "1.0.7";
 export var author = {"name":"Kevin Warne"};
 export var description = "A d3-based reusable chart library.";
 export var keywords = ["d3","d3-module","chart","charts","pie","axis","line","area","bar","stacked","tooltip"];
@@ -7,7 +7,6 @@ export var license = "MIT";
 export var main = "dist/d2b.cjs.js";
 export var unpkg = "dist/d2b.min.js";
 export var jsdelivr = "dist/d2b.min.js";
-export var module = "src/scripts/index.js";
 export var homepage = "http://d2bjs.org";
 export var repository = {"type":"git","url":"https://github.com/d2bjs/d2b"};
 export var scripts = {"rollup":"rollup -c -g d3:d3,d3-transition:d3,d3-sankey:d3,d3-interpolate-path:d3,d3-scale-chromatic:d3,d3-hierarchy:d3,d3-svg-annotation:d3,d3-format:d3,d3-selection:d3,d3-drag:d3,d3-scale:d3,d3-axis:d3,d3-collection:d3,d3-array:d3,d3-color:d3,d3-shape:d3,d3-dispatch:d3,d3-interpolate:d3","build:dev":"npm run build:package && npm run rollup","build:prod":"npm run build:package && NODE_ENV=production npm run rollup","build":"npm run build:dev && npm run build:prod","build:server":"http-server -a 0.0.0.0 -p 8000","build:watcher":"npm-watch","build:package":"json2module package.json > dist/package.js","build:tsdemo":"watchify ./examples/chartAdvanced/index.ts -p [ tsify ] -o ./examples/chartAdvanced/index.js","build:watch":"npm-run-all --parallel build:watcher build:server","build:tsdocs":"typedoc ./src/types/index.ts --json ./docs/typedoc.json && node ./docs/typedocToMarkdown.js","start":"npm run build:server","test":"jasmine","docs:prepare":"gitbook install && npm run build:tsdocs","docs:watch":"npm run docs:prepare && gitbook serve","docs:build":"npm run docs:prepare && rm -rf _book && gitbook build","docs:publish":"npm run docs:build && cp docs/cname _book && cd _book && git init && git commit --allow-empty -m 'Update docs' && git checkout master && git add . && git commit -am 'Update docs' && git push git@github.com:d2bjs/d2bjs.github.io master --force"};

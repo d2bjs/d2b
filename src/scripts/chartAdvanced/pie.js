@@ -1,4 +1,6 @@
 import functor from '../util/functor';
+import sanitize from '../util/sanitize';
+
 
 /**
  * d2b.chartPieAdvanced(chart, datum) configures the input chart and formats a returned datum set
@@ -9,7 +11,7 @@ export default function (chart, datum) {
 
   // Chart Config
   chart
-    .label(d => d.label)
+    .label(d => sanitize(d.label))
     .value(d => d.value)
     .duration.conditionally(datum.duration)
     .donutRatio.conditionally(datum.donutRatio)
